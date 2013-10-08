@@ -1,0 +1,29 @@
+<AccountVector>
+  <id>10375161</id>
+  <bdate>6.12.1992</bdate>
+  <first__name>Мария</first__name>
+  <last__name>Литвинцева</last__name>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>946993</long>
+    <long>2745101</long>
+    <long>2865775</long>
+    <long>3523100</long>
+    <long>3751842</long>
+    <long>5350917</long>
+    <long>10500883</long>
+    <long>11729669</long>
+    <long>13709096</long>
+    <long>14526230</long>
+    <long>15377100</long>
+    <long>16646886</long>
+    <long>17933449</long>
+    <long>22084920</long>
+    <long>23548384</long>
+    <long>31685632</long>
+    <long>69898706</long>
+    <long>86401156</long>
+    <long>142131964</long>
+  </friends>
+</AccountVector>

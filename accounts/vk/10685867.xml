@@ -1,0 +1,15 @@
+<AccountVector>
+  <id>10685867</id>
+  <bdate>30.3.1994</bdate>
+  <first__name>Алексей</first__name>
+  <last__name>Лысенко</last__name>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>946993</long>
+    <long>4079816</long>
+    <long>5410351</long>
+    <long>8285829</long>
+    <long>44907618</long>
+  </friends>
+</AccountVector>

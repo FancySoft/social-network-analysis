@@ -1,0 +1,29 @@
+<AccountVector>
+  <id>1852326</id>
+  <bdate>9.7.1992</bdate>
+  <first__name>Игорь</first__name>
+  <last__name>Демидов</last__name>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>248121</long>
+    <long>369621</long>
+    <long>617015</long>
+    <long>1175118</long>
+    <long>1526701</long>
+    <long>1676722</long>
+    <long>1835693</long>
+    <long>5122688</long>
+    <long>6053606</long>
+    <long>6232450</long>
+    <long>15309342</long>
+    <long>15377100</long>
+    <long>18625267</long>
+    <long>27852602</long>
+    <long>42284313</long>
+    <long>49830073</long>
+    <long>55363692</long>
+    <long>80321107</long>
+    <long>115753099</long>
+  </friends>
+</AccountVector>

@@ -1,0 +1,26 @@
+<AccountVector>
+  <id>1501462</id>
+  <bdate>1.11</bdate>
+  <first__name>Аня</first__name>
+  <last__name>Земляникова</last__name>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>1588979</long>
+    <long>1773254</long>
+    <long>1862738</long>
+    <long>3353370</long>
+    <long>4569525</long>
+    <long>6497218</long>
+    <long>6526540</long>
+    <long>7644331</long>
+    <long>10177908</long>
+    <long>10192920</long>
+    <long>10823336</long>
+    <long>12784580</long>
+    <long>15282290</long>
+    <long>16338674</long>
+    <long>17043347</long>
+    <long>49819143</long>
+  </friends>
+</AccountVector>

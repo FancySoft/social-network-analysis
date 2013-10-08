@@ -1,0 +1,9 @@
+<AccountVector>
+  <id>10438894</id>
+  <bdate>16.5</bdate>
+  <first__name>Dmitry</first__name>
+  <last__name>Darkhanov</last__name>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list"/>
+</AccountVector>

@@ -1,0 +1,16 @@
+BLOCK ID
+12
+BLOCK NAME
+vasya
+sipl
+BLOCK SEX
+2
+BLOCK BDATE
+16.03.1993
+BLOCK GROUPS
+2
+Группа жертв урагана Катрин
+Лучшие гопники района
+BLOCK FRIENDS
+1
+23

@@ -1,0 +1,20 @@
+<AccountVector>
+  <id>147122896</id>
+  <first__name>2nr</first__name>
+  <last__name>Jazz</last__name>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>2865775</long>
+    <long>3523100</long>
+    <long>3751842</long>
+    <long>5350917</long>
+    <long>9857294</long>
+    <long>11729669</long>
+    <long>13709096</long>
+    <long>17933449</long>
+    <long>19134442</long>
+    <long>51801291</long>
+    <long>142131964</long>
+  </friends>
+</AccountVector>
