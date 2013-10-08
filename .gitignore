@@ -1,12 +1,9 @@
 *.class
 
 # Package Files #
-*.jar
 *.war
 *.ear
 .idea/workspace.xml
-accounts/.DS_Store
-accounts/vk/.DS_Store
-lib/.DS_Store
-config/.DS_Store
+*.DS_Store
 config/authentication_config.txt
+jar/*
