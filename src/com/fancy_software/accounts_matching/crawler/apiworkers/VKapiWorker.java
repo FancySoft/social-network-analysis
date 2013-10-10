@@ -227,8 +227,9 @@ public class VKapiWorker extends ApiWorkerAbstract {
             for (Object o : list) {
                 m = (Map) o;
                 temp = (String) m.get("description");
-                // temp = temp.replaceAll("<br>", " ");
-                //temp.replaceAll("\n|\r\n", " ");
+                if (temp == null) continue;
+                temp = temp.replaceAll("<br>", " ");
+                temp.replaceAll("\n|\r\n", " ");
                 temporary.add(temp);
             }
             try {
@@ -276,11 +277,6 @@ public class VKapiWorker extends ApiWorkerAbstract {
                             System.out.println();
                             System.out.println("Completed");
                         }
-                    }
-                    System.out.print("\r\r\r\r\r" + step * 100 / size + " %");
-                    if (step == size) {
-                        System.out.println();
-                        System.out.println("Completed");
                     }
                 }
 

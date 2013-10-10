@@ -59,7 +59,7 @@ public class AccountMeasurer {
     public double measure(boolean enableLDA) throws Exception {
         //TODO адекватное увеличение для почти пустых аккаунтов
         System.out.println(counter.incrementAndGet());
-        System.out.println("Diiick: " + vector1.getId() + ", " + vector2.getId());
+        System.out.println("measure: " + vector1.getId() + ", " + vector2.getId());
         double result = 0;
 
         if (vector1.getSex() != vector2.getSex() && vector1.getSex() != Sex.NA && vector2.getSex() != Sex.NA)

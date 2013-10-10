@@ -30,14 +30,15 @@ public class Randomizer {
             "Lennon"
     };
 
+    private static Random random = new Random(System.currentTimeMillis());
+
     public static void randomize(AccountVector vector) {
-        Random random = new Random(1000);
         if (random.nextBoolean()) {
             // Change name
-            vector.setFirst_name(names[random.nextInt() % names.length]);
+            vector.setFirst_name(names[random.nextInt(1000) % names.length]);
             if (random.nextBoolean()) {
                 // Surname also
-                vector.setLast_name(surnames[random.nextInt() % surnames.length]);
+                vector.setLast_name(surnames[random.nextInt(1000) % surnames.length]);
             }
         }
         if (random.nextBoolean()) {
@@ -51,11 +52,11 @@ public class Randomizer {
         if (random.nextBoolean()) {
             // Change groups
             if (vector.getGroups().size() != 0) {
-                int count = random.nextInt() % vector.getGroups().size();
+                int count = random.nextInt(1000) % vector.getGroups().size();
                 int toDelete;
                 count /= 2;
                 while (count > 0) {
-                    toDelete = random.nextInt() % vector.getGroups().size();
+                    toDelete = random.nextInt(1000) % vector.getGroups().size();
                     vector.getGroups().remove(toDelete);
                     count--;
                 }

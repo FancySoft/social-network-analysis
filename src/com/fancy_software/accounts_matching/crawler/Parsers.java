@@ -44,8 +44,6 @@ public class Parsers {
      */
     public static AccountVector parseVK(String id) throws IOException {
         init();
-        System.out.println(VK_LOGIN);
-        System.out.println(VK_PASSWORD);
         IApiWorker VK_WORKER = ApiWorkerFactory.getApiWorkerInstance("accounts/vk/", SocialNetworkId.VK);
         if (needVKAuth) {
             VK_WORKER.Auth(VK_LOGIN, VK_PASSWORD);

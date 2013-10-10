@@ -195,6 +195,26 @@
                 <attribute name="Main-Class" value="com.fancy_software.accounts_matching.crawler.Main"/>
             </manifest>
         </jar>
+
+        <!-- Randomizer -->
+        <jar destfile="jar/Randomizer.jar" basedir="${accountsmatching.output.dir}"
+          index="true">
+            <zipgroupfileset dir="${basedir}/lib" includes="*.jar"/>
+            <zipgroupfileset dir="${basedir}/lib/JSON" includes="*.jar"/>
+            <manifest>
+                <attribute name="Main-Class" value="com.fancy_software.accounts_matching.data_randomizer.Main"/>
+            </manifest>
+        </jar>
+
+        <!-- Matcher -->
+        <jar destfile="jar/Matcher.jar" basedir="${accountsmatching.output.dir}"
+          index="true">
+            <zipgroupfileset dir="${basedir}/lib" includes="*.jar"/>
+            <zipgroupfileset dir="${basedir}/lib/JSON" includes="*.jar"/>
+            <manifest>
+                <attribute name="Main-Class" value="com.fancy_software.accounts_matching.matcher.TestMain"/>
+            </manifest>
+        </jar>
     </target>
   
   <target name="clean.module.accountsmatching" description="cleanup module">
