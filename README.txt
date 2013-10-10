@@ -8,6 +8,12 @@ directory. It contents should be as follows:
 vk_login
 vk_password
 
+To run facebook parser you should save pages with url like
+'https://www.facebook.com/username/about' and
+'https://www.facebook.com/username/friends_all'
+as "user_info.htm" and "user_friends.htm" in
+test_account_info_for_parser folder
+
 ----------------------------------------------------
 	Build
 ----------------------------------------------------

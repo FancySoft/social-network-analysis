@@ -1,9 +1,19 @@
 <AccountVector>
   <id>2284364</id>
-  <bdate>18.6.1988</bdate>
   <first__name>Саня</first__name>
   <last__name>Бусовиков</last__name>
-  <groups class="linked-list"/>
+  <groups class="linked-list">
+    <string>Интернет-магазин оригинальных подарков ТМ &quot;Живи ярко!&quot;. Всё сделано с любовью!&lt;br&gt;-------------------------------------------------------------&lt;br&gt;Посмотреть: http://vk.com/albums-11000810 и&lt;br&gt;http://instagram.com/tm_zhivi_yarko#&lt;br&gt;&lt;br&gt;Заказать: http://vk.com/page-11000810_10453555 &lt;br&gt;&lt;br&gt;Отзывы: http://vk.com/topic-11000810_21333777&lt;br&gt;--------------------------------------------------------------</string>
+    <string>Все самые последние новости, патчи, турниры, полезные гайды и огромная  медиатека. Добро пожаловать в сообщество  dota2.gameguyz.&lt;br&gt;&lt;br&gt;Deviantart: http://avmelnikova.deviantart.com/&lt;br&gt;&lt;br&gt;Twitter: https://twitter.com/dota2gameguyzru&lt;br&gt;&lt;br&gt;Tumblr:http://www.tumblr.com/blog/dota2gameguyz&lt;br&gt;&lt;br&gt;Google+:https://plus.google.com/u/0/b/101757029552110695520/</string>
+    <string>УСЛОВИЯ ДОСТАВКИ:&lt;br&gt;ЗАКАЗ ПИЦЦЫ: С 11:00 до 22:00&lt;br&gt;Доставка пиццы на дом или в офис&lt;br&gt;по городу Улан-Удэ осуществляется БЕСПЛАТНО&lt;br&gt;&lt;br&gt;КАК ПРАВИЛО ВРЕМЯ ДОСТАВКИ &lt;br&gt;НЕ ПРЕВЫШАЕТ 1 ЧАС.&lt;br&gt;&lt;br&gt;Телефон: +7 (3012) 24-21-21</string>
+    <string></string>
+    <string>только начинаю поэтому всего будет со временем больше и больше...хочу развиваться не кидаю!!!&lt;br&gt;много розыгрышей и свежих новостей</string>
+  </groups>
   <sex>MALE</sex>
   <friends class="linked-list"/>
+  <birthDate>
+    <day>18</day>
+    <month>6</month>
+    <year>1988</year>
+  </birthDate>
 </AccountVector>

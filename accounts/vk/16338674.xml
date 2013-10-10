@@ -1,6 +1,5 @@
 <AccountVector>
   <id>16338674</id>
-  <bdate>12.12</bdate>
   <first__name>Алёна</first__name>
   <last__name>Менькова</last__name>
   <groups class="linked-list"/>
@@ -27,4 +26,9 @@
     <long>16035377</long>
     <long>71335494</long>
   </friends>
+  <birthDate>
+    <day>12</day>
+    <month>12</month>
+    <year>0</year>
+  </birthDate>
 </AccountVector>

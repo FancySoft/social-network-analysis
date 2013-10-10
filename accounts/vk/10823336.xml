@@ -28,4 +28,9 @@
     <long>49819143</long>
     <long>71333138</long>
   </friends>
+  <birthDate>
+    <day>0</day>
+    <month>0</month>
+    <year>0</year>
+  </birthDate>
 </AccountVector>

@@ -1,18 +1,17 @@
 <AccountVector>
   <id>47077927</id>
-  <bdate>22.2.1995</bdate>
   <first__name>Кристина</first__name>
   <last__name>Мокроусова</last__name>
   <groups class="linked-list">
-    <string></string>
     <string>Нам интересно смотреть +100500&lt;br&gt;Официальная Публичная страница:&lt;br&gt;http://vk.com/maxim100500&lt;br&gt;Ролики Максу на обзоры присылайте сюда: http://carambatv.ru/add&lt;br&gt;Caramba TV: carambatv.ru&lt;br&gt;Twitter: twitter.com/maxplus100500&lt;br&gt;Блог: 100500.tv&lt;br&gt;Facebook: fb.com/maxplus100500&lt;br&gt;ВидеоБлог: youtube.com/MoranDays&lt;br&gt;Самые смешные видео: vk.com/carambatv&lt;br&gt;Фирменные футболки +100500 и не только - http://shop.carambatv.ru/&lt;br&gt;У Максима нет никаких вторых страниц, и заводить он их не собирается. Возле имени настоящего Максима есть подтверждающая «галочка».&lt;br&gt;FAQ: vk.com/page34511917</string>
     <string>Самое большое сообщество демотиваторов. Более 50 000 штук. Только для людей старше 25 лет.&lt;br&gt;&lt;br&gt;Сохранить свои демотиваторы можно в альбомы группы: vk.com/albums-193175&lt;br&gt;&lt;br&gt;Сделать свой демотиватор:&lt;br&gt;demotivation.me/new.php</string>
     <string>Окончание срока годности йогурта означает, что бифидобактерии перешли на сторону зла.</string>
+    <string></string>
     <null/>
     <string>Сообщество реальных тазов</string>
     <string>Клуб любителей и почитателей, и может быть, фанатов СпанчБоба.&lt;br&gt;(Sponge Bob Square Pants, Спанч Боб, СпанчБоб, Скверпентс)&lt;br&gt;&lt;br&gt;Пожалуйста, первым делом прочитайте наши несложные и ненавязчивые правила (в новостях)&lt;br&gt;&lt;br&gt;Все сезоны - в видеозаписях!&lt;br&gt;&lt;br&gt;Существует уже около 500 групп, так или иначе посвященных именно Спанч Бобу, что еще раз доказывает его непревзойденность! Впрочем, эта группа остается самой многочисленной)</string>
-    <string>◄ Мир убойного позитива :D</string>
-    <string>Биты на любой вкус ! ! !&lt;br&gt;Все биты на стене от  2000р!&lt;br&gt;На заказ от 4000р ! &lt;br&gt;Пишем в личку !!! &lt;br&gt;&lt;br&gt;С кем работал и работаю:&lt;br&gt;&lt;br&gt;Дуня, Obe 1 Kanobe, МС Молодой aka Tony P, Tommy Blunt, MoscowMoneyMakaz, Supreme Playaz Connection, Грубый Ниоткуда,Slim PR&lt;br&gt;Loc-Doc,Checker(золотое дно),Digital Squad,Шмит,Валик (Константа), Gallah, Грозный aka Олегга , Раскольников , Гера Джио , Каспийский Груз .....</string>
+    <null/>
+    <string>Биты на любой вкус ! ! !&lt;br&gt;Бит - 3000р ! &lt;br&gt;Пишем в личку !!! &lt;br&gt;&lt;br&gt;С кем работал и работаю:&lt;br&gt;&lt;br&gt;Дуня, Obe 1 Kanobe, МС Молодой aka Tony P, Tommy Blunt, MoscowMoneyMakaz, Supreme Playaz Connection, Грубый Ниоткуда,Slim PR&lt;br&gt;Loc-Doc,Checker(золотое дно),Digital Squad,Шмит,Валик (Константа), Gallah, Грозный aka Олегга , Раскольников , Гера Джио , Каспийский Груз .....</string>
     <null/>
     <null/>
     <string>Многие горожане любят Улан-Удэ. &lt;br&gt;Цель клуба - собирать таких людей вместе&lt;br&gt;&lt;br&gt;Кино &lt;br&gt;http://277000.ru/afisha/  http://www.kino.ulan-ude.ru/&lt;br&gt;&lt;br&gt;Пробки &lt;br&gt;http://probki.ulan-ude.ru/  http://trafjam.ru/all/</string>
@@ -30,4 +29,9 @@
   <friends class="linked-list">
     <long>23548384</long>
   </friends>
+  <birthDate>
+    <day>22</day>
+    <month>2</month>
+    <year>1995</year>
+  </birthDate>
 </AccountVector>
