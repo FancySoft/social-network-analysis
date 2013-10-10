@@ -1,4 +1,4 @@
-package com.fancy_software.accounts_matching.graph;
+package com.fancy_software.accounts_matching.data_randomizer;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
@@ -6,6 +6,7 @@ import com.fancy_software.accounts_matching.model.BirthDate;
 import java.util.Random;
 
 public class Randomizer {
+
     private static final String[] names = new String[]{
             "Paul",
             "Sam",

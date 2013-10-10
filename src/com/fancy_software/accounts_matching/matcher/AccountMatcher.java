@@ -1,6 +1,6 @@
 package com.fancy_software.accounts_matching.matcher;
 
-import com.fancy_software.accounts_matching.graph.Randomizer;
+import com.fancy_software.accounts_matching.data_randomizer.Randomizer;
 import com.fancy_software.accounts_matching.io_local_base.LocalAccountReader;
 import com.fancy_software.accounts_matching.model.AccountVector;
 
