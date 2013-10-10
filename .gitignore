@@ -5,5 +5,4 @@
 *.ear
 .idea/workspace.xml
 *.DS_Store
-config/authentication_config.txt
 jar/*
