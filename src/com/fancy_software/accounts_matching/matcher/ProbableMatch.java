@@ -47,4 +47,11 @@ public class ProbableMatch {
     public double getMeasureValueForAccount(AccountVector accountVector) {
         return probableMatchesForVector.get(accountVector);
     }
+
+    @Override
+    public String toString() {
+        return "ProbableMatch{" +
+                "probableMatchesForVector=" + probableMatchesForVector +
+                '}';
+    }
 }
