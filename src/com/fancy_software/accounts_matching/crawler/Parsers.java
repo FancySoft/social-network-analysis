@@ -1,7 +1,7 @@
 package com.fancy_software.accounts_matching.crawler;
 
-import com.fancy_software.accounts_matching.crawler.apiworkers.IApiWorker;
-import com.fancy_software.accounts_matching.crawler.apiworkers.SocialNetworkId;
+import com.fancy_software.accounts_matching.crawler.parsers.IParser;
+import com.fancy_software.accounts_matching.crawler.parsers.SocialNetworkId;
 import com.fancy_software.accounts_matching.model.AccountVector;
 
 import java.io.*;
@@ -44,7 +44,7 @@ public class Parsers {
      */
     public static AccountVector parseVK(String id) throws IOException {
         init();
-        IApiWorker VK_WORKER = ApiWorkerFactory.getApiWorkerInstance("accounts/vk/", SocialNetworkId.VK);
+        IParser VK_WORKER = ParserFactory.getApiWorkerInstance("accounts/vk/", SocialNetworkId.VK);
         if (needVKAuth) {
             VK_WORKER.Auth(VK_LOGIN, VK_PASSWORD);
             needVKAuth = false;
@@ -53,21 +53,12 @@ public class Parsers {
     }
 
     /**
-     * Парсить пользователя в твиттере
-     *
-     * @param id
-     * @return
-     */
-    public static AccountVector parseTwitter(String id) {
-        return null;
-    }
-
-    /**
      * Парсить страничку в фейсбуке
      *
      * @param url адрес странички
      * @return вектор пользователя
      */
+    @SuppressWarnings("unused")
     public static AccountVector parseFacebook(String url) {
         return null;
     }

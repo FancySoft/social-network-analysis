@@ -1,6 +1,6 @@
 package com.fancy_software.accounts_matching.io_local_base;
 
-import com.fancy_software.accounts_matching.crawler.apiworkers.SocialNetworkId;
+import com.fancy_software.accounts_matching.crawler.parsers.SocialNetworkId;
 
 public class Utils {
 
