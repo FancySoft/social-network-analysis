@@ -18,12 +18,14 @@ test_account_info_for_parser folder
 	Build
 ----------------------------------------------------
 Just use ant.
+Run terminal, change directory to the project dir, 
+and run "ant" from there.
 
 ----------------------------------------------------
 	Run
 ----------------------------------------------------
 java -jar Crawler.jar [path]
-path - text file with a list of IDs to parse
+[path] - text file with a list of IDs to parse
 
 Text file example:
 id1
@@ -31,5 +33,26 @@ id2
 id3
 
 Usage examples:
--- Crawler
+-- Crawler ../accounts/parsing_list.txt (you should use that)
 -- Crawler accounts/parsing_list.txt (value by default)
+
+
+java -jar Randomizer.jar [path_from] [path_to]
+[path_from] - a set of .xml-files storing the AccountVectors 
+from the social network, that we want to randomize for tests
+[path_to] - an output directory
+
+Usage:
+-- Randomizer ../accounts/vk ../accounts/social_network2
+
+Note: folder social_network2 should be created
+
+
+java -jar Matcher.jar [path_from] [path_to]
+[path_from] - accounts from the first social network
+[path_to] - from the second
+The first set will be matched on the second set.
+
+Usage:
+-- Matcher ../accounts/vk ../accounts/social_network2
+
