@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * ************************************************************************
  * Created by akirienko on 5/20/13
- * Copyright (c) 2013 Transparent Language, Inc. All rights reserved.
+ * Copyright (c) 2013 Desman, Inc. All rights reserved.
  * ************************************************************************
  */
 public class CombinationVouager {
