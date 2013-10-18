@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * ************************************************************************
  * Created by akirienko on 18.10.13
- * Copyright (c) 2013 Transparent Language, Inc. All rights reserved.
+ * Copyright (c) 2013 Desman, Inc. All rights reserved.
  * ************************************************************************
  */
 public class Booster implements IMatcher {
