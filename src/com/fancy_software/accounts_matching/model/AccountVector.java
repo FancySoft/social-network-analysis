@@ -116,5 +116,35 @@ public class AccountVector {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AccountVector that = (AccountVector) o;
+
+        if (id != that.id) return false;
+        if (birthDate != null ? !birthDate.equals(that.birthDate) : that.birthDate != null) return false;
+        if (first_name != null ? !first_name.equals(that.first_name) : that.first_name != null) return false;
+        if (friends != null ? !friends.equals(that.friends) : that.friends != null) return false;
+        if (groups != null ? !groups.equals(that.groups) : that.groups != null) return false;
+        if (last_name != null ? !last_name.equals(that.last_name) : that.last_name != null) return false;
+        if (sex != that.sex) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (first_name != null ? first_name.hashCode() : 0);
+        result = 31 * result + (last_name != null ? last_name.hashCode() : 0);
+        result = 31 * result + (groups != null ? groups.hashCode() : 0);
+        result = 31 * result + (sex != null ? sex.hashCode() : 0);
+        result = 31 * result + (friends != null ? friends.hashCode() : 0);
+        result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
+        return result;
+    }
+
     public static enum Sex {MALE, FEMALE, NA}
 }
