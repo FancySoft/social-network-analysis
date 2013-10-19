@@ -49,7 +49,7 @@ public class BirthDate {
     public int getYear() {
         return year;
     }
-
+    // todo fix the first condition in respect that february lasts for 28 or 29 days etc.
     public boolean isNormal(){
         return (day>0 && day<32)&&(month>0 && month<13)&&(year>1920 && year<currentYear);
     }
