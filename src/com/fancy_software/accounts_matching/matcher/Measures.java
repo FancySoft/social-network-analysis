@@ -47,9 +47,9 @@ public class Measures {
             return 0;
         if (l1.size() == 0 || l2.size() == 0)
             return 0;
-        Map<Double, String[]> map1 = new HashMap<Double, String[]>();
-        Map<Double, String[]> map2 = new HashMap<Double, String[]>();
-        for (String s : l1) {
+        Map<Double, String[]> map1 = TestTextComparator.getLocalRes(l1);
+        Map<Double, String[]> map2 = TestTextComparator.getLocalRes(l2);
+        /*for (String s : l1) {
             String[] temp = s.split(" ");
             Double help = Double.parseDouble(temp[0]);
             String[] temp1 = new String[temp.length - 1];
@@ -66,7 +66,7 @@ public class Measures {
                 temp1[i] = temp[i + 1];
             map2.put(help, temp1);
 
-        }
+        } */
         return TestTextComparator.compare(map1, map2);
     }
 }

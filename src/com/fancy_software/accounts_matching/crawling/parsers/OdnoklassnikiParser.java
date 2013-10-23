@@ -1,5 +1,6 @@
-package com.fancy_software.accounts_matching.crawler.parsers;
+package com.fancy_software.accounts_matching.crawling.parsers;
 
+import com.fancy_software.accounts_matching.crawling.crawlers.ICrawler;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,19 +20,17 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Map;
 
-public class OdnoklassnikiParser extends ParserAbstract {
+public class OdnoklassnikiParser extends AbstractParser {
 
     private static final String REDIRECT_URI = "http://ru.infameter.com";
     private static final String CLIENT_ID = "168330496";
     private static final String CLIENT_SECRET = "107006ABDAD32A1A6527F28A";
     private String ACCESS_TOKEN;
-    private String path;
     private ObjectMapper mapper;
 
-    public OdnoklassnikiParser(String path, SocialNetworkId networkId) {
+    public OdnoklassnikiParser(SocialNetworkId networkId, ICrawler crawler) {
+        super(networkId,crawler);
         mapper = new ObjectMapper();
-        this.path = path;
-        this.networkId = networkId;
     }
 
     private static String md5(String input) throws NoSuchAlgorithmException {
@@ -46,8 +45,9 @@ public class OdnoklassnikiParser extends ParserAbstract {
         return sig;
     }
 
+    /*
     @Override
-    public void Auth(String login, String password) {
+    public void auth(String login, String password) {
         try {
             HttpClient httpClient = new DefaultHttpClient();
             HttpProtocolParams.setUserAgent(httpClient.getParams(),
@@ -119,10 +119,10 @@ public class OdnoklassnikiParser extends ParserAbstract {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     @Override
-    public AccountVector Parse(String id) {
+    public AccountVector parse(String id) {
         AccountVector result = new AccountVector();
         try {
             String sig = md5("application_key=CBAGIJALABABABABA" +

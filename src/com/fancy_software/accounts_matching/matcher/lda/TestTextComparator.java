@@ -67,7 +67,7 @@ public class TestTextComparator {
     }
 
     public static double compare(Map<Double, String[]> map1, Map<Double, String[]> map2) {
-        double result = 0;
+        double result = 0.000001;
         for (double d1 : map1.keySet())
             for (double d2 : map2.keySet())
                 result += (((d1 + d2) / 2) * check(map1.get(d1), map2.get(d2)));

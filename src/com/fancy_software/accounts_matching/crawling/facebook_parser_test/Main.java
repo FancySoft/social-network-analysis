@@ -1,4 +1,4 @@
-package com.fancy_software.accounts_matching.crawler.facebook_parser_test;
+package com.fancy_software.accounts_matching.crawling.facebook_parser_test;
 
 import java.io.IOException;
 import java.util.List;

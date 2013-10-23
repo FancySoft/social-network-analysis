@@ -1,7 +1,7 @@
 package com.fancy_software.accounts_matching.matcher;
 
 
-import com.fancy_software.accounts_matching.crawler.Parsers;
+import com.fancy_software.accounts_matching.deprecated.Parsers;
 import com.fancy_software.accounts_matching.model.AccountVector;
 
 import javax.swing.*;
