@@ -185,5 +185,49 @@ public class VkParser extends AbstractParser {
                 break;
         }
     }
+    
+     
+    public AccountVector match(AccountVector goal) {
+        Map<String, Object> user = ApiCall("user.search", makeQuery(goal));
+        return parse(user.get("uid").toString());
+    }
+
+    /**
+     *
+     * @param user
+     * @return string like uid=123234234&first_name=Eugene to pass it to ApiCall("user.search", params)
+     */
+    private String makeQuery(AccountVector user) {
+        StringBuffer response = new StringBuffer();
+
+        response.append("uid=");
+        response.append(user.getId());
+        response.append("&");
+
+        response.append("first_name=");
+        response.append(user.getFirst_name());
+        response.append("&");
+
+        response.append("last_name=");
+        response.append(user.getLast_name());
+        response.append("&");
+
+        response.append("sex=");
+        if (user.getSex()!=AccountVector.Sex.NA) {
+            if (user.getSex()==AccountVector.Sex.FEMALE)
+                response.append(1);
+            else response.append(2);
+        } else response.append(0);
+        response.append("&");
+
+        response.append("bDate=");
+        response.append(user.getBdate().getDay());
+        response.append('.');
+        response.append(user.getBdate().getMonth());
+        response.append('.');
+        response.append(user.getBdate().getYear());
+
+        return response.toString();
+    }
 
 }
