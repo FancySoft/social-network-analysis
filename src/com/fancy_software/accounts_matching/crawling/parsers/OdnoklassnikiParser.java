@@ -200,4 +200,9 @@ public class OdnoklassnikiParser extends AbstractParser {
         }
         return null;
     }
+
+    @Override
+    public AccountVector match(AccountVector goal) {
+        return null;
+    }
 }

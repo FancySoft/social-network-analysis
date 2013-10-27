@@ -20,4 +20,9 @@ public class FacebookParser extends AbstractParser {
     public AccountVector parse(String id) {
         return null;
     }
+
+    @Override
+    public AccountVector match(AccountVector goal) {
+        return null;
+    }
 }
