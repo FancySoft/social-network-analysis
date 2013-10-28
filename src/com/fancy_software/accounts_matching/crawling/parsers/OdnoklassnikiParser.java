@@ -1,6 +1,5 @@
 package com.fancy_software.accounts_matching.crawling.parsers;
 
-import com.fancy_software.accounts_matching.crawling.crawlers.ICrawler;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,8 +27,8 @@ public class OdnoklassnikiParser extends AbstractParser {
     private String ACCESS_TOKEN;
     private ObjectMapper mapper;
 
-    public OdnoklassnikiParser(SocialNetworkId networkId, ICrawler crawler) {
-        super(networkId,crawler);
+    public OdnoklassnikiParser(SocialNetworkId networkId) {
+        super(networkId);
         mapper = new ObjectMapper();
     }
 
@@ -45,7 +44,6 @@ public class OdnoklassnikiParser extends AbstractParser {
         return sig;
     }
 
-    /*
     @Override
     public void auth(String login, String password) {
         try {
@@ -119,7 +117,7 @@ public class OdnoklassnikiParser extends AbstractParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
     @Override
     public AccountVector parse(String id) {

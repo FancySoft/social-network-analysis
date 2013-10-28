@@ -2,7 +2,6 @@ package com.fancy_software.accounts_matching.crawling;
 
 import com.fancy_software.accounts_matching.crawling.crawlers.ICrawler;
 import com.fancy_software.accounts_matching.crawling.crawlers.VkCrawler;
-import com.fancy_software.accounts_matching.deprecated.Parsers;
 
 import java.io.*;
 
@@ -22,7 +21,7 @@ public class Main {
                     new DataInputStream(new FileInputStream(path))));
             String line;
             while ((line = reader.readLine()) != null) {
-                crawler.init(line);
+                crawler.init(Long.parseLong(line));
             }
             crawler.start();
         } catch (FileNotFoundException e) {

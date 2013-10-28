@@ -13,12 +13,17 @@ import com.fancy_software.accounts_matching.model.AccountVector;
 public class FacebookParser extends AbstractParser {
 
     public FacebookParser(SocialNetworkId networkId, ICrawler crawler) {
-        super(networkId, crawler);
+        super(networkId);
     }
 
     @Override
     public AccountVector parse(String id) {
         return null;
+    }
+
+    @Override
+    public void auth(String login, String password) {
+        // TODO: authorization
     }
 
     @Override

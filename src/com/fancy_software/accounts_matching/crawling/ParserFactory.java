@@ -1,19 +1,15 @@
 package com.fancy_software.accounts_matching.crawling;
 
-import com.fancy_software.accounts_matching.crawling.crawlers.ICrawler;
-import com.fancy_software.accounts_matching.crawling.parsers.IParser;
-import com.fancy_software.accounts_matching.crawling.parsers.OdnoklassnikiParser;
-import com.fancy_software.accounts_matching.crawling.parsers.SocialNetworkId;
-import com.fancy_software.accounts_matching.crawling.parsers.VkParser;
+import com.fancy_software.accounts_matching.crawling.parsers.*;
 
 public class ParserFactory {
 
-    public static IParser getApiWorkerInstance(SocialNetworkId networkId, ICrawler crawler) {
+    public static AbstractParser getApiWorkerInstance(SocialNetworkId networkId) {
         switch (networkId) {
             case VK:
-                return new VkParser(networkId, crawler);
+                return new VkParser(networkId);
             case Odnoklassniki:
-                return new OdnoklassnikiParser(networkId, crawler);
+                return new OdnoklassnikiParser(networkId);
             case Facebook:
 
             default:

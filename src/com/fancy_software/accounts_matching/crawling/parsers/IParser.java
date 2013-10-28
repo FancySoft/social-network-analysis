@@ -6,4 +6,6 @@ public interface IParser {
 
     public AccountVector parse(String id);
 
+    public void auth(String login, String password);
+
 }

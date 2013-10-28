@@ -1,14 +1,19 @@
 package com.fancy_software.accounts_matching.crawling.parsers;
 
-import com.fancy_software.accounts_matching.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.accounts_matching.crawling.crawlers.ICrawler;
 import com.fancy_software.accounts_matching.io_local_base.Utils;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,18 +23,97 @@ import java.util.Map;
 
 public class VkParser extends AbstractParser {
 
-    private static int counter = 0;
     private final boolean VERBOSE = false;
     private ObjectMapper mapper;
     private String ACCESS_TOKEN;
+    private final String APP_ID = "3437182";
+    private final String SCOPE = "262146";
+    private final String REDIRECT_URI = "http://oauth.vk.com/blank.html";
+    private final String DISPLAY = "page";
+    private final String RESPONSE_TYPE = "token";
 
-    public VkParser(SocialNetworkId networkId, ICrawler crawler) {
-        super(networkId, crawler);
+    public VkParser(SocialNetworkId networkId) {
+        super(networkId);
         mapper = new ObjectMapper();
     }
 
-    public void setACCESS_TOKEN(String ACCESS_TOKEN) {
-        this.ACCESS_TOKEN = ACCESS_TOKEN;
+    @Override
+    public void auth(String login, String password) {
+        try {
+            HttpClient httpClient = new DefaultHttpClient();
+            HttpGet get = new HttpGet("http://oauth.vk.com/authorize?" +
+                    "client_id=" + APP_ID +
+                    "&scope=" + SCOPE +
+                    "&redirect_uri=" + REDIRECT_URI +
+                    "&display=" + DISPLAY +
+                    "&response_type=" + RESPONSE_TYPE);
+            HttpResponse response;
+            response = httpClient.execute(get);
+            InputStream in = response.getEntity().getContent();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
+            String line;
+            String ip_h = null;
+            String to_h = null;
+            String toFindIp = "<input type=\"hidden\" name=\"ip_h\" value=\"";
+            String toFindTo = "<input type=\"hidden\" name=\"to\" value=\"";
+            boolean needIph = true;
+            boolean needToh = true;
+            while ((line = reader.readLine()) != null) {
+                if (needIph && line.contains(toFindIp)) {
+                    ip_h = line.substring(toFindIp.length(), line.indexOf("\"", toFindIp.length() + 1));
+                    needIph = false;
+                } else if (needToh && line.contains(toFindTo)) {
+                    to_h = line.substring(toFindTo.length(), line.indexOf("\"", toFindTo.length() + 1));
+                    needToh = false;
+                }
+            }
+
+            HttpPost post = new HttpPost("https://login.vk.com/?act=login&soft=1" +
+                    "&q=1" +
+                    "&ip_h=" + ip_h +
+                    "&from_host=oauth.vk.com" +
+                    "&to=" + to_h +
+                    "&expire=0" +
+                    "&email=" + login +
+                    "&pass=" + password);
+            response = httpClient.execute(post);
+            post.abort();
+            String HeaderLocation = response.getFirstHeader("location").getValue();
+
+
+            // Нужно только в первый раз, пока не даны разрешения
+            get = new HttpGet(HeaderLocation);
+            response = httpClient.execute(get);
+            String toFind = "<form method=\"post\" action=\"";
+            String link = null;
+            in = response.getEntity().getContent();
+            reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
+            boolean needLink = true;
+            while ((line = reader.readLine()) != null) {
+                if (needLink && line.contains(toFind)) {
+                    link = line.substring(toFind.length(), line.indexOf("\"", toFind.length() + 1));
+                    needLink = false;
+                }
+            }
+
+            if (link == null) {
+                // Если разрешения уже даны, мы тут
+                post = new HttpPost(HeaderLocation);
+                response = httpClient.execute(post);
+                post.abort();
+                HeaderLocation = response.getFirstHeader("location").getValue();
+            } else {
+                HeaderLocation = link;
+            }
+
+            post = new HttpPost(HeaderLocation);
+            response = httpClient.execute(post);
+            post.abort();
+            HeaderLocation = response.getFirstHeader("location").getValue();
+            ACCESS_TOKEN = HeaderLocation.split("#")[1].split("&")[0].split("=")[1];
+        } catch (IOException ioexc) {
+            ioexc.printStackTrace();
+        }
     }
 
     @Override
@@ -90,6 +174,7 @@ public class VkParser extends AbstractParser {
      * @param friendOfId ид пользователя, друга которого парсим
      * @return вектор пользователя
      */
+    @SuppressWarnings("unchecked")
     private AccountVector _Parse(String id, String friendOfId, boolean needFriends) {
         AccountVector result = new AccountVector();
         Map<String, Object> userInfo = ApiCall("users.get", "uids=" + id + "&fields=bdate,sex");
@@ -102,7 +187,7 @@ public class VkParser extends AbstractParser {
         result.setBdate(BirthDate.generateBirthDate((String) userInfo.get("bdate")));
         result.setFirst_name((String) userInfo.get("first_name"));
         result.setLast_name((String) userInfo.get("last_name"));
-        setSex(result, (Integer) userInfo.get("sex"));
+        result.setSex(convertSexFromApi((Integer) userInfo.get("sex")));
         result.setId((Integer) userInfo.get("uid"));
         Map m;
         List list;
@@ -144,18 +229,6 @@ public class VkParser extends AbstractParser {
             list = (ArrayList) userInfo.get("response");
             for (Object o : list) {
                 result.addFriend(Long.parseLong(o.toString()));
-                if (crawler instanceof AbstractCrawler)
-                    ((AbstractCrawler) crawler).addUserToParse(Long.parseLong(o.toString()));
-//                    if (friendOfId == null) {
-//                        writeToFile(friend, Utils.generatePathToAccounts(networkId, friend.getId()));
-//                        System.out.print("\r\r\r\r\r" + step * 100 / size + " %");
-//                        if (step == size) {
-//                            System.out.println();
-//                            System.out.println("Completed");
-//                        }
-//                    }
-//                }
-
             }
             try {
                 Thread.sleep(300);
@@ -167,42 +240,34 @@ public class VkParser extends AbstractParser {
                 System.out.println(userInfo.get("error").toString());
         }
         writeToFile(result, Utils.generatePathToAccounts(networkId, result.getId()));
-        counter++;
         System.out.println(result) ;
         return result;
     }
 
-    private void setSex(AccountVector vector, int sexId) {
+    private AccountVector.Sex convertSexFromApi(int sexId) {
         switch (sexId) {
             case 1:
-                vector.setSex(AccountVector.Sex.FEMALE);
-                break;
+                return AccountVector.Sex.FEMALE;
             case 2:
-                vector.setSex(AccountVector.Sex.MALE);
-                break;
+                return AccountVector.Sex.MALE;
             default:
-                vector.setSex(AccountVector.Sex.NA);
-                break;
+                return AccountVector.Sex.NA;
         }
     }
     
-     
+    @Override
     public AccountVector match(AccountVector goal) {
-        Map<String, Object> user = ApiCall("user.search", makeQuery(goal));
+        Map<String, Object> user = ApiCall("users.search", makeQuery(goal));
         return parse(user.get("uid").toString());
     }
 
     /**
      *
      * @param user
-     * @return string like uid=123234234&first_name=Eugene to pass it to ApiCall("user.search", params)
+     * @return string like uid=123234234&first_name=Eugene to pass it to ApiCall("users.search", params)
      */
     private String makeQuery(AccountVector user) {
-        StringBuffer response = new StringBuffer();
-
-        response.append("uid=");
-        response.append(user.getId());
-        response.append("&");
+        StringBuilder response = new StringBuilder();
 
         response.append("first_name=");
         response.append(user.getFirst_name());
