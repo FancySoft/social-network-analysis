@@ -1,7 +1,6 @@
 package com.fancy_software.accounts_matching.crawling.parsers;
 
-import com.fancy_software.accounts_matching.crawling.crawlers.ICrawler;
-import com.fancy_software.accounts_matching.io_local_base.Utils;
+import com.fancy_software.accounts_matching.io_local_base.PathGenerator;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -239,7 +238,7 @@ public class VkParser extends AbstractParser {
             if (VERBOSE)
                 System.out.println(userInfo.get("error").toString());
         }
-        writeToFile(result, Utils.generatePathToAccounts(networkId, result.getId()));
+        writeToFile(result, PathGenerator.generatePathToAccounts(networkId, result.getId()));
         System.out.println(result) ;
         return result;
     }

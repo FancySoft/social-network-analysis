@@ -99,12 +99,22 @@ public class AccountMatcher {
     private AccountVector findInProbableMatch(AccountVector accountVector, ProbableMatch probableMatch) {
         //finding common friends, if their amount is enough - it's match
         int maxFriendAmount = Integer.MIN_VALUE;
+        int friendCounter = 0;
+        ProbableMatch matchProbable = new ProbableMatch(accountVector);
         AccountVector result = null;
-        for (AccountVector probableFriend : probableMatch.getProbableMatchesForVector().keySet())
+        for (AccountVector probableFriend : probableMatch.getProbableMatchesForVector().keySet())    {
             if (countCommonFriends(accountVector, probableFriend) > maxFriendAmount) {
                 maxFriendAmount = countCommonFriends(accountVector, probableFriend);
                 result = probableFriend;
+                friendCounter++;
             }
+            if(friendCounter>1){
+                matchProbable.addProbableMatch(probableFriend, probableMatch.getMeasureValueForAccount(probableFriend));
+            }
+        }
+        if (friendCounter>1){
+           return findWithMinMeasure(accountVector,matchProbable);
+        }
         if (maxFriendAmount > MIN_FRIENDS_AMOUNT)
             return result;
         else
