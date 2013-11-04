@@ -1,13 +1,18 @@
 package com.fancy_software.crawling;
 
+import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.AccountVector;
+import com.fancy_software.logger.Log;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -21,7 +26,9 @@ import java.util.concurrent.ConcurrentLinkedDeque;
  */
 public class VkCrawler implements ICrawler {
 
-    private final String AUTH_CONFIG = "config/auth.txt";
+    private static final String KEY_VK_LOGIN = "vk_login";
+    private static final String KEY_VK_PASSWORD = "vk_password";
+    private final String TAG = VkCrawler.class.getSimpleName();
     private final String APP_ID = "3437182";
     private final String SCOPE = "262146";
     private final String REDIRECT_URI = "http://oauth.vk.com/blank.html";
@@ -37,7 +44,7 @@ public class VkCrawler implements ICrawler {
     private int users_max_amount = 200000;
     private ResponseProcessor responseProcessor;
 
-    public VkCrawler(){
+    public VkCrawler() {
         usersToWrite = new ConcurrentLinkedDeque<AccountVector>();
         responseProcessor = new ResponseProcessor();
     }
@@ -138,26 +145,11 @@ public class VkCrawler implements ICrawler {
     }
 
     public void init() {
-        try {
-            String login = "";
-            String password = "";
-            BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    new DataInputStream(new FileInputStream(AUTH_CONFIG))));
-            String line;
-            int count = 0;
-            while ((line = reader.readLine()) != null) {
-                if (count == 0) {
-                    count++;
-                    login = line;
-                } else
-                    password = line;
-            }
-            access_token = getAccessTokenByAuth(login, password);
-//        System.out.println(access_token);
-        } catch (IOException e) {
-            System.out.println("Not initiliazed");
-            e.printStackTrace();
-        }
+        Settings settings = Settings.getInstance();
+        String login = settings.get(KEY_VK_LOGIN);
+        String password = settings.get(KEY_VK_PASSWORD);
+        access_token = getAccessTokenByAuth(login, password);
+        Log.d(TAG, access_token);
     }
 
     @Override
@@ -170,7 +162,7 @@ public class VkCrawler implements ICrawler {
         writingThread.start();
         while (true) {
             callCounter++;
-            System.out.println(userCounter);
+            Log.d(TAG, String.format("userCounter = %d", userCounter));
             if (userCounter > users_max_amount)
                 break;
             if (callCounter > barrier) {
@@ -178,11 +170,11 @@ public class VkCrawler implements ICrawler {
                 long timeDif = System.currentTimeMillis() - lastCallTime;
                 if (timeDif < for_delay) {
                     try {
-                        System.out.println("wait");
+                        Log.d(TAG, "wait");
                         Thread.sleep(for_delay - timeDif);
 
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        Log.e(TAG, e);
                     }
                 }
             }
@@ -197,17 +189,16 @@ public class VkCrawler implements ICrawler {
                 System.out.println(line);
                 addUsersToWrite(responseProcessor.processResponse(line));
             } catch (MalformedURLException e) {
-                e.printStackTrace();
+                Log.e(TAG, e);
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.e(TAG, e);
             } catch (NullPointerException e) {
                 try {
                     Thread.sleep(for_delay);
                 } catch (InterruptedException e1) {
-                    //                    e1.printStackTrace();
-                } finally {
-                    continue;
+                    Log.e(TAG, e1);
                 }
+                continue;
             }
             userCounter += max_ids_for_call;
             post.abort();
@@ -227,7 +218,7 @@ public class VkCrawler implements ICrawler {
 
         for (int i = 0; i < max_ids_for_call; i++) {
             builder.append(userCounter + i);
-//                System.out.println(userCounter + i);
+            Log.d(TAG, String.format("userCounter = %d", userCounter + i));
             builder.append(",");
         }
         //todo other fields

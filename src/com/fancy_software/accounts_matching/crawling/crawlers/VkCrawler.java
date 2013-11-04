@@ -2,13 +2,13 @@ package com.fancy_software.accounts_matching.crawling.crawlers;
 
 import com.fancy_software.accounts_matching.crawling.ParserFactory;
 import com.fancy_software.accounts_matching.crawling.parsers.SocialNetworkId;
+import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.AccountVector;
-
-import java.io.*;
 
 public class VkCrawler extends AbstractCrawler {
 
-    private static String authConfigName = "config/authentication_config.txt";
+    private static final String KEY_VK_LOGIN = "vk_login";
+    private static final String KEY_VK_PASSWORD = "vk_password";
     private static String VK_LOGIN;
     private static String VK_PASSWORD;
 
@@ -22,25 +22,10 @@ public class VkCrawler extends AbstractCrawler {
     public void init(Long id) {
         super.init(id);
         parser = ParserFactory.getApiWorkerInstance(SocialNetworkId.VK);
-
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    new DataInputStream(new FileInputStream(authConfigName))));
-            String line;
-            int count = 0;
-            while ((line = reader.readLine()) != null) {
-                if (count == 0) {
-                    count++;
-                    VK_LOGIN = line;
-                } else
-                    VK_PASSWORD = line;
-            }
-            parser.auth(VK_LOGIN, VK_PASSWORD);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Settings settings = Settings.getInstance();
+        VK_LOGIN = settings.get(KEY_VK_LOGIN);
+        VK_PASSWORD = settings.get(KEY_VK_PASSWORD);
+        parser.auth(VK_LOGIN, VK_PASSWORD);
     }
 
     @Override
