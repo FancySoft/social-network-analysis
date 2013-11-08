@@ -3,6 +3,7 @@ package com.fancy_software.accounts_matching.io_local_base;
 import com.fancy_software.logger.Log;
 
 import java.io.*;
+import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public class Settings {
 
     private static final String TAG = Settings.class.getSimpleName();
     private static final String PATH = "config/settings.txt";
-    private static Settings instance;
+    private static SoftReference<Settings> instance;
     private Map<String, String> settings;
 
     private Settings() {
@@ -52,8 +53,9 @@ public class Settings {
      * @return instance
      */
     public static Settings getInstance() {
-        if (instance == null) instance = new Settings();
-        return instance;
+        if (instance == null) instance = new SoftReference<Settings>(new Settings());
+        if (instance.get() == null) instance = new SoftReference<Settings>(new Settings());
+        return instance.get();
     }
 
     /**
