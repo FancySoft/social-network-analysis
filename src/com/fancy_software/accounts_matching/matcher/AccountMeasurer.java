@@ -76,7 +76,7 @@ public class AccountMeasurer {
 
         if (enableLDA)
             result += LDA_WEIGHT * Measures.measureWithLDA(vector1.getGroups(), vector2.getGroups());
-        Log.d(TAG, counter + ": " + result);
+        Log.d(TAG, String.format("%d : %.3f", counter.get(), result));
         return result;
     }
 
