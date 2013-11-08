@@ -21,9 +21,7 @@ public class Measures {
         String ss2 = Utils.transliterate(s2);
         int res1 = Utils.replaces(ss1, ss2);
         int res2 = Utils.replaces(ss2, ss1);
-        if (res1 > res2)
-            return res2;
-        return res1;
+        return res1 > res2 ? res2 : res1;
     }
 
     public static double measureBirthdate(BirthDate bithdate1, BirthDate bithdate2) throws IndexOutOfBoundsException, NullPointerException {
