@@ -1,6 +1,7 @@
-package com.fancy_software.accounts_matching.crawling.parsers;
-
 import com.fancy_software.accounts_matching.crawling.ParserFactory;
+import com.fancy_software.accounts_matching.crawling.parsers.AbstractParser;
+import com.fancy_software.accounts_matching.crawling.parsers.SocialNetworkId;
+import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
 import org.junit.Assert;
@@ -14,14 +15,11 @@ import org.junit.Test;
  */
 public class ParsersTests {
 
-    // Do not commit this, if it is your actual data
-    private final String VK_USERNAME = "";
-    private final String VK_PASSWORD = "";
-
     @Test
     public void vkSearch() {
         AbstractParser parser = ParserFactory.getApiWorkerInstance(SocialNetworkId.VK);
-        parser.auth(VK_USERNAME, VK_PASSWORD);
+        Settings settings = Settings.getInstance();
+        parser.auth(settings.get("vk_login"), settings.get("vk_password"));
         AccountVector goal = new AccountVector();
         goal.setFirst_name("Artem");
         goal.setLast_name("Kirienko");
