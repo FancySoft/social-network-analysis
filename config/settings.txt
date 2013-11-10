@@ -1,4 +1,4 @@
 vk_password = MonkeySlut!
+male_names_path = config/names/maleNamesSet.txt
 vk_login = yoursolution@ya.ru
 female_names_path = config/names/femaleNamesSet.txt
-male_names_path = config/names/maleNamesSet.txt

@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * ************************************************************************
  * Created by akirienko on 04.11.13
- * Copyright (c) 2013 Desman, Inc. All rights reserved.
+ * Copyright (c) 2013 Artem Kirienko. All rights reserved.
  * ************************************************************************
  */
 
@@ -22,6 +22,7 @@ public class Settings {
     private static final String TAG = Settings.class.getSimpleName();
     private static final String PATH = "config/settings.txt";
     private static SoftReference<Settings> instance;
+    private Thread mShutdownHook;
     private Map<String, String> settings;
 
     private Settings() {
@@ -45,6 +46,13 @@ public class Settings {
         } catch (IOException e) {
             Log.e(TAG, e);
         }
+        mShutdownHook = new Thread() {
+            @Override
+            public void run() {
+                Settings.this.writeToFile();
+            }
+        };
+        Runtime.getRuntime().addShutdownHook(mShutdownHook);
     }
 
     /**
@@ -76,7 +84,6 @@ public class Settings {
      */
     public void put(String key, String value) {
         settings.put(key, value);
-        writeToFile();
     }
 
     private void writeToFile() {
@@ -93,6 +100,7 @@ public class Settings {
 
     @Override
     public void finalize() throws Throwable {
+        Runtime.getRuntime().removeShutdownHook(mShutdownHook);
         writeToFile();
         super.finalize();
     }

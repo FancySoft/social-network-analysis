@@ -2,6 +2,7 @@ package com.fancy_software.accounts_matching.matcher.namematching;
 
 import com.fancy_software.accounts_matching.io_local_base.Settings;
 
+import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class NameMatcher {
 
     private static final String FEMALE_ID = "female_names_path";
     private static final String MALE_ID = "male_names_path";
-    private static NameMatcher instance;
+    private static SoftReference<NameMatcher> instance;
     private List<List<String>> femaleNames;
     private List<List<String>> maleNames;
 
@@ -28,13 +29,13 @@ public class NameMatcher {
     }
 
     public static NameMatcher getInstance() {
-        if (instance == null) {
+        if (instance == null || instance.get() == null) {
             Settings settings = Settings.getInstance();
             String f_path = settings.get(FEMALE_ID);
             String m_path = settings.get(MALE_ID);
-            instance = new NameMatcher(f_path, m_path);
+            instance = new SoftReference<NameMatcher>(new NameMatcher(f_path, m_path));
         }
-        return instance;
+        return instance.get();
     }
 
     public boolean match(String name1, String name2) {
