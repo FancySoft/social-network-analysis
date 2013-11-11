@@ -3,7 +3,7 @@ package com.fancy_software.accounts_matching.matcher;
 import com.fancy_software.accounts_matching.matcher.lda.TestTextComparator;
 import com.fancy_software.accounts_matching.model.BirthDate;
 
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -39,7 +39,7 @@ public class Measures {
     }
 
     //lda
-    public static double measureWithLDA(List<String> l1, List<String> l2) throws Exception {
+    public static double measureWithLDA(List<String> l1, List<String> l2) throws IOException {
         //todo return something other than zero in such cases
         if (l1 == null || l2 == null)
             return 0;

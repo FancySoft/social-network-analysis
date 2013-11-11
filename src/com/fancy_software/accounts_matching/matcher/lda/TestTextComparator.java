@@ -7,12 +7,13 @@ import cc.mallet.types.IDSorter;
 import cc.mallet.types.InstanceList;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.regex.Pattern;
 
 public class TestTextComparator {
 
-    public static HashMap<Double, String[]> getLocalRes(List<String> text) throws Exception {
+    public static HashMap<Double, String[]> getLocalRes(List<String> text) throws IOException {
         if (text.size() == 0)
             return null;
         // Begin by importing documents from text to feature sequences

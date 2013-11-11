@@ -1,10 +1,14 @@
 package com.fancy_software.accounts_matching.matcher;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
+import com.fancy_software.logger.Log;
 
+import java.io.IOException;
 import java.util.Map;
 
 public class MatchingThreadForExact implements Runnable {
+
+    private static final String TAG = MatchingThreadForExact.class.getSimpleName();
 
     private AccountMatcher matcher;
     private AccountVector accountVector;
@@ -32,15 +36,15 @@ public class MatchingThreadForExact implements Runnable {
                 measurer.setVector2(vector2);
                 double result = measurer.measure(enableLDA);
                 if (result < AccountMatcher.getMeasureBarrierForExact()) {
-                    System.out.println("Success - exact match");
+                    Log.d(TAG, "Success - exact match");
                     matcher.putMatching(vector.getId(), vector2.getId());
 //                    probableMatch.addProbableMatch(vector2, result);
                 } else if (result < AccountMatcher.getMeasureBarrierForProbable())
                     probableMatch.addProbableMatch(vector2, result);
             }
             matcher.putProbableMatch(vector, probableMatch);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            Log.e(TAG, e);
         }
     }
 }

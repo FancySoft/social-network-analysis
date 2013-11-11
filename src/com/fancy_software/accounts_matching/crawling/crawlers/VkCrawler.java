@@ -4,9 +4,11 @@ import com.fancy_software.accounts_matching.crawling.ParserFactory;
 import com.fancy_software.accounts_matching.crawling.parsers.SocialNetworkId;
 import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.AccountVector;
+import com.fancy_software.logger.Log;
 
 public class VkCrawler extends AbstractCrawler {
 
+    private static final String TAG = VkCrawler.class.getSimpleName();
     private static final String KEY_VK_LOGIN = "vk_login";
     private static final String KEY_VK_PASSWORD = "vk_password";
     private static String VK_LOGIN;
@@ -15,8 +17,6 @@ public class VkCrawler extends AbstractCrawler {
     public VkCrawler() {
         super();
     }
-
-
 
     @Override
     public void init(Long id) {
@@ -30,10 +30,9 @@ public class VkCrawler extends AbstractCrawler {
 
     @Override
     public void start() {
-        System.out.println(VK_LOGIN);
-        System.out.println(VK_PASSWORD);
+        Log.d(TAG, String.format("VK account: %s", VK_LOGIN));
         AccountVector cur;
-        while(usersToParse.size()>0){
+        while (usersToParse.size() > 0) {
             cur = parser.parse(Long.toString(usersToParse.remove()));
             for (Long l : cur.getFriends()) addUserToParse(l);
         }

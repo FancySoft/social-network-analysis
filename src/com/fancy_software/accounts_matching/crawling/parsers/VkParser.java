@@ -3,6 +3,7 @@ package com.fancy_software.accounts_matching.crawling.parsers;
 import com.fancy_software.accounts_matching.io_local_base.PathGenerator;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
+import com.fancy_software.logger.Log;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -22,7 +23,7 @@ import java.util.Map;
 
 public class VkParser extends AbstractParser {
 
-    private final boolean VERBOSE = false;
+    private static final String TAG = VkParser.class.getSimpleName();
     private ObjectMapper mapper;
     private String ACCESS_TOKEN;
     private final String APP_ID = "3437182";
@@ -115,11 +116,6 @@ public class VkParser extends AbstractParser {
         }
     }
 
-    @Override
-    public AccountVector parse(String id) {
-        return _Parse(id, null, true);
-    }
-
     /**
      * Выполнение методов vk api и получение ответа в json
      *
@@ -168,18 +164,20 @@ public class VkParser extends AbstractParser {
 
     /**
      * Parser
-     *
      * @param id         идентификатор
-     * @param friendOfId ид пользователя, друга которого парсим
      * @return вектор пользователя
      */
+    @Override
     @SuppressWarnings("unchecked")
-    private AccountVector _Parse(String id, String friendOfId, boolean needFriends) {
+    public AccountVector parse(String id) {
         AccountVector result = new AccountVector();
         Map<String, Object> userInfo = ApiCall("users.get", "uids=" + id + "&fields=bdate,sex");
-        assert userInfo == null;
+        if (userInfo == null) {
+            Log.e(TAG, "User info is null");
+            return null;
+        }
         if (userInfo.containsKey("error")) {
-            if (VERBOSE) System.out.println(userInfo.get("error"));
+            Log.e(TAG, (String) userInfo.get("error"));
             return null;
         }
         userInfo = (Map) ((ArrayList) userInfo.get("response")).get(0);
@@ -194,7 +192,10 @@ public class VkParser extends AbstractParser {
         // Получаем информацию о группах
         userInfo = ApiCall("groups.get", "uid=" + result.getId() +
                 "&extended=1&fields=description");
-        assert userInfo == null;
+        if (userInfo == null) {
+            Log.e(TAG, "User info is null for groups");
+            return null;
+        }
         if (userInfo.containsKey("response")) {
             list = (ArrayList) userInfo.get("response");
             list.remove(0);
@@ -217,7 +218,7 @@ public class VkParser extends AbstractParser {
             }
 
         } else {
-            if (VERBOSE) System.out.println(userInfo.get("error"));
+            Log.e(TAG, (String) userInfo.get("error"));
         }
 
         // Получаем список друзей
@@ -235,8 +236,7 @@ public class VkParser extends AbstractParser {
                 e.printStackTrace();
             }
         } else {
-            if (VERBOSE)
-                System.out.println(userInfo.get("error").toString());
+            Log.e(TAG, (String) userInfo.get("error"));
         }
         writeToFile(result, PathGenerator.generatePathToAccounts(networkId, result.getId()));
         System.out.println(result) ;
@@ -262,7 +262,7 @@ public class VkParser extends AbstractParser {
 
     /**
      *
-     * @param user
+     * @param user    AccountVector to be used in query
      * @return string like uid=123234234&first_name=Eugene to pass it to ApiCall("users.search", params)
      */
     private String makeQuery(AccountVector user) {

@@ -22,7 +22,6 @@ public class Settings {
     private static final String TAG = Settings.class.getSimpleName();
     private static final String PATH = "config/settings.txt";
     private static SoftReference<Settings> instance;
-    private Thread mShutdownHook;
     private Map<String, String> settings;
 
     private Settings() {
@@ -46,13 +45,6 @@ public class Settings {
         } catch (IOException e) {
             Log.e(TAG, e);
         }
-        mShutdownHook = new Thread() {
-            @Override
-            public void run() {
-                Settings.this.writeToFile();
-            }
-        };
-        Runtime.getRuntime().addShutdownHook(mShutdownHook);
     }
 
     /**
@@ -84,6 +76,7 @@ public class Settings {
      */
     public void put(String key, String value) {
         settings.put(key, value);
+        writeToFile();
     }
 
     private void writeToFile() {
@@ -96,12 +89,5 @@ public class Settings {
         } catch (FileNotFoundException e) {
             Log.e(TAG, e);
         }
-    }
-
-    @Override
-    public void finalize() throws Throwable {
-        Runtime.getRuntime().removeShutdownHook(mShutdownHook);
-        writeToFile();
-        super.finalize();
     }
 }
