@@ -6,7 +6,7 @@ package com.fancy_software.crawling;
  * Time: 23:03
  */
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         VkCrawler c = new VkCrawler();
         c.init();
         c.start();

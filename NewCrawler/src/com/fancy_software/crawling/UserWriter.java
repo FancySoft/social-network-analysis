@@ -28,7 +28,7 @@ public class UserWriter implements Runnable {
             if (parentThread.isAlive()) {
                 if (!userToWrite.isEmpty()) {
                     AccountVector vector = userToWrite.remove();
-                    LocalAccountWriter.writeAccountToLocalBase(vector,PathGenerator.generateDefaultPath(vector.getId()));
+                    LocalAccountWriter.writeAccountToLocalBase(vector, PathGenerator.generateDefaultPath(vector.getId()));
                 }
             } else {
                 System.out.println("Writing to local base still running, wait");
@@ -45,4 +45,5 @@ public class UserWriter implements Runnable {
             }
         }
     }
+
 }

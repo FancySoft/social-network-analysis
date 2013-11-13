@@ -32,9 +32,31 @@ public class ResponseProcessor {
 
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
             return extraction;
         }
+        return extraction;
+    }
+
+    //for groups and friends
+    public List<Long> processInfo(String response) throws NullPointerException {
+        List<Long> extraction = new LinkedList<Long>();
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode responseNode = mapper.readTree(response).get("response");
+            for (int i = 0; i < responseNode.size(); i++) {
+                JsonNode node = responseNode.get(i);
+                try {
+                    extraction.add(Long.valueOf(node.toString()));
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return extraction;
+        }
+        return extraction;
     }
 
     private AccountVector extractAccount(JsonNode node) {
@@ -67,5 +89,6 @@ public class ResponseProcessor {
                 return AccountVector.Sex.NA;
         }
     }
+
 }
 
