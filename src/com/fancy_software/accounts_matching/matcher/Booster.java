@@ -1,5 +1,7 @@
 package com.fancy_software.accounts_matching.matcher;
 
+import com.fancy_software.accounts_matching.matcher.math.GradientDescent;
+import com.fancy_software.accounts_matching.matcher.math.IFunction;
 import com.fancy_software.accounts_matching.model.AccountVector;
 
 import java.util.*;
@@ -7,10 +9,10 @@ import java.util.*;
 /**
  * ************************************************************************
  * Created by akirienko on 18.10.13
- * Copyright (c) 2013 Desman, Inc. All rights reserved.
+ * Copyright (c) 2013 Artem Kirienko. All rights reserved.
  * ************************************************************************
  */
-public class Booster implements IMatcher {
+public class Booster implements IMatcher, IFunction {
 
     private Collection<IMatcher> matchers;
     private Map<IMatcher, Double> weights;
@@ -21,10 +23,21 @@ public class Booster implements IMatcher {
     }
 
     private void initWeights() {
-        weights = new HashMap<IMatcher, Double>(matchers.size());
-        for (IMatcher matcher : matchers) {
-            weights.put(matcher, 1.);
+        int dim = matchers.size();
+
+        double init[] = new double[dim];
+        for (int i = 0; i < dim; i++) {
+            init[i] = 1.;
         }
+
+
+        double w[] = GradientDescent.minimize(this, init);
+        int i = 0;
+        weights = new HashMap<IMatcher, Double>(dim);
+        for (IMatcher matcher : matchers) {
+            weights.put(matcher, w[i++]);
+        }
+        // TODO: save weights
     }
 
     @Override
@@ -46,5 +59,11 @@ public class Booster implements IMatcher {
         }
 
         return cur;
+    }
+
+    @Override
+    public double evaluate(double[] v) {
+        // TODO: evaluate precision
+        return 0;
     }
 }
