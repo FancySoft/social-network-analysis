@@ -1,8 +1,13 @@
 package com.fancy_software.accounts_matching.io_local_base;
 
 import com.fancy_software.logger.Log;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.StreamException;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.PrintWriter;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,30 +25,19 @@ import java.util.Map;
 public class Settings {
 
     private static final String TAG = Settings.class.getSimpleName();
-    private static final String PATH = "config/settings.txt";
+    private static final String PATH = "config/settings.xml";
     private static SoftReference<Settings> instance;
     private Map<String, String> settings;
 
     private Settings() {
-        settings = new HashMap<String, String>();
-        BufferedReader reader;
+        XStream xstream = new XStream(new DomDriver());
         try {
-            reader = new BufferedReader(new InputStreamReader(
-                    new DataInputStream(new FileInputStream(PATH))));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] cur = line.split(" = ");
-                if (cur.length != 2) {
-                    Log.e(TAG, "Settings file corrupted! Please verify if it has the following format:\n" +
-                            "key = value\n");
-                    break;
-                }
-                settings.put(cur[0], cur[1]);
-            }
+            settings = (HashMap<String, String>) xstream.fromXML(new FileReader(PATH));
+            System.out.println(settings);
         } catch (FileNotFoundException e) {
-            Log.e(TAG, e);
-        } catch (IOException e) {
-            Log.e(TAG, e);
+            e.printStackTrace();
+        } catch (StreamException e) {
+            e.printStackTrace();
         }
     }
 
@@ -56,6 +50,10 @@ public class Settings {
         if (instance == null) instance = new SoftReference<Settings>(new Settings());
         if (instance.get() == null) instance = new SoftReference<Settings>(new Settings());
         return instance.get();
+    }
+
+    public Map<String, String> getSettings() {
+        return settings;
     }
 
     /**

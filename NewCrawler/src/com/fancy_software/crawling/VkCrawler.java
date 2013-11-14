@@ -2,6 +2,10 @@ package com.fancy_software.crawling;
 
 import com.fancy_software.accounts_matching.io_local_base.Settings;
 
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * Created by Yaro
  * Date: 30.10.13
@@ -9,29 +13,28 @@ import com.fancy_software.accounts_matching.io_local_base.Settings;
  */
 public class VkCrawler implements ICrawler {
 
-    private static final String KEY_VK_LOGIN = "vk_login";
-    private static final String KEY_VK_PASSWORD = "vk_password";
-    private String login;
-    private String password;
-
-    private VkApiCaller vkApiCaller;
-
-    public VkCrawler() {
-        vkApiCaller = new VkApiCaller();
-    }
+    private Map<String, String> passwordMap;
+    private long maxAccount = 200000000;
 
     public void init() {
         Settings settings = Settings.getInstance();
-        login = settings.get(KEY_VK_LOGIN);
-        password = settings.get(KEY_VK_PASSWORD);
+        passwordMap = settings.getSettings();
     }
 
     @Override
     public void start() {
-        vkApiCaller.auth(login, password);
-//        vkApiCaller.start(ExtractType.ACCOUNTS);
-        vkApiCaller.start(ExtractType.FRIENDS);
-//        vkApiCaller.start(ExtractType.GROUPS);
+        int amount = passwordMap.keySet().size();
+        ExecutorService executor = Executors.newFixedThreadPool(amount);
+        long start = 0;
+        long perCaller = maxAccount / amount;
+        long finish = perCaller;
+        for (Map.Entry<String, String> entry : passwordMap.entrySet()) {
+            VkApiCaller apiCaller = new VkApiCaller(start, finish);
+            executor.execute(new CallRunner(apiCaller, entry.getKey(), entry.getValue(), ExtractType.ACCOUNTS));
+            start += perCaller;
+            finish += perCaller;
+        }
+        executor.shutdown();
     }
 
 

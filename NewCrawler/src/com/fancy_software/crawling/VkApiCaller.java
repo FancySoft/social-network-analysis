@@ -34,18 +34,21 @@ public class VkApiCaller {
     private final String DISPLAY = "page";
     private final String RESPONSE_TYPE = "token";
     private final String TAG = VkCrawler.class.getSimpleName();
-    private final int max_api_call = 5;
-    private final int app_installs = 1;
-    private final int barrier = max_api_call * app_installs - 1;
-    private final int for_delay = 1000;
+    private final int MAX_API_CALL = 5;
+    private final int APP_INSTALLS = 1;
+    private final int BARRIER = MAX_API_CALL * APP_INSTALLS - 1;
+    private final int FOR_DELAY = 1000;
     private long lastCallTime;
     private String access_token;
     private ResponseProcessor responseProcessor;
     private Queue<AccountVector> usersToWrite;
     private int max_ids_for_call = 390;//actually, it's 1000, but there is restriction on id length
-    private int users_max_amount = 2000;
+    private long startUser;
+    private long finishUser;
 
-    public VkApiCaller() {
+    public VkApiCaller(long startUser, long finishUser) {
+        this.startUser = startUser;
+        this.finishUser = finishUser;
         usersToWrite = new ConcurrentLinkedQueue<AccountVector>();
         responseProcessor = new ResponseProcessor();
     }
@@ -137,6 +140,7 @@ public class VkApiCaller {
             post.abort();
             HeaderLocation = response.getFirstHeader("location").getValue();
             System.out.println(HeaderLocation);
+            System.out.println("Authorization succeded");
 //            System.out.println((HeaderLocation.split("#")[1].split("&")[0].split("=")[1]));
             access_token = HeaderLocation.split("#")[1].split("&")[0].split("=")[1];
         } catch (IOException ioexc) {
@@ -152,7 +156,7 @@ public class VkApiCaller {
 
         for (int i = 0; i < max_ids_for_call; i++) {
             builder.append(userCounter + i);
-            Log.d(TAG, String.format("userCounter = %d", userCounter + i));
+            //Log.d(TAG, String.format("userCounter = %d", userCounter + i));
             builder.append(",");
         }
         //todo other fields
@@ -218,12 +222,12 @@ public class VkApiCaller {
     }
 
     private void startAccounts(ExtractType extractType) {
-        long userCounter = 0;
+        long userCounter = startUser;
         int callCounter = 0;
         lastCallTime = System.currentTimeMillis();
         while (true) {
 //            Log.d(TAG, String.format("userCounter = %d", userCounter));
-            if (userCounter > users_max_amount)
+            if (userCounter > finishUser)
                 break;
             callCounter++;
             if (delay(callCounter))
@@ -244,7 +248,7 @@ public class VkApiCaller {
             } catch (NullPointerException e) {
                 Log.e(TAG, e);
                 try {
-                    Thread.sleep(for_delay);
+                    Thread.sleep(FOR_DELAY);
                 } catch (InterruptedException e1) {
                     Log.e(TAG, e1);
                 }
@@ -262,7 +266,7 @@ public class VkApiCaller {
         lastCallTime = System.currentTimeMillis();
         while (true) {
 //            Log.d(TAG, String.format("userCounter = %d", userCounter));
-            if (userCounter > users_max_amount)
+            if (userCounter > finishUser)
                 break;
             callCounter++;
             if (delay(callCounter))
@@ -299,12 +303,10 @@ public class VkApiCaller {
             } catch (NullPointerException e) {
                 Log.e(TAG, e);
                 try {
-                    Thread.sleep(for_delay);
+                    Thread.sleep(FOR_DELAY);
                 } catch (InterruptedException e1) {
                     Log.e(TAG, e1);
                 }
-                userCounter++;
-                continue;
             }
             post.abort();
             lastCallTime = System.currentTimeMillis();
@@ -322,12 +324,12 @@ public class VkApiCaller {
     }
 
     private boolean delay(int callCounter) {
-        if (callCounter > barrier) {
+        if (callCounter > BARRIER) {
             long timeDif = System.currentTimeMillis() - lastCallTime;
-            if (timeDif < for_delay) {
+            if (timeDif < FOR_DELAY) {
                 try {
                     Log.d(TAG, "wait");
-                    Thread.sleep(for_delay - timeDif);
+                    Thread.sleep(FOR_DELAY - timeDif);
 
                 } catch (InterruptedException e) {
                     Log.e(TAG, e);
