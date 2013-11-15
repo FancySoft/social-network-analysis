@@ -1,7 +1,5 @@
 package com.fancy_software.crawling;
 
-import com.fancy_software.accounts_matching.io_local_base.Settings;
-
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -13,12 +11,13 @@ import java.util.concurrent.Executors;
  */
 public class VkCrawler implements ICrawler {
 
+    private static final String AUTH_PATH = "NewCrawler/config/settings.xml";
     private Map<String, String> passwordMap;
     private long maxAccount = 200000000;
 
     public void init() {
-        Settings settings = Settings.getInstance();
-        passwordMap = settings.getSettings();
+        passwordMap = Utils.getAuthInfo(AUTH_PATH);
+        System.out.println(passwordMap);
     }
 
     @Override
@@ -37,9 +36,9 @@ public class VkCrawler implements ICrawler {
         executor.shutdown();
     }
 
-
     @Override
     public void finish() {
 
     }
+
 }

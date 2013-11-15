@@ -1,11 +1,9 @@
 package com.fancy_software.crawling;
 
 /**
- * Created with IntelliJ IDEA.
- * User: yaro
+ * Created by Yaro
  * Date: 13.11.13
  * Time: 18:10
- * To change this template use File | Settings | File Templates.
  */
 public class CallRunner implements Runnable {
 
