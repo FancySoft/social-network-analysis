@@ -29,7 +29,8 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class VkApiCaller {
 
     private final String APP_ID = "3437182";
-    private final String SCOPE = "262146";
+    private final String SCOPE = "notify,friends,photos,audio,video,docs,notes,pages,status,offers,questions," +
+            "wall,groups,messages,notifications,stats,ads,offline";
     private final String REDIRECT_URI = "http://oauth.vk.com/blank.html";
     private final String DISPLAY = "page";
     private final String RESPONSE_TYPE = "token";
