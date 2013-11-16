@@ -4,7 +4,9 @@ import com.fancy_software.logger.Log;
 
 import java.io.*;
 import java.lang.ref.SoftReference;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,9 +16,6 @@ import java.util.Map;
  * ************************************************************************
  */
 
-/**
- * NOT THREAD-SAFE
- */
 public class Settings {
 
     private static final String TAG = Settings.class.getSimpleName();
@@ -70,12 +69,42 @@ public class Settings {
 
     /**
      * Store value for key
-     *
+     * NOT THREAD-SAFE
      * @param key   key
      * @param value value
      */
     public void put(String key, String value) {
         settings.put(key, value);
+        writeToFile();
+    }
+
+    /**
+     * Get stored array of values
+     * @param key array key
+     * @return    array
+     */
+    public List<String> getArray(String key) {
+        if (!settings.containsKey(key + "_size")) return null;
+        int size = Integer.parseInt(settings.get(key + "_size"));
+        List<String> result = new ArrayList<String>(size);
+        for (int i = 0; i < size; i++) {
+            result.add(settings.get(key + "_" + i));
+        }
+        return result;
+    }
+
+    /**
+     * Store array of values
+     * NOT THREAD-SAFE
+     * @param key   key
+     * @param value values
+     */
+    public void putArray(String key, List<String> value) {
+        settings.put(key + "_size", Integer.toString(value.size()));
+        int i = 0;
+        for (String s : value) {
+            settings.put(key + "_" + i++, s);
+        }
         writeToFile();
     }
 
