@@ -24,7 +24,7 @@ public class Settings {
     private Map<String, String> settings;
 
     private Settings() {
-        settings = new HashMap<String, String>();
+        settings = new HashMap<>();
         BufferedReader reader;
         try {
             reader = new BufferedReader(new InputStreamReader(
@@ -39,8 +39,6 @@ public class Settings {
                 }
                 settings.put(cur[0], cur[1]);
             }
-        } catch (FileNotFoundException e) {
-            Log.e(TAG, e);
         } catch (IOException e) {
             Log.e(TAG, e);
         }
@@ -52,8 +50,8 @@ public class Settings {
      * @return instance
      */
     public static Settings getInstance() {
-        if (instance == null) instance = new SoftReference<Settings>(new Settings());
-        if (instance.get() == null) instance = new SoftReference<Settings>(new Settings());
+        if (instance == null) instance = new SoftReference<>(new Settings());
+        if (instance.get() == null) instance = new SoftReference<>(new Settings());
         return instance.get();
     }
 
@@ -86,7 +84,7 @@ public class Settings {
     public List<String> getArray(String key) {
         if (!settings.containsKey(key + "_size")) return null;
         int size = Integer.parseInt(settings.get(key + "_size"));
-        List<String> result = new ArrayList<String>(size);
+        List<String> result = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
             result.add(settings.get(key + "_" + i));
         }
