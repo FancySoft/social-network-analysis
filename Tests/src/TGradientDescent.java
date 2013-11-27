@@ -21,6 +21,15 @@ public class TGradientDescent {
         double[] init = new double[1];
         init[0] = 2;
         double[] result = GradientDescent.minimize(f, init);
-        Assert.that(result[0] > 0 ? result[0] < 0.1 : result[0] > -0.1, result[0] + " is far from 0");
+        Assert.that(Math.abs(result[0]) < 0.01, result[0] + " is far from 0");
+
+        f = new IFunction() {
+            @Override
+            public double evaluate(double[] v) {
+                return v[0] * v[0] + v[0];
+            }
+        };
+        result = GradientDescent.minimize(f, init);
+        Assert.that(Math.abs(result[0] + 0.5) < 0.01, result[0] + " is far from -0.5");
     }
 }
