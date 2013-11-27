@@ -3,5 +3,4 @@
 # Package Files #
 *.war
 *.ear
-.idea/workspace.xml
 *.DS_Store
