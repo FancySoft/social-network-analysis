@@ -17,7 +17,7 @@ public class TestTextComparator {
         if (text.size() == 0)
             return null;
         // Begin by importing documents from text to feature sequences
-        ArrayList<Pipe> pipeList = new ArrayList<Pipe>();
+        ArrayList<Pipe> pipeList = new ArrayList<>();
         // Pipes: lowercase, tokenize, remove stopwords, map to features
         pipeList.add(new CharSequenceLowercase());
         pipeList.add(new CharSequence2TokenSequence(Pattern.compile("\\p{L}[\\p{L}\\p{P}]+\\p{L}")));
@@ -51,7 +51,7 @@ public class TestTextComparator {
         double[] topicDistribution = model.getTopicProbabilities(0);
         // Get an array of sorted sets of word ID/count pairs
         ArrayList<TreeSet<IDSorter>> topicSortedWords = model.getSortedWords();
-        HashMap<Double, String[]> result = new HashMap<Double, String[]>();
+        HashMap<Double, String[]> result = new HashMap<>();
         // Show top 5 words in topics with proportions for the first document
         for (int topic = 0; topic < numTopics; topic++) {
             Iterator<IDSorter> iterator = topicSortedWords.get(topic).iterator();

@@ -81,6 +81,7 @@ public class Settings {
      * @param key array key
      * @return    array
      */
+    @SuppressWarnings("unused")
     public List<String> getArray(String key) {
         if (!settings.containsKey(key + "_size")) return null;
         int size = Integer.parseInt(settings.get(key + "_size"));
@@ -97,6 +98,7 @@ public class Settings {
      * @param key   key
      * @param value values
      */
+    @SuppressWarnings("unused")
     public void putArray(String key, List<String> value) {
         settings.put(key + "_size", Integer.toString(value.size()));
         int i = 0;

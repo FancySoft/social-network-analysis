@@ -5,7 +5,6 @@ import java.util.List;
 
 public class AccountVector {
 
-    // TODO: Вектор данных о пользователе. Нужно определиться с полями.
     private long id;
     private String first_name;
     private String last_name;
@@ -15,8 +14,8 @@ public class AccountVector {
     private BirthDate birthDate;
 
     public AccountVector() {
-        groups = new LinkedList<String>();
-        friends = new LinkedList<Long>();
+        groups = new LinkedList<>();
+        friends = new LinkedList<>();
         sex = Sex.NA;
     }
 
@@ -81,10 +80,12 @@ public class AccountVector {
         groups.add(group);
     }
 
+    @SuppressWarnings("unused")
     public void removeFriend(Long friendId) {
         friends.remove(friendId);
     }
 
+    @SuppressWarnings("unused")
     public void removeGroup(String group) {
         groups.remove(group);
     }
@@ -96,6 +97,7 @@ public class AccountVector {
         return false;
     }
 
+    @SuppressWarnings("unused")
     public boolean hasGroup(String group) {
         for (String group1 : groups)
             if (group1.equals(group))

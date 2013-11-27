@@ -1,6 +1,6 @@
 package com.fancy_software.accounts_matching.crawling.parsers;
 
-import com.fancy_software.accounts_matching.io_local_base.PathGenerator;
+import com.fancy_software.accounts_matching.crawling.PathGenerator;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
 import com.fancy_software.logger.Log;
@@ -15,7 +15,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -135,8 +134,6 @@ public class VkParser extends AbstractParser {
             BufferedReader reader = new BufferedReader(new InputStreamReader(url2.openStream(), "utf-8"));
             line = reader.readLine();
             reader.close();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -149,7 +146,7 @@ public class VkParser extends AbstractParser {
         }
 
         if (result != null && result.containsKey("error")) {
-            if ((Integer) ((Map) result.get("error")).get("error_code") == 6) {
+            if (((Map) result.get("error")).get("error_code") == 6) {
                 try {
                     Thread.sleep(300);
                 } catch (InterruptedException e) {
@@ -201,7 +198,7 @@ public class VkParser extends AbstractParser {
             list.remove(0);
 
             String temp;
-            List<String> temporary = new ArrayList<String>();
+            List<String> temporary = new ArrayList<>();
             for (Object o : list) {
                 m = (Map) o;
                 temp = (String) m.get("description");

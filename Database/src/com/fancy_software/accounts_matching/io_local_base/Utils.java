@@ -1,5 +1,6 @@
-package com.fancy_software.crawling;
+package com.fancy_software.accounts_matching.io_local_base;
 
+import com.fancy_software.logger.Log;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.StreamException;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -15,15 +16,16 @@ import java.util.Map;
  */
 public class Utils {
 
+    private static final String TAG = Utils.class.getSimpleName();
+
+    @SuppressWarnings("unchecked")
     public static Map<String, String> getAuthInfo(String path) {
         XStream xstream = new XStream(new DomDriver());
         try {
             return (Map<String, String>) xstream.fromXML(new FileReader(path));
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (StreamException e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException | StreamException e) {
+            Log.e(TAG, e);
         }
         return null;
     }

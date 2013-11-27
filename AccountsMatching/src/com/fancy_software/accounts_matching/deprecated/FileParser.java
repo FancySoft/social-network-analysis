@@ -2,10 +2,13 @@ package com.fancy_software.accounts_matching.deprecated;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
+import com.fancy_software.logger.Log;
 
 import java.io.*;
 
 public class FileParser {
+
+    private static final String TAG = FileParser.class.getSimpleName();
 
     /**
      * Парсить текстовый файл в формате:
@@ -26,7 +29,7 @@ public class FileParser {
             boolean reading = false;
             int readingNow = -1;
             //0=id, 1 = name, 2 = sex, 3 = bdate, 4 = groups, 5=friends
-            String line = "";
+            String line;
             while ((line = reader.readLine()) != null) {
                 if (reading) {
                     switch (readingNow) {
@@ -42,15 +45,16 @@ public class FileParser {
                             break;
                         }
                         case 2: {
-                            if (line.equals("NA")) {
-                                result.setSex(AccountVector.Sex.NA);
-
-                            } else if (line.equals("FEMALE")) {
-                                result.setSex(AccountVector.Sex.FEMALE);
-
-                            } else if (line.equals("MALE")) {
-                                result.setSex(AccountVector.Sex.MALE);
-
+                            switch (line) {
+                                case "NA":
+                                    result.setSex(AccountVector.Sex.NA);
+                                    break;
+                                case "FEMALE":
+                                    result.setSex(AccountVector.Sex.FEMALE);
+                                    break;
+                                case "MALE":
+                                    result.setSex(AccountVector.Sex.MALE);
+                                    break;
                             }
                         }
                         case 3: {
@@ -73,25 +77,31 @@ public class FileParser {
                     }
                 } else {
                     String[] cmd = line.split(" ");
-                    if (cmd[1].equals("ID"))
-                        readingNow = 0;
-                    else if (cmd[1].equals("NAME"))
-                        readingNow = 1;
-                    else if (cmd[1].equals("SEX"))
-                        readingNow = 2;
-                    else if (cmd[1].equals("BDATE"))
-                        readingNow = 3;
-                    else if (cmd[1].equals("GROUPS"))
-                        readingNow = 4;
-                    else
-                        readingNow = 5;
+                    switch (cmd[1]) {
+                        case "ID":
+                            readingNow = 0;
+                            break;
+                        case "NAME":
+                            readingNow = 1;
+                            break;
+                        case "SEX":
+                            readingNow = 2;
+                            break;
+                        case "BDATE":
+                            readingNow = 3;
+                            break;
+                        case "GROUPS":
+                            readingNow = 4;
+                            break;
+                        default:
+                            readingNow = 5;
+                            break;
+                    }
                     reading = true;
                 }
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG, e);
         }
         return result;
     }

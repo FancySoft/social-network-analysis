@@ -10,7 +10,7 @@ public class AccountExtractor {
 
     public static List<AccountVector> commonAccounts(Map<Long, AccountVector> accountVectorMap, List<Clique> res) {
 
-        List<AccountVector> result = new ArrayList<AccountVector>();
+        List<AccountVector> result = new ArrayList<>();
         int counter = 0;
         for (Long i : accountVectorMap.keySet()) {
             for (Clique clique : res) {

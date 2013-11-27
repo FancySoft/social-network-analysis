@@ -9,7 +9,7 @@ import java.util.TreeMap;
 public class Utils {
 
     // Таблица транслита по госту для загранпаспортов с википедии
-    private static final Map<Character, String> translitTable = new TreeMap<Character, String>();
+    private static final Map<Character, String> translitTable = new TreeMap<>();
 
     static {
         translitTable.put('а', "a");
@@ -47,27 +47,32 @@ public class Utils {
         translitTable.put('я', "ya");
     }
 
-    public static void print(List<? extends Object> text) {
+    @SuppressWarnings("unused")
+    public static void print(List<?> text) {
         for (Object object : text) {
             System.out.println(object);
         }
     }
 
+    @SuppressWarnings("unused")
     public static void print(String[] text) {
         for (String s : text) {
             System.out.println(s);
         }
     }
 
+    @SuppressWarnings("unused")
+    /**
+     * Reads the text file in 1251 encoding
+     */
     public static List<String> getText(String fileName) throws IOException {
         Reader reader = new InputStreamReader(new FileInputStream(new File(fileName)), "windows-1251");
-        List<String> text = new ArrayList<String>();
+        List<String> text = new ArrayList<>();
         LineNumberReader r = new LineNumberReader(reader);
         for (; ; ) {
             String s = r.readLine();
             if (s == null)
                 return text;
-            //System.out.println(s);
             text.add(s);
         }
     }
@@ -120,7 +125,7 @@ public class Utils {
         return s1.length() - count;
     }
 
-    public static void print(Map<? extends Object, ? extends Object> map) {
+    public static void print(Map<?, ?> map) {
         for (Object object : map.keySet()) {
             System.out.println("Key: " + object.toString() + " Value: " + map.get(object));
         }

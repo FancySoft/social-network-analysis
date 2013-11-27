@@ -1,7 +1,7 @@
 package com.fancy_software.crawling;
 
+import com.fancy_software.accounts_matching.crawling.PathGenerator;
 import com.fancy_software.accounts_matching.io_local_base.LocalAccountReader;
-import com.fancy_software.accounts_matching.io_local_base.PathGenerator;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.logger.Log;
 import org.apache.http.HttpResponse;
@@ -14,7 +14,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.Queue;
@@ -50,7 +49,7 @@ public class VkApiCaller {
     public VkApiCaller(long startUser, long finishUser) {
         this.startUser = startUser;
         this.finishUser = finishUser;
-        usersToWrite = new ConcurrentLinkedQueue<AccountVector>();
+        usersToWrite = new ConcurrentLinkedQueue<>();
         responseProcessor = new ResponseProcessor();
     }
 
@@ -242,8 +241,6 @@ public class VkApiCaller {
                 reader.close();
                 System.out.println(line);
                 addUsersToWrite(responseProcessor.processResponse(line));
-            } catch (MalformedURLException e) {
-                Log.e(TAG, e);
             } catch (IOException e) {
                 Log.e(TAG, e);
             } catch (NullPointerException e) {
@@ -297,8 +294,6 @@ public class VkApiCaller {
                         break;
                 }
                 addUsersToWrite(vector);
-            } catch (MalformedURLException e) {
-                Log.e(TAG, e);
             } catch (IOException e) {
                 Log.e(TAG, e);
             } catch (NullPointerException e) {

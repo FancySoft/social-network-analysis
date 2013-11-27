@@ -36,20 +36,24 @@ public class AccountMeasurer {
         this.vector2 = vector2;
     }
 
+    @SuppressWarnings("unused")
     public static double getSexWeight() {
         return SEX_WEIGHT;
     }
 
+    @SuppressWarnings("unused")
     public static double getBdateWeight() {
 
         return BDATE_WEIGHT;
     }
 
+    @SuppressWarnings("unused")
     public static double getNameWeight() {
 
         return NAME_WEIGHT;
     }
 
+    @SuppressWarnings("unused")
     public static double getLdaWeight() {
 
         return LDA_WEIGHT;

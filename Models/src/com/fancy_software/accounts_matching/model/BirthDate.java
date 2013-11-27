@@ -1,15 +1,18 @@
 package com.fancy_software.accounts_matching.model;
 
+import java.util.Calendar;
+
 public class BirthDate {
     private int day;
     private int month;
     private int year;
 
+    @SuppressWarnings("unused")
     public int getCurrentYear() {
         return currentYear;
     }
 
-    private static int currentYear=2013;
+    private static final int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
     //todo посмотреть, что происходит с неполными датами
     public BirthDate(int day, int month, int year) {

@@ -10,6 +10,8 @@
     <orderEntry type="module" module-name="AccountsMatching" />
     <orderEntry type="module" module-name="NewCrawler" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="module" module-name="Database" />
+    <orderEntry type="module" module-name="Models" />
   </component>
 </module>
 

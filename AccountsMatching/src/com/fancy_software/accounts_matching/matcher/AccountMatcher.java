@@ -43,15 +43,15 @@ public class AccountMatcher {
     public void init(String path1, String path2) throws FileNotFoundException {
         accountVectorMap1 = LocalAccountReader.readAllAccounts(path1);
         accountVectorMap2 = LocalAccountReader.readAllAccounts(path2);
-        matchMap = new HashMap<Long, Long>();
-        probableMatchForAccountsMap = new HashMap<AccountVector, ProbableMatch>();
+        matchMap = new HashMap<>();
+        probableMatchForAccountsMap = new HashMap<>();
     }
 
-    public AccountVector getByIdFromMap1(int id) {
+    public AccountVector getByIdFromMap1(Long id) {
         return accountVectorMap1.get(id);
     }
 
-    public AccountVector getByIdFromMap2(int id) {
+    public AccountVector getByIdFromMap2(Long id) {
         return accountVectorMap2.get(id);
     }
 
@@ -62,6 +62,7 @@ public class AccountMatcher {
         }
         executor.shutdown();
         while (!executor.isTerminated()) {
+            Thread.yield();
         }
         matchingForNotExact();
         System.out.println("RESULT:");

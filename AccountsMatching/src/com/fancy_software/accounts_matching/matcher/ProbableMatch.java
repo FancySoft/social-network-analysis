@@ -12,9 +12,10 @@ public class ProbableMatch {
 
     public ProbableMatch(AccountVector vector) {
         this.vector = vector;
-        probableMatchesForVector = new HashMap<AccountVector, Double>();
+        probableMatchesForVector = new HashMap<>();
     }
 
+    @SuppressWarnings("unused")
     public AccountVector getAccountVector() {
         return vector;
     }
@@ -27,6 +28,7 @@ public class ProbableMatch {
         probableMatchesForVector.put(probableMatch, measureValue);
     }
 
+    @SuppressWarnings("unused")
     public AccountVector getProbableMatchById(long id) {
         for (AccountVector accountVector : probableMatchesForVector.keySet())
             if (accountVector.getId() == id)
@@ -34,10 +36,12 @@ public class ProbableMatch {
         return null;
     }
 
+    @SuppressWarnings("unused")
     public void removeProbableMatch(AccountVector accountVector) {
         probableMatchesForVector.remove(accountVector);
     }
 
+    @SuppressWarnings("unused")
     public void removeProbableMatchById(long id) {
         for (AccountVector accountVector : probableMatchesForVector.keySet())
             if (accountVector.getId() == id)
