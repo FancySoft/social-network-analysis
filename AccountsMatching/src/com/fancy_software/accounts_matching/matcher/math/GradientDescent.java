@@ -25,7 +25,7 @@ public class GradientDescent {
         }
 
         int dim = v1.length;
-        double result[] = new double[dim];
+        double[] result = new double[dim];
         double fv1 = f.evaluate(v1);
         double fv2 = f.evaluate(v2);
         double df = fv2 - fv1;
@@ -44,7 +44,7 @@ public class GradientDescent {
      */
     public static double[] add(double[] v1, double[] v2) {
         int dim = v1.length;
-        double result[] = new double[v1.length];
+        double[] result = new double[v1.length];
         for (int i = 0; i < dim; i++) {
             result[i] = v1[i] + v2[i];
         }
@@ -59,7 +59,7 @@ public class GradientDescent {
      */
     public static double[] subtract(double[] v1, double[] v2) {
         int dim = v1.length;
-        double result[] = new double[v1.length];
+        double[] result = new double[v1.length];
         for (int i = 0; i < dim; i++) {
             result[i] = v1[i] - v2[i];
         }
@@ -72,13 +72,9 @@ public class GradientDescent {
      * @return  нормализованный вектор
      */
     private static double[] normalize(double[] v) {
-        double measure = 0;
-        double result[] = new double[v.length];
-        for (double x : v) {
-            measure += x*x;
-        }
+        double[] result = new double[v.length];
         for (int i = 0; i < v.length; i++) {
-            result[i] = v[i] / (measure * step);
+            result[i] = v[i] / step;
         }
         return result;
     }
@@ -97,20 +93,33 @@ public class GradientDescent {
 
         double[] direction = new double[dim];
         for (int i = 0; i < dim; i++) {
-            direction[i] = 1. / i;
+            direction[i] = 1. / (i + 1);
         }
 
-        double[] prev;
-        double[] cur = add(init, direction);
+        double[] prev = init;
+        double[] cur = subtract(init, direction);
 
-        int ITERATIONS = 5;
+        // Текущий минимум. Нужен, чтобы уточнить результат в случае с нашей функцией.
+        double[] curMin = init;
+        double fCurMin = f.evaluate(init);
+
+        int ITERATIONS = 10;
         while (ITERATIONS > 0) {
-            direction = normalize(grad(f, init, cur));
+            if (f.evaluate(cur) < fCurMin) {
+                fCurMin = f.evaluate(cur);
+                curMin = cur;
+            }
+            double[] grad = grad(f, prev, cur);
+            direction = normalize(grad);
             prev = cur;
-            cur = subtract(prev, direction);
-            step *= 2;
+            while (f.evaluate(cur) == f.evaluate(prev)) {
+                cur = subtract(cur, direction);
+            }
+            step++;
+            ITERATIONS--;
         }
 
+        if (fCurMin < f.evaluate(cur)) return curMin;
         return cur;
     }
 }
