@@ -1,0 +1,28 @@
+<AccountVector>
+  <id>9731053</id>
+  <firstName>Julia</firstName>
+  <lastName>Nice</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>356011</long>
+    <long>1588979</long>
+    <long>1773254</long>
+    <long>4569525</long>
+    <long>5324011</long>
+    <long>7644331</long>
+    <long>9790107</long>
+    <long>10139433</long>
+    <long>10766592</long>
+    <long>16338674</long>
+    <long>17233096</long>
+    <long>28025905</long>
+    <long>49819143</long>
+    <long>71333138</long>
+  </friends>
+  <birthDate>
+    <day>7</day>
+    <month>4</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

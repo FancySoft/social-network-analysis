@@ -1,0 +1,17 @@
+<AccountVector>
+  <id>107868530</id>
+  <firstName>Julia</firstName>
+  <lastName>Delirium</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>50130285</long>
+    <long>65512696</long>
+    <long>125377585</long>
+  </friends>
+  <birthDate>
+    <day>14</day>
+    <month>10</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

@@ -1,0 +1,19 @@
+<AccountVector>
+  <id>50130285</id>
+  <firstName>Ches</firstName>
+  <lastName>Надзиратель</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>23548384</long>
+    <long>23860797</long>
+    <long>65512696</long>
+    <long>69898706</long>
+    <long>107868530</long>
+  </friends>
+  <birthDate>
+    <day>0</day>
+    <month>0</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

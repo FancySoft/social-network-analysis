@@ -1,0 +1,20 @@
+<AccountVector>
+  <id>14526230</id>
+  <firstName>Аюна</firstName>
+  <lastName>Бутуханова</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>3751842</long>
+    <long>9857294</long>
+    <long>10375161</long>
+    <long>17933449</long>
+    <long>19134442</long>
+    <long>51801291</long>
+  </friends>
+  <birthDate>
+    <day>11</day>
+    <month>9</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

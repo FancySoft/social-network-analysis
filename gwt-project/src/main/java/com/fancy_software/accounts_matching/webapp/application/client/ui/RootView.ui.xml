@@ -1,0 +1,42 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:d='urn:import:com.google.gwt.user.datepicker.client'>
+    <g:HTMLPanel ui:field="rootPanel">
+        <table>
+            <tr>
+                <td>
+                    <g:Label ui:field="firstNameL" text="First name: "/>
+                </td>
+                <td>
+                    <g:TextBox ui:field="firstNameTB"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <g:Label ui:field="lastNameL" text="Last name: "/>
+                </td>
+                <td>
+                    <g:TextBox ui:field="lastNameTB"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <g:Label ui:field="sexL" text="Sex: "/>
+                </td>
+                <td>
+                    <g:RadioButton ui:field="maleSexRB" name="sexGroup" text="male"/>
+                    <g:RadioButton ui:field="femaleSexRB" name="sexGroup" text="female"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <g:Label ui:field="birhDateL" text="Birh date: "/>
+                </td>
+                <td>
+                    <d:DateBox ui:field="birthDateDB"/>
+                </td>
+            </tr>
+        </table>
+        <g:Button ui:field="launchB" text="Launch matching"/>
+    </g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,26 @@
+<AccountVector>
+  <id>12828920</id>
+  <firstName>Толян</firstName>
+  <lastName>Нятин</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>369621</long>
+    <long>1175118</long>
+    <long>1526701</long>
+    <long>1676722</long>
+    <long>1835693</long>
+    <long>3320654</long>
+    <long>4604056</long>
+    <long>6232450</long>
+    <long>17043347</long>
+    <long>19428388</long>
+    <long>42284313</long>
+    <long>115753099</long>
+  </friends>
+  <birthDate>
+    <day>9</day>
+    <month>6</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

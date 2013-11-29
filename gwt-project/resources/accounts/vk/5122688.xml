@@ -1,0 +1,25 @@
+<AccountVector>
+  <id>5122688</id>
+  <firstName>Катюшка</firstName>
+  <lastName>Пискунова</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>1484560</long>
+    <long>1526701</long>
+    <long>1676722</long>
+    <long>1852326</long>
+    <long>3226573</long>
+    <long>3627344</long>
+    <long>4604056</long>
+    <long>6053606</long>
+    <long>15377100</long>
+    <long>42284313</long>
+    <long>115753099</long>
+  </friends>
+  <birthDate>
+    <day>15</day>
+    <month>2</month>
+    <year>1992</year>
+  </birthDate>
+</AccountVector>

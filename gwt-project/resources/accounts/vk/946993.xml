@@ -1,0 +1,18 @@
+<AccountVector>
+  <id>946993</id>
+  <firstName>Даниил</firstName>
+  <lastName>Сухочев</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>2745101</long>
+    <long>10375161</long>
+    <long>10685867</long>
+    <long>16646886</long>
+  </friends>
+  <birthDate>
+    <day>12</day>
+    <month>9</month>
+    <year>1991</year>
+  </birthDate>
+</AccountVector>

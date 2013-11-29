@@ -1,0 +1,28 @@
+<AccountVector>
+  <id>10806757</id>
+  <firstName>Алексей</firstName>
+  <lastName>Маслов</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>3353370</long>
+    <long>6526540</long>
+    <long>7391897</long>
+    <long>8164640</long>
+    <long>8232400</long>
+    <long>12784580</long>
+    <long>14218337</long>
+    <long>15377100</long>
+    <long>16338674</long>
+    <long>17453703</long>
+    <long>18774747</long>
+    <long>21406812</long>
+    <long>30916389</long>
+    <long>71335494</long>
+  </friends>
+  <birthDate>
+    <day>13</day>
+    <month>7</month>
+    <year>1993</year>
+  </birthDate>
+</AccountVector>

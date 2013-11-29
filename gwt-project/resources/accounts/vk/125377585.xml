@@ -1,0 +1,16 @@
+<AccountVector>
+  <id>125377585</id>
+  <firstName>Ксения</firstName>
+  <lastName>Афанасьева</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>23548384</long>
+    <long>107868530</long>
+  </friends>
+  <birthDate>
+    <day>17</day>
+    <month>11</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

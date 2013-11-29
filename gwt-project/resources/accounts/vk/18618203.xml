@@ -1,0 +1,17 @@
+<AccountVector>
+  <id>18618203</id>
+  <firstName>Дулсан</firstName>
+  <lastName>Дамбаева</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>10500883</long>
+    <long>19134442</long>
+    <long>31685632</long>
+  </friends>
+  <birthDate>
+    <day>23</day>
+    <month>4</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

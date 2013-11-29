@@ -1,0 +1,29 @@
+<AccountVector>
+  <id>18774747</id>
+  <firstName>Polina</firstName>
+  <lastName>Yefimova</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>1773254</long>
+    <long>3353370</long>
+    <long>3959630</long>
+    <long>6526540</long>
+    <long>7391897</long>
+    <long>7644331</long>
+    <long>8164640</long>
+    <long>8232400</long>
+    <long>10139433</long>
+    <long>10806757</long>
+    <long>12784580</long>
+    <long>17453703</long>
+    <long>20455339</long>
+    <long>30916389</long>
+    <long>71335494</long>
+  </friends>
+  <birthDate>
+    <day>27</day>
+    <month>11</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

@@ -1,0 +1,26 @@
+<AccountVector>
+  <id>1862738</id>
+  <firstName>Татьяна</firstName>
+  <lastName>Дерибина</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>1501462</long>
+    <long>1773254</long>
+    <long>4569525</long>
+    <long>6497218</long>
+    <long>6526540</long>
+    <long>7644331</long>
+    <long>12784580</long>
+    <long>15282290</long>
+    <long>16338674</long>
+    <long>17233096</long>
+    <long>49819143</long>
+    <long>71333138</long>
+  </friends>
+  <birthDate>
+    <day>1</day>
+    <month>8</month>
+    <year>1992</year>
+  </birthDate>
+</AccountVector>

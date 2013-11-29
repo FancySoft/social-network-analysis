@@ -1,0 +1,13 @@
+<AccountVector>
+  <id>13148117</id>
+  <firstName>Валентина</firstName>
+  <lastName>Агафонова</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list"/>
+  <birthDate>
+    <day>8</day>
+    <month>10</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

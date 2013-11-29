@@ -1,0 +1,22 @@
+<AccountVector>
+  <id>19428388</id>
+  <firstName>Сергей</firstName>
+  <lastName>Мясников</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>248121</long>
+    <long>369621</long>
+    <long>1526701</long>
+    <long>1835693</long>
+    <long>12828920</long>
+    <long>17043347</long>
+    <long>42284313</long>
+    <long>115753099</long>
+  </friends>
+  <birthDate>
+    <day>3</day>
+    <month>6</month>
+    <year>1992</year>
+  </birthDate>
+</AccountVector>

@@ -1,0 +1,16 @@
+<AccountVector>
+  <id>26638731</id>
+  <firstName>Александр</firstName>
+  <lastName>Балсуков</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>8821107</long>
+    <long>14012772</long>
+  </friends>
+  <birthDate>
+    <day>5</day>
+    <month>2</month>
+    <year>1989</year>
+  </birthDate>
+</AccountVector>

@@ -1,0 +1,27 @@
+<AccountVector>
+  <id>10192920</id>
+  <firstName>Наталья</firstName>
+  <lastName>Васянович</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>356011</long>
+    <long>1501462</long>
+    <long>1588979</long>
+    <long>4569525</long>
+    <long>6497218</long>
+    <long>6526540</long>
+    <long>7644331</long>
+    <long>8847766</long>
+    <long>10823336</long>
+    <long>12784580</long>
+    <long>15282290</long>
+    <long>16338674</long>
+    <long>17277007</long>
+  </friends>
+  <birthDate>
+    <day>3</day>
+    <month>8</month>
+    <year>1991</year>
+  </birthDate>
+</AccountVector>

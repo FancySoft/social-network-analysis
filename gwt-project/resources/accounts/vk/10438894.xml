@@ -1,0 +1,13 @@
+<AccountVector>
+  <id>10438894</id>
+  <firstName>Dmitry</firstName>
+  <lastName>Darkhanov</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list"/>
+  <birthDate>
+    <day>16</day>
+    <month>5</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

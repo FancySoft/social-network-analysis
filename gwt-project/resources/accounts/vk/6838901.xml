@@ -1,0 +1,22 @@
+<AccountVector>
+  <id>6838901</id>
+  <firstName>Кирилл</firstName>
+  <lastName>Бохач</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>2092160</long>
+    <long>2838379</long>
+    <long>11921262</long>
+    <long>16897620</long>
+    <long>31685632</long>
+    <long>44907618</long>
+    <long>123477071</long>
+    <long>155158073</long>
+  </friends>
+  <birthDate>
+    <day>10</day>
+    <month>7</month>
+    <year>1920</year>
+  </birthDate>
+</AccountVector>

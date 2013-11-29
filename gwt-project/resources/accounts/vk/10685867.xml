@@ -1,0 +1,19 @@
+<AccountVector>
+  <id>10685867</id>
+  <firstName>Алексей</firstName>
+  <lastName>Лысенко</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>946993</long>
+    <long>4079816</long>
+    <long>5410351</long>
+    <long>8285829</long>
+    <long>44907618</long>
+  </friends>
+  <birthDate>
+    <day>30</day>
+    <month>3</month>
+    <year>1994</year>
+  </birthDate>
+</AccountVector>

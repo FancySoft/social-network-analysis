@@ -1,0 +1,15 @@
+<AccountVector>
+  <id>26511728</id>
+  <firstName>Анита</firstName>
+  <lastName>Меркель</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>16646886</long>
+  </friends>
+  <birthDate>
+    <day>26</day>
+    <month>8</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

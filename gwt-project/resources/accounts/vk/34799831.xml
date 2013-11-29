@@ -1,0 +1,17 @@
+<AccountVector>
+  <id>34799831</id>
+  <firstName>Маша</firstName>
+  <lastName>Гнеушева</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>11921262</long>
+    <long>31685632</long>
+    <long>155158073</long>
+  </friends>
+  <birthDate>
+    <day>6</day>
+    <month>4</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

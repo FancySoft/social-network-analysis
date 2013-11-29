@@ -1,0 +1,23 @@
+<AccountVector>
+  <id>2092160</id>
+  <firstName>Мелена</firstName>
+  <lastName>Мельникова</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>878028</long>
+    <long>6838901</long>
+    <long>11921262</long>
+    <long>16897620</long>
+    <long>22084920</long>
+    <long>31685632</long>
+    <long>69898706</long>
+    <long>86401156</long>
+    <long>155158073</long>
+  </friends>
+  <birthDate>
+    <day>9</day>
+    <month>8</month>
+    <year>1990</year>
+  </birthDate>
+</AccountVector>

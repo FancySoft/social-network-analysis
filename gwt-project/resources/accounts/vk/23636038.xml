@@ -1,0 +1,13 @@
+<AccountVector>
+  <id>23636038</id>
+  <firstName>Татьяна</firstName>
+  <lastName>Ревягина</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list"/>
+  <birthDate>
+    <day>26</day>
+    <month>11</month>
+    <year>1992</year>
+  </birthDate>
+</AccountVector>

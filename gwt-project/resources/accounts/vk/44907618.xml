@@ -1,0 +1,20 @@
+<AccountVector>
+  <id>44907618</id>
+  <firstName>Кристина</firstName>
+  <lastName>Красикова</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>878028</long>
+    <long>6838901</long>
+    <long>10685867</long>
+    <long>16897620</long>
+    <long>23548384</long>
+    <long>155158073</long>
+  </friends>
+  <birthDate>
+    <day>19</day>
+    <month>5</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

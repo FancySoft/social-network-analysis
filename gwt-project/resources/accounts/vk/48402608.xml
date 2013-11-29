@@ -1,0 +1,13 @@
+<AccountVector>
+  <id>48402608</id>
+  <firstName>Григорий</firstName>
+  <lastName>Болтрик</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list"/>
+  <birthDate>
+    <day>14</day>
+    <month>6</month>
+    <year>1991</year>
+  </birthDate>
+</AccountVector>

@@ -1,0 +1,18 @@
+<AccountVector>
+  <id>69898706</id>
+  <firstName>Алеся</firstName>
+  <lastName>Дизи</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>2092160</long>
+    <long>2745101</long>
+    <long>10375161</long>
+    <long>50130285</long>
+  </friends>
+  <birthDate>
+    <day>20</day>
+    <month>6</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

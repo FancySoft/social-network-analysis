@@ -1,0 +1,24 @@
+<AccountVector>
+  <id>3810680</id>
+  <firstName>Ангира</firstName>
+  <lastName>Кектеева</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>1553326</long>
+    <long>3353370</long>
+    <long>7391897</long>
+    <long>7644331</long>
+    <long>8164640</long>
+    <long>8232400</long>
+    <long>18385784</long>
+    <long>30916389</long>
+    <long>71335494</long>
+    <long>103027594</long>
+  </friends>
+  <birthDate>
+    <day>21</day>
+    <month>11</month>
+    <year>1993</year>
+  </birthDate>
+</AccountVector>

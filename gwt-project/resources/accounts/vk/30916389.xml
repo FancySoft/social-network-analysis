@@ -1,0 +1,28 @@
+<AccountVector>
+  <id>30916389</id>
+  <firstName>Сеня</firstName>
+  <lastName>Шмальц</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>1773254</long>
+    <long>3353370</long>
+    <long>3810680</long>
+    <long>3959630</long>
+    <long>6526540</long>
+    <long>7391897</long>
+    <long>7644331</long>
+    <long>8164640</long>
+    <long>8232400</long>
+    <long>10139433</long>
+    <long>10806757</long>
+    <long>18774747</long>
+    <long>28025905</long>
+    <long>71335494</long>
+  </friends>
+  <birthDate>
+    <day>15</day>
+    <month>8</month>
+    <year>1993</year>
+  </birthDate>
+</AccountVector>

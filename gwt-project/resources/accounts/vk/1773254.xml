@@ -1,0 +1,37 @@
+<AccountVector>
+  <id>1773254</id>
+  <firstName>Михаил</firstName>
+  <lastName>Малиновский</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>356011</long>
+    <long>1501462</long>
+    <long>1862738</long>
+    <long>3959630</long>
+    <long>4569525</long>
+    <long>5324011</long>
+    <long>6497218</long>
+    <long>6526540</long>
+    <long>7644331</long>
+    <long>8164640</long>
+    <long>8847766</long>
+    <long>9731053</long>
+    <long>10139433</long>
+    <long>12784580</long>
+    <long>14218337</long>
+    <long>15282290</long>
+    <long>17233096</long>
+    <long>17277007</long>
+    <long>18774747</long>
+    <long>28025905</long>
+    <long>30916389</long>
+    <long>49819143</long>
+    <long>71333138</long>
+  </friends>
+  <birthDate>
+    <day>0</day>
+    <month>0</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

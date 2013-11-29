@@ -1,0 +1,18 @@
+<AccountVector>
+  <id>2745101</id>
+  <firstName>Евгений</firstName>
+  <lastName>Кожевников</lastName>
+  <groups class="linked-list"/>
+  <sex>MALE</sex>
+  <friends class="linked-list">
+    <long>878028</long>
+    <long>946993</long>
+    <long>10375161</long>
+    <long>69898706</long>
+  </friends>
+  <birthDate>
+    <day>18</day>
+    <month>4</month>
+    <year>1991</year>
+  </birthDate>
+</AccountVector>

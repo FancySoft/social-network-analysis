@@ -1,0 +1,17 @@
+<AccountVector>
+  <id>2052912</id>
+  <firstName>Анастасия</firstName>
+  <lastName>Смирнова</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>1588979</long>
+    <long>15260456</long>
+    <long>19663322</long>
+  </friends>
+  <birthDate>
+    <day>24</day>
+    <month>9</month>
+    <year>1993</year>
+  </birthDate>
+</AccountVector>

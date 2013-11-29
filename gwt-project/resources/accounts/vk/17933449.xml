@@ -1,0 +1,28 @@
+<AccountVector>
+  <id>17933449</id>
+  <firstName>Наташа</firstName>
+  <lastName>Гармаева</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>2865775</long>
+    <long>3523100</long>
+    <long>3751842</long>
+    <long>5350917</long>
+    <long>9857294</long>
+    <long>10375161</long>
+    <long>11729669</long>
+    <long>13709096</long>
+    <long>14526230</long>
+    <long>19134442</long>
+    <long>31685632</long>
+    <long>51801291</long>
+    <long>142131964</long>
+    <long>147122896</long>
+  </friends>
+  <birthDate>
+    <day>20</day>
+    <month>1</month>
+    <year>1993</year>
+  </birthDate>
+</AccountVector>

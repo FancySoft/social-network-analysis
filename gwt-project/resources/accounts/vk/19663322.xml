@@ -1,0 +1,19 @@
+<AccountVector>
+  <id>19663322</id>
+  <firstName>Anastasiya</firstName>
+  <lastName>Myzgina</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>2052912</long>
+    <long>7644331</long>
+    <long>9790107</long>
+    <long>12539662</long>
+    <long>15260456</long>
+  </friends>
+  <birthDate>
+    <day>0</day>
+    <month>0</month>
+    <year>0</year>
+  </birthDate>
+</AccountVector>

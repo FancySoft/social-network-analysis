@@ -1,0 +1,17 @@
+<AccountVector>
+  <id>5188043</id>
+  <firstName>Николь</firstName>
+  <lastName>Коротан</lastName>
+  <groups class="linked-list"/>
+  <sex>FEMALE</sex>
+  <friends class="linked-list">
+    <long>7644331</long>
+    <long>12539662</long>
+    <long>20455339</long>
+  </friends>
+  <birthDate>
+    <day>10</day>
+    <month>6</month>
+    <year>1990</year>
+  </birthDate>
+</AccountVector>
