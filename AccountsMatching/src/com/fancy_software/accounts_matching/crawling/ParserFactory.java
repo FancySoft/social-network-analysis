@@ -1,6 +1,7 @@
 package com.fancy_software.accounts_matching.crawling;
 
 import com.fancy_software.accounts_matching.crawling.parsers.*;
+import com.fancy_software.accounts_matching.model.SocialNetworkId;
 
 public class ParserFactory {
 
@@ -8,8 +9,6 @@ public class ParserFactory {
         switch (networkId) {
             case VK:
                 return new VkParser(networkId);
-            case Odnoklassniki:
-                return new OdnoklassnikiParser(networkId);
             case Facebook:
 
             default:

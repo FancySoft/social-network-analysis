@@ -1,7 +1,7 @@
 package com.fancy_software.accounts_matching.crawling.crawlers;
 
 import com.fancy_software.accounts_matching.crawling.ParserFactory;
-import com.fancy_software.accounts_matching.crawling.parsers.SocialNetworkId;
+import com.fancy_software.accounts_matching.model.SocialNetworkId;
 import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.logger.Log;

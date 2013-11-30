@@ -1,6 +1,6 @@
 package com.fancy_software.accounts_matching.crawling;
 
-import com.fancy_software.accounts_matching.crawling.parsers.SocialNetworkId;
+import com.fancy_software.accounts_matching.model.SocialNetworkId;
 
 public class PathGenerator {
 
