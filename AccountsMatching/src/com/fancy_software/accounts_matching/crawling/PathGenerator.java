@@ -2,7 +2,11 @@ package com.fancy_software.accounts_matching.crawling;
 
 import com.fancy_software.accounts_matching.model.SocialNetworkId;
 
+import java.io.File;
+
 public class PathGenerator {
+
+    private static final String defaultPath = "C:/accounts/vk/";
 
     private static final String pathToAccounts = "accounts/";
     private static final String pathToVkAccounts = "D:/vk/";

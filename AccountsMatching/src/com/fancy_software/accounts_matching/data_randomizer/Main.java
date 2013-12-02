@@ -27,7 +27,7 @@ public class Main {
         for(int i = 0; i < list.length; i++) {
             AccountVector vector = LocalAccountReader.readAccountFromLocalBase(pathFrom+"/"+list[i]);
             Randomizer.randomize(vector);
-            LocalAccountWriter.writeAccountToLocalBase(vector,pathTo+"/"+list[i]);
+            LocalAccountWriter.writeAccountToLocalBase(vector);
         }
         System.out.println("Randomize finished");
 

@@ -24,7 +24,7 @@ public abstract class AbstractParser implements IParser, IMatcher {
     }
 
     protected void writeToFile(AccountVector vector, String path) {
-        LocalAccountWriter.writeAccountToLocalBase(vector, path);
+        LocalAccountWriter.writeAccountToLocalBase(vector);
     }
 
 }

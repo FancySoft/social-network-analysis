@@ -10,15 +10,35 @@ import java.io.IOException;
 
 public class LocalAccountWriter {
 
-    public static void writeAccountToLocalBase(AccountVector vector, String path) {
+    private static String path = "C:/accounts/vk/";
+
+    public static String getPath() {
+        return path;
+    }
+
+    public static void setPath(String path) {
+        LocalAccountWriter.path = path;
+    }
+
+    public static void writeAccountToLocalBase(AccountVector vector) {
+        File f = new File(path);
+        if(!f.exists())
+            f.mkdirs();
         XStream xstream = new XStream(new DomDriver());
         xstream.alias("AccountVector", AccountVector.class);
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream(new File(path));
+            FileOutputStream fileOutputStream = new FileOutputStream(new File(generateDefaultPath(vector.getId())));
             xstream.toXML(vector, fileOutputStream);
             fileOutputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static String generateDefaultPath(long id){
+        StringBuilder builder = new StringBuilder(path);
+        builder.append(id);
+        builder.append(".xml");
+        return builder.toString();
     }
 }

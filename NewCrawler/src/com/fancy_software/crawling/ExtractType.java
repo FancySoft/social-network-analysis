@@ -6,5 +6,5 @@ package com.fancy_software.crawling;
  * Time: 15:30
  */
 public enum ExtractType {
-    ACCOUNTS, FRIENDS, GROUPS;
+    ACCOUNTS, FRIENDS, GROUPS
 }
