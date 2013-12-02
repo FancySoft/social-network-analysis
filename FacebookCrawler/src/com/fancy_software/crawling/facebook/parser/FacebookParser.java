@@ -1,10 +1,8 @@
-package com.fancy_software.accounts_matching.crawling.parsers;
+package com.fancy_software.crawling.facebook.parser;
 
-import com.fancy_software.accounts_matching.crawling.CrawlingUtils;
-import com.fancy_software.accounts_matching.crawling.crawlers.ICrawler;
 import com.fancy_software.accounts_matching.model.AccountVector;
-import com.fancy_software.accounts_matching.model.SocialNetworkId;
-import org.apache.http.*;
+import com.fancy_software.logger.Log;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -22,37 +20,53 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
  * User: yaro
  * Date: 23.10.13
  * Time: 16:04
- * To change this template use File | Settings | File Templates.
  */
-public class FacebookParser extends AbstractParser {
+public class FacebookParser {
 
+    private static final String TAG = FacebookParser.class.getSimpleName();
     private DefaultHttpClient client;
+    private HttpContext       context;
 
-    public FacebookParser(SocialNetworkId networkId, ICrawler crawler) {
-        super(networkId);
+    private static String encodeParamValue(String paramValue) {
+        try {
+            return URLEncoder.encode(paramValue, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    @Override
-    public AccountVector parse(String id) {
+    public AccountVector parse(UserID id) {
+        HttpGet request = new HttpGet(String.format("https://www.facebook.com/%s/about", id.toString()));
+        try {
+            HttpResponse response = client.execute(request, context);
+            String res = EntityUtils.toString(response.getEntity());
+            // TODO returns null!
+            List<Object> results = FacebookBasicParser.getAccountInfo(res);
+        } catch (IOException e) {
+            Log.e(TAG, e);
+        }
         return null;
     }
 
     /**
-     * @author John Khandygo
+     * author John Khandygo
      */
-    @Override
     public void auth(String login, String password) {
         client = new DefaultHttpClient();
         client.setRedirectStrategy(new LaxRedirectStrategy());
         client.getParams().setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.BROWSER_COMPATIBILITY);
         CookieStore cookieStore = new BasicCookieStore();
-        HttpContext context = new BasicHttpContext();
+        context = new BasicHttpContext();
         context.setAttribute(ClientContext.COOKIE_STORE, cookieStore);
 
         HttpGet firstRequest = new HttpGet("https://www.facebook.com/");
@@ -66,16 +80,16 @@ public class FacebookParser extends AbstractParser {
             String param = "login_attempt=1&default-persistent=0&timezone=-240&locale=ru_RU";
             for (Element e : loginForm.getElementsByTag("input")) {
                 if (e.outerHtml().contains("lsd")) {
-                    param += "&lsd=" + CrawlingUtils.encodeParamValue(e.val());
+                    param += "&lsd=" + encodeParamValue(e.val());
                 }
                 if (e.outerHtml().contains("lgnrnd")) {
-                    param += "&lgnrnd=" + CrawlingUtils.encodeParamValue(e.val());
+                    param += "&lgnrnd=" + encodeParamValue(e.val());
                 }
                 if (e.outerHtml().contains("lgnjs")) {
-                    param += "&lgnjs=" + CrawlingUtils.encodeParamValue(e.val());
+                    param += "&lgnjs=" + encodeParamValue(e.val());
                 }
             }
-            param += "&email=" + CrawlingUtils.encodeParamValue(login) + "&pass=" + CrawlingUtils.encodeParamValue(password);
+            param += "&email=" + encodeParamValue(login) + "&pass=" + encodeParamValue(password);
 
             HttpPost loginRequest = new HttpPost("https://www.facebook.com/login.php?" + param);
             client.execute(loginRequest, context);
@@ -85,10 +99,16 @@ public class FacebookParser extends AbstractParser {
         }
     }
 
-    @Override
-    public AccountVector match(AccountVector goal) {
-        return null;
+    public static class UserID {
+        private String mID;
+
+        public UserID(String id) {
+            mID = id;
+        }
+
+        @Override
+        public String toString() {
+            return mID;
+        }
     }
-
-
 }

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AccountsMatching.iml" filepath="$PROJECT_DIR$/AccountsMatching.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Database/Database.iml" filepath="$PROJECT_DIR$/../Database/Database.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FacebookCrawler/FacebookCrawler.iml" filepath="$PROJECT_DIR$/../FacebookCrawler/FacebookCrawler.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Logger/Logger.iml" filepath="$PROJECT_DIR$/../Logger/Logger.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Models/Models.iml" filepath="$PROJECT_DIR$/../Models/Models.iml" />
       <module fileurl="file://$PROJECT_DIR$/../NewCrawler/NewCrawler.iml" filepath="$PROJECT_DIR$/../NewCrawler/NewCrawler.iml" />
