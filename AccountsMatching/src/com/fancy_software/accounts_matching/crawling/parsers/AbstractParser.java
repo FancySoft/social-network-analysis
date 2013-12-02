@@ -3,6 +3,7 @@ package com.fancy_software.accounts_matching.crawling.parsers;
 import com.fancy_software.accounts_matching.io_local_base.LocalAccountWriter;
 import com.fancy_software.accounts_matching.matcher.IMatcher;
 import com.fancy_software.accounts_matching.model.AccountVector;
+import com.fancy_software.accounts_matching.model.SocialNetworkId;
 
 /**
  * AbstractParser implements an IMatcher as it should

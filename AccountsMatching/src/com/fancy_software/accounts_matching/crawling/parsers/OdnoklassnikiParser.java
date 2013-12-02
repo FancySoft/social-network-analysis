@@ -2,6 +2,7 @@ package com.fancy_software.accounts_matching.crawling.parsers;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
+import com.fancy_software.accounts_matching.model.SocialNetworkId;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
