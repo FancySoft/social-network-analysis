@@ -1,7 +1,7 @@
 <AccountVector>
   <id>115753099</id>
-  <firstName>Даня</firstName>
-  <lastName>Березун</lastName>
+  <first__name>Даня</first__name>
+  <last__name>Березун</last__name>
   <groups class="linked-list">
     <string>Мат-Мех СПбГУ. Математическое обеспечение и администрирование информационных систем. 4 курс. 2012 - 2013 учебный год.</string>
     <string>Страница курса &quot;Функциональное программирование&quot;, мат-мех СПбГУ, осень 2013</string>

@@ -6,7 +6,6 @@ import com.fancy_software.accounts_matching.core.entities.BirthDate;
 import com.fancy_software.accounts_matching.core.results.MatchAccountsResult;
 import com.fancy_software.accounts_matching.webapp.application.client.AbstractAsyncCallback;
 import com.fancy_software.accounts_matching.webapp.application.client.CustomEventBus;
-import com.google.gwt.text.client.DoubleRenderer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -15,8 +14,6 @@ import com.mvp4g.client.presenter.BasePresenter;
 import net.customware.gwt.dispatch.client.DefaultExceptionHandler;
 import net.customware.gwt.dispatch.client.DispatchAsync;
 import net.customware.gwt.dispatch.client.standard.StandardDispatchAsync;
-
-import java.util.Map;
 
 /**
  * @author John Khandygo
@@ -37,14 +34,13 @@ public class RootPresenter extends BasePresenter<RootView, CustomEventBus> {
     public void onLaunchButtonPressed() {
         if(view.validate()) {
             AccountVector av = new AccountVector();
-            av.setFirstName(view.firstNameTB.getValue());
-            av.setLastName(view.lastNameTB.getValue());
+            av.setFirst_name(view.firstNameTB.getValue());
+            av.setLast_name(view.lastNameTB.getValue());
             av.setSex(view.maleSexRB.getValue() ? AccountVector.Sex.MALE : AccountVector.Sex.FEMALE);
             av.setBdate(BirthDate.generateBirthDate(view.getFormattedBirthDate()));
 
             MatchAccountsAction a = new MatchAccountsAction();
             a.setAccountVector(av);
-            Window.alert("start execute");
             dispatchAsync.execute(a, new AbstractAsyncCallback<MatchAccountsResult>() {
                 @Override
                 public void onSuccess(MatchAccountsResult result) {

@@ -1,7 +1,7 @@
 <AccountVector>
   <id>155158073</id>
-  <firstName>Александр</firstName>
-  <lastName>Бусовиков</lastName>
+  <first__name>Александр</first__name>
+  <last__name>Бусовиков</last__name>
   <groups class="linked-list"/>
   <sex>MALE</sex>
   <friends class="linked-list">

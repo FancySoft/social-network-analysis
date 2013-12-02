@@ -1,7 +1,7 @@
 <AccountVector>
   <id>55363692</id>
-  <firstName>Павел</firstName>
-  <lastName>Федотовский</lastName>
+  <first__name>Павел</first__name>
+  <last__name>Федотовский</last__name>
   <groups class="linked-list">
     <string>Мат-Мех СПбГУ. Математическое обеспечение и администрирование информационных систем. 4 курс. 2012 - 2013 учебный год.</string>
     <string>Страница курса &quot;Функциональное программирование&quot;, мат-мех СПбГУ, осень 2013</string>

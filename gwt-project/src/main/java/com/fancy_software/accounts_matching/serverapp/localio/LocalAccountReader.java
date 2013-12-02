@@ -6,9 +6,7 @@ import com.thoughtworks.xstream.io.StreamException;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,11 +17,14 @@ public class LocalAccountReader {
         XStream xstream = new XStream(new DomDriver());
         xstream.alias("AccountVector", AccountVector.class);
         try {
-            return (AccountVector) xstream.fromXML(new FileReader(path));
+            return (AccountVector) xstream.fromXML(new InputStreamReader(new FileInputStream(path), "UTF-8"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return null;
         } catch (StreamException e) {
+            e.printStackTrace();
+            return null;
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return null;
         }

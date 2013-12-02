@@ -32,7 +32,6 @@ public class StartPoint implements EntryPoint {
         
         mvp4gModule = (Mvp4gModule) GWT.create(Mvp4gModule.class);
         mvp4gModule.createAndStartModule();
-        Window.alert("start");
         RootPanel.get().add((Widget) mvp4gModule.getStartView());
     }
 

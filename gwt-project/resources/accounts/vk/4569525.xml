@@ -1,7 +1,7 @@
 <AccountVector>
   <id>4569525</id>
-  <firstName>Екатерина</firstName>
-  <lastName>Башканкова</lastName>
+  <first__name>Екатерина</first__name>
+  <last__name>Башканкова</last__name>
   <groups class="linked-list">
     <string>Я обязательно напишу тут что-нибудь. Но сначала... Мне нужно выпить.</string>
     <string>Неожиданное бухалово в субботу</string>

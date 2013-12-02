@@ -1,7 +1,7 @@
 <AccountVector>
   <id>27852602</id>
-  <firstName>Ярик</firstName>
-  <lastName>Цимоха</lastName>
+  <first__name>Ярик</first__name>
+  <last__name>Цимоха</last__name>
   <groups class="linked-list">
     <string>Мат-Мех СПбГУ. Математическое обеспечение и администрирование информационных систем. 4 курс. 2012 - 2013 учебный год.</string>
     <string>Я обязательно напишу тут что-нибудь. Но сначала... Мне нужно выпить.</string>

@@ -66,8 +66,8 @@ public class AccountMeasurer {
         if (vector1.getSex() != vector2.getSex() && vector1.getSex() != AccountVector.Sex.NA && vector2.getSex() != AccountVector.Sex.NA)
             result += SEX_WEIGHT;
 
-        result += NAME_WEIGHT * Measures.stringMeasure(vector1.getFirstName(), vector2.getFirstName());
-        result += Measures.stringMeasure(vector1.getLastName(), vector2.getLastName());
+        result += NAME_WEIGHT * Measures.stringMeasure(vector1.getFirst_name(), vector2.getFirst_name());
+        result += Measures.stringMeasure(vector1.getLast_name(), vector2.getLast_name());
         result += BDATE_WEIGHT * Measures.measureBirthdate(vector1.getBdate(), vector2.getBdate());
 
         if (enableLDA)

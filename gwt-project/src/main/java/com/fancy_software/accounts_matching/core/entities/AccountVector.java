@@ -9,8 +9,8 @@ public class AccountVector implements IsSerializable {
 
     // TODO: Вектор данных о пользователе. Нужно определиться с полями.
     private long id;
-    private String firstName;
-    private String lastName;
+    private String first_name;
+    private String last_name;
     private List<String> groups;
     private Sex sex;
     private List<Long> friends;
@@ -39,20 +39,20 @@ public class AccountVector implements IsSerializable {
         return friends;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     public BirthDate getBdate() {
@@ -107,8 +107,8 @@ public class AccountVector implements IsSerializable {
     public String toString() {
         return "AccountVector{" +
                 "id=" + id +
-                ", first_name='" + firstName + '\'' +
-                ", last_name='" + lastName + '\'' +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
                 /*", groups=" + groups +*/
                 ", sex=" + sex +
                 /*", friends=" + friends +*/
@@ -125,10 +125,10 @@ public class AccountVector implements IsSerializable {
 
         if (id != that.id) return false;
         if (birthDate != null ? !birthDate.equals(that.birthDate) : that.birthDate != null) return false;
-        if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
+        if (first_name != null ? !first_name.equals(that.first_name) : that.first_name != null) return false;
         if (friends != null ? !friends.equals(that.friends) : that.friends != null) return false;
         if (groups != null ? !groups.equals(that.groups) : that.groups != null) return false;
-        if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
+        if (last_name != null ? !last_name.equals(that.last_name) : that.last_name != null) return false;
         if (sex != that.sex) return false;
 
         return true;
@@ -137,8 +137,8 @@ public class AccountVector implements IsSerializable {
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (first_name != null ? first_name.hashCode() : 0);
+        result = 31 * result + (last_name != null ? last_name.hashCode() : 0);
         result = 31 * result + (groups != null ? groups.hashCode() : 0);
         result = 31 * result + (sex != null ? sex.hashCode() : 0);
         result = 31 * result + (friends != null ? friends.hashCode() : 0);

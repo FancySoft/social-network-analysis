@@ -1,7 +1,7 @@
 <AccountVector>
   <id>18385784</id>
-  <firstName>Вероника</firstName>
-  <lastName>Сорокина</lastName>
+  <first__name>Вероника</first__name>
+  <last__name>Сорокина</last__name>
   <groups class="linked-list">
     <string>Официальное сообщество журнала &quot;ВКонтакте&quot;. Держим вас в курсе выхода новых номеров и событий с нашим участием. Всегда рады появлению новых хороших авторов, а также волшебных помощников в нашем нелегком деле.</string>
     <string></string>

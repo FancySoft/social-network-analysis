@@ -1,7 +1,7 @@
 <AccountVector>
   <id>88747833</id>
-  <firstName>Марина</firstName>
-  <lastName>Колесникова</lastName>
+  <first__name>Марина</first__name>
+  <last__name>Колесникова</last__name>
   <groups class="linked-list">
     <string>Загляни к нам)</string>
     <string>Только реальные истории</string>

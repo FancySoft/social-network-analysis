@@ -26,7 +26,7 @@ public class MatchAccountsActionHandler extends AbstractActionHandler<MatchAccou
     protected MatchAccountsResult safeExecute(MatchAccountsAction action, ExecutionContext context) throws CustomActionException{
         MatchAccountsResult result = new MatchAccountsResult();
         AccountMeasurer am = new AccountMeasurer(action.getAccountVector());
-        HashMap<Long,AccountVector> storedAccounts = LocalAccountReader.readAllAccounts("enter path to your accounts");
+        HashMap<Long,AccountVector> storedAccounts = LocalAccountReader.readAllAccounts("enter path to your accounts folber");
         TreeMap<Double, AccountVector> bestMeasures = new TreeMap<Double, AccountVector>();
         for (AccountVector value : storedAccounts.values()) {
             am.setVector2(value);
