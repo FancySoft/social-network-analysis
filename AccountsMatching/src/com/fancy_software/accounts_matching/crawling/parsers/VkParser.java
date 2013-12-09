@@ -4,6 +4,7 @@ import com.fancy_software.accounts_matching.crawling.PathGenerator;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
 import com.fancy_software.accounts_matching.model.SocialNetworkId;
+import com.fancy_software.accounts_matching.model.WallMessage;
 import com.fancy_software.logger.Log;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
@@ -20,6 +21,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 
 public class VkParser extends AbstractParser {
 
@@ -292,4 +294,46 @@ public class VkParser extends AbstractParser {
         return response.toString();
     }
 
+}
+
+class MessageExtractor {
+
+    public ArrayList<WallMessage> extract(Map<String, Object> messages) {
+        ArrayList<WallMessage> result = new ArrayList();
+        ArrayList responseBody = (ArrayList)messages.get("response");
+        Integer a = (Integer)responseBody.get(0);
+        int amount = a.intValue();
+        LinkedHashMap rareMessage = new LinkedHashMap();
+        for (int i=1; i<responseBody.size(); ++i) {
+            rareMessage = (LinkedHashMap)responseBody.get(i);
+            result.add(extractMessage(rareMessage));
+        }
+        return result;
+    }
+
+    public WallMessage extractMessage(LinkedHashMap source) {
+        WallMessage message = new WallMessage();
+
+        Integer id = (Integer)source.get("id");
+        message.setId(id.longValue());
+        Integer from_id = (Integer)source.get("from_id");
+        message.setFromId(from_id.longValue());
+        Integer to_id = (Integer)source.get("to_id");
+        message.setToId(to_id.longValue());
+        String text = (String)source.get("text");
+        message.setText(text);
+        if (source.containsKey("copy_owner_id")) {
+            Integer copy_owner_id = (Integer)source.get("copy_owner_id");
+            message.setCopyOwnerId(copy_owner_id.longValue());
+        }
+        if (source.containsKey("copy_owner_id")) {
+            Integer copy_post_id = (Integer)source.get("copy_post_id");
+            message.setCopyPostId(copy_post_id.longValue());
+        }
+        if (source.containsKey("copy_text")) {
+            String copy_text = (String)source.get("copy_text");
+            message.setCopyText(copy_text);
+        }
+        return message;
+    }
 }
