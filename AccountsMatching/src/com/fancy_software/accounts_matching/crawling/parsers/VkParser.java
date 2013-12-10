@@ -1,10 +1,7 @@
 package com.fancy_software.accounts_matching.crawling.parsers;
 
 import com.fancy_software.accounts_matching.crawling.PathGenerator;
-import com.fancy_software.accounts_matching.model.AccountVector;
-import com.fancy_software.accounts_matching.model.BirthDate;
-import com.fancy_software.accounts_matching.model.SocialNetworkId;
-import com.fancy_software.accounts_matching.model.WallMessage;
+import com.fancy_software.accounts_matching.model.*;
 import com.fancy_software.logger.Log;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
@@ -18,10 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.LinkedHashMap;
+import java.util.*;
 
 public class VkParser extends AbstractParser {
 
@@ -243,6 +237,21 @@ public class VkParser extends AbstractParser {
         return result;
     }
 
+    /**
+     * Gets user feed by user id
+     * @return collection, containing the user feed
+     */
+    @Override
+    public Collection<WallMessage> getFeed(IUserId id) {
+        if (!(id instanceof VKUserId)) {
+            throw new IllegalArgumentException("Trying to pass not VK user id to VK parser");
+        }
+
+        // TODO: Here the feed should be downloaded with ApiCall and converted to Collection<WallMessage>
+
+        return null;
+    }
+
     private AccountVector.Sex convertSexFromApi(int sexId) {
         switch (sexId) {
             case 1:
@@ -299,12 +308,11 @@ public class VkParser extends AbstractParser {
 class MessageExtractor {
 
     public ArrayList<WallMessage> extract(Map<String, Object> messages) {
-        ArrayList<WallMessage> result = new ArrayList();
+        ArrayList<WallMessage> result = new ArrayList<>();
         ArrayList responseBody = (ArrayList)messages.get("response");
-        Integer a = (Integer)responseBody.get(0);
-        int amount = a.intValue();
-        LinkedHashMap rareMessage = new LinkedHashMap();
-        for (int i=1; i<responseBody.size(); ++i) {
+        int amount = (Integer)responseBody.get(0);
+        LinkedHashMap rareMessage;
+        for (int i = 1; i < responseBody.size(); ++i) {
             rareMessage = (LinkedHashMap)responseBody.get(i);
             result.add(extractMessage(rareMessage));
         }
