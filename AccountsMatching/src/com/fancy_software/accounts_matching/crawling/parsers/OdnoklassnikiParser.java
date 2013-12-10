@@ -1,8 +1,6 @@
 package com.fancy_software.accounts_matching.crawling.parsers;
 
-import com.fancy_software.accounts_matching.model.AccountVector;
-import com.fancy_software.accounts_matching.model.BirthDate;
-import com.fancy_software.accounts_matching.model.SocialNetworkId;
+import com.fancy_software.accounts_matching.model.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -17,6 +15,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -197,6 +196,11 @@ public class OdnoklassnikiParser extends AbstractParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+    @Override
+    public Collection<WallMessage> getFeed(IUserId id) {
         return null;
     }
 
