@@ -246,10 +246,9 @@ public class VkParser extends AbstractParser {
         if (!(id instanceof VKUserId)) {
             throw new IllegalArgumentException("Trying to pass not VK user id to VK parser");
         }
-
-        // TODO: Here the feed should be downloaded with ApiCall and converted to Collection<WallMessage>
-
-        return null;
+        Map<String, Object> response = ApiCall("wall.get", "owner_id="+id.toString());
+        MessageExtractor me = new MessageExtractor();
+        return me.extract(response);
     }
 
     private AccountVector.Sex convertSexFromApi(int sexId) {
