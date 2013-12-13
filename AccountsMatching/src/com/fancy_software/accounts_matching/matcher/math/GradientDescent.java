@@ -114,6 +114,7 @@ public class GradientDescent {
             prev = cur;
             while (f.evaluate(cur) == f.evaluate(prev)) {
                 cur = subtract(cur, direction);
+                ITERATIONS--;
             }
             step++;
             ITERATIONS--;
