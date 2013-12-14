@@ -10,6 +10,7 @@
     <orderEntry type="library" name="xstream-1.4.5" level="project" />
     <orderEntry type="module" module-name="Models" />
     <orderEntry type="module" module-name="Logger" />
+    <orderEntry type="library" name="lib_database" level="project" />
   </component>
 </module>
 
