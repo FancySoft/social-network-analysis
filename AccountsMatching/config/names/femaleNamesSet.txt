@@ -1,179 +1,263 @@
-Александра
+﻿Александра
 
-Аея, Алексаня, Алексаша, Алексюша, Алекся, Аля, Лексаша, Санюра, Санюта, Саня, Саша, Сашуля, Сашура, Шура, Шурена
+Аея, Алексаня, Алексаша, Алексюша, Алекся, Аля, Лексаша, Санюра, Санюта, Саня, Саша, Сашуля, Сашура, Шура, Шурена, Aleksandra, Aeja, Aleksanja, Aleksasha, Aleksjusha, Aleksja, Alja, Leksasha, Sanjura, Sanjuta, Sanja, Sasha, Sashulja, Sashura, Shura, Shurena
 
 Алиса
 
-Алиска, Аля, Лиска
+Алиска, Аля, Лиска, Alisa, Aliska, Alja, Liska
 
 Алла
 
-Аля, Алена, Алюня, Алюся, Аллочка
+Аля, Алена, Алюня, Алюся, Аллочка, Alla, Alja, Alena, Aljunja, Aljusja, Allochka
 
 Анастасия
 
-Асюта, Ася, Настя, Настася, Настена, Настуся, Нася, Ната, Нюся, Настеха, Настюня, Настюха, Настюша, Стася, Сюша, Тася, Тая, Туся
+Асюта, Ася, Настя, Настася, Настена, Настуся, Нася, Ната, Нюся, Настеха, Настюня, Настюха, Настюша, Стася, Сюша, Тася, Тая, Туся, Anastasija, Asjuta, Asja, Nastja, Nastasja, Nastena, Nastusja, Nasja, Nata, Njusja, Nasteha, Nastjunja, Nastjuha, Nastjusha, Stasja, Sjusha, Tasja, Taja, Tusja
 
 Ангелина
 
-Ангеля, Геля, Гелина, Лина, Гелюся, Еля
+Ангеля, Геля, Гелина, Лина, Гелюся, Еля, Angelina, Angelja, Gelja, Gelina, Lina, Geljusja, Elja
 
 Анна
 
-Анечка, Анка, Анкета, Анночка, Ануша, Аннушка, Анюта, Аня, Аннуся, Ася, Нета, Нюра, Нюся, Нюта, Нюша
+Анечка, Анка, Анкета, Анночка, Ануша, Аннушка, Анюта, Аня, Аннуся, Ася, Нета, Нюра, Нюся, Нюта, Нюша, Anna, Anechka, Anka, Anketa, Annochka, Anusha, Annushka, Anjuta, Anja, Annusja, Asja, Neta, Njura, Njusja, Njuta, Njusha
 
 Валентина
 
-Вака, Валена, Валентинка, Валечка, Валюня, Валюся, Валюха, Валюта, Валя, Тина
+Вака, Валена, Валентинка, Валечка, Валюня, Валюся, Валюха, Валюта, Валя, Тина, Valentina, Vaka, Valena, Valentinka, Valechka, Valjunja, Valjusja, Valjuha, Valjuta, Valja, Tina
 
 Валерия
 
-Валера, Лера, Леруня, Леруся, Валя, Валеша, Валюня, Валюся, Валюха, Валюша, Вава
+Валера, Лера, Леруня, Леруся, Валя, Валеша, Валюня, Валюся, Валюха, Валюша, Вава, Valerija, Valera, Lera, Lerunja, Lerusja, Valja, Valesha, Valjunja, Valjusja, Valjuha, Valjusha, Vava
 
 Варвара
 
-Варя, Варюня, Варюся, Варюха, Варюша, Аря, Вава
+Варя, Варюня, Варюся, Варюха, Варюша, Аря, Вава, Varvara, Varja, Varjunja, Varjusja, Varjuha, Varjusha, Arja, Vava
 
 Вера
 
-Вераха, Верка, Веруня, Веруся, Веруха, Веруша, Руся
+Вераха, Верка, Веруня, Веруся, Веруха, Веруша, Руся, Vera, Veraha, Verka, Verunja, Verusja, Veruha, Verusha, Rusja
 
 Вероника
 
-Верка, Веруня, Вераха, Веруха, Веруша, Веруся, Руся
+Верка, Веруня, Вераха, Веруха, Веруша, Веруся, Руся, Veronika, Verka, Verunja, Veraha, Veruha, Verusha, Verusja, Rusja
 
 Виктория
 
-Вика, Виктуся, Викуша, Вета, Витуля, Витуся, Витуша, Витяня, Вира, Тора, Тоша, Туся
+Вика, Виктуся, Викуша, Вета, Витуля, Витуся, Витуша, Витяня, Вира, Тора, Тоша, Туся, Viktorija, Vika, Viktusja, Vikusha, Veta, Vitulja, Vitusja, Vitusha, Vitjanja, Vira, Tora, Tosha, Tusja
 
 Галина
 
-Галинка, Галя, Галюша, Галюня, Галюха, Ганя, Гуля, Аля, Лина
+Галинка, Галя, Галюша, Галюня, Галюха, Ганя, Гуля, Аля, Лина, Galina, Galinka, Galja, Galjusha, Galjunja, Galjuha, Ganja, Gulja, Alja, Lina
 
 Дарья
 
-Даня, Дарена, Дареша, Даринка, Дарьюшка, Дарюха, Даша, Дашуня, Дашута
+Даня, Дарена, Дареша, Даринка, Дарьюшка, Дарюха, Даша, Дашуня, Дашута, Dar'ja, Danja, Darena, Daresha, Darinka, Dar'jushka, Darjuha, Dasha, Dashunja, Dashuta
 
 Диана
 
-Дианка, Дина, Дия, Аня
+Дианка, Дина, Дия, Аня, Diana, Dianka, Dina, Dija, Anja
 
 Ева
 
-Евочка, Евушка, Евка
+Евочка, Евушка, Евка, Eva, Evochka, Evushka, Evka
 
 Евгения
 
-Евгеня, Геня, Женя, Жеша, Женюра, Жека, Евгеша, Енюта, Енюша, Еняша
+Евгеня, Геня, Женя, Жеша, Женюра, Жека, Евгеша, Енюта, Енюша, Еняша, Evgenija, Evgenja, Genja, Zhenja, Zhesha, Zhenjura, Zheka, Evgesha, Enjuta, Enjusha, Enjasha
 
 Екатерина
 
-Катя, Катюша, Катюня, Катена, Катяша, Катеринка
+Катя, Катюша, Катюня, Катена, Катяша, Катеринка, Ekaterina, Katja, Katjusha, Katjunja, Katena, Katjasha, Katerinka
 
 Елена
 
-Лена, Леночка, Ленуся, Аленушка, Еленушка, Леля
+Лена, Леночка, Ленуся, Аленушка, Еленушка, Леля, Elena, Lena, Lenochka, Lenusja, Alenushka, Elenushka, Lelja
 
 Елизавета
 
-Лиза, Вета, Веточка, Лизаветка, Лизок, Лизонька, Лизуня, Лизочка, Лизуша, Лилечка, Лиля
+Лиза, Вета, Веточка, Лизаветка, Лизок, Лизонька, Лизуня, Лизочка, Лизуша, Лилечка, Лиля, Elizaveta, Liza, Veta, Vetochka, Lizavetka, Lizok, Lizon'ka, Lizunja, Lizochka, Lizusha, Lilechka, Lilja
 
 Жанна
 
-Жанка, Жануся
+Жанка, Жануся, Zhanna, Zhanka, Zhanusja
 
 Зинаида
 
-Зина, Зинаша, Зинуля, Зинуша, Зиня, Зиша, Ина, Ида
+Зина, Зинаша, Зинуля, Зинуша, Зиня, Зиша, Ина, Ида, Zinaida, Zina, Zinasha, Zinulja, Zinusha, Zinja, Zisha, Ina, Ida
 
 Зоя
 
-Зойка, Зоечка, Зайка, Зоюха, Зоша, Зося
+Зойка, Зоечка, Зайка, Зоюха, Зоша, Зося, Zoja, Zojka, Zoechka, Zajka, Zojuha, Zosha, Zosja
 
 Инна
 
-Ина, Инуся, Инуля, Инюта, Инюша
+Ина, Инуся, Инуля, Инюта, Инюша, Inna, Ina, Inusja, Inulja, Injuta, Injusha
 
 Ирина
 
-Ира, Иринка, Иришка, Ируся, Ируша, Иренка, Аринка, Аришка, Арюша
+Ира, Иринка, Иришка, Ируся, Ируша, Иренка, Аринка, Аришка, Арюша, Irina, Ira, Irinka, Irishka, Irusja, Irusha, Irenka, Arinka, Arishka, Arjusha
 
 Карина
 
-Каринка, Кара, Рина, Ина
+Каринка, Кара, Рина, Ина, Karina, Karinka, Kara, Rina, Ina
 
 Кира
 
-Кирка, Кируся, Кирюша
+Кирка, Кируся, Кирюша, Kira, Kirka, Kirusja, Kirjusha
 
 Ксения
 
-Ксеня, Ксенюша, Ксюша, Ксюта, Сеня, Аксюта, Аксюша, Ася
+Ксеня, Ксенюша, Ксюша, Ксюта, Сеня, Аксюта, Аксюша, Ася, Ksenija, Ksenja, Ksenjusha, Ksjusha, Ksjuta, Senja, Aksjuta, Aksjusha, Asja
 
 Лидия
 
-Лида, Лина, Лиля, Лидуся, Лидуша, Лика, Ида
+Лида, Лина, Лиля, Лидуся, Лидуша, Лика, Ида, Lidija, Lida, Lina, Lilja, Lidusja, Lidusha, Lika, Ida
 
 Любовь
 
-Люба, Любаша, Любаня, Любавка
+Люба, Любаша, Любаня, Любавка, Ljubov', Ljuba, Ljubasha, Ljubanja, Ljubavka
 
 Людмила
 
-Люда, Людмилка, Людочек, Людушка, Люля, Люся, Мика, Мила, Милаша, Милуша, Миля
+Люда, Людмилка, Людочек, Людушка, Люля, Люся, Мика, Мила, Милаша, Милуша, Миля, Ljudmila, Ljuda, Ljudmilka, Ljudochek, Ljudushka, Ljulja, Ljusja, Mika, Mila, Milasha, Milusha, Milja
 
 Марина
 
-Мариша, Мара, Марися, Маря, Муся, Ина
+Мариша, Мара, Марися, Маря, Муся, Ина, Marina, Marisha, Mara, Marisja, Marja, Musja, Ina
 
 Мария
 
-Марийка, Мариша, Маря, Муля, Муся, Маруся, Марюта, Мася, Муша, Маня, Манюня, Маняша, Маша, Машуня, Марьяша
+Марийка, Мариша, Маря, Муля, Муся, Маруся, Марюта, Мася, Муша, Маня, Манюня, Маняша, Маша, Машуня, Марьяша, Marija, Marijka, Marisha, Marja, Mulja, Musja, Marusja, Marjuta, Masja, Musha, Manja, Manjunja, Manjasha, Masha, Mashunja, Mar'jasha
 
 Надежда
 
-Надя, Надея, Надёна, Надюха, Надюша, Надина, Дина
+Надя, Надея, Надёна, Надюха, Надюша, Надина, Дина, Nadezhda, Nadja, Nadeja, Nadjona, Nadjuha, Nadjusha, Nadina, Dina
 
 Наталья
 
-Наталя, Наталка, Наташа, Натаха, Таша, Натуля, Натуся, Туся, Наля, Тата
+Наталя, Наталка, Наташа, Натаха, Таша, Натуля, Натуся, Туся, Наля, Тата, Natal'ja, Natalja, Natalka, Natasha, Nataha, Tasha, Natulja, Natusja, Tusja, Nalja, Tata
 
 Нина
 
-Нинка, Нинаня, Нинуля, Нинуся, Нуся, Ника, Нита
+Нинка, Нинаня, Нинуля, Нинуся, Нуся, Ника, Нита, Nina, Ninka, Ninanja, Ninulja, Ninusja, Nusja, Nika, Nita
 
 Ольга
 
-Оля, Леля, Олюня, Люня, Олюша, Люша, Оляня
+Оля, Леля, Олюня, Люня, Олюша, Люша, Оляня, Ol'ga, Olja, Lelja, Oljunja, Ljunja, Oljusha, Ljusha, Oljanja
 
 Оксана
 
-Оксанка, Ксанка, Оксаночка
+Оксанка, Ксанка, Оксаночка, Oksana, Oksanka, Ksanka, Oksanochka
 
 Полина
 
-Полинка, Поля, Полюня, Полюша, Полюся, Пуся, Пупсик, Пана, Паня, Паша, Лина
+Полинка, Поля, Полюня, Полюша, Полюся, Пуся, Пупсик, Пана, Паня, Паша, Лина, Polina, Polinka, Polja, Poljunja, Poljusha, Poljusja, Pusja, Pupsik, Pana, Panja, Pasha, Lina
 
 Светлана
 
-Светланка, Света, Светуля, Светуша, Вета, Лана
+Светланка, Света, Светуля, Светуша, Вета, Лана, Svetlana, Svetlanka, Sveta, Svetulja, Svetusha, Veta, Lana
 
 София
 
-Софьюшка, Софа, Соня, Сонюша
+Софьюшка, Софа, Соня, Сонюша, Sofija, Sof'jushka, Sofa, Sonja, Sonjusha
 
 Татьяна
 
-Татьянка, Таня, Танюша, Танюта, Тата, Татуся, Туся, Таша
+Татьянка, Таня, Танюша, Танюта, Тата, Татуся, Туся, Таша, Tat'jana, Tat'janka, Tanja, Tanjusha, Tanjuta, Tata, Tatusja, Tusja, Tasha
 
 Ульяна
 
-Ульянка, Уля, Ульяша, Люля, Ляля
+Ульянка, Уля, Ульяша, Люля, Ляля, Ul'jana, Ul'janka, Ulja, Ul'jasha, Ljulja, Ljalja
 
 Юлия
 
-Юля, Юлька, Юленька, Юлюся, Люся
+Юля, Юлька, Юленька, Юлюся, Люся, Julija, Julja, Jul'ka, Julen'ka, Juljusja, Ljusja
 
 Яна
 
-Янка, Яся
+Янка, Яся, Jana, Janka, Jasja
+
+Amanda
+
+Mandy
+
+Catherine
+
+Cathy, Cath
+
+Christine
+
+Chris, Chrissy
+
+Cynthia
+
+Cindy, Cynth
+
+Deborah
+
+Deb, Debbie
+
+Elizabeth
+
+Betty, Beth, Liz, Bess
+
+Florence
+
+Flo
+
+Frances
+
+Fran, Francie
+
+Janet
+
+Jan
+
+Katherine
+
+Kathy, Kate
+
+Janice
+
+Jan
+
+Nancy
+
+Nan
+
+Pamela
+
+Pam
+
+Patricia
+
+Pat
+
+Roberta
+
+Bobbie
+
+Sophia
+
+Sophie
+
+Susan
+
+Sue, Suzie
+
+Teresa
+
+Terry
+
+Valerie
+
+Val
+
+Veronica
+
+Ronnie
+
+Yvonne
+
+Vonna
