@@ -183,6 +183,35 @@ public class VkParser extends AbstractParser {
         Map m;
         List list;
 
+        // Парсим образование
+
+        userInfo = ApiCall("users.get", "uids=" + id + "&fields=universities,schools");
+        if (userInfo == null) {
+            Log.e(TAG, "User info is null");
+            return null;
+        }
+        if (userInfo.containsKey("error")) {
+            Log.e(TAG, (String) userInfo.get("error"));
+            return null;
+        }
+        userInfo = (Map) ((ArrayList) userInfo.get("response")).get(0);
+
+        list = (ArrayList) userInfo.get("universities");
+
+        for(Object o : list){
+            m = (Map) o;
+            UniversityData universityData = UniversityData.GetUniversityDataByMap(m);
+            result.addUniversity(universityData);
+        }
+
+        list = (ArrayList) userInfo.get("schools");
+
+        for(Object o : list){
+            m = (Map) o;
+            SchoolData schoolData = SchoolData.GetSchoolDataByMap(m);
+            result.addSchool(schoolData);
+        }
+
         // Получаем информацию о группах
         userInfo = ApiCall("groups.get", "uid=" + result.getId() +
                 "&extended=1&fields=description");
