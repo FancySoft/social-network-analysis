@@ -165,7 +165,7 @@ public class VkParser extends AbstractParser {
     @SuppressWarnings("unchecked")
     public AccountVector parse(String id) {
         AccountVector result = new AccountVector();
-        Map<String, Object> userInfo = ApiCall("users.get", "uids=" + id + "&fields=bdate,sex");
+        Map<String, Object> userInfo = ApiCall("users.get", "uids=" + id + "&fields=bdate,sex,city,country");
         if (userInfo == null) {
             Log.e(TAG, "User info is null");
             return null;
@@ -180,6 +180,31 @@ public class VkParser extends AbstractParser {
         result.setLast_name((String) userInfo.get("last_name"));
         result.setSex(convertSexFromApi((Integer) userInfo.get("sex")));
         result.setId((Integer) userInfo.get("uid"));
+
+        int city = (Integer) userInfo.get("city");
+        int country = (Integer) userInfo.get("country");
+
+        userInfo = ApiCall("database.getCitiesById","city_ids=" + city);
+        if (userInfo == null) {
+            Log.e(TAG, "User info is null");
+            return null;
+        }
+        if (userInfo.containsKey("error")) {
+            Log.e(TAG, (String) userInfo.get("error"));
+            return null;
+        }
+        result.setCity((String) userInfo.get("title"));
+
+        userInfo = ApiCall("database.getCountriesById","country_ids=" + country);
+        if (userInfo == null) {
+            Log.e(TAG, "User info is null");
+            return null;
+        }
+        if (userInfo.containsKey("error")) {
+            Log.e(TAG, (String) userInfo.get("error"));
+            return null;
+        }
+        result.setCountry((String) userInfo.get("title"));
         Map m;
         List list;
 
