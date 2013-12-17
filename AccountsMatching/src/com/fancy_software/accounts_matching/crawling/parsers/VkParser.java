@@ -2,6 +2,7 @@ package com.fancy_software.accounts_matching.crawling.parsers;
 
 import com.fancy_software.accounts_matching.crawling.PathGenerator;
 import com.fancy_software.accounts_matching.model.*;
+import com.fancy_software.accounts_matching.matcher.Utils;
 import com.fancy_software.logger.Log;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
@@ -358,7 +359,10 @@ public class VkParser extends AbstractParser {
 
     private Map<String, Object> search(AccountVector user) {
         String params = "";
+        int cityId = 0;
+        int countryId = 0;
         int sex = 0;
+
         if(user.getSex() == AccountVector.Sex.MALE) {
             sex = 2;
         }
@@ -366,15 +370,39 @@ public class VkParser extends AbstractParser {
         if(user.getSex() == AccountVector.Sex.FEMALE) {
             sex = 1;
         }
-        params += "q=" + user.getFirst_name() + " " + user.getLast_name() + "&";
-        params += "count=1000&";
-        params += "sex=" + sex + "&";
+        params += "q=" + user.getFirst_name() + " " + user.getLast_name();
+        params += "&count=1000";
+        params += "&sex=" + sex;
+
         if(user.getBdate() != null){
-            params += "birth_day=" + user.getBdate().getDay() + "&";
-            params += "birth_month" + user.getBdate().getMonth() + "&";
-            params += "birth_year" + user.getBdate().getYear() + "&";
+            params += "&birth_day=" + user.getBdate().getDay();
+            params += "&birth_month" + user.getBdate().getMonth();
+            params += "&birth_year" + user.getBdate().getYear();
         }
-        return ApiCall("users.search", params);
+
+        if(user.getCountry() != null) {
+            String country = Utils.getCountryId(user.getCountry());
+            Map<String, Object> userInfo = ApiCall("database.getCountries","code=" + country);
+            countryId = (int) userInfo.get("id");
+            params += "&country=" + countryId;
+
+            if(user.getCity() != null) {
+                int univId = 0;
+                String univ = user.getUniversities().get(0).getName();
+                userInfo = ApiCall("database.getCities","country_id=" + countryId + "&q=" + user.getCity());
+                cityId = (int) userInfo.get("id");
+                params += "city=" + cityId;
+                userInfo = ApiCall("database.getUniversities",
+                        "country_id=" + countryId + "&city_id=" + cityId + "&q=" + univ);
+                univId = (int) userInfo.get("id");
+
+                if(univId != 0) {
+                    params += "&university=" + univId;
+                }
+            }
+        }
+
+         return ApiCall("users.search", params);
     }
 
 }

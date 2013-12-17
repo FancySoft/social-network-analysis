@@ -42,6 +42,10 @@ public class UniversityData {
         this.name = _name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public static UniversityData GetUniversityDataByMap(Map<String,Object> _data){
         String name = "";
         String faculty_name = "";
