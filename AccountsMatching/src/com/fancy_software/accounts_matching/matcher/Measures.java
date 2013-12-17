@@ -2,6 +2,8 @@ package com.fancy_software.accounts_matching.matcher;
 
 import com.fancy_software.accounts_matching.matcher.lda.TestTextComparator;
 import com.fancy_software.accounts_matching.model.BirthDate;
+import com.fancy_software.accounts_matching.model.SchoolData;
+import com.fancy_software.accounts_matching.model.UniversityData;
 
 import java.io.IOException;
 import java.util.List;
@@ -36,6 +38,88 @@ public class Measures {
             else
                 return 0.7;
         return 0;
+    }
+
+    public static double measureSchoolsLists(List<SchoolData> schools1, List<SchoolData> schools2){
+        double schoolWeight = 1/(double)Math.max(schools1.size(), schools2.size());
+        double totalMeasurement = 0;
+        double maxWeight = 0;
+        for(int i = 0; i < schools1.size(); i++){
+            maxWeight = 0;
+            for(int j = 0; j < schools2.size(); j++){
+                maxWeight = Math.max(maxWeight, measureSchools(schools1.get(i), schools2.get(j)));
+            }
+            totalMeasurement += maxWeight*schoolWeight;
+        }
+        return totalMeasurement;
+    }
+
+    private static double measureSchools(SchoolData school1, SchoolData school2){
+        if(school1 == null || school2 == null)
+            return 0;
+
+        double totalWeight = stringMeasure(school1.getName(), school1.getName()) +
+                             stringMeasure(school1.getClassroom(), school1.getClassroom()) +
+                             (school1.getYear_from() == school1.getYear_from() ? 1 : 0) +
+                             (school1.getYear_to() == school1.getYear_to() ? 1 : 0) +
+                             (school1.getGraduate() == school1.getGraduate() ? 1 : 0);
+
+        double weight = 0;
+        weight += stringMeasure(school1.getName(), school2.getName());
+        if(school1.getName() == school2.getName()){
+            weight += school1.getYear_from() == school2.getYear_from() ? 1 : 0;
+            weight += school1.getYear_to() == school2.getYear_to() ? 1 : 0;
+            weight += school1.getGraduate() == school2.getGraduate() ? 1 : 0;
+            weight += stringMeasure(school1.getClassroom(), school1.getClassroom());
+        }
+
+        return weight/totalWeight;
+    }
+
+    public static double measureUniversitiesLists(List<UniversityData> universities1, List<UniversityData> universities2){
+        double universityWeight = 1/(double)Math.max(universities1.size(), universities2.size());
+        double totalMeasurement = 0;
+        double maxWeight = 0;
+        for(int i = 0; i < universities1.size(); i++){
+            maxWeight = 0;
+            for(int j = 0; j < universities2.size(); j++){
+                maxWeight = Math.max(maxWeight, measureUniversites(universities1.get(i), universities2.get(j)));
+            }
+            totalMeasurement += maxWeight*universityWeight;
+        }
+        return totalMeasurement;
+    }
+
+    private static double measureUniversites(UniversityData univ1, UniversityData univ2){
+        if(univ1 == null || univ2 == null)
+            return 0;
+
+        double totalWeight = stringMeasure(univ1.getName(), univ1.getName()) +
+                             stringMeasure(univ1.getFaculty_name(), univ1.getFaculty_name()) +
+                             stringMeasure(univ1.getChair_name(), univ1.getChair_name()) +
+                             (univ1.getGraduation() == univ2.getGraduation() ? 1 : 0) +
+                             (univ1.getEducation_form() == univ1.getEducation_form() ? 1 : 0) +
+                             (univ1.getEducation_status() == univ1.getEducation_status() ? 1 : 0);
+
+        double weight = 0;
+        weight += stringMeasure(univ1.getName(), univ2.getName());
+        if(univ1.getName() == univ2.getName()){
+            weight += stringMeasure(univ1.getFaculty_name(), univ1.getFaculty_name());
+            if(univ1.getFaculty_name() == univ1.getFaculty_name()){
+                weight += stringMeasure(univ1.getChair_name(), univ2.getChair_name());
+                if(univ1.getChair_name() == univ2.getChair_name()){
+                    weight += univ1.getGraduation() == univ2.getGraduation() ? 1 : 0;
+                    if(univ1.getGraduation() == univ2.getGraduation()){
+                        weight += univ1.getEducation_form() == univ2.getEducation_form() ? 1 : 0;
+                        if(univ1.getEducation_form() == univ2.getEducation_form()){
+                            weight += univ1.getEducation_status() == univ2.getEducation_status() ? 1 : 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        return weight/totalWeight;
     }
 
     //lda

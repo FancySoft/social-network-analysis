@@ -43,6 +43,12 @@ public class SchoolData {
         return new SchoolData(name, year_from, year_to, graduate, classroom);
     }
 
+    public String getName(){return name;}
+    public String getClassroom(){return classroom;}
+    public int getYear_from(){return year_from;}
+    public int getYear_to(){return year_to;}
+    public int getGraduate(){return graduate;}
+
     @Override
     public String toString() {
         return "SchoolData{" +

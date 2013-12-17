@@ -97,6 +97,13 @@ public class UniversityData {
         return EducationForm.NONE;
     }
 
+    public String getName(){return name;}
+    public String getFaculty_name(){return faculty_name;}
+    public String getChair_name(){return chair_name;}
+    public int getGraduation(){return graduation;}
+    public EducationStatus getEducation_status(){return education_status;}
+    public EducationForm getEducation_form(){return education_form;}
+
     @Override
     public String toString(){
         return "UniversityData{" +
