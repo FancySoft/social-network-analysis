@@ -7,11 +7,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="JSON" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="module" module-name="Logger" />
     <orderEntry type="module" module-name="Models" />
     <orderEntry type="module" module-name="Database" />
-    <orderEntry type="module" module-name="Logger" />
   </component>
 </module>
 

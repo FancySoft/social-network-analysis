@@ -2,6 +2,7 @@ package com.fancy_software.accounts_matching.crawling.parsers;
 
 import com.fancy_software.accounts_matching.crawling.PathGenerator;
 import com.fancy_software.accounts_matching.model.*;
+import com.fancy_software.accounts_matching.matcher.Utils;
 import com.fancy_software.logger.Log;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
@@ -165,7 +166,7 @@ public class VkParser extends AbstractParser {
     @SuppressWarnings("unchecked")
     public AccountVector parse(String id) {
         AccountVector result = new AccountVector();
-        Map<String, Object> userInfo = ApiCall("users.get", "uids=" + id + "&fields=bdate,sex");
+        Map<String, Object> userInfo = ApiCall("users.get", "uids=" + id + "&fields=bdate,sex,city,country");
         if (userInfo == null) {
             Log.e(TAG, "User info is null");
             return null;
@@ -180,6 +181,31 @@ public class VkParser extends AbstractParser {
         result.setLast_name((String) userInfo.get("last_name"));
         result.setSex(convertSexFromApi((Integer) userInfo.get("sex")));
         result.setId((Integer) userInfo.get("uid"));
+
+        int city = (Integer) userInfo.get("city");
+        int country = (Integer) userInfo.get("country");
+
+        userInfo = ApiCall("database.getCitiesById","city_ids=" + city);
+        if (userInfo == null) {
+            Log.e(TAG, "User info is null");
+            return null;
+        }
+        if (userInfo.containsKey("error")) {
+            Log.e(TAG, (String) userInfo.get("error"));
+            return null;
+        }
+        result.setCity((String) userInfo.get("title"));
+
+        userInfo = ApiCall("database.getCountriesById","country_ids=" + country);
+        if (userInfo == null) {
+            Log.e(TAG, "User info is null");
+            return null;
+        }
+        if (userInfo.containsKey("error")) {
+            Log.e(TAG, (String) userInfo.get("error"));
+            return null;
+        }
+        result.setCountry((String) userInfo.get("title"));
         Map m;
         List list;
 
@@ -329,6 +355,54 @@ public class VkParser extends AbstractParser {
         response.append(user.getBdate().getYear());
 
         return response.toString();
+    }
+
+    private Map<String, Object> search(AccountVector user) {
+        String params = "";
+        int cityId = 0;
+        int countryId = 0;
+        int sex = 0;
+
+        if(user.getSex() == AccountVector.Sex.MALE) {
+            sex = 2;
+        }
+        else
+        if(user.getSex() == AccountVector.Sex.FEMALE) {
+            sex = 1;
+        }
+        params += "q=" + user.getFirst_name() + " " + user.getLast_name();
+        params += "&count=1000";
+        params += "&sex=" + sex;
+
+        if(user.getBdate() != null){
+            params += "&birth_day=" + user.getBdate().getDay();
+            params += "&birth_month" + user.getBdate().getMonth();
+            params += "&birth_year" + user.getBdate().getYear();
+        }
+
+        if(user.getCountry() != null) {
+            String country = Utils.getCountryId(user.getCountry());
+            Map<String, Object> userInfo = ApiCall("database.getCountries","code=" + country);
+            countryId = (int) userInfo.get("id");
+            params += "&country=" + countryId;
+
+            if(user.getCity() != null) {
+                int univId = 0;
+                String univ = user.getUniversities().get(0).getName();
+                userInfo = ApiCall("database.getCities","country_id=" + countryId + "&q=" + user.getCity());
+                cityId = (int) userInfo.get("id");
+                params += "city=" + cityId;
+                userInfo = ApiCall("database.getUniversities",
+                        "country_id=" + countryId + "&city_id=" + cityId + "&q=" + univ);
+                univId = (int) userInfo.get("id");
+
+                if(univId != 0) {
+                    params += "&university=" + univId;
+                }
+            }
+        }
+
+         return ApiCall("users.search", params);
     }
 
 }

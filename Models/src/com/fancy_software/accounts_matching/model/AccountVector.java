@@ -8,6 +8,8 @@ public class AccountVector {
     private long id;
     private String first_name;
     private String last_name;
+    private String city;
+    private String country;
     private List<String> groups;
     private Sex sex;
     private List<Long> friends;
@@ -21,6 +23,22 @@ public class AccountVector {
         universities = new LinkedList<UniversityData>();
         schools = new LinkedList<SchoolData>();
         sex = Sex.NA;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public List<UniversityData> getUniversities() {
