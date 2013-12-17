@@ -331,6 +331,27 @@ public class VkParser extends AbstractParser {
         return response.toString();
     }
 
+    private Map<String, Object> search(AccountVector user) {
+        String params = "";
+        int sex = 0;
+        if(user.getSex() == AccountVector.Sex.MALE) {
+            sex = 2;
+        }
+        else
+        if(user.getSex() == AccountVector.Sex.FEMALE) {
+            sex = 1;
+        }
+        params += "q=" + user.getFirst_name() + " " + user.getLast_name() + "&";
+        params += "count=1000&";
+        params += "sex=" + sex + "&";
+        if(user.getBdate() != null){
+            params += "birth_day=" + user.getBdate().getDay() + "&";
+            params += "birth_month" + user.getBdate().getMonth() + "&";
+            params += "birth_year" + user.getBdate().getYear() + "&";
+        }
+        return ApiCall("users.search", params);
+    }
+
 }
 
 class MessageExtractor {
