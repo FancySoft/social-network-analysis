@@ -1,7 +1,5 @@
 package com.fancy_software.crawling;
 
-import com.fancy_software.accounts_matching.crawling.PathGenerator;
-import com.fancy_software.accounts_matching.io_local_base.LocalAccountWriter;
 import com.fancy_software.accounts_matching.model.AccountVector;
 
 import java.util.Queue;
@@ -27,13 +25,15 @@ public class UserWriter implements Runnable {
             if (parentThread.isAlive()) {
                 if (!userToWrite.isEmpty()) {
                     AccountVector vector = userToWrite.remove();
-                    LocalAccountWriter.writeAccountToLocalBase(vector, PathGenerator.generateDefaultPath(vector.getId()));
+                    //todo replace by normal path
+                    //LocalAccountWriter.writeAccountToLocalBase(vector, PathGenerator.generateDefaultPath(vector.getId()));
                 }
             } else {
                 System.out.println("Writing to local base still running, wait");
                 if (!userToWrite.isEmpty()) {
                     for (AccountVector vector : userToWrite) {
-                        LocalAccountWriter.writeAccountToLocalBase(vector, PathGenerator.generateDefaultPath(vector.getId()));
+                        //todo replace by normal path
+                        //LocalAccountWriter.writeAccountToLocalBase(vector, PathGenerator.generateDefaultPath(vector.getId()));
                     }
                 }
                 System.out.println("Writing to local base finished");

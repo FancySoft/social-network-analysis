@@ -1,6 +1,5 @@
 package com.fancy_software.crawling;
 
-import com.fancy_software.accounts_matching.crawling.PathGenerator;
 import com.fancy_software.accounts_matching.io_local_base.LocalAccountReader;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.logger.Log;
@@ -277,7 +276,8 @@ public class VkApiCaller {
                 String line = reader.readLine();
                 reader.close();
                 System.out.println(line);
-                AccountVector vector = LocalAccountReader.readAccountFromLocalBase(PathGenerator.generateDefaultPath(userCounter));
+                //todo replace by normal path
+                AccountVector vector = LocalAccountReader.readAccountFromLocalBase("");//PathGenerator.generateDefaultPath(userCounter));
                 List<Long> response = responseProcessor.processInfo(line);
                 switch (extractType) {
                     case GROUPS: {
