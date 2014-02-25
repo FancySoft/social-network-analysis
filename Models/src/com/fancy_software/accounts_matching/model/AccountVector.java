@@ -8,15 +8,45 @@ public class AccountVector {
     private long id;
     private String first_name;
     private String last_name;
+    private String city;
+    private String country;
     private List<String> groups;
     private Sex sex;
     private List<Long> friends;
     private BirthDate birthDate;
+    private List<UniversityData> universities;
+    private List<SchoolData> schools;
 
     public AccountVector() {
         groups = new LinkedList<>();
         friends = new LinkedList<>();
+        universities = new LinkedList<UniversityData>();
+        schools = new LinkedList<SchoolData>();
         sex = Sex.NA;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public List<UniversityData> getUniversities() {
+        return universities;
+    }
+
+    public List<SchoolData> getSchools() {
+        return schools;
     }
 
     public List<String> getGroups() {
@@ -80,6 +110,14 @@ public class AccountVector {
         groups.add(group);
     }
 
+    public void addUniversity(UniversityData universityData) {
+        universities.add(universityData);
+    }
+
+    public void addSchool(SchoolData schoolData) {
+        schools.add(schoolData);
+    }
+
     @SuppressWarnings("unused")
     public void removeFriend(Long friendId) {
         friends.remove(friendId);
@@ -115,6 +153,8 @@ public class AccountVector {
                 ", sex=" + sex +
                 ", friends=" + friends +
                 ", birthDate=" + birthDate +
+                ", universities=" + universities +
+                ", schools=" + schools +
                 '}';
     }
 

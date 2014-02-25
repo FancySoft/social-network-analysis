@@ -130,4 +130,8 @@ public class Utils {
             System.out.println("Key: " + object.toString() + " Value: " + map.get(object));
         }
     }
+
+    public static String getCountryId(String country) {
+        return "RU";
+    }
 }

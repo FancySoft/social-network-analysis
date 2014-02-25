@@ -17,6 +17,8 @@ public class AccountMeasurer {
     private static final double NAME_WEIGHT = 0.05;
     private static final double BDATE_WEIGHT = 0.2;
     private static final double SEX_WEIGHT = 0.2;
+    private static final double UNIVERSITIES_WEIGHT = 1;
+    private static final double SCHOOLS_WEIGHT = 0.5;
     static AtomicInteger counter = new AtomicInteger(0);
 
     private AccountVector vector1;
@@ -84,6 +86,10 @@ public class AccountMeasurer {
         result += NAME_WEIGHT * Measures.stringMeasure(vector1.getLast_name(), vector2.getLast_name());
 
         result += BDATE_WEIGHT * Measures.measureBirthdate(vector1.getBdate(), vector2.getBdate());
+
+        result += UNIVERSITIES_WEIGHT * Measures.measureUniversitiesLists(vector1.getUniversities(), vector2.getUniversities());
+
+        result += SCHOOLS_WEIGHT * Measures.measureSchoolsLists(vector1.getSchools(), vector2.getSchools());
 
         if (enableLDA) {
             result += LDA_WEIGHT * Measures.measureWithLDA(vector1.getGroups(), vector2.getGroups());

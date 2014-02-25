@@ -258,7 +258,7 @@ public class VkApiCaller {
     }
 
     private void startAdditionalInfo(ExtractType extractType) {
-        long userCounter = 0;
+        long userCounter = startUser;
         int callCounter = 0;
         lastCallTime = System.currentTimeMillis();
         while (true) {

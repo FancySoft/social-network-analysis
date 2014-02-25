@@ -103,7 +103,7 @@ public class GradientDescent {
         double[] curMin = init;
         double fCurMin = f.evaluate(init);
 
-        int ITERATIONS = 50;
+        int ITERATIONS = 1000;
         while (ITERATIONS > 0) {
             if (f.evaluate(cur) < fCurMin) {
                 fCurMin = f.evaluate(cur);
@@ -112,8 +112,9 @@ public class GradientDescent {
             double[] grad = grad(f, prev, cur);
             direction = normalize(grad);
             prev = cur;
-            while (f.evaluate(cur) == f.evaluate(prev)) {
+            while (f.evaluate(cur) == f.evaluate(prev) && ITERATIONS > 0) {
                 cur = subtract(cur, direction);
+                ITERATIONS--;
             }
             step++;
             ITERATIONS--;
