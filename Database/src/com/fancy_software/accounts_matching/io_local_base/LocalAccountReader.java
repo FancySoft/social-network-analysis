@@ -16,7 +16,7 @@ public class LocalAccountReader {
 
     public static AccountVector readAccountFromLocalBase(String path) {
         XStream xstream = new XStream(new DomDriver());
-        xstream.alias("AccountVector", AccountVector.class);
+        xstream.alias(AccountVector.class.getName(), AccountVector.class);
         try {
             return (AccountVector) xstream.fromXML(new FileReader(path));
         } catch (FileNotFoundException e) {
@@ -28,8 +28,8 @@ public class LocalAccountReader {
         }
     }
 
-    public static Map<Long,AccountVector> readAllAccounts(String path){
-        Map<Long,AccountVector> accounts = new HashMap<>();
+    public static Map<String,AccountVector> readAllAccounts(String path){
+        Map<String,AccountVector> accounts = new HashMap<>();
         File myFolder = new File(path);
         File[] files = myFolder.listFiles();
         if (files == null) return Collections.emptyMap();

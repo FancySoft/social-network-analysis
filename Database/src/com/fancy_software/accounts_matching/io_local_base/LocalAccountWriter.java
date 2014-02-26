@@ -25,7 +25,7 @@ public class LocalAccountWriter {
         if(!f.exists())
             f.mkdirs();
         XStream xstream = new XStream(new DomDriver());
-        xstream.alias("AccountVector", AccountVector.class);
+        xstream.alias(AccountVector.class.getName(), AccountVector.class);
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(new File(generateDefaultPath(vector.getId())));
             xstream.toXML(vector, fileOutputStream);
@@ -35,7 +35,7 @@ public class LocalAccountWriter {
         }
     }
 
-    private static String generateDefaultPath(long id){
+    private static String generateDefaultPath(String id){
         StringBuilder builder = new StringBuilder(path);
         builder.append(id);
         builder.append(".xml");

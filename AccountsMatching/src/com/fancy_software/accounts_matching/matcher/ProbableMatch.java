@@ -29,9 +29,9 @@ public class ProbableMatch {
     }
 
     @SuppressWarnings("unused")
-    public AccountVector getProbableMatchById(long id) {
+    public AccountVector getProbableMatchById(String id) {
         for (AccountVector accountVector : probableMatchesForVector.keySet())
-            if (accountVector.getId() == id)
+            if (accountVector.getId().equals(id))
                 return accountVector;
         return null;
     }
@@ -42,9 +42,9 @@ public class ProbableMatch {
     }
 
     @SuppressWarnings("unused")
-    public void removeProbableMatchById(long id) {
+    public void removeProbableMatchById(String id) {
         for (AccountVector accountVector : probableMatchesForVector.keySet())
-            if (accountVector.getId() == id)
+            if (accountVector.getId().equals(id))
                 probableMatchesForVector.remove(accountVector);
     }
 

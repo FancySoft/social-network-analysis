@@ -100,7 +100,7 @@ public class Clique {
         return res;
     }
 
-    public boolean contains(Long id) {
+    public boolean contains(String id) {
         for (AccountVector vector : people)
             if (vector.getId() == id)
                 return true;

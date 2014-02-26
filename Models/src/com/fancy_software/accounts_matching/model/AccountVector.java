@@ -1,21 +1,24 @@
 package com.fancy_software.accounts_matching.model;
 
+import com.fancy_software.accounts_matching.model.education.SchoolData;
+import com.fancy_software.accounts_matching.model.education.UniversityData;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class AccountVector {
 
-    private long id;
-    private String first_name;
-    private String last_name;
-    private String city;
-    private String country;
-    private List<String> groups;
-    private Sex sex;
-    private List<Long> friends;
-    private BirthDate birthDate;
+    private String              id;
+    private String               first_name;
+    private String               last_name;
+    private String               city;
+    private String               country;
+    private List<String>         groups;
+    private Sex                  sex;
+    private List<String>           friends;
+    private BirthDate            birthDate;
     private List<UniversityData> universities;
-    private List<SchoolData> schools;
+    private List<SchoolData>     schools;
 
     public AccountVector() {
         groups = new LinkedList<>();
@@ -61,7 +64,7 @@ public class AccountVector {
         this.sex = sex;
     }
 
-    public List<Long> getFriends() {
+    public List<String> getFriends() {
 
         return friends;
     }
@@ -93,16 +96,20 @@ public class AccountVector {
         this.birthDate = birthDate;
     }
 
-    public long getId() {
+    public String getId() {
 
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public void addFriend(Long friendId) {
+    public void setId(){
+
+    }
+
+    public void addFriend(String friendId) {
         friends.add(friendId);
     }
 
@@ -128,9 +135,9 @@ public class AccountVector {
         groups.remove(group);
     }
 
-    public boolean hasFriend(Long friendId) {
-        for (long id : friends)
-            if (id == friendId)
+    public boolean hasFriend(String friendId) {
+        for (String id : friends)
+            if (id.equals(friendId))
                 return true;
         return false;
     }
@@ -146,16 +153,16 @@ public class AccountVector {
     @Override
     public String toString() {
         return "AccountVector{" +
-                "id=" + id +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", groups=" + groups +
-                ", sex=" + sex +
-                ", friends=" + friends +
-                ", birthDate=" + birthDate +
-                ", universities=" + universities +
-                ", schools=" + schools +
-                '}';
+               "id=" + id +
+               ", first_name='" + first_name + '\'' +
+               ", last_name='" + last_name + '\'' +
+               ", groups=" + groups +
+               ", sex=" + sex +
+               ", friends=" + friends +
+               ", birthDate=" + birthDate +
+               ", universities=" + universities +
+               ", schools=" + schools +
+               '}';
     }
 
     @Override
@@ -178,7 +185,7 @@ public class AccountVector {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
+        int result = id.hashCode();
         result = 31 * result + (first_name != null ? first_name.hashCode() : 0);
         result = 31 * result + (last_name != null ? last_name.hashCode() : 0);
         result = 31 * result + (groups != null ? groups.hashCode() : 0);

@@ -2,8 +2,8 @@ package com.fancy_software.accounts_matching.matcher;
 
 import com.fancy_software.accounts_matching.matcher.lda.TestTextComparator;
 import com.fancy_software.accounts_matching.model.BirthDate;
-import com.fancy_software.accounts_matching.model.SchoolData;
-import com.fancy_software.accounts_matching.model.UniversityData;
+import com.fancy_software.accounts_matching.model.education.SchoolData;
+import com.fancy_software.accounts_matching.model.education.UniversityData;
 
 import java.io.IOException;
 import java.util.List;

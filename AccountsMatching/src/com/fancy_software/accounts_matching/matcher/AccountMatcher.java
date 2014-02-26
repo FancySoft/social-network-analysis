@@ -14,10 +14,10 @@ public class AccountMatcher {
     private static final double MEASURE_BARRIER_FOR_EXACT = 0.2;
     private static final double MEASURE_BARRIER_FOR_PROBABLE = 8.5;
     private static final int MIN_FRIENDS_AMOUNT = 5;
-    protected volatile Map<Long, Long> matchMap;
+    protected volatile Map<String, String> matchMap;
     private Map<AccountVector, ProbableMatch> probableMatchForAccountsMap;
-    private Map<Long, AccountVector> accountVectorMap1;
-    private Map<Long, AccountVector> accountVectorMap2;
+    private Map<String, AccountVector> accountVectorMap1;
+    private Map<String, AccountVector> accountVectorMap2;
 
     public static double getMeasureBarrierForProbable() {
         return MEASURE_BARRIER_FOR_PROBABLE;
@@ -32,7 +32,7 @@ public class AccountMatcher {
         return probableMatchForAccountsMap;
     }
 
-    public void putMatching(long id1, long id2) {
+    public void putMatching(String id1, String id2) {
         matchMap.put(id1, id2);
     }
 
@@ -57,7 +57,7 @@ public class AccountMatcher {
 
     public void match(boolean enableLda) {
         ExecutorService executor = Executors.newFixedThreadPool(accountVectorMap1.keySet().size());
-        for (Long key : accountVectorMap1.keySet()) {
+        for (String key : accountVectorMap1.keySet()) {
             executor.execute(new MatchingThreadForExact(this, accountVectorMap1.get(key), accountVectorMap2, enableLda));
         }
         executor.shutdown();
@@ -72,20 +72,20 @@ public class AccountMatcher {
 
     private double successPercent() {
         double counter = 0;
-        for (Long id : matchMap.keySet()) {
+        for (String id : matchMap.keySet()) {
             if (id.equals(matchMap.get(id)))
                 counter++;
         }
         return 100 * counter / matchMap.keySet().size();
     }
 
-    public boolean hasMatch(Long accountId) {
+    public boolean hasMatch(String accountId) {
         return matchMap.containsKey(accountId);
     }
 
     //todo cases of no probable matches
     private void matchingForNotExact() {
-        for (Long key : accountVectorMap1.keySet())
+        for (String key : accountVectorMap1.keySet())
             if (!hasMatch(key)) {
                 AccountVector vector = accountVectorMap1.get(key);
                 if (probableMatchForAccountsMap.get(vector).getProbableMatchesForVector().isEmpty())
@@ -137,7 +137,7 @@ public class AccountMatcher {
 
     private int countCommonFriends(AccountVector vector1, AccountVector vector2) {
         int counter = 0;
-        for (Long friendId : vector1.getFriends())
+        for (String friendId : vector1.getFriends())
             if (hasMatch(friendId) && vector2.getFriends().contains(friendId))
                 counter++;
         return counter;

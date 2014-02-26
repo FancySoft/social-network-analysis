@@ -12,10 +12,10 @@ public class MatchingThreadForExact implements Runnable {
 
     private AccountMatcher matcher;
     private AccountVector accountVector;
-    private Map<Long, AccountVector> accountVectorMap;
+    private Map<String, AccountVector> accountVectorMap;
     private boolean enableLDA;
 
-    public MatchingThreadForExact(AccountMatcher matcher, AccountVector accountVector, Map<Long, AccountVector> accountVectorMap, boolean enableLDA) {
+    public MatchingThreadForExact(AccountMatcher matcher, AccountVector accountVector, Map<String, AccountVector> accountVectorMap, boolean enableLDA) {
         this.matcher = matcher;
         this.accountVector = accountVector;
         this.accountVectorMap = accountVectorMap;
@@ -31,7 +31,7 @@ public class MatchingThreadForExact implements Runnable {
         try {
             ProbableMatch probableMatch = new ProbableMatch(vector);
             AccountMeasurer measurer = new AccountMeasurer(vector);
-            for (Long key : accountVectorMap.keySet()) {
+            for (String key : accountVectorMap.keySet()) {
                 AccountVector vector2 = accountVectorMap.get(key);
                 measurer.setVector2(vector2);
                 double result = measurer.measure(enableLDA);
