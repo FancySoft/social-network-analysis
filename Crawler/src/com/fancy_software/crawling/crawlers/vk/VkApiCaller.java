@@ -1,8 +1,10 @@
-package com.fancy_software.crawling;
+package com.fancy_software.crawling.crawlers.vk;
 
 import com.fancy_software.accounts_matching.io_local_base.LocalAccountReader;
 import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.AccountVector;
+import com.fancy_software.crawling.UserWriter;
+import com.fancy_software.crawling.crawlers.vk.VkCrawler.ExtractType;
 import com.fancy_software.logger.Log;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -222,7 +224,7 @@ public class VkApiCaller {
         }
     }
 
-    private void startAccounts(ExtractType extractType) {
+    private void startAccounts(VkCrawler.ExtractType extractType) {
         long userCounter = startUser;
         int callCounter = 0;
         lastCallTime = System.currentTimeMillis();

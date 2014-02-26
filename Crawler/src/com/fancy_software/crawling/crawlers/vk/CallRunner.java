@@ -1,5 +1,6 @@
-package com.fancy_software.crawling;
+package com.fancy_software.crawling.crawlers.vk;
 
+import com.fancy_software.crawling.crawlers.vk.VkCrawler.ExtractType;
 /**
  * Created by Yaro
  * Date: 13.11.13
@@ -7,9 +8,9 @@ package com.fancy_software.crawling;
  */
 public class CallRunner implements Runnable {
 
-    VkApiCaller apiCaller;
-    String      login;
-    String      password;
+    VkApiCaller           apiCaller;
+    String                login;
+    String                password;
     ExtractType extractType;
 
     public CallRunner(VkApiCaller apiCaller, String login, String password, ExtractType extractType) {

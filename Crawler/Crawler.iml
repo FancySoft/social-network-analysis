@@ -14,6 +14,7 @@
     <orderEntry type="module" module-name="Models" />
     <orderEntry type="module" module-name="Database" />
     <orderEntry type="library" name="lib_database" level="project" />
+    <orderEntry type="library" name="lib1" level="project" />
   </component>
 </module>
 

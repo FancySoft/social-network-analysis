@@ -1,11 +1,14 @@
-package com.fancy_software.crawling;
+package com.fancy_software.crawling.crawlers.vk;
 
 import com.fancy_software.accounts_matching.io_local_base.Settings;
+import com.fancy_software.crawling.crawlers.ICrawler;
 
 import java.util.List;
 import java.util.ListIterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import static com.fancy_software.crawling.crawlers.vk.VkCrawler.ExtractType.ACCOUNTS;
 
 /**
  * Created by Yaro
@@ -14,7 +17,6 @@ import java.util.concurrent.Executors;
  */
 public class VkCrawler implements ICrawler {
 
-    private static final String AUTH_PATH = "NewCrawler/config/settings.xml";
     private              long   startId   = 0;
     private              long   finishId  = 200000000;
 
@@ -55,7 +57,7 @@ public class VkCrawler implements ICrawler {
 
         while (loginIter.hasNext() && passwordIter.hasNext()) {
             VkApiCaller apiCaller = new VkApiCaller(start, finish);
-            executor.execute(new CallRunner(apiCaller, loginIter.next(), passwordIter.next(), ExtractType.ACCOUNTS));
+            executor.execute(new CallRunner(apiCaller, loginIter.next(), passwordIter.next(), ACCOUNTS));
             start += perCaller;
             finish += perCaller;
         }
@@ -65,6 +67,10 @@ public class VkCrawler implements ICrawler {
     @Override
     public void finish() {
 
+    }
+
+    public enum ExtractType {
+        ACCOUNTS, FRIENDS, GROUPS
     }
 
 }

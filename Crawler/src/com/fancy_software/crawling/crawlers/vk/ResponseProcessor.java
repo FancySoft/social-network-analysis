@@ -1,4 +1,4 @@
-package com.fancy_software.crawling;
+package com.fancy_software.crawling.crawlers.vk;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
