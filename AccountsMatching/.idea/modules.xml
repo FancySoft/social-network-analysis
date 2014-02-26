@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/AccountsMatching.iml" filepath="$PROJECT_DIR$/AccountsMatching.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Crawler/Crawler.iml" filepath="$PROJECT_DIR$/../Crawler/Crawler.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Database/Database.iml" filepath="$PROJECT_DIR$/../Database/Database.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../FacebookCrawler/FacebookCrawler.iml" filepath="$PROJECT_DIR$/../FacebookCrawler/FacebookCrawler.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Logger/Logger.iml" filepath="$PROJECT_DIR$/../Logger/Logger.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Models/Models.iml" filepath="$PROJECT_DIR$/../Models/Models.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Tests/Tests.iml" filepath="$PROJECT_DIR$/../Tests/Tests.iml" />

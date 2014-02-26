@@ -1,6 +1,7 @@
 package com.fancy_software.crawling;
 
 import com.fancy_software.accounts_matching.io_local_base.LocalAccountReader;
+import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.logger.Log;
 import org.apache.http.HttpResponse;
@@ -208,7 +209,8 @@ public class VkApiCaller {
     }
 
     public void start(ExtractType extractType) {
-        UserWriter writer = new UserWriter(usersToWrite, Thread.currentThread());
+        String folderToWrite = Settings.getInstance().get(Settings.VK_ACCOUNT_FOLDER);
+        UserWriter writer = new UserWriter(usersToWrite, Thread.currentThread(),folderToWrite);
         Thread writingThread = new Thread(writer);
         writingThread.start();
         switch (extractType) {

@@ -1,8 +1,9 @@
 package com.fancy_software.crawling;
 
-import com.fancy_software.accounts_matching.io_local_base.Utils;
+import com.fancy_software.accounts_matching.io_local_base.Settings;
 
-import java.util.Map;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -14,8 +15,7 @@ import java.util.concurrent.Executors;
 public class VkCrawler implements ICrawler {
 
     private static final String AUTH_PATH = "NewCrawler/config/settings.xml";
-    private Map<String, String> passwordMap;
-    private long startId = 0;
+    private long startId  = 0;
     private long finishId = 200000000;
 
     public long getFinishId() {
@@ -36,20 +36,26 @@ public class VkCrawler implements ICrawler {
 
     @Override
     public void init() {
-        passwordMap = Utils.getAuthInfo(AUTH_PATH);
-        System.out.println(passwordMap);
+
     }
 
     @Override
     public void start() {
-        int amount = passwordMap.keySet().size();
+        Settings settings = Settings.getInstance();
+        List<String> logins = settings.getArray(Settings.VK_LOGINS);
+        List<String> passwords =settings.getArray(Settings.VK_PASSWORDS);
+        int amount = logins.size();
         ExecutorService executor = Executors.newFixedThreadPool(amount);
         long start = startId;
         long perCaller = finishId / amount;
         long finish = perCaller;
-        for (Map.Entry<String, String> entry : passwordMap.entrySet()) {
+
+        ListIterator<String> loginIter = logins.listIterator();
+        ListIterator<String> passwordIter = passwords.listIterator();
+
+        while (loginIter.hasNext() && passwordIter.hasNext()){
             VkApiCaller apiCaller = new VkApiCaller(start, finish);
-            executor.execute(new CallRunner(apiCaller, entry.getKey(), entry.getValue(), ExtractType.ACCOUNTS));
+            executor.execute(new CallRunner(apiCaller, loginIter.next(), passwordIter.next(), ExtractType.ACCOUNTS));
             start += perCaller;
             finish += perCaller;
         }

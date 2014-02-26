@@ -23,6 +23,15 @@ public class Settings {
     private static SoftReference<Settings> instance;
     private Map<String, String> settings;
 
+    public static final String VK_ACCOUNT_FOLDER="vk_account_folder";
+    public static final String FB_ACCOUNT_FOLDER="fb_account_folder";
+    public static final String VK_LOGINS="vk_logins";
+    public static final String VK_PASSWORDS="vk_passwords";
+    public static final String FB_LOGINS="fb_logins";
+    public static final String FB_PASSWORDS="fb_passwords";
+
+
+
     private Settings() {
         settings = new HashMap<>();
         BufferedReader reader;
@@ -31,6 +40,7 @@ public class Settings {
                     new DataInputStream(new FileInputStream(PATH))));
             String line;
             while ((line = reader.readLine()) != null) {
+                System.out.println(line);
                 String[] cur = line.split(" = ");
                 if (cur.length != 2) {
                     Log.e(TAG, "Settings file corrupted! Please verify if it has the following format:\n" +
@@ -83,6 +93,7 @@ public class Settings {
      */
     @SuppressWarnings("unused")
     public List<String> getArray(String key) {
+        System.out.println(key+"_size");
         if (!settings.containsKey(key + "_size")) return null;
         int size = Integer.parseInt(settings.get(key + "_size"));
         List<String> result = new ArrayList<>(size);

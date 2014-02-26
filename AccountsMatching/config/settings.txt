@@ -1,4 +1,8 @@
-vk_password = PeopleSearch
+vk_logins_size = 1
+vk_logins_0 = yoursolution@ya.ru
+vk_passwords_size = 1
+vk_passwords_0 = PeopleSearch
+vk_account_folder = D:/vk_accounts
+fb_account_folder = D:/fb_accounts
 male_names_path = config/names/maleNamesSet.txt
-vk_login = yoursolution@ya.ru
 female_names_path = config/names/femaleNamesSet.txt
