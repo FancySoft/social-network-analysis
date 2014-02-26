@@ -28,8 +28,8 @@ public class LocalAccountReader {
         }
     }
 
-    public static Map<String,AccountVector> readAllAccounts(String path){
-        Map<String,AccountVector> accounts = new HashMap<>();
+    public static Map<String, AccountVector> readAllAccounts(String path) {
+        Map<String, AccountVector> accounts = new HashMap<>();
         File myFolder = new File(path);
         File[] files = myFolder.listFiles();
         if (files == null) return Collections.emptyMap();

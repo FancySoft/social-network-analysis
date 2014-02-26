@@ -18,18 +18,17 @@ import java.util.Map;
 
 public class Settings {
 
-    private static final String TAG = Settings.class.getSimpleName();
+    private static final String TAG  = Settings.class.getSimpleName();
     private static final String PATH = "config/settings.txt";
     private static SoftReference<Settings> instance;
-    private Map<String, String> settings;
+    private        Map<String, String>     settings;
 
-    public static final String VK_ACCOUNT_FOLDER="vk_account_folder";
-    public static final String FB_ACCOUNT_FOLDER="fb_account_folder";
-    public static final String VK_LOGINS="vk_logins";
-    public static final String VK_PASSWORDS="vk_passwords";
-    public static final String FB_LOGINS="fb_logins";
-    public static final String FB_PASSWORDS="fb_passwords";
-
+    public static final String VK_ACCOUNT_FOLDER = "vk_account_folder";
+    public static final String FB_ACCOUNT_FOLDER = "fb_account_folder";
+    public static final String VK_LOGINS         = "vk_logins";
+    public static final String VK_PASSWORDS      = "vk_passwords";
+    public static final String FB_LOGINS         = "fb_logins";
+    public static final String FB_PASSWORDS      = "fb_passwords";
 
 
     private Settings() {
@@ -40,11 +39,10 @@ public class Settings {
                     new DataInputStream(new FileInputStream(PATH))));
             String line;
             while ((line = reader.readLine()) != null) {
-                System.out.println(line);
                 String[] cur = line.split(" = ");
                 if (cur.length != 2) {
                     Log.e(TAG, "Settings file corrupted! Please verify if it has the following format:\n" +
-                            "key = value\n");
+                               "key = value\n");
                     break;
                 }
                 settings.put(cur[0], cur[1]);
@@ -78,6 +76,7 @@ public class Settings {
     /**
      * Store value for key
      * NOT THREAD-SAFE
+     *
      * @param key   key
      * @param value value
      */
@@ -88,12 +87,11 @@ public class Settings {
 
     /**
      * Get stored array of values
+     *
      * @param key array key
-     * @return    array
+     * @return array
      */
-    @SuppressWarnings("unused")
     public List<String> getArray(String key) {
-        System.out.println(key+"_size");
         if (!settings.containsKey(key + "_size")) return null;
         int size = Integer.parseInt(settings.get(key + "_size"));
         List<String> result = new ArrayList<>(size);
@@ -106,6 +104,7 @@ public class Settings {
     /**
      * Store array of values
      * NOT THREAD-SAFE
+     *
      * @param key   key
      * @param value values
      */

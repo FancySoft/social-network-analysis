@@ -8,8 +8,8 @@ package com.fancy_software.crawling;
 public class CallRunner implements Runnable {
 
     VkApiCaller apiCaller;
-    String login;
-    String password;
+    String      login;
+    String      password;
     ExtractType extractType;
 
     public CallRunner(VkApiCaller apiCaller, String login, String password, ExtractType extractType) {

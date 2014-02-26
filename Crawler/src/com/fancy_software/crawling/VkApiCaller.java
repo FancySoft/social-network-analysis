@@ -27,20 +27,20 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class VkApiCaller {
 
-    private final String APP_ID = "3437182";
-    private final String SCOPE = "notify,friends,photos,audio,video,docs,notes,pages,status,offers,questions," +
-            "wall,groups,messages,notifications,stats,ads,offline";
-    private final String REDIRECT_URI = "http://oauth.vk.com/blank.html";
-    private final String DISPLAY = "page";
+    private final String APP_ID        = "3437182";
+    private final String SCOPE         = "notify,friends,photos,audio,video,docs,notes,pages,status,offers,questions," +
+                                         "wall,groups,messages,notifications,stats,ads,offline";
+    private final String REDIRECT_URI  = "http://oauth.vk.com/blank.html";
+    private final String DISPLAY       = "page";
     private final String RESPONSE_TYPE = "token";
-    private final String TAG = VkCrawler.class.getSimpleName();
-    private final int MAX_API_CALL = 5;
-    private final int APP_INSTALLS = 1;
-    private final int BARRIER = MAX_API_CALL * APP_INSTALLS - 1;
-    private final int FOR_DELAY = 1000;
-    private long lastCallTime;
-    private String access_token;
-    private ResponseProcessor responseProcessor;
+    private final String TAG           = VkCrawler.class.getSimpleName();
+    private final int    MAX_API_CALL  = 5;
+    private final int    APP_INSTALLS  = 1;
+    private final int    BARRIER       = MAX_API_CALL * APP_INSTALLS - 1;
+    private final int    FOR_DELAY     = 1000;
+    private long                 lastCallTime;
+    private String               access_token;
+    private ResponseProcessor    responseProcessor;
     private Queue<AccountVector> usersToWrite;
     private int max_ids_for_call = 390;//actually, it's 1000, but there is restriction on id length
     private long startUser;
@@ -210,7 +210,7 @@ public class VkApiCaller {
 
     public void start(ExtractType extractType) {
         String folderToWrite = Settings.getInstance().get(Settings.VK_ACCOUNT_FOLDER);
-        UserWriter writer = new UserWriter(usersToWrite, Thread.currentThread(),folderToWrite);
+        UserWriter writer = new UserWriter(usersToWrite, Thread.currentThread(), folderToWrite);
         Thread writingThread = new Thread(writer);
         writingThread.start();
         switch (extractType) {
@@ -279,7 +279,8 @@ public class VkApiCaller {
                 reader.close();
                 System.out.println(line);
                 //todo replace by normal path
-                AccountVector vector = LocalAccountReader.readAccountFromLocalBase("");//PathGenerator.generateDefaultPath(userCounter));
+                AccountVector vector = LocalAccountReader.readAccountFromLocalBase(
+                        "");//PathGenerator.generateDefaultPath(userCounter));
                 List<Long> response = responseProcessor.processInfo(line);
                 switch (extractType) {
                     case GROUPS: {

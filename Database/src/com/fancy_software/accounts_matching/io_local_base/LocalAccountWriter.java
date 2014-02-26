@@ -13,12 +13,13 @@ public class LocalAccountWriter {
 
     public static void writeAccountToLocalBase(AccountVector vector, String folder) {
         File f = new File(folder);
-        if(!f.exists())
+        if (!f.exists())
             f.mkdirs();
         XStream xstream = new XStream(new DomDriver());
         xstream.alias(AccountVector.class.getName(), AccountVector.class);
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream(new File(generateDefaultPath(vector.getId(),folder)));
+            FileOutputStream fileOutputStream = new FileOutputStream(
+                    new File(generateDefaultPath(vector.getId(), folder)));
             xstream.toXML(vector, fileOutputStream);
             fileOutputStream.close();
         } catch (IOException e) {
@@ -26,8 +27,9 @@ public class LocalAccountWriter {
         }
     }
 
-    private static String generateDefaultPath(String id, String folder){
+    private static String generateDefaultPath(String id, String folder) {
         StringBuilder builder = new StringBuilder(folder);
+        builder.append(File.separator);
         builder.append(id);
         builder.append(".xml");
         return builder.toString();

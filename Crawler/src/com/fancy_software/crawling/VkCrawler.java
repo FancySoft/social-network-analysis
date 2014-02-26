@@ -15,8 +15,8 @@ import java.util.concurrent.Executors;
 public class VkCrawler implements ICrawler {
 
     private static final String AUTH_PATH = "NewCrawler/config/settings.xml";
-    private long startId  = 0;
-    private long finishId = 200000000;
+    private              long   startId   = 0;
+    private              long   finishId  = 200000000;
 
     public long getFinishId() {
         return finishId;
@@ -43,7 +43,7 @@ public class VkCrawler implements ICrawler {
     public void start() {
         Settings settings = Settings.getInstance();
         List<String> logins = settings.getArray(Settings.VK_LOGINS);
-        List<String> passwords =settings.getArray(Settings.VK_PASSWORDS);
+        List<String> passwords = settings.getArray(Settings.VK_PASSWORDS);
         int amount = logins.size();
         ExecutorService executor = Executors.newFixedThreadPool(amount);
         long start = startId;
@@ -53,7 +53,7 @@ public class VkCrawler implements ICrawler {
         ListIterator<String> loginIter = logins.listIterator();
         ListIterator<String> passwordIter = passwords.listIterator();
 
-        while (loginIter.hasNext() && passwordIter.hasNext()){
+        while (loginIter.hasNext() && passwordIter.hasNext()) {
             VkApiCaller apiCaller = new VkApiCaller(start, finish);
             executor.execute(new CallRunner(apiCaller, loginIter.next(), passwordIter.next(), ExtractType.ACCOUNTS));
             start += perCaller;
