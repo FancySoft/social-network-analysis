@@ -1,9 +1,10 @@
-package com.fancy_software.crawling;
+package com.fancy_software.crawling.crawlers;
 
 import com.fancy_software.accounts_matching.io_local_base.LocalAccountWriter;
 import com.fancy_software.accounts_matching.model.AccountVector;
 
 import java.util.Queue;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 /**
@@ -14,22 +15,28 @@ import java.util.Queue;
 public class UserWriter implements Runnable {
 
     private Queue<AccountVector> userToWrite;
-    private Thread               parentThread;
     private String               folder;
+    private AtomicBoolean        stop;
 
-    public UserWriter(Queue<AccountVector> usersToWrite, Thread parentThread, String folder) {
+    public UserWriter(Queue<AccountVector> usersToWrite, String folder, AtomicBoolean stop) {
         this.userToWrite = usersToWrite;
-        this.parentThread = parentThread;
         this.folder = folder;
+        this.stop = stop;
     }
 
     @Override
     public void run() {
         while (true) {
-            if (parentThread.isAlive()) {
+            if (!stop.get()) {
                 if (!userToWrite.isEmpty()) {
                     AccountVector vector = userToWrite.remove();
                     LocalAccountWriter.writeAccountToLocalBase(vector, folder);
+                } else {
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             } else {
                 System.out.println("Writing to local base still running, wait");

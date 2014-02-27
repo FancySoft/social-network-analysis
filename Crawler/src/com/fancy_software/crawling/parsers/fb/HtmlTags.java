@@ -1,4 +1,4 @@
-package com.fancy_software.crawling.crawlers.fb.parser;
+package com.fancy_software.crawling.parsers.fb;
 
 public final class HtmlTags {
     public static final String USER_NAME_SURNAME                 = "a[class=_8_2]";

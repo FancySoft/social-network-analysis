@@ -1,6 +1,6 @@
 package com.fancy_software.crawling;
 
-import com.fancy_software.crawling.crawlers.vk.VkCrawler;
+import com.fancy_software.crawling.crawlers.VkCrawler;
 import org.apache.commons.logging.LogFactory;
 
 import java.util.logging.Level;
@@ -18,13 +18,22 @@ public class Main {
         VkCrawler vkCrawler = new VkCrawler();
         vkCrawler.init();
         vkCrawler.start();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            vkCrawler.finish();
+        }
+        System.out.println("stop");
     }
 
     /**
      * Logs of htmlunit off
      */
     private static void init() {
-        LogFactory.getFactory().setAttribute("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
+        LogFactory.getFactory().setAttribute("org.apache.commons.logging.Log",
+                                             "org.apache.commons.logging.impl.NoOpLog");
         java.util.logging.Logger.getLogger("org.apache.commons.httpclient").setLevel(Level.OFF);
         java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
     }

@@ -1,10 +1,11 @@
-package com.fancy_software.crawling.crawlers.vk;
+package com.fancy_software.crawling.parsers.vk;
 
 import com.fancy_software.accounts_matching.io_local_base.LocalAccountReader;
-import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.AccountVector;
-import com.fancy_software.crawling.UserWriter;
-import com.fancy_software.crawling.crawlers.vk.VkCrawler.ExtractType;
+import com.fancy_software.crawling.crawlers.AbstractCrawler;
+import com.fancy_software.crawling.crawlers.VkCrawler;
+import com.fancy_software.crawling.crawlers.VkCrawler.ExtractType;
+import com.fancy_software.crawling.parsers.AbstractParser;
 import com.fancy_software.logger.Log;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -18,8 +19,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * Created by Yaro
@@ -27,7 +26,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * Time: 15:19
  */
 
-public class VkApiCaller {
+public class VkApiCaller extends AbstractParser {
 
     private final String APP_ID        = "3437182";
     private final String SCOPE         = "notify,friends,photos,audio,video,docs,notes,pages,status,offers,questions," +
@@ -40,21 +39,21 @@ public class VkApiCaller {
     private final int    APP_INSTALLS  = 1;
     private final int    BARRIER       = MAX_API_CALL * APP_INSTALLS - 1;
     private final int    FOR_DELAY     = 1000;
-    private long                 lastCallTime;
-    private String               access_token;
-    private ResponseProcessor    responseProcessor;
-    private Queue<AccountVector> usersToWrite;
+    private long              lastCallTime;
+    private String            access_token;
+    private ResponseProcessor responseProcessor;
     private int max_ids_for_call = 390;//actually, it's 1000, but there is restriction on id length
     private long startUser;
     private long finishUser;
 
-    public VkApiCaller(long startUser, long finishUser) {
+    public VkApiCaller(AbstractCrawler crawler, long startUser, long finishUser) {
+        this.crawler = crawler;
         this.startUser = startUser;
         this.finishUser = finishUser;
-        usersToWrite = new ConcurrentLinkedQueue<>();
         responseProcessor = new ResponseProcessor();
     }
 
+    @Override
     public void auth(String login, String password) {
         try {
             StringBuilder builder = new StringBuilder();
@@ -210,11 +209,12 @@ public class VkApiCaller {
         return builder;
     }
 
+    @Override
+    public void start() {
+        start(ExtractType.ACCOUNTS);
+    }
+
     public void start(ExtractType extractType) {
-        String folderToWrite = Settings.getInstance().get(Settings.VK_ACCOUNT_FOLDER);
-        UserWriter writer = new UserWriter(usersToWrite, Thread.currentThread(), folderToWrite);
-        Thread writingThread = new Thread(writer);
-        writingThread.start();
         switch (extractType) {
             case ACCOUNTS:
                 startAccounts(extractType);
@@ -225,39 +225,47 @@ public class VkApiCaller {
     }
 
     private void startAccounts(VkCrawler.ExtractType extractType) {
-        long userCounter = startUser;
-        int callCounter = 0;
-        lastCallTime = System.currentTimeMillis();
-        while (true) {
-//            Log.d(TAG, String.format("userCounter = %d", userCounter));
-            if (userCounter > finishUser)
-                break;
-            callCounter++;
-            if (delay(callCounter))
-                callCounter = 0;
-            StringBuilder query = generateQueryForAccounts(userCounter, extractType);
-            HttpPost post = new HttpPost(query.toString());
-            try {
-                URL url = new URL(query.toString());
-                BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-                String line = reader.readLine();
-                reader.close();
-                System.out.println(line);
-                addUsersToWrite(responseProcessor.processResponse(line));
-            } catch (IOException e) {
-                Log.e(TAG, e);
-            } catch (NullPointerException e) {
-                Log.e(TAG, e);
-                try {
-                    Thread.sleep(FOR_DELAY);
-                } catch (InterruptedException e1) {
-                    Log.e(TAG, e1);
-                }
-                continue;
-            }
-            post.abort();
+        while (!Thread.currentThread().isInterrupted()) {
+            long userCounter = startUser;
+            int callCounter = 0;
             lastCallTime = System.currentTimeMillis();
-            userCounter += max_ids_for_call;
+            while (true) {
+//            Log.d(TAG, String.format("userCounter = %d", userCounter));
+                if (userCounter > finishUser)
+                    break;
+                callCounter++;
+                try {
+                    if (needDelay(callCounter))
+                        callCounter = 0;
+                } catch (InterruptedException e) {
+                    Log.e(TAG, e);
+                    return;
+                }
+                StringBuilder query = generateQueryForAccounts(userCounter, extractType);
+                HttpPost post = new HttpPost(query.toString());
+                try {
+                    URL url = new URL(query.toString());
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
+                    String line = reader.readLine();
+                    reader.close();
+                    System.out.println(line);
+                    notifyCrawler(responseProcessor.processResponse(line));
+                } catch (IOException e) {
+                    Log.e(TAG, e);
+                } catch (NullPointerException e) {
+                    Log.e(TAG, e);
+                    try {
+                        Thread.sleep(FOR_DELAY);
+                    } catch (InterruptedException e1) {
+                        Log.e(TAG, e1);
+                        return;
+                    }
+                    continue;
+                }
+                post.abort();
+                lastCallTime = System.currentTimeMillis();
+                userCounter += max_ids_for_call;
+            }
         }
     }
 
@@ -270,8 +278,13 @@ public class VkApiCaller {
             if (userCounter > finishUser)
                 break;
             callCounter++;
-            if (delay(callCounter))
-                callCounter = 0;
+            try {
+                if (needDelay(callCounter))
+                    callCounter = 0;
+            } catch (InterruptedException e) {
+                Log.e(TAG, e);
+                return;
+            }
             StringBuilder query = generateQueryForAdditionalInfo(userCounter, extractType);
             HttpPost post = new HttpPost(query.toString());
             try {
@@ -298,7 +311,7 @@ public class VkApiCaller {
                     default:
                         break;
                 }
-                addUsersToWrite(vector);
+                notifyCrawler(vector);
             } catch (IOException e) {
                 Log.e(TAG, e);
             } catch (NullPointerException e) {
@@ -315,26 +328,12 @@ public class VkApiCaller {
         }
     }
 
-    private void addUsersToWrite(List<AccountVector> users) {
-        for (AccountVector vector : users)
-            usersToWrite.add(vector);
-    }
-
-    private void addUsersToWrite(AccountVector user) {
-        usersToWrite.add(user);
-    }
-
-    private boolean delay(int callCounter) {
+    private boolean needDelay(int callCounter) throws InterruptedException {
         if (callCounter > BARRIER) {
             long timeDif = System.currentTimeMillis() - lastCallTime;
             if (timeDif < FOR_DELAY) {
-                try {
-                    Log.d(TAG, "wait");
-                    Thread.sleep(FOR_DELAY - timeDif);
-
-                } catch (InterruptedException e) {
-                    Log.e(TAG, e);
-                }
+                Log.d(TAG, "wait");
+                Thread.sleep(FOR_DELAY - timeDif);
             }
             return true;
         }

@@ -1,4 +1,4 @@
-package com.fancy_software.crawling.crawlers.vk;
+package com.fancy_software.crawling.parsers.vk;
 
 /**
  * Created by Yaro

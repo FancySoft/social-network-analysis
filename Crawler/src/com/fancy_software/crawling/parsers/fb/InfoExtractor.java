@@ -1,4 +1,4 @@
-package com.fancy_software.crawling.crawlers.fb.parser;
+package com.fancy_software.crawling.parsers.fb;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

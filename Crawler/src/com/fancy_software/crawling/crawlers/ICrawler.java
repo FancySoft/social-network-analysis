@@ -12,4 +12,6 @@ public interface ICrawler {
     public void start();
 
     public void finish();
+
+
 }

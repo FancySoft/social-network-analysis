@@ -1,6 +1,7 @@
-package com.fancy_software.crawling.crawlers.fb.parser;
+package com.fancy_software.crawling.parsers.fb;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
+import com.fancy_software.crawling.parsers.IParser;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.*;
@@ -11,7 +12,7 @@ import org.jsoup.nodes.Element;
 import java.io.IOException;
 import java.util.Set;
 
-public class FacebookParser {
+public class FacebookParser implements IParser {
 
     private final WebClient webClient;
     private       String    login;
@@ -23,22 +24,34 @@ public class FacebookParser {
         this.password = password;
     }
 
-    public void parse() throws IOException {
+
+    @Override
+    public void auth(String login, String password) {
+        this.login = login;
+        this.password = password;
+        try {
+            auth();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void start() {
 
         System.out.println("Start");
         try {
             auth();
+            final HtmlPage destPage = webClient.getPage("https://www.facebook.com/artem.kirienko/friends_all");
+
+            System.out.println(destPage.getWebResponse().getContentAsString());
+//        System.out.println(extractAccountInfo(destPage));
+            System.out.println("Finish");
+            webClient.closeAllWindows();
         } catch (IOException e) {
             System.out.println("Facebook authorization failed");
             e.printStackTrace();
-            return;
         }
-        final HtmlPage destPage = webClient.getPage("https://www.facebook.com/artem.kirienko/friends_all");
-
-        System.out.println(destPage.getWebResponse().getContentAsString());
-//        System.out.println(extractAccountInfo(destPage));
-        System.out.println("Finish");
-        webClient.closeAllWindows();
     }
 
     private void auth() throws IOException {

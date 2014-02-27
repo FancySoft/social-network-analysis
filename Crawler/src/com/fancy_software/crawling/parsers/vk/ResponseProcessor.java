@@ -1,4 +1,4 @@
-package com.fancy_software.crawling.crawlers.vk;
+package com.fancy_software.crawling.parsers.vk;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
@@ -18,7 +18,7 @@ public class ResponseProcessor {
 
     //todo deleted accounts shouldn't be extracted
     public List<AccountVector> processResponse(String response) throws NullPointerException {
-        List<AccountVector> extraction = new LinkedList<AccountVector>();
+        List<AccountVector> extraction = new LinkedList<>();
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode responseNode = mapper.readTree(response).get("response");
@@ -39,7 +39,7 @@ public class ResponseProcessor {
 
     //for groups and friends
     public List<Long> processInfo(String response) throws NullPointerException {
-        List<Long> extraction = new LinkedList<Long>();
+        List<Long> extraction = new LinkedList<>();
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode responseNode = mapper.readTree(response).get("response");
