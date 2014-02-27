@@ -1,4 +1,4 @@
-package com.fancy_software.crawling;
+package com.fancy_software.crawling.utils;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

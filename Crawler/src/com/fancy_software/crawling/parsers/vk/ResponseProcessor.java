@@ -16,6 +16,8 @@ import java.util.List;
  */
 public class ResponseProcessor {
 
+    private static final String TAG = ResponseProcessor.class.getSimpleName();
+
     //todo deleted accounts shouldn't be extracted
     public List<AccountVector> processResponse(String response) throws NullPointerException {
         List<AccountVector> extraction = new LinkedList<>();
@@ -31,7 +33,7 @@ public class ResponseProcessor {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+//            Log.e(TAG, e);
             return extraction;
         }
         return extraction;

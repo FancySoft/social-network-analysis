@@ -1,7 +1,8 @@
-package com.fancy_software.crawling.crawlers;
+package com.fancy_software.crawling.crawlers.vk;
 
 import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.SocialNetworkId;
+import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.parsers.IParser;
 import com.fancy_software.crawling.parsers.vk.VkApiCaller;
 

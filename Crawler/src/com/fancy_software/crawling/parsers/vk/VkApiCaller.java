@@ -3,21 +3,24 @@ package com.fancy_software.crawling.parsers.vk;
 import com.fancy_software.accounts_matching.io_local_base.LocalAccountReader;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
-import com.fancy_software.crawling.crawlers.VkCrawler;
-import com.fancy_software.crawling.crawlers.VkCrawler.ExtractType;
+import com.fancy_software.crawling.crawlers.vk.VkCrawler;
+import com.fancy_software.crawling.crawlers.vk.VkCrawler.ExtractType;
 import com.fancy_software.crawling.parsers.AbstractParser;
 import com.fancy_software.logger.Log;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.math.BigInteger;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
@@ -28,21 +31,22 @@ import java.util.List;
 
 public class VkApiCaller extends AbstractParser {
 
-    private final String APP_ID        = "3437182";
-    private final String SCOPE         = "notify,friends,photos,audio,video,docs,notes,pages,status,offers,questions," +
-                                         "wall,groups,messages,notifications,stats,ads,offline";
-    private final String REDIRECT_URI  = "http://oauth.vk.com/blank.html";
-    private final String DISPLAY       = "page";
-    private final String RESPONSE_TYPE = "token";
-    private final String TAG           = VkCrawler.class.getSimpleName();
-    private final int    MAX_API_CALL  = 5;
-    private final int    APP_INSTALLS  = 1;
-    private final int    BARRIER       = MAX_API_CALL * APP_INSTALLS - 1;
-    private final int    FOR_DELAY     = 1000;
+    private final String APP_ID            = "3437182";
+    private final String SCOPE             = "notify,friends,photos,audio,video,docs,notes,pages,status,offers,questions," +
+                                             "wall,groups,messages,notifications,stats,ads,offline";
+    private final String REDIRECT_URI      = "http://oauth.vk.com/blank.html";
+    private final String DISPLAY           = "page";
+    private final String RESPONSE_TYPE     = "token";
+    private final String RESPONSE_ENCODING = "utf-8";
+    private final String TAG               = VkCrawler.class.getSimpleName();
+    private final int    MAX_API_CALL      = 5;
+    private final int    APP_INSTALLS      = 1;
+    private final int    BARRIER           = MAX_API_CALL * APP_INSTALLS - 1;
+    private final int    FOR_DELAY         = 1000;
     private long              lastCallTime;
     private String            access_token;
     private ResponseProcessor responseProcessor;
-    private int max_ids_for_call = 390;//actually, it's 1000, but there is restriction on id length
+    private int max_ids_for_call = 1000;//actually, it's 1000, but there is restriction on id length
     private long startUser;
     private long finishUser;
 
@@ -144,34 +148,45 @@ public class VkApiCaller extends AbstractParser {
             System.out.println("Authorization succeded");
 //            System.out.println((HeaderLocation.split("#")[1].split("&")[0].split("=")[1]));
             access_token = HeaderLocation.split("#")[1].split("&")[0].split("=")[1];
-        } catch (IOException ioexc) {
-            ioexc.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     private StringBuilder generateQueryForAccounts(long userCounter, ExtractType type) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("https://api.vk.com/method/");
-        builder.append("users.get?");
-        builder.append("uids=");
+        StringBuilder result = new StringBuilder();
+        result.append("https://api.vk.com");
+        result.append("/method/");
+        result.append("users.get.xml?");
+        result.append("access_token=");
+        result.append(access_token);
+        result.append("&sig=");
 
+        StringBuilder builder = new StringBuilder("/method/");
+        builder.append("users.get.xml?");
+        builder.append("access_token=");
+        builder.append(access_token);
+        builder.append("&");
+
+
+        builder.append("user_ids=");
         for (int i = 0; i < max_ids_for_call; i++) {
             builder.append(userCounter + i);
             //Log.d(TAG, String.format("userCounter = %d", userCounter + i));
             builder.append(",");
         }
-        //todo other fields
         builder.deleteCharAt(builder.length() - 1);
         builder.append("&fields=");
-        builder.append(FieldNames.ID);
-        builder.append("s,");
+        builder.append(FieldNames.BIRTH_DATE);
+        builder.append(",");
         builder.append(FieldNames.FIRST_NAME);
         builder.append(",");
         builder.append(FieldNames.LAST_NAME);
         builder.append(",");
-        builder.append(FieldNames.BIRTH_DATE);
-        builder.append(",");
         builder.append(FieldNames.SEX);
+        builder.append(",");
+        builder.append(FieldNames.ID);
+
 //        builder.append(",");
 //        builder.append("city,");
 //        builder.append("country,");
@@ -183,9 +198,10 @@ public class VkApiCaller extends AbstractParser {
 //        builder.append("activity,");
 //        builder.append("relation");
 //        System.out.println(builder.toString());
-        builder.append("&access_token=");
-        builder.append(access_token);
-        return builder;
+        builder.append("&v=5.2");
+        result.append(getHash(builder.toString()));
+
+        return result;
 
     }
 
@@ -226,9 +242,14 @@ public class VkApiCaller extends AbstractParser {
 
     private void startAccounts(VkCrawler.ExtractType extractType) {
         while (!Thread.currentThread().isInterrupted()) {
-            long userCounter = startUser;
+            long userCounter = 1;//startUser;
             int callCounter = 0;
-            lastCallTime = System.currentTimeMillis();
+            HttpPost post;
+            HttpResponse response;
+            HttpEntity entity;
+
+            HttpClient client = new DefaultHttpClient();
+
             while (true) {
 //            Log.d(TAG, String.format("userCounter = %d", userCounter));
                 if (userCounter > finishUser)
@@ -242,16 +263,17 @@ public class VkApiCaller extends AbstractParser {
                     return;
                 }
                 StringBuilder query = generateQueryForAccounts(userCounter, extractType);
-                HttpPost post = new HttpPost(query.toString());
+                System.out.println(query.toString());
+                post = new HttpPost(query.toString());
+
                 try {
-                    URL url = new URL(query.toString());
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
-                    String line = reader.readLine();
-                    reader.close();
-                    System.out.println(line);
-                    notifyCrawler(responseProcessor.processResponse(line));
+                    response = client.execute(post);
+                    entity = response.getEntity();
+                    String responseString = EntityUtils.toString(entity, RESPONSE_ENCODING);
+                    System.out.println(responseString);
+                    notifyCrawler(responseProcessor.processResponse(responseString));
                 } catch (IOException e) {
-                    Log.e(TAG, e);
+//                    Log.e(TAG, e);
                 } catch (NullPointerException e) {
                     Log.e(TAG, e);
                     try {
@@ -289,7 +311,7 @@ public class VkApiCaller extends AbstractParser {
             HttpPost post = new HttpPost(query.toString());
             try {
                 URL url = new URL(query.toString());
-                BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "utf-8"));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), RESPONSE_ENCODING));
                 String line = reader.readLine();
                 reader.close();
                 System.out.println(line);
@@ -338,6 +360,25 @@ public class VkApiCaller extends AbstractParser {
             return true;
         }
         return false;
+    }
+
+    static public String hashBinary(byte[] source) {
+        try {
+            MessageDigest m = MessageDigest.getInstance("MD5");
+            m.update(source);
+            BigInteger i = new BigInteger(1, m.digest());
+            return String.format("%1$032x", i);
+        } catch (NoSuchAlgorithmException e) {}
+        return "";
+    }
+
+    static public String getHash(String str) {
+        System.out.println(str);
+//        try {
+//            return hashBinary(str.getBytes("UTF-8"));
+            return DigestUtils.md5Hex(str);
+//        } catch (UnsupportedEncodingException e) {}
+//        return "";
     }
 
 }

@@ -1,6 +1,6 @@
 package com.fancy_software.crawling;
 
-import com.fancy_software.crawling.crawlers.VkCrawler;
+import com.fancy_software.crawling.crawlers.vk.VkCrawler;
 import org.apache.commons.logging.LogFactory;
 
 import java.util.logging.Level;
@@ -19,7 +19,7 @@ public class Main {
         vkCrawler.init();
         vkCrawler.start();
         try {
-            Thread.sleep(10000);
+            Thread.sleep(100000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
