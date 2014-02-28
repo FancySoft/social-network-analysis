@@ -6,21 +6,22 @@ import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.crawlers.vk.VkCrawler;
 import com.fancy_software.crawling.crawlers.vk.VkCrawler.ExtractType;
 import com.fancy_software.crawling.parsers.AbstractParser;
+import com.fancy_software.crawling.utils.Utils;
 import com.fancy_software.logger.Log;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import java.io.*;
-import java.math.BigInteger;
 import java.net.URL;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,98 +32,63 @@ import java.util.List;
 
 public class VkApiCaller extends AbstractParser {
 
+    private final String TAG               = VkCrawler.class.getSimpleName();
+
     private final String APP_ID            = "3437182";
     private final String SCOPE             = "notify,friends,photos,audio,video,docs,notes,pages,status,offers,questions," +
-                                             "wall,groups,messages,notifications,stats,ads,offline";
+                                             "wall,groups,messages,notifications,stats,ads,offline,nohttps";
     private final String REDIRECT_URI      = "http://oauth.vk.com/blank.html";
     private final String DISPLAY           = "page";
     private final String RESPONSE_TYPE     = "token";
     private final String RESPONSE_ENCODING = "utf-8";
-    private final String TAG               = VkCrawler.class.getSimpleName();
     private final int    MAX_API_CALL      = 5;
     private final int    APP_INSTALLS      = 1;
     private final int    BARRIER           = MAX_API_CALL * APP_INSTALLS - 1;
     private final int    FOR_DELAY         = 1000;
     private long              lastCallTime;
     private String            access_token;
+    private String            app_secret;
     private ResponseProcessor responseProcessor;
-    private int max_ids_for_call = 1000;//actually, it's 1000, but there is restriction on id length
-    private long startUser;
-    private long finishUser;
+    private int max_ids_for_call = 2;//actually, it's 1000, but there is restriction on id length
+    private long           startUser;
+    private long           finishUser;
+    private QueryGenerator queryGenerator;
 
     public VkApiCaller(AbstractCrawler crawler, long startUser, long finishUser) {
         this.crawler = crawler;
         this.startUser = startUser;
         this.finishUser = finishUser;
         responseProcessor = new ResponseProcessor();
+        queryGenerator = new QueryGenerator();
     }
 
     @Override
     public void auth(String login, String password) {
         try {
-            StringBuilder builder = new StringBuilder();
-            builder.append("http://oauth.vk.com/authorize?");
-            builder.append("client_id=");
-            builder.append(APP_ID);
-            builder.append("&scope=");
-            builder.append(SCOPE);
-            builder.append("&redirect_uri=");
-            builder.append(REDIRECT_URI);
-            builder.append("&display=");
-            builder.append(DISPLAY);
-            builder.append("&response_type=");
-            builder.append(RESPONSE_TYPE);
-
             HttpClient httpClient = new DefaultHttpClient();
-            HttpGet get = new HttpGet(builder.toString());
+
+            String authQuery = queryGenerator.getQueryForAuth();
+            HttpGet get = new HttpGet(authQuery);
             HttpResponse response = httpClient.execute(get);
 
             InputStream in = response.getEntity().getContent();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
-            String line;
-            String ip_h = null;
-            String to_h = null;
-            String toFindIp = "<input type=\"hidden\" name=\"ip_h\" value=\"";
-            String toFindTo = "<input type=\"hidden\" name=\"to\" value=\"";
-            boolean needIph = true;
-            boolean needToh = true;
 
-            while ((line = reader.readLine()) != null) {
-                if (needIph && line.contains(toFindIp)) {
-                    ip_h = line.substring(toFindIp.length(), line.indexOf("\"", toFindIp.length() + 1));
-                    needIph = false;
-                } else if (needToh && line.contains(toFindTo)) {
-                    to_h = line.substring(toFindTo.length(), line.indexOf("\"", toFindTo.length() + 1));
-                    needToh = false;
-                }
-            }
-            builder = new StringBuilder();
-            builder.append("https://login.vk.com/?act=login&soft=1");
-            builder.append("&q=1");
-            builder.append("&ip_h=");
-            builder.append(ip_h);
-            builder.append("&from_host=oauth.vk.com");
-            builder.append("&to=");
-            builder.append(to_h);
-            builder.append("&expire=0");
-            builder.append("&email=");
-            builder.append(login);
-            builder.append("&pass=");
-            builder.append(password);
+            String loginQuery = queryGenerator.getQueryForLogin(in, login, password);
 
-            HttpPost post = new HttpPost(builder.toString());
+            HttpPost post = new HttpPost(loginQuery);
             response = httpClient.execute(post);
             post.abort();
-            String HeaderLocation = response.getFirstHeader("location").getValue();
+            String headerLocation = response.getFirstHeader("location").getValue();
 
             // Нужно только в первый раз, пока не даны разрешения
-            get = new HttpGet(HeaderLocation);
+            get = new HttpGet(headerLocation);
             response = httpClient.execute(get);
             String toFind = "<form method=\"post\" action=\"";
             String link = null;
             in = response.getEntity().getContent();
-            reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in, RESPONSE_ENCODING));
             boolean needLink = true;
+            String line;
             while ((line = reader.readLine()) != null) {
                 if (needLink && line.contains(toFind)) {
                     link = line.substring(toFind.length(), line.indexOf("\"", toFind.length() + 1));
@@ -132,97 +98,26 @@ public class VkApiCaller extends AbstractParser {
 
             if (link == null) {
                 // Если разрешения уже даны, мы тут
-                post = new HttpPost(HeaderLocation);
+                post = new HttpPost(headerLocation);
                 response = httpClient.execute(post);
                 post.abort();
-                HeaderLocation = response.getFirstHeader("location").getValue();
+                headerLocation = response.getFirstHeader("location").getValue();
             } else {
-                HeaderLocation = link;
+                headerLocation = link;
             }
 
-            post = new HttpPost(HeaderLocation);
+            post = new HttpPost(headerLocation);
             response = httpClient.execute(post);
             post.abort();
-            HeaderLocation = response.getFirstHeader("location").getValue();
-            System.out.println(HeaderLocation);
-            System.out.println("Authorization succeded");
-//            System.out.println((HeaderLocation.split("#")[1].split("&")[0].split("=")[1]));
-            access_token = HeaderLocation.split("#")[1].split("&")[0].split("=")[1];
+            headerLocation = response.getFirstHeader("location").getValue();
+            System.out.println("Authorization succeeded");
+            access_token = headerLocation.split("#")[1].split("&")[0].split("=")[1];
+            app_secret = headerLocation.split("#")[1].split("&")[3].split("=")[1];
+            System.out.println("ACCESS TOKEN "+ access_token);
+            System.out.println("APP SECRET "+app_secret);
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private StringBuilder generateQueryForAccounts(long userCounter, ExtractType type) {
-        StringBuilder result = new StringBuilder();
-        result.append("https://api.vk.com");
-        result.append("/method/");
-        result.append("users.get.xml?");
-        result.append("access_token=");
-        result.append(access_token);
-        result.append("&sig=");
-
-        StringBuilder builder = new StringBuilder("/method/");
-        builder.append("users.get.xml?");
-        builder.append("access_token=");
-        builder.append(access_token);
-        builder.append("&");
-
-
-        builder.append("user_ids=");
-        for (int i = 0; i < max_ids_for_call; i++) {
-            builder.append(userCounter + i);
-            //Log.d(TAG, String.format("userCounter = %d", userCounter + i));
-            builder.append(",");
-        }
-        builder.deleteCharAt(builder.length() - 1);
-        builder.append("&fields=");
-        builder.append(FieldNames.BIRTH_DATE);
-        builder.append(",");
-        builder.append(FieldNames.FIRST_NAME);
-        builder.append(",");
-        builder.append(FieldNames.LAST_NAME);
-        builder.append(",");
-        builder.append(FieldNames.SEX);
-        builder.append(",");
-        builder.append(FieldNames.ID);
-
-//        builder.append(",");
-//        builder.append("city,");
-//        builder.append("country,");
-//        builder.append("photo_max,");
-//        builder.append("contacts,");
-//        builder.append("education,");
-//        builder.append("universities,");
-//        builder.append("schools,");
-//        builder.append("activity,");
-//        builder.append("relation");
-//        System.out.println(builder.toString());
-        builder.append("&v=5.2");
-        result.append(getHash(builder.toString()));
-
-        return result;
-
-    }
-
-    private StringBuilder generateQueryForAdditionalInfo(long userId, ExtractType type) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("https://api.vk.com/method/");
-        switch (type) {
-            case FRIENDS:
-                builder.append("friends.get?");
-                break;
-            case GROUPS:
-                builder.append("groups.get?");
-            default:
-                break;
-        }
-        builder.append("uid=");
-        builder.append(userId);
-
-        builder.append("&access_token=");
-        builder.append(access_token);
-        return builder;
     }
 
     @Override
@@ -262,9 +157,10 @@ public class VkApiCaller extends AbstractParser {
                     Log.e(TAG, e);
                     return;
                 }
-                StringBuilder query = generateQueryForAccounts(userCounter, extractType);
-                System.out.println(query.toString());
-                post = new HttpPost(query.toString());
+                String query = queryGenerator.getQueryForAccounts(userCounter);
+                System.out.println("http://api.vk.com/");
+                post = new HttpPost("https://api.vk.com/");
+                addParameters(post,userCounter);
 
                 try {
                     response = client.execute(post);
@@ -275,6 +171,7 @@ public class VkApiCaller extends AbstractParser {
                 } catch (IOException e) {
 //                    Log.e(TAG, e);
                 } catch (NullPointerException e) {
+                    e.printStackTrace();
                     Log.e(TAG, e);
                     try {
                         Thread.sleep(FOR_DELAY);
@@ -307,8 +204,8 @@ public class VkApiCaller extends AbstractParser {
                 Log.e(TAG, e);
                 return;
             }
-            StringBuilder query = generateQueryForAdditionalInfo(userCounter, extractType);
-            HttpPost post = new HttpPost(query.toString());
+            String query = queryGenerator.getQueryForAdditionalInfo(userCounter, extractType);
+            HttpPost post = new HttpPost(query);
             try {
                 URL url = new URL(query.toString());
                 BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), RESPONSE_ENCODING));
@@ -350,6 +247,23 @@ public class VkApiCaller extends AbstractParser {
         }
     }
 
+    private void addParameters(HttpPost post, long userCounter){
+        List<NameValuePair> postParameters = new ArrayList<>();
+        postParameters.add(new BasicNameValuePair("method", "users.get.xml"));
+        postParameters.add(new BasicNameValuePair("access_token", access_token));
+        postParameters.add(new BasicNameValuePair("user_ids", queryGenerator.generateIds(userCounter,max_ids_for_call) ));
+        postParameters.add(new BasicNameValuePair("fields",queryGenerator.generateFields()));
+        postParameters.add(new BasicNameValuePair("v","5.2"));
+
+
+
+        try {
+            post.setEntity(new UrlEncodedFormEntity(postParameters));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
     private boolean needDelay(int callCounter) throws InterruptedException {
         if (callCounter > BARRIER) {
             long timeDif = System.currentTimeMillis() - lastCallTime;
@@ -362,23 +276,138 @@ public class VkApiCaller extends AbstractParser {
         return false;
     }
 
-    static public String hashBinary(byte[] source) {
-        try {
-            MessageDigest m = MessageDigest.getInstance("MD5");
-            m.update(source);
-            BigInteger i = new BigInteger(1, m.digest());
-            return String.format("%1$032x", i);
-        } catch (NoSuchAlgorithmException e) {}
-        return "";
+    private class QueryGenerator {
+
+        private String getQueryForAccounts(long userCounter) {
+            StringBuilder result = new StringBuilder("http://api.vk.com");
+
+            StringBuilder builder = new StringBuilder("/method/");
+            builder.append("users.get.xml?");
+            builder.append("access_token=");
+            builder.append(access_token);
+            builder.append("&user_ids=");
+            builder.append(generateIds(userCounter,max_ids_for_call));
+            builder.append("&fields=");
+            builder.append(generateFields());
+            builder.append("&v=5.2");
+
+            result.append(builder.toString());
+
+            builder.append(app_secret);
+
+//            System.out.println("builder before hash "+ builder.toString());
+//            System.out.println("hash " + Utils.getHash(builder.toString()));
+            result.append("&sig=");
+            result.append(Utils.getHash(builder.toString()));
+            return result.toString();
+
+        }
+
+        private String getQueryForAdditionalInfo(long userId, ExtractType type) {
+            StringBuilder result = new StringBuilder();
+            result.append("https://api.vk.com/method/");
+            switch (type) {
+                case FRIENDS:
+                    result.append("friends.get?");
+                    break;
+                case GROUPS:
+                    result.append("groups.get?");
+                default:
+                    break;
+            }
+            result.append("uid=");
+            result.append(userId);
+
+            result.append("&access_token=");
+            result.append(access_token);
+            return result.toString();
+        }
+
+        private String getQueryForLogin(InputStream in, String login, String password) throws IOException {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in, RESPONSE_ENCODING));
+            String line;
+            String ip_h = null;
+            String to_h = null;
+            String toFindIp = "<input type=\"hidden\" name=\"ip_h\" value=\"";
+            String toFindTo = "<input type=\"hidden\" name=\"to\" value=\"";
+            boolean needIph = true;
+            boolean needToh = true;
+
+            while ((line = reader.readLine()) != null) {
+                if (needIph && line.contains(toFindIp)) {
+                    ip_h = line.substring(toFindIp.length(), line.indexOf("\"", toFindIp.length() + 1));
+                    needIph = false;
+                } else if (needToh && line.contains(toFindTo)) {
+                    to_h = line.substring(toFindTo.length(), line.indexOf("\"", toFindTo.length() + 1));
+                    needToh = false;
+                }
+            }
+            StringBuilder result = new StringBuilder();
+            result.append("https://login.vk.com/?act=login&soft=1");
+            result.append("&q=1");
+            result.append("&ip_h=");
+            result.append(ip_h);
+            result.append("&from_host=oauth.vk.com");
+            result.append("&to=");
+            result.append(to_h);
+            result.append("&expire=0");
+            result.append("&email=");
+            result.append(login);
+            result.append("&pass=");
+            result.append(password);
+            return result.toString();
+        }
+
+        private String getQueryForAuth() {
+            StringBuilder result = new StringBuilder();
+            result.append("http://oauth.vk.com/authorize?");
+            result.append("client_id=");
+            result.append(APP_ID);
+            result.append("&scope=");
+            result.append(SCOPE);
+            result.append("&redirect_uri=");
+            result.append(REDIRECT_URI);
+            result.append("&display=");
+            result.append(DISPLAY);
+            result.append("&response_type=");
+            result.append(RESPONSE_TYPE);
+            return result.toString();
+        }
+
+        public String generateIds(long first, long last){
+            StringBuilder result = new StringBuilder();
+            for (long i = 0; i < last; i++) {
+                result.append(first + i);
+                result.append(",");
+            }
+            result.deleteCharAt(result.length() - 1);
+            return result.toString();
+        }
+
+        public String generateFields(){
+            StringBuilder result = new StringBuilder();
+            result.append(FieldNames.BIRTH_DATE);
+            result.append(",");
+            result.append(FieldNames.FIRST_NAME);
+            result.append(",");
+            result.append(FieldNames.LAST_NAME);
+            result.append(",");
+            result.append(FieldNames.SEX);
+            result.append(",");
+            result.append(FieldNames.ID);
+//        builder.append(",");
+//        builder.append("city,");
+//        builder.append("country,");
+//        builder.append("photo_max,");
+//        builder.append("contacts,");
+//        builder.append("education,");
+//        builder.append("universities,");
+//        builder.append("schools,");
+//        builder.append("activity,");
+//        builder.append("relation");
+            return result.toString();
+        }
     }
 
-    static public String getHash(String str) {
-        System.out.println(str);
-//        try {
-//            return hashBinary(str.getBytes("UTF-8"));
-            return DigestUtils.md5Hex(str);
-//        } catch (UnsupportedEncodingException e) {}
-//        return "";
-    }
 
 }

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="apache-commons-httpclient">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Crawler/lib/apache-commons-httpclient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
