@@ -9,6 +9,7 @@ import com.fancy_software.crawling.utils.UserWriter;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class AbstractCrawler implements ICrawler {
@@ -16,6 +17,7 @@ public abstract class AbstractCrawler implements ICrawler {
     protected SocialNetworkId      socialNetworkId;
     protected AtomicBoolean        stop;
     private   Queue<AccountVector> usersToWrite;
+    protected ExecutorService      executor;
 
     {
         usersToWrite = new ConcurrentLinkedQueue<>();
@@ -37,6 +39,8 @@ public abstract class AbstractCrawler implements ICrawler {
 
     @Override
     public void finish() {
+        if (executor != null)
+            executor.shutdownNow();
         stop.set(true);
     }
 

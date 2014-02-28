@@ -110,11 +110,9 @@ public class VkApiCaller extends AbstractParser {
             headerLocation = response.getFirstHeader("location").getValue();
             System.out.println("Authorization succeeded");
             access_token = headerLocation.split("#")[1].split("&")[0].split("=")[1];
-//            app_secret = headerLocation.split("#")[1].split("&")[3].split("=")[1];
             System.out.println("ACCESS TOKEN " + access_token);
-//            System.out.println("APP SECRET "+app_secret);
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG, e);
         }
     }
 
@@ -134,54 +132,54 @@ public class VkApiCaller extends AbstractParser {
     }
 
     private void startAccounts(VkCrawler.ExtractType extractType) {
+
+        long userCounter = 1;//startUser;
+        int callCounter = 0;
+        HttpPost post;
+        HttpResponse response;
+        HttpEntity entity;
+
+        HttpClient client = new DefaultHttpClient();
+
         while (!Thread.currentThread().isInterrupted()) {
-            long userCounter = 1;//startUser;
-            int callCounter = 0;
-            HttpPost post;
-            HttpResponse response;
-            HttpEntity entity;
-
-            HttpClient client = new DefaultHttpClient();
-
-            while (true) {
 //            Log.d(TAG, String.format("userCounter = %d", userCounter));
-                if (userCounter > finishUser)
-                    break;
-                callCounter++;
+            if (userCounter > finishUser)
+                break;
+            callCounter++;
+            try {
+                if (needDelay(callCounter))
+                    callCounter = 0;
+            } catch (InterruptedException e) {
+                Log.e(TAG, e);
+                return;
+            }
+            post = new HttpPost("https://api.vk.com/method/users.get?");
+            addPostParameters(post, userCounter);
+
+            try {
+                response = client.execute(post);
+                entity = response.getEntity();
+                String responseString = EntityUtils.toString(entity, RESPONSE_ENCODING);
+                System.out.println(responseString);
+                notifyCrawler(responseProcessor.processResponse(responseString));
+            } catch (IOException e) {
+                Log.e(TAG, e);
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+                Log.e(TAG, e);
                 try {
-                    if (needDelay(callCounter))
-                        callCounter = 0;
-                } catch (InterruptedException e) {
-                    Log.e(TAG, e);
+                    Thread.sleep(FOR_DELAY);
+                } catch (InterruptedException e1) {
+                    Log.e(TAG, e1);
                     return;
                 }
-                post = new HttpPost("https://api.vk.com/method/users.get?");
-                addPostParameters(post, userCounter);
-
-                try {
-                    response = client.execute(post);
-                    entity = response.getEntity();
-                    String responseString = EntityUtils.toString(entity, RESPONSE_ENCODING);
-                    System.out.println(responseString);
-                    notifyCrawler(responseProcessor.processResponse(responseString));
-                } catch (IOException e) {
-                    Log.e(TAG, e);
-                } catch (NullPointerException e) {
-                    e.printStackTrace();
-                    Log.e(TAG, e);
-                    try {
-                        Thread.sleep(FOR_DELAY);
-                    } catch (InterruptedException e1) {
-                        Log.e(TAG, e1);
-                        return;
-                    }
-                    continue;
-                }
-                post.abort();
-                lastCallTime = System.currentTimeMillis();
-                userCounter += max_ids_for_call;
+                continue;
             }
+            post.abort();
+            lastCallTime = System.currentTimeMillis();
+            userCounter += max_ids_for_call;
         }
+
     }
 
     private void startAdditionalInfo(ExtractType extractType) {

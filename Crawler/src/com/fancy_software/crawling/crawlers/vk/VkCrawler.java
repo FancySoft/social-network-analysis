@@ -8,7 +8,6 @@ import com.fancy_software.crawling.parsers.vk.VkApiCaller;
 
 import java.util.List;
 import java.util.ListIterator;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
@@ -20,7 +19,6 @@ public class VkCrawler extends AbstractCrawler {
 
     private long startId  = 0;
     private long finishId = 200000000;
-    ExecutorService executor;
 
     {
         socialNetworkId = SocialNetworkId.VK;
@@ -63,12 +61,6 @@ public class VkCrawler extends AbstractCrawler {
             finish += perCaller;
         }
         executor.shutdown();
-    }
-
-    @Override
-    public void finish() {
-        executor.shutdownNow();
-        super.finish();
     }
 
     public enum ExtractType {
