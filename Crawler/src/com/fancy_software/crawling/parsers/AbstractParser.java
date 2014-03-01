@@ -5,7 +5,7 @@ import com.fancy_software.crawling.crawlers.AbstractCrawler;
 
 import java.util.List;
 
-public class AbstractParser implements IParser {
+public abstract class AbstractParser implements IParser {
 
     protected AbstractCrawler crawler;
 

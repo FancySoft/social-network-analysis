@@ -1,6 +1,7 @@
 package com.fancy_software.crawling.crawlers.fb;
 
 import com.fancy_software.accounts_matching.io_local_base.Settings;
+import com.fancy_software.accounts_matching.model.SocialNetworkId;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.parsers.IParser;
 import com.fancy_software.crawling.parsers.fb.FbParser;
@@ -10,6 +11,14 @@ import java.util.ListIterator;
 import java.util.concurrent.Executors;
 
 public class FbCrawler extends AbstractCrawler {
+
+    {
+        socialNetworkId = SocialNetworkId.FB;
+    }
+
+    public FbCrawler(ExtractType extractType) {
+        this.extractType = extractType;
+    }
 
 
     @Override

@@ -19,6 +19,8 @@ public abstract class AbstractCrawler implements ICrawler {
     private   Queue<AccountVector> usersToWrite;
     protected ExecutorService      executor;
 
+    protected ExtractType extractType;
+
     {
         usersToWrite = new ConcurrentLinkedQueue<>();
         stop = new AtomicBoolean(false);
@@ -26,7 +28,7 @@ public abstract class AbstractCrawler implements ICrawler {
 
     @Override
     public void init() {
-        String folderToWrite = getFolderForWrite(socialNetworkId);
+        String folderToWrite = getFolderForWrite();
         UserWriter writer = new UserWriter(usersToWrite, folderToWrite, stop);
         Thread writingThread = new Thread(writer);
         writingThread.start();
@@ -44,11 +46,15 @@ public abstract class AbstractCrawler implements ICrawler {
         stop.set(true);
     }
 
-    public static String getFolderForWrite(SocialNetworkId socialNetworkId) {
+    public ExtractType getExtractType() {
+        return extractType;
+    }
+
+    public String getFolderForWrite() {
         switch (socialNetworkId) {
             case VK:
                 return Settings.getInstance().get(Settings.VK_ACCOUNT_FOLDER);
-            case Facebook:
+            case FB:
                 return Settings.getInstance().get(Settings.FB_ACCOUNT_FOLDER);
             default:
                 return null;
@@ -81,5 +87,9 @@ public abstract class AbstractCrawler implements ICrawler {
             parser.auth(login, password);
             parser.start();
         }
+    }
+
+    public enum ExtractType {
+        ALL_ACCOUNTS, FRIENDS, GROUPS
     }
 }

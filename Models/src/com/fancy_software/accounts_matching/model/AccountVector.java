@@ -105,10 +105,6 @@ public class AccountVector {
         this.id = id;
     }
 
-    public void setId(){
-
-    }
-
     public void addFriend(String friendId) {
         friends.add(friendId);
     }

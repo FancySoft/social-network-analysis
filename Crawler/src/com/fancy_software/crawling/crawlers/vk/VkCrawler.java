@@ -4,7 +4,7 @@ import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.SocialNetworkId;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.parsers.IParser;
-import com.fancy_software.crawling.parsers.vk.VkApiCaller;
+import com.fancy_software.crawling.parsers.vk.VkApiParser;
 
 import java.util.List;
 import java.util.ListIterator;
@@ -22,6 +22,10 @@ public class VkCrawler extends AbstractCrawler {
 
     {
         socialNetworkId = SocialNetworkId.VK;
+    }
+
+    public VkCrawler(ExtractType extractType) {
+        this.extractType = extractType;
     }
 
     public long getFinishId() {
@@ -55,16 +59,12 @@ public class VkCrawler extends AbstractCrawler {
         ListIterator<String> passwordIterator = passwordList.listIterator();
 
         while (loginIterator.hasNext() && passwordIterator.hasNext()) {
-            IParser apiCaller = new VkApiCaller(this, start, finish);
+            IParser apiCaller = new VkApiParser(this, start, finish);
             executor.execute(new ParserRunner(apiCaller, loginIterator.next(), passwordIterator.next()));
             start += perCaller;
             finish += perCaller;
         }
         executor.shutdown();
-    }
-
-    public enum ExtractType {
-        ACCOUNTS, FRIENDS, GROUPS
     }
 
 }

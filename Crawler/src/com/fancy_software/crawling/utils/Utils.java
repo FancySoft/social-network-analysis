@@ -1,5 +1,6 @@
 package com.fancy_software.crawling.utils;
 
+
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.IOException;

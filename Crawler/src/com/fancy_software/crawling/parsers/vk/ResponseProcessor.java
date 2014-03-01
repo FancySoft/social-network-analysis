@@ -2,6 +2,7 @@ package com.fancy_software.crawling.parsers.vk;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
+import com.fancy_software.logger.Log;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -19,7 +20,7 @@ public class ResponseProcessor {
     private static final String TAG = ResponseProcessor.class.getSimpleName();
 
     //todo deleted accounts shouldn't be extracted
-    public List<AccountVector> processResponse(String response) throws NullPointerException {
+    public List<AccountVector> processAccountInfoResponse(String response) throws NullPointerException {
         List<AccountVector> extraction = new LinkedList<>();
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -33,14 +34,14 @@ public class ResponseProcessor {
             }
 
         } catch (IOException e) {
-//            Log.e(TAG, e);
+            Log.e(TAG, e);
             return extraction;
         }
         return extraction;
     }
 
     //for groups and friends
-    public List<Long> processInfo(String response) throws NullPointerException {
+    public List<Long> processGroupsOrFriendsResponse(String response) throws NullPointerException {
         List<Long> extraction = new LinkedList<>();
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -50,12 +51,12 @@ public class ResponseProcessor {
                 try {
                     extraction.add(Long.valueOf(node.toString()));
                 } catch (NumberFormatException e) {
-                    e.printStackTrace();
+                    Log.e(TAG, e);
                 }
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG, e);
             return extraction;
         }
         return extraction;
@@ -72,10 +73,10 @@ public class ResponseProcessor {
             if (node.has(FieldNames.BIRTH_DATE))
                 result.setBdate(BirthDate.generateBirthDate(node.get(FieldNames.BIRTH_DATE).asText()));
         } catch (NumberFormatException e) {
-            System.out.println("Bad data");
+            Log.e(TAG, "Bad data");
             return null;
         } catch (NullPointerException e) {
-            System.out.println("No important fields in account");
+            Log.e(TAG, "No important fields in account");
             return result;
         }
         return result;

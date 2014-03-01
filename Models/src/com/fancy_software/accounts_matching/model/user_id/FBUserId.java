@@ -29,6 +29,6 @@ public class FBUserId implements IUserId {
 
     @Override
     public SocialNetworkId getNetworkId() {
-        return SocialNetworkId.Facebook;
+        return SocialNetworkId.FB;
     }
 }

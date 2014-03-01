@@ -26,6 +26,7 @@ public class UserWriter implements Runnable {
 
     @Override
     public void run() {
+        int pause = 3000;
         while (true) {
             if (!stop.get()) {
                 if (!userToWrite.isEmpty()) {
@@ -33,7 +34,7 @@ public class UserWriter implements Runnable {
                     LocalAccountWriter.writeAccountToLocalBase(vector, folder);
                 } else {
                     try {
-                        Thread.sleep(3000);
+                        Thread.sleep(pause);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

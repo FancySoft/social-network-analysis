@@ -57,7 +57,7 @@ public class FbParser implements IParser {
 
             button.dblClick();
         } catch (IOException e) {
-            System.out.println("Facebook authorization failed");
+            System.out.println("FB authorization failed");
             Log.e(TAG, e);
         }
     }
@@ -78,6 +78,11 @@ public class FbParser implements IParser {
         } finally {
             webClient.closeAllWindows();
         }
+    }
+
+    @Override
+    public AccountVector extractAccountById(String id) {
+        return null;
     }
 
     public void testParse() throws IOException {

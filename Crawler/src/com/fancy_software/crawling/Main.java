@@ -1,5 +1,6 @@
 package com.fancy_software.crawling;
 
+import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.crawlers.vk.VkCrawler;
 import org.apache.commons.logging.LogFactory;
 
@@ -13,17 +14,23 @@ import java.util.logging.Level;
 
 public class Main {
 
+    private static AbstractCrawler crawler;
+
     public static void main(String[] args) {
         init();
-        VkCrawler vkCrawler = new VkCrawler();
-        vkCrawler.init();
-        vkCrawler.start();
+        testCrawlers();
+    }
+
+    public static void testCrawlers() {
+        crawler = new VkCrawler(AbstractCrawler.ExtractType.ALL_ACCOUNTS);
+        crawler.init();
+        crawler.start();
         try {
-            Thread.sleep(100000);
+            Thread.sleep(12000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            vkCrawler.finish();
+            crawler.finish();
         }
         System.out.println("stop");
     }
