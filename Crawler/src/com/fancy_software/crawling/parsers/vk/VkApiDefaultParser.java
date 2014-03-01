@@ -3,8 +3,7 @@ package com.fancy_software.crawling.parsers.vk;
 import com.fancy_software.accounts_matching.io_local_base.LocalAccountReader;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
-import com.fancy_software.crawling.crawlers.vk.VkCrawler;
-import com.fancy_software.crawling.parsers.AbstractParser;
+import com.fancy_software.crawling.parsers.AbstractSampleParser;
 import com.fancy_software.crawling.utils.ExtractType;
 import com.fancy_software.logger.Log;
 import org.apache.http.HttpEntity;
@@ -28,9 +27,9 @@ import java.util.List;
  * Time: 15:19
  */
 
-public class VkApiParser extends AbstractParser {
+public class VkApiDefaultParser extends AbstractSampleParser {
 
-    private final String TAG = VkCrawler.class.getSimpleName();
+    private final String TAG = VkApiDefaultParser.class.getSimpleName();
 
     private final String APP_ID            = "3437182";
     private final String SCOPE             = "notify,friends,photos,audio,video,docs,notes,pages,status,offers,questions," +
@@ -57,15 +56,15 @@ public class VkApiParser extends AbstractParser {
         apiRequestGenerator = new ApiRequestGenerator();
     }
 
-    public VkApiParser(AbstractCrawler crawler, long startUserId, long finishUserId) {
+    public VkApiDefaultParser(AbstractCrawler crawler, long startUserId, long finishUserId) {
         this.crawler = crawler;
         this.startUserId = startUserId;
         this.finishUserId = finishUserId;
         currentUserId = startUserId;
     }
 
-    public VkApiParser(AbstractCrawler crawler) {
-        this.crawler = crawler;
+    public VkApiDefaultParser(String initialId) {
+        this.initialId = initialId;
     }
 
     @Override
@@ -125,11 +124,18 @@ public class VkApiParser extends AbstractParser {
 
     @Override
     public void start() {
-        _start(crawler.getExtractType());
+        super.start();
+//        _start(crawler.getExtractType());
     }
 
     @Override
     public AccountVector extractAccountById(String id) {
+        //todo replace by something better
+        try {
+            Thread.sleep(FOR_DELAY);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         long userId = 0;
 
         try {
@@ -156,13 +162,12 @@ public class VkApiParser extends AbstractParser {
             response = EntityUtils.toString(httpEntity, RESPONSE_ENCODING);
             post.abort();
             System.out.println(response);
-            try{
-            List<Long> friends = responseProcessor.processGroupsOrFriendsResponse(response);
-            for (long i : friends)
-                result.addFriend(Long.toString(i));
-            }
-            catch (NullPointerException e){
-                Log.e(TAG,e);
+            try {
+                List<Long> friends = responseProcessor.processGroupsOrFriendsResponse(response);
+                for (long i : friends)
+                    result.addFriend(Long.toString(i));
+            } catch (NullPointerException e) {
+                Log.e(TAG, e);
             }
             post = getPostForApiCall(userId, ExtractType.GROUPS);
             httpResponse = httpClient.execute(post);
@@ -171,17 +176,19 @@ public class VkApiParser extends AbstractParser {
             post.abort();
             System.out.println(response);
 
-            try{
-            List<Long> groups = responseProcessor.processGroupsOrFriendsResponse(response);
-            for (long i : groups)
-                result.addGroup(Long.toString(i));
+            try {
+                List<Long> groups = responseProcessor.processGroupsOrFriendsResponse(response);
+                for (long i : groups)
+                    result.addGroup(Long.toString(i));
+            } catch (NullPointerException e) {
+                Log.e(TAG, e);
             }
-            catch (NullPointerException e){
-                Log.e(TAG,e);
-            }
+            System.out.println("dicl");
             return result;
         } catch (IOException e) {
             Log.e(TAG, e);
+        } finally {
+            lastCallTime = System.currentTimeMillis();
         }
         return null;
     }
