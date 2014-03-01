@@ -40,6 +40,19 @@ public class ResponseProcessor {
         return extraction;
     }
 
+    public AccountVector processSingleAccount(String response) throws NullPointerException {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode responseNode = mapper.readTree(response).get("response");
+            JsonNode node = responseNode.get(0);
+            AccountVector vector = extractAccount(node);
+            return vector;
+        } catch (IOException e) {
+            Log.e(TAG, e);
+        }
+        return null;
+    }
+
     //for groups and friends
     public List<Long> processGroupsOrFriendsResponse(String response) throws NullPointerException {
         List<Long> extraction = new LinkedList<>();

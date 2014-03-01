@@ -4,6 +4,7 @@ import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.SocialNetworkId;
 import com.fancy_software.crawling.parsers.IParser;
+import com.fancy_software.crawling.utils.ExtractType;
 import com.fancy_software.crawling.utils.UserWriter;
 
 import java.util.List;
@@ -87,9 +88,5 @@ public abstract class AbstractCrawler implements ICrawler {
             parser.auth(login, password);
             parser.start();
         }
-    }
-
-    public enum ExtractType {
-        ALL_ACCOUNTS, FRIENDS, GROUPS
     }
 }

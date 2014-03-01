@@ -5,6 +5,7 @@ import com.fancy_software.accounts_matching.model.SocialNetworkId;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.parsers.IParser;
 import com.fancy_software.crawling.parsers.vk.VkApiParser;
+import com.fancy_software.crawling.utils.ExtractType;
 
 import java.util.List;
 import java.util.ListIterator;
