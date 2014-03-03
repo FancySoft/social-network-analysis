@@ -17,16 +17,16 @@ public class FbCrawler extends AbstractCrawler {
         socialNetworkId = SocialNetworkId.FB;
     }
 
-    public FbCrawler(ExtractType extractType) {
-        this.extractType = extractType;
+    public FbCrawler() {
+        this.extractType = ExtractType.SAMPLE;
     }
-
 
     @Override
     public void start() {
         Settings settings = Settings.getInstance();
         List<String> loginList = settings.getArray(Settings.FB_LOGINS);
         List<String> passwordList = settings.getArray(Settings.FB_PASSWORDS);
+        String initialId = settings.get(Settings.FB_START_SAMPLE_ID);
         int amount = loginList.size();
         executor = Executors.newFixedThreadPool(amount);
 
@@ -34,7 +34,7 @@ public class FbCrawler extends AbstractCrawler {
         ListIterator<String> passwordIterator = passwordList.listIterator();
 
         while (loginIterator.hasNext() && passwordIterator.hasNext()) {
-            IParser fbParser = new FbParser();
+            IParser fbParser = new FbParser(this, initialId);
             executor.execute(new ParserRunner(fbParser, loginIterator.next(), passwordIterator.next()));
         }
         executor.shutdown();

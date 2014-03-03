@@ -1,8 +1,7 @@
 package com.fancy_software.crawling;
 
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
-import com.fancy_software.crawling.crawlers.vk.VkCrawler;
-import com.fancy_software.crawling.utils.ExtractType;
+import com.fancy_software.crawling.crawlers.fb.FbCrawler;
 import org.apache.commons.logging.LogFactory;
 
 import java.util.logging.Level;
@@ -23,11 +22,11 @@ public class Main {
     }
 
     public static void testCrawlers() {
-        crawler = new VkCrawler(ExtractType.SAMPLE);
+        crawler = new FbCrawler();
         crawler.init();
         crawler.start();
         try {
-            Thread.sleep(12000);
+            Thread.sleep(43000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
