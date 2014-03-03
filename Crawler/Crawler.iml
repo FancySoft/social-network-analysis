@@ -15,7 +15,6 @@
     <orderEntry type="module" module-name="Database" />
     <orderEntry type="library" name="lib_database" level="project" />
     <orderEntry type="library" name="lib1" level="project" />
-    <orderEntry type="library" name="apache-commons-httpclient" level="project" />
   </component>
 </module>
 

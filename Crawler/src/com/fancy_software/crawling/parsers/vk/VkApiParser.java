@@ -64,7 +64,7 @@ public class VkApiParser extends AbstractSampleParser {
     public VkApiParser(AbstractCrawler crawler, String initialId) {
         this.crawler = crawler;
         this.initialId = initialId;
-        extractType = ExtractType.SINGLE_ACCOUNT;
+        extractType = ExtractType.SAMPLE;
     }
 
     public VkApiParser(ExtractType extractType) {
