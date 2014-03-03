@@ -1,11 +1,11 @@
 package com.fancy_software.crawling.parsers.vk;
 
-import com.fancy_software.accounts_matching.io_local_base.LocalAccountReader;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.parsers.AbstractSampleParser;
 import com.fancy_software.crawling.utils.ExtractType;
 import com.fancy_software.logger.Log;
+import com.fancy_software.utils.io.LocalAccountReader;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -58,12 +58,17 @@ public class VkApiParser extends AbstractSampleParser {
         this.crawler = crawler;
         this.currentUserId = startUserId;
         this.finishUserId = finishUserId;
+        extractType = crawler.getExtractType();
     }
 
     public VkApiParser(AbstractCrawler crawler, String initialId) {
         this.crawler = crawler;
         this.initialId = initialId;
+        extractType = ExtractType.SINGLE_ACCOUNT;
+    }
 
+    public VkApiParser(ExtractType extractType) {
+        this.extractType = extractType;
     }
 
     @Override

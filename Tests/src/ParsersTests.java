@@ -1,5 +1,5 @@
 
-import com.fancy_software.accounts_matching.io_local_base.Settings;
+import com.fancy_software.utils.Settings;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
 import org.junit.Test;

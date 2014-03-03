@@ -1,4 +1,4 @@
-import com.fancy_software.accounts_matching.io_local_base.Settings;
+import com.fancy_software.utils.Settings;
 import org.junit.Assert;
 import org.junit.Test;
 

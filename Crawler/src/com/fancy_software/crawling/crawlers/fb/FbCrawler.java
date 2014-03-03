@@ -1,11 +1,11 @@
 package com.fancy_software.crawling.crawlers.fb;
 
-import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.SocialNetworkId;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.parsers.IParser;
 import com.fancy_software.crawling.parsers.fb.FbParser;
 import com.fancy_software.crawling.utils.ExtractType;
+import com.fancy_software.utils.Settings;
 
 import java.util.List;
 import java.util.ListIterator;

@@ -1,4 +1,4 @@
-package com.fancy_software.accounts_matching.io_local_base;
+package com.fancy_software.utils;
 
 import com.fancy_software.logger.Log;
 
@@ -23,13 +23,14 @@ public class Settings {
     private static SoftReference<Settings> instance;
     private        Map<String, String>     settings;
 
-    public static final String VK_ACCOUNT_FOLDER = "vk_account_folder";
-    public static final String FB_ACCOUNT_FOLDER = "fb_account_folder";
-    public static final String VK_LOGINS         = "vk_logins";
-    public static final String VK_PASSWORDS      = "vk_passwords";
-    public static final String FB_LOGINS         = "fb_logins";
-    public static final String FB_PASSWORDS      = "fb_passwords";
-
+    public static final String VK_ACCOUNT_FOLDER  = "vk_account_folder";
+    public static final String FB_ACCOUNT_FOLDER  = "fb_account_folder";
+    public static final String VK_LOGINS          = "vk_logins";
+    public static final String VK_PASSWORDS       = "vk_passwords";
+    public static final String FB_LOGINS          = "fb_logins";
+    public static final String FB_PASSWORDS       = "fb_passwords";
+    public static final String VK_START_SAMPLE_ID = "vk_start_sample_id";
+    public static final String FB_START_SAMPLE_ID = "fb_start_sample_id";
 
     private Settings() {
         settings = new HashMap<>();
@@ -41,8 +42,9 @@ public class Settings {
             while ((line = reader.readLine()) != null) {
                 String[] cur = line.split(" = ");
                 if (cur.length != 2) {
-                    Log.e(TAG, "Settings file corrupted! Please verify if it has the following format:\n" +
-                               "key = value\n");
+                    Log.e(TAG,
+                          "com.fancy_software.utils.Settings file corrupted! Please verify if it has the following format:\n" +
+                          "key = value\n");
                     break;
                 }
                 settings.put(cur[0], cur[1]);
@@ -53,7 +55,7 @@ public class Settings {
     }
 
     /**
-     * Get an instance of Settings to use
+     * Get an instance of com.fancy_software.utils.Settings to use
      *
      * @return instance
      */

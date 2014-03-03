@@ -37,7 +37,7 @@ public class MyCsvIterator implements Iterator<Instance> {
 
     @Override
     public boolean hasNext() {
-        return currentLine != null; //To change body of implemented methods use File | Settings | File Templates.
+        return currentLine != null; //To change body of implemented methods use File | com.fancy_software.utils.Settings | File Templates.
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.fancy_software.crawling;
 
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.crawlers.vk.VkCrawler;
+import com.fancy_software.crawling.utils.ExtractType;
 import org.apache.commons.logging.LogFactory;
 
 import java.util.logging.Level;
@@ -22,7 +23,7 @@ public class Main {
     }
 
     public static void testCrawlers() {
-        crawler = new VkCrawler(AbstractCrawler.ExtractType.ALL_ACCOUNTS);
+        crawler = new VkCrawler(ExtractType.SAMPLE);
         crawler.init();
         crawler.start();
         try {

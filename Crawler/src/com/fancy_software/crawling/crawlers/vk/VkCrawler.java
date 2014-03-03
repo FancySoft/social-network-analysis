@@ -1,11 +1,11 @@
 package com.fancy_software.crawling.crawlers.vk;
 
-import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.SocialNetworkId;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.parsers.IParser;
 import com.fancy_software.crawling.parsers.vk.VkApiParser;
 import com.fancy_software.crawling.utils.ExtractType;
+import com.fancy_software.utils.Settings;
 
 import java.util.List;
 import java.util.ListIterator;
@@ -20,6 +20,7 @@ public class VkCrawler extends AbstractCrawler {
 
     private long startId  = 0;
     private long finishId = 200000000;
+    private String initialId;
 
     {
         socialNetworkId = SocialNetworkId.VK;
@@ -50,6 +51,7 @@ public class VkCrawler extends AbstractCrawler {
         Settings settings = Settings.getInstance();
         List<String> loginList = settings.getArray(Settings.VK_LOGINS);
         List<String> passwordList = settings.getArray(Settings.VK_PASSWORDS);
+        initialId = settings.get(Settings.VK_START_SAMPLE_ID);
         int amount = loginList.size();
         executor = Executors.newFixedThreadPool(amount);
         long start = startId;
@@ -60,11 +62,22 @@ public class VkCrawler extends AbstractCrawler {
         ListIterator<String> passwordIterator = passwordList.listIterator();
 
         while (loginIterator.hasNext() && passwordIterator.hasNext()) {
-            IParser apiCaller = new VkApiParser(this, start, finish);
+            IParser apiCaller = createVkParser(start, finish);
             executor.execute(new ParserRunner(apiCaller, loginIterator.next(), passwordIterator.next()));
             start += perCaller;
             finish += perCaller;
         }
         executor.shutdown();
+    }
+
+    public IParser createVkParser(long startId, long finishId) {
+        switch (extractType) {
+            case ALL_ACCOUNTS:
+                return new VkApiParser(this, startId, finishId);
+            case SAMPLE:
+                return new VkApiParser(this, initialId);
+            default:
+                return null;
+        }
     }
 }

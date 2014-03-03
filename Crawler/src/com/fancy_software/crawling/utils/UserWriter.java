@@ -1,7 +1,7 @@
 package com.fancy_software.crawling.utils;
 
-import com.fancy_software.accounts_matching.io_local_base.LocalAccountWriter;
 import com.fancy_software.accounts_matching.model.AccountVector;
+import com.fancy_software.utils.io.LocalAccountWriter;
 
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicBoolean;

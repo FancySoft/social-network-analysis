@@ -1,4 +1,4 @@
-package com.fancy_software.accounts_matching.io_local_base;
+package com.fancy_software.utils.io;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.thoughtworks.xstream.XStream;

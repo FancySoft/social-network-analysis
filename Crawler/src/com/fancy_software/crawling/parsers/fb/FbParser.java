@@ -93,7 +93,7 @@ public class FbParser implements IParser {
 
     private AccountVector extractAccountVector() throws IOException {
         AccountVector result = new AccountVector();
-        String source = "";// Utils.readFile(Settings.TEST_FILE_NAME, Charset.defaultCharset()).replace("<!--", "").replace(
+        String source = "";// Utils.readFile(com.fancy_software.utils.Settings.TEST_FILE_NAME, Charset.defaultCharset()).replace("<!--", "").replace(
 //                "-->", "");
         Document doc = Jsoup.parse(source);
         Element nameSurname = doc.select(HtmlTags.USER_NAME_SURNAME).first();
@@ -107,7 +107,7 @@ public class FbParser implements IParser {
     }
 
     private void extractAccountFriends(AccountVector vector) throws IOException {
-        String source = "";// Utils.readFile(Settings.TEST_FRIENDS_FILE_NAME, Charset.defaultCharset()).replace("<!--",
+        String source = "";// Utils.readFile(com.fancy_software.utils.Settings.TEST_FRIENDS_FILE_NAME, Charset.defaultCharset()).replace("<!--",
 //                                                                                                          "").replace(
 //                "-->", "");
         Set<String> friends = InfoExtractor.getAccountFriends(source);

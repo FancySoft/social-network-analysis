@@ -1,6 +1,6 @@
 package com.fancy_software.accounts_matching.graph;
 
-import com.fancy_software.accounts_matching.io_local_base.LocalAccountReader;
+import com.fancy_software.utils.io.LocalAccountReader;
 import com.fancy_software.accounts_matching.model.AccountVector;
 
 import java.io.File;
