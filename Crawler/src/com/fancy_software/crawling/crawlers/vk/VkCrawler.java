@@ -4,7 +4,7 @@ import com.fancy_software.accounts_matching.io_local_base.Settings;
 import com.fancy_software.accounts_matching.model.SocialNetworkId;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.parsers.IParser;
-import com.fancy_software.crawling.parsers.vk.VkApiDefaultParser;
+import com.fancy_software.crawling.parsers.vk.VkApiParser;
 import com.fancy_software.crawling.utils.ExtractType;
 
 import java.util.List;
@@ -60,12 +60,11 @@ public class VkCrawler extends AbstractCrawler {
         ListIterator<String> passwordIterator = passwordList.listIterator();
 
         while (loginIterator.hasNext() && passwordIterator.hasNext()) {
-            IParser apiCaller = new VkApiDefaultParser(this, start, finish);
+            IParser apiCaller = new VkApiParser(this, start, finish);
             executor.execute(new ParserRunner(apiCaller, loginIterator.next(), passwordIterator.next()));
             start += perCaller;
             finish += perCaller;
         }
         executor.shutdown();
     }
-
 }

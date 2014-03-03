@@ -27,28 +27,26 @@ import java.util.List;
  * Time: 15:19
  */
 
-public class VkApiDefaultParser extends AbstractSampleParser {
+public class VkApiParser extends AbstractSampleParser {
 
-    private final String TAG = VkApiDefaultParser.class.getSimpleName();
+    private static final String TAG = VkApiParser.class.getSimpleName();
 
-    private final String APP_ID            = "3437182";
-    private final String SCOPE             = "notify,friends,photos,audio,video,docs,notes,pages,status,offers,questions," +
-                                             "wall,groups,messages,notifications,stats,ads,offline";
-    private final String REDIRECT_URI      = "http://oauth.vk.com/blank.html";
-    private final String DISPLAY           = "page";
-    private final String RESPONSE_TYPE     = "token";
-    private final String RESPONSE_ENCODING = "utf-8";
-    private final int    MAX_API_CALL      = 3; //per second
-    private final int    APP_INSTALLS      = 1;
-    private final int    BARRIER           = MAX_API_CALL * APP_INSTALLS;
-    private final int    FOR_DELAY         = 1000;
-    private long              lastCallTime;
-    private String            access_token;
-    private ResponseProcessor responseProcessor;
-    private int max_ids_for_call = 1000; //it's max possible value because of vk api restriction
-    private long                startUserId;
-    private long                finishUserId;
-    private long                currentUserId;
+    private static final String APP_ID            = "3437182";
+    private static final String RESPONSE_ENCODING = "utf-8";
+
+    private static final int MAX_API_CALL     = 3; //per second
+    private static final int APP_INSTALLS     = 1;
+    private static final int BARRIER          = MAX_API_CALL * APP_INSTALLS;
+    private static final int FOR_DELAY        = 1000; //milliseconds
+    private static final int MAX_IDS_FOR_CALL = 1000; //it's max possible value because of vk api restriction
+
+    private int apiCallCounter = 0;
+    private long   currentUserId;
+    private long   finishUserId;
+    private String access_token;
+    private long   lastCallTime;
+
+    private ResponseProcessor   responseProcessor;
     private ApiRequestGenerator apiRequestGenerator;
 
     {
@@ -56,15 +54,16 @@ public class VkApiDefaultParser extends AbstractSampleParser {
         apiRequestGenerator = new ApiRequestGenerator();
     }
 
-    public VkApiDefaultParser(AbstractCrawler crawler, long startUserId, long finishUserId) {
+    public VkApiParser(AbstractCrawler crawler, long startUserId, long finishUserId) {
         this.crawler = crawler;
-        this.startUserId = startUserId;
+        this.currentUserId = startUserId;
         this.finishUserId = finishUserId;
-        currentUserId = startUserId;
     }
 
-    public VkApiDefaultParser(String initialId) {
+    public VkApiParser(AbstractCrawler crawler, String initialId) {
+        this.crawler = crawler;
         this.initialId = initialId;
+
     }
 
     @Override
@@ -124,100 +123,99 @@ public class VkApiDefaultParser extends AbstractSampleParser {
 
     @Override
     public void start() {
-        super.start();
-//        _start(crawler.getExtractType());
+        _start(crawler.getExtractType());
     }
 
     @Override
     public AccountVector extractAccountById(String id) {
-        //todo replace by something better
-        try {
-            Thread.sleep(FOR_DELAY);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        long userId = 0;
+        AccountVector result = null;
 
         try {
-            userId = Long.parseLong(id);
+            currentUserId = Long.parseLong(id);
         } catch (NumberFormatException e) {
             Log.e(TAG, e);
+            return null;
         }
-
-
+        avoidApiRestrictions();
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost post = getPostForApiCall(userId, ExtractType.SINGLE_ACCOUNT);
-            HttpResponse httpResponse = httpClient.execute(post);
-            HttpEntity httpEntity = httpResponse.getEntity();
-            String response = EntityUtils.toString(httpEntity, RESPONSE_ENCODING);
-            post.abort();
-            System.out.println(response);
-
-            AccountVector result = responseProcessor.processSingleAccount(response);
-
-            post = getPostForApiCall(userId, ExtractType.FRIENDS);
-            httpResponse = httpClient.execute(post);
-            httpEntity = httpResponse.getEntity();
-            response = EntityUtils.toString(httpEntity, RESPONSE_ENCODING);
-            post.abort();
-            System.out.println(response);
+            HttpPost post = getPostForApiCall(currentUserId, ExtractType.SINGLE_ACCOUNT);
+            String response;
             try {
+                response = getApiCallResult(httpClient, post);
+                result = responseProcessor.processSingleAccount(response);
+                System.out.println(response);
+            } catch (NullPointerException e) {
+                Log.e(TAG, e);
+                return null;
+            } finally {
+                post.abort();
+                lastCallTime = System.currentTimeMillis();
+            }
+
+            avoidApiRestrictions();
+
+            post = getPostForApiCall(currentUserId, ExtractType.FRIENDS);
+
+            try {
+                response = getApiCallResult(httpClient, post);
+                System.out.println(response);
                 List<Long> friends = responseProcessor.processGroupsOrFriendsResponse(response);
                 for (long i : friends)
                     result.addFriend(Long.toString(i));
             } catch (NullPointerException e) {
                 Log.e(TAG, e);
+            } finally {
+                post.abort();
+                lastCallTime = System.currentTimeMillis();
+
             }
-            post = getPostForApiCall(userId, ExtractType.GROUPS);
-            httpResponse = httpClient.execute(post);
-            httpEntity = httpResponse.getEntity();
-            response = EntityUtils.toString(httpEntity, RESPONSE_ENCODING);
-            post.abort();
-            System.out.println(response);
+
+            avoidApiRestrictions();
+
+            post = getPostForApiCall(currentUserId, ExtractType.GROUPS);
 
             try {
+                response = getApiCallResult(httpClient, post);
+                System.out.println(response);
                 List<Long> groups = responseProcessor.processGroupsOrFriendsResponse(response);
                 for (long i : groups)
                     result.addGroup(Long.toString(i));
             } catch (NullPointerException e) {
                 Log.e(TAG, e);
+            } finally {
+                post.abort();
+                lastCallTime = System.currentTimeMillis();
             }
-            System.out.println("dicl");
+
             return result;
         } catch (IOException e) {
             Log.e(TAG, e);
-        } finally {
-            lastCallTime = System.currentTimeMillis();
         }
+        actAfterResponseReceived(ExtractType.SINGLE_ACCOUNT);
         return null;
     }
 
     private void _start(ExtractType extractType) {
-        int callCounter = 0;
+        switch (extractType) {
+            case SAMPLE: {
+                super.start();
+                return;
+            }
+            default:
+                break;
+        }
         HttpPost post;
-        HttpResponse httpResponse;
-        HttpEntity httpEntity;
-
         HttpClient httpClient = new DefaultHttpClient();
 
         while (!Thread.currentThread().isInterrupted()) {
             if (currentUserId > finishUserId)
                 break;
-            callCounter++;
-            try {
-                if (needDelay(callCounter))
-                    callCounter = 0;
-            } catch (InterruptedException e) {
-                Log.e(TAG, e);
-                return;
-            }
+            avoidApiRestrictions();
             post = getPostForApiCall(currentUserId, extractType);
 
             try {
-                httpResponse = httpClient.execute(post);
-                httpEntity = httpResponse.getEntity();
-                String response = EntityUtils.toString(httpEntity, RESPONSE_ENCODING);
+                String response = getApiCallResult(httpClient, post);
                 System.out.println(response);
                 processResponse(response, extractType);
             } catch (IOException e) {
@@ -232,10 +230,18 @@ public class VkApiDefaultParser extends AbstractSampleParser {
                 }
             } finally {
                 post.abort();
+                lastCallTime = System.currentTimeMillis();
             }
             actAfterResponseReceived(extractType);
         }
 
+    }
+
+    private String getApiCallResult(HttpClient client, HttpPost post) throws IOException {
+        HttpResponse httpResponse = client.execute(post);
+        HttpEntity httpEntity = httpResponse.getEntity();
+        String response = EntityUtils.toString(httpEntity, RESPONSE_ENCODING);
+        return response;
     }
 
     private HttpPost getPostForApiCall(long userCounter, ExtractType extractType) {
@@ -246,7 +252,7 @@ public class VkApiDefaultParser extends AbstractSampleParser {
                 result = new HttpPost("https://api.vk.com/method/users.get?");
                 postParameters.add(
                         new BasicNameValuePair("user_ids",
-                                               apiRequestGenerator.generateIds(userCounter, max_ids_for_call)));
+                                               apiRequestGenerator.generateIds(userCounter, MAX_IDS_FOR_CALL)));
                 postParameters.add(new BasicNameValuePair("fields", apiRequestGenerator.generateFields()));
             }
             break;
@@ -323,16 +329,29 @@ public class VkApiDefaultParser extends AbstractSampleParser {
         lastCallTime = System.currentTimeMillis();
 
         switch (extractType) {
-            case ALL_ACCOUNTS:
-                currentUserId += max_ids_for_call;
+            case ALL_ACCOUNTS: {
+                currentUserId += MAX_IDS_FOR_CALL;
+                break;
+            }
+            case SINGLE_ACCOUNT:
                 break;
             default:
                 currentUserId++;
         }
     }
 
+    private void avoidApiRestrictions() {
+        try {
+            apiCallCounter++;
+            if (needDelay(apiCallCounter))
+                apiCallCounter = 0;
+        } catch (InterruptedException e) {
+            Log.e(TAG, e);
+        }
+    }
+
     private boolean needDelay(int callCounter) throws InterruptedException {
-        if (callCounter > BARRIER) {
+        if (callCounter >= BARRIER) {
             long timeDif = System.currentTimeMillis() - lastCallTime;
             if (timeDif < FOR_DELAY) {
                 Log.d(TAG, "wait");
@@ -416,18 +435,22 @@ public class VkApiDefaultParser extends AbstractSampleParser {
         }
 
         private String getUriForAuth() {
+            String permissions = "notify,friends,photos,audio,video,docs,notes,pages,status,offers,questions," +
+                                 "wall,groups,messages,notifications,stats,ads,offline";
+            String redirectUri = "http://oauth.vk.com/blank.html";
+
             StringBuilder result = new StringBuilder();
             result.append("http://oauth.vk.com/authorize?");
             result.append("client_id=");
             result.append(APP_ID);
             result.append("&scope=");
-            result.append(SCOPE);
+            result.append(permissions);
             result.append("&redirect_uri=");
-            result.append(REDIRECT_URI);
+            result.append(redirectUri);
             result.append("&display=");
-            result.append(DISPLAY);
+            result.append("page");
             result.append("&response_type=");
-            result.append(RESPONSE_TYPE);
+            result.append("token");
             return result.toString();
         }
 
