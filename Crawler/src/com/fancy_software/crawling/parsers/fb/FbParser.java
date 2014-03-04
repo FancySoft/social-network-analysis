@@ -22,13 +22,14 @@ public class FbParser extends AbstractSampleParser {
     private static final String FRIENDS_URI = "/friends_all";
     private static final String INFO_URI    = "/about";
 
-    private final WebClient webClient;
+    private final WebClient webClient = new WebClient(BrowserVersion.CHROME);
 
-    public FbParser(AbstractCrawler crawler, String initialId) {
-        this.crawler = crawler;
-        this.initialId = initialId;
-        webClient = new WebClient(BrowserVersion.CHROME);
+    public FbParser(AbstractCrawler crawler, Set<String> usersToParse){
+        super(crawler,usersToParse);
+    }
 
+    public FbParser(AbstractCrawler crawler, String initialId){
+        super(crawler,initialId);
     }
 
     @Override

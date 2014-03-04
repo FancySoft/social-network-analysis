@@ -1,6 +1,7 @@
 package com.fancy_software.crawling.parsers;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
+import com.fancy_software.crawling.crawlers.AbstractCrawler;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -8,7 +9,7 @@ import java.util.Set;
 
 public abstract class AbstractSampleParser extends AbstractDefaultParser {
 
-    protected String initialId = "27852602";//test version
+    protected String initialId;
 
     protected Set<String> usersToParse;
     protected Set<String> parsed;
@@ -16,6 +17,21 @@ public abstract class AbstractSampleParser extends AbstractDefaultParser {
     {
         usersToParse = new LinkedHashSet<>();
         parsed = new LinkedHashSet<>();
+    }
+
+    protected AbstractSampleParser(){
+
+    }
+
+    protected AbstractSampleParser(AbstractCrawler crawler, Set<String> usersToParse){
+        this.crawler = crawler;
+        this.usersToParse=usersToParse;
+        initialId = getUserToParse();
+    }
+
+    protected AbstractSampleParser(AbstractCrawler crawler, String initialId){
+        this.crawler = crawler;
+        this.initialId = initialId;
     }
 
     @Override

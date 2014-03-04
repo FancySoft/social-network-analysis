@@ -20,6 +20,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Yaro
@@ -61,9 +62,12 @@ public class VkApiParser extends AbstractSampleParser {
         extractType = crawler.getExtractType();
     }
 
+    public VkApiParser(AbstractCrawler crawler, Set<String> usersToParse){
+        super(crawler, usersToParse);
+    }
+
     public VkApiParser(AbstractCrawler crawler, String initialId) {
-        this.crawler = crawler;
-        this.initialId = initialId;
+        super(crawler, initialId);
         extractType = ExtractType.SAMPLE;
     }
 
