@@ -60,15 +60,15 @@ public class Measures {
 
         double totalWeight = stringMeasure(school1.getName(), school1.getName()) +
                              stringMeasure(school1.getClassroom(), school1.getClassroom()) +
-                             (school1.getYear_from() == school1.getYear_from() ? 1 : 0) +
-                             (school1.getYear_to() == school1.getYear_to() ? 1 : 0) +
+                             (school1.getYearFrom() == school1.getYearFrom() ? 1 : 0) +
+                             (school1.getYearTo() == school1.getYearTo() ? 1 : 0) +
                              (school1.getGraduate() == school1.getGraduate() ? 1 : 0);
 
         double weight = 0;
         weight += stringMeasure(school1.getName(), school2.getName());
         if(school1.getName() == school2.getName()){
-            weight += school1.getYear_from() == school2.getYear_from() ? 1 : 0;
-            weight += school1.getYear_to() == school2.getYear_to() ? 1 : 0;
+            weight += school1.getYearFrom() == school2.getYearFrom() ? 1 : 0;
+            weight += school1.getYearTo() == school2.getYearTo() ? 1 : 0;
             weight += school1.getGraduate() == school2.getGraduate() ? 1 : 0;
             weight += stringMeasure(school1.getClassroom(), school1.getClassroom());
         }
@@ -95,24 +95,24 @@ public class Measures {
             return 0;
 
         double totalWeight = stringMeasure(univ1.getName(), univ1.getName()) +
-                             stringMeasure(univ1.getFaculty_name(), univ1.getFaculty_name()) +
-                             stringMeasure(univ1.getChair_name(), univ1.getChair_name()) +
+                             stringMeasure(univ1.getFacultyName(), univ1.getFacultyName()) +
+                             stringMeasure(univ1.getChairName(), univ1.getChairName()) +
                              (univ1.getGraduation() == univ2.getGraduation() ? 1 : 0) +
-                             (univ1.getEducation_form() == univ1.getEducation_form() ? 1 : 0) +
-                             (univ1.getEducation_status() == univ1.getEducation_status() ? 1 : 0);
+                             (univ1.getEducationForm() == univ1.getEducationForm() ? 1 : 0) +
+                             (univ1.getEducationStatus() == univ1.getEducationStatus() ? 1 : 0);
 
         double weight = 0;
         weight += stringMeasure(univ1.getName(), univ2.getName());
         if(univ1.getName() == univ2.getName()){
-            weight += stringMeasure(univ1.getFaculty_name(), univ1.getFaculty_name());
-            if(univ1.getFaculty_name() == univ1.getFaculty_name()){
-                weight += stringMeasure(univ1.getChair_name(), univ2.getChair_name());
-                if(univ1.getChair_name() == univ2.getChair_name()){
+            weight += stringMeasure(univ1.getFacultyName(), univ1.getFacultyName());
+            if(univ1.getFacultyName() == univ1.getFacultyName()){
+                weight += stringMeasure(univ1.getChairName(), univ2.getChairName());
+                if(univ1.getChairName() == univ2.getChairName()){
                     weight += univ1.getGraduation() == univ2.getGraduation() ? 1 : 0;
                     if(univ1.getGraduation() == univ2.getGraduation()){
-                        weight += univ1.getEducation_form() == univ2.getEducation_form() ? 1 : 0;
-                        if(univ1.getEducation_form() == univ2.getEducation_form()){
-                            weight += univ1.getEducation_status() == univ2.getEducation_status() ? 1 : 0;
+                        weight += univ1.getEducationForm() == univ2.getEducationForm() ? 1 : 0;
+                        if(univ1.getEducationForm() == univ2.getEducationForm()){
+                            weight += univ1.getEducationStatus() == univ2.getEducationStatus() ? 1 : 0;
                         }
                     }
                 }

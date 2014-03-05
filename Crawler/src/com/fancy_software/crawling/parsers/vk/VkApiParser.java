@@ -35,11 +35,11 @@ public class VkApiParser extends AbstractSampleParser {
     private static final String APP_ID            = "3437182";
     private static final String RESPONSE_ENCODING = "utf-8";
 
-    private static final int MAX_API_CALL     = 3; //per second
-    private static final int APP_INSTALLS     = 1;
-    private static final int BARRIER          = MAX_API_CALL * APP_INSTALLS;
-    private static final int FOR_DELAY        = 1000; //milliseconds
-    private static final int MAX_IDS_FOR_CALL = 1000; //it's max possible value because of vk api restriction
+    private static final int MAX_API_CALL         = 3; //per second
+    private static final int APP_INSTALLS         = 1;
+    private static final int BARRIER              = MAX_API_CALL * APP_INSTALLS;
+    private static final int FOR_DELAY            = 1000; //milliseconds
+    private static final int MAX_IDS_FOR_ONE_CALL = 1000; //it's max possible value because of vk api restriction
 
     private int apiCallCounter = 0;
     private long   currentUserId;
@@ -47,11 +47,11 @@ public class VkApiParser extends AbstractSampleParser {
     private String access_token;
     private long   lastCallTime;
 
-    private ResponseProcessor   responseProcessor;
+    private VkResponseProcessor responseProcessor;
     private ApiRequestGenerator apiRequestGenerator;
 
     {
-        responseProcessor = new ResponseProcessor();
+        responseProcessor = new VkResponseProcessor();
         apiRequestGenerator = new ApiRequestGenerator();
     }
 
@@ -62,7 +62,7 @@ public class VkApiParser extends AbstractSampleParser {
         extractType = crawler.getExtractType();
     }
 
-    public VkApiParser(AbstractCrawler crawler, Set<String> usersToParse){
+    public VkApiParser(AbstractCrawler crawler, Set<String> usersToParse) {
         super(crawler, usersToParse);
     }
 
@@ -168,7 +168,7 @@ public class VkApiParser extends AbstractSampleParser {
 
             try {
                 response = getApiCallResult(httpClient, post);
-                System.out.println(response);
+//                System.out.println(response);
                 List<Long> friends = responseProcessor.processGroupsOrFriendsResponse(response);
                 for (long i : friends)
                     result.addFriend(Long.toString(i));
@@ -191,6 +191,7 @@ public class VkApiParser extends AbstractSampleParser {
                 for (long i : groups)
                     result.addGroup(Long.toString(i));
             } catch (NullPointerException e) {
+                e.printStackTrace();
                 Log.e(TAG, e);
             } finally {
                 post.abort();
@@ -230,6 +231,7 @@ public class VkApiParser extends AbstractSampleParser {
             } catch (IOException e) {
                 Log.e(TAG, e);
             } catch (NullPointerException e) {
+                e.printStackTrace();
                 Log.e(TAG, e);
                 try {
                     Thread.sleep(FOR_DELAY);
@@ -261,7 +263,7 @@ public class VkApiParser extends AbstractSampleParser {
                 result = new HttpPost("https://api.vk.com/method/users.get?");
                 postParameters.add(
                         new BasicNameValuePair("user_ids",
-                                               apiRequestGenerator.generateIds(userCounter, MAX_IDS_FOR_CALL)));
+                                               apiRequestGenerator.generateIds(userCounter, MAX_IDS_FOR_ONE_CALL)));
                 postParameters.add(new BasicNameValuePair("fields", apiRequestGenerator.generateFields()));
             }
             break;
@@ -339,7 +341,7 @@ public class VkApiParser extends AbstractSampleParser {
 
         switch (extractType) {
             case ALL_ACCOUNTS: {
-                currentUserId += MAX_IDS_FOR_CALL;
+                currentUserId += MAX_IDS_FOR_ONE_CALL;
                 break;
             }
             case SINGLE_ACCOUNT:
@@ -484,16 +486,16 @@ public class VkApiParser extends AbstractSampleParser {
             result.append(FieldNames.SEX);
             result.append(",");
             result.append(FieldNames.ID);
-//        builder.append(",");
-//        builder.append("city,");
-//        builder.append("country,");
-//        builder.append("photo_max,");
-//        builder.append("contacts,");
-//        builder.append("education,");
-//        builder.append("universities,");
-//        builder.append("schools,");
-//        builder.append("activity,");
-//        builder.append("relation");
+            result.append(",");
+            result.append("city,");
+            result.append("country,");
+            result.append("photo_max,");
+            result.append("contacts,");
+            result.append("education,");
+            result.append("universities,");
+            result.append("schools,");
+            result.append("activity,");
+            result.append("relation");
             return result.toString();
         }
 
