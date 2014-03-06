@@ -31,7 +31,6 @@ public final class FieldNames {
     //end region
 
     //region School data
-    public static final String SCHOOL_ID      = "id";
     public static final String SCHOOL_NAME    = "name";
     public static final String SCHOOL_COUNTRY = COUNTRY;
     public static final String SCHOOL_CITY    = CITY;
@@ -40,4 +39,13 @@ public final class FieldNames {
     public static final String YEAR_GRADUATED = "year_graduated";
     public static final String CLASS          = "class";
     //end region
+
+    //region Wall
+    public static final String ID_1          = "id";
+    public static final String FROM_ID       = "from_id";
+    public static final String TO_ID         = "to_id";
+    public static final String DATE          = "date";
+    public static final String TEXT          = "text";
+    public static final String COPY_OWNER_ID = "copy_owner_id";
+    public static final String COPY_POST_ID  = "copy_post_id";
 }

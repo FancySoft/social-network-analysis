@@ -62,8 +62,8 @@ public class VkCrawler extends AbstractCrawler {
         ListIterator<String> passwordIterator = passwordList.listIterator();
 
         while (loginIterator.hasNext() && passwordIterator.hasNext()) {
-            IParser apiCaller = createVkParser(start, finish);
-            executor.execute(new ParserRunner(apiCaller, loginIterator.next(), passwordIterator.next()));
+            IParser vkApiParser = createVkParser(start, finish);
+            executor.execute(new ParserRunner(vkApiParser, loginIterator.next(), passwordIterator.next()));
             start += perCaller;
             finish += perCaller;
         }
@@ -73,6 +73,9 @@ public class VkCrawler extends AbstractCrawler {
     public IParser createVkParser(long startId, long finishId) {
         switch (extractType) {
             case ALL_ACCOUNTS:
+            case GROUPS:
+            case FRIENDS:
+            case WALL:
                 return new VkApiParser(this, startId, finishId);
             case SAMPLE:
                 return new VkApiParser(this, initialId);

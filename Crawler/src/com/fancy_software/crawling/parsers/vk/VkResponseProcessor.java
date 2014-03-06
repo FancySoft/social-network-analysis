@@ -2,6 +2,7 @@ package com.fancy_software.crawling.parsers.vk;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.model.BirthDate;
+import com.fancy_software.accounts_matching.model.WallMessage;
 import com.fancy_software.accounts_matching.model.education.SchoolData;
 import com.fancy_software.accounts_matching.model.education.UniversityData;
 import com.fancy_software.logger.Log;
@@ -32,7 +33,7 @@ public class VkResponseProcessor {
                 AccountVector vector = extractAccount(node);
                 if (vector != null)
                     extraction.add(vector);
-                System.out.println(vector);
+//                System.out.println(vector);
             }
 
         } catch (IOException e) {
@@ -172,5 +173,49 @@ public class VkResponseProcessor {
         }
     }
 
+    public List<WallMessage> processWall(String response) {
+        List<WallMessage> extraction = new LinkedList<>();
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode responseNode = mapper.readTree(response).get("response");
+            for (int i = 0; i < responseNode.size(); i++) {
+                JsonNode node = responseNode.get(i);
+                WallMessage message = extractWallMessage(node);
+                if (message != null)
+                    extraction.add(message);
+//                System.out.println(message);
+            }
+
+        } catch (IOException e) {
+            Log.e(TAG, e);
+        } catch (NullPointerException e) {
+            Log.e(TAG, e);
+        }
+        return extraction;
+    }
+
+    private WallMessage extractWallMessage(JsonNode node) {
+        WallMessage result = new WallMessage();
+        try {
+            if (node.has(FieldNames.ID_1))
+                result.setId(Long.parseLong(node.get(FieldNames.ID_1).asText()));
+            if (node.has(FieldNames.FROM_ID))
+                result.setFromId(Long.parseLong(node.get(FieldNames.FROM_ID).asText()));
+            if (node.has(FieldNames.TO_ID))
+                result.setFromId(Long.parseLong(node.get(FieldNames.TO_ID).asText()));
+            if (node.has(FieldNames.TEXT))
+                result.setText(node.get(FieldNames.TEXT).asText());
+            if (node.has(FieldNames.COPY_OWNER_ID))
+                result.setCopyOwnerId(Long.parseLong(node.get(FieldNames.COPY_OWNER_ID).asText()));
+        } catch (NumberFormatException e) {
+            Log.e(TAG, "Bad data");
+            return null;
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            Log.e(TAG, "No important fields in account");
+            return result;
+        }
+        return result;
+    }
 }
 

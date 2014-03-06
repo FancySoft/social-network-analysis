@@ -2,13 +2,13 @@ package com.fancy_software.accounts_matching.model;
 
 public class WallMessage {
 
-    long id;
-    long from_id;
-    long to_id;
+    long   id;
+    long   fromId;
+    long   toId;
     String text;
-    long copy_owner_id;
-    long copy_post_id;
-    String copy_text;
+    long   copyOwnerId;
+    long   copyPostId;
+    String copyText;
 
     public void setId(long id) {
         this.id = id;
@@ -19,19 +19,19 @@ public class WallMessage {
     }
 
     public void setFromId(long from_id) {
-        this.from_id = from_id;
+        this.fromId = from_id;
     }
 
     public long getFromId() {
-        return from_id;
+        return fromId;
     }
 
     public void setToId(long to_id) {
-        this.to_id = to_id;
+        this.toId = to_id;
     }
 
     public long getToId() {
-        return to_id;
+        return toId;
     }
 
     public void setText(String text) {
@@ -43,36 +43,36 @@ public class WallMessage {
     }
 
     public void setCopyOwnerId(long copy_owner_id) {
-        this.copy_owner_id = copy_owner_id;
+        this.copyOwnerId = copy_owner_id;
     }
 
     public long getCopyOwnerId() {
-        return copy_owner_id;
+        return copyOwnerId;
     }
 
     public void setCopyPostId(long copy_post_id) {
-        this.copy_post_id = copy_post_id;
+        this.copyPostId = copy_post_id;
     }
 
     public long getCopyPostId() {
-        return copy_post_id;
+        return copyPostId;
     }
 
     public void setCopyText(String copy_text) {
-        this.copy_text = copy_text;
+        this.copyText = copy_text;
     }
 
     public String getCopyText() {
-        return copy_text;
+        return copyText;
     }
 
     public String toString() {
         return "id=" + id + ", " +
-               "from_id=" + from_id + ", " +
-               "to_id=" + from_id + ", " +
+               "fromId=" + fromId + ", " +
+               "toId=" + fromId + ", " +
                "text=" + text + ", " +
-               "copy_owner_id=" + copy_owner_id + ", " +
-               "copy_post_id=" + copy_post_id + ", " +
-               "copy_text=" + copy_text;
+               "copyOwnerId=" + copyOwnerId + ", " +
+               "copyPostId=" + copyPostId + ", " +
+               "copyText=" + copyText;
     }
 }

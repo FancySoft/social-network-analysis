@@ -1,6 +1,7 @@
 package com.fancy_software.crawling.parsers.vk;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
+import com.fancy_software.accounts_matching.model.WallMessage;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.parsers.AbstractSampleParser;
 import com.fancy_software.crawling.utils.ExtractType;
@@ -237,6 +238,7 @@ public class VkApiParser extends AbstractSampleParser {
                     Thread.sleep(FOR_DELAY);
                 } catch (InterruptedException e1) {
                     Log.e(TAG, e1);
+                    Thread.currentThread().interrupt();
                     return;
                 }
             } finally {
@@ -255,7 +257,7 @@ public class VkApiParser extends AbstractSampleParser {
         return response;
     }
 
-    private HttpPost getPostForApiCall(long userCounter, ExtractType extractType) {
+    private HttpPost getPostForApiCall(long userId, ExtractType extractType) {
         HttpPost result = null;
         List<NameValuePair> postParameters = new ArrayList<>();
         switch (extractType) {
@@ -263,27 +265,31 @@ public class VkApiParser extends AbstractSampleParser {
                 result = new HttpPost("https://api.vk.com/method/users.get?");
                 postParameters.add(
                         new BasicNameValuePair("user_ids",
-                                               apiRequestGenerator.generateIds(userCounter, MAX_IDS_FOR_ONE_CALL)));
+                                               apiRequestGenerator.generateIds(userId, MAX_IDS_FOR_ONE_CALL)));
                 postParameters.add(new BasicNameValuePair("fields", apiRequestGenerator.generateFields()));
             }
             break;
             case SINGLE_ACCOUNT: {
                 result = new HttpPost("https://api.vk.com/method/users.get?");
                 postParameters.add(
-                        new BasicNameValuePair("user_ids", Long.toString(userCounter)));
+                        new BasicNameValuePair("user_ids", Long.toString(userId)));
                 postParameters.add(new BasicNameValuePair("fields", apiRequestGenerator.generateFields()));
             }
             break;
             case FRIENDS: {
                 result = new HttpPost("https://api.vk.com/method/friends.get?");
-                postParameters.add(new BasicNameValuePair("uid", Long.toString(userCounter)));
+                postParameters.add(new BasicNameValuePair("uid", Long.toString(userId)));
             }
             break;
             case GROUPS: {
                 result = new HttpPost("https://api.vk.com/method/groups.get?");
-                postParameters.add(new BasicNameValuePair("uid", Long.toString(userCounter)));
+                postParameters.add(new BasicNameValuePair("uid", Long.toString(userId)));
             }
             break;
+            case WALL: {
+                result = new HttpPost("https://api.vk.com/method/wall.get?");
+                postParameters.add(new BasicNameValuePair("owner_id", Long.toString(userId)));
+            }
             default:
                 break;
         }
@@ -306,7 +312,8 @@ public class VkApiParser extends AbstractSampleParser {
             case FRIENDS: {
                 AccountVector vector;
                 try {
-                    vector = LocalAccountReader.readAccountFromLocalBase(crawler.getFolderForWrite());
+                    vector = LocalAccountReader.readAccountFromLocalBase(
+                            crawler.getFolderForWrite() + File.separator + currentUserId + ".xml");
                 } catch (FileNotFoundException e) {
                     vector = new AccountVector();
                     vector.setId(Long.toString(currentUserId));
@@ -320,7 +327,8 @@ public class VkApiParser extends AbstractSampleParser {
             case GROUPS: {
                 AccountVector vector;
                 try {
-                    vector = LocalAccountReader.readAccountFromLocalBase(crawler.getFolderForWrite());
+                    vector = LocalAccountReader.readAccountFromLocalBase(
+                            crawler.getFolderForWrite() + File.separator + currentUserId + ".xml");
                 } catch (FileNotFoundException e) {
                     vector = new AccountVector();
                     vector.setId(Long.toString(currentUserId));
@@ -328,6 +336,21 @@ public class VkApiParser extends AbstractSampleParser {
                 List<Long> groups = responseProcessor.processGroupsOrFriendsResponse(response);
                 for (long i : groups)
                     vector.addGroup(Long.toString(i));
+                notifyCrawler(vector);
+            }
+            break;
+            case WALL: {
+                AccountVector vector;
+                try {
+                    vector = LocalAccountReader.readAccountFromLocalBase(
+                            crawler.getFolderForWrite() + File.separator + currentUserId + ".xml");
+                } catch (FileNotFoundException e) {
+                    vector = new AccountVector();
+                    vector.setId(Long.toString(currentUserId));
+                }
+                List<WallMessage> messages = responseProcessor.processWall(response);
+                for (WallMessage message : messages)
+                    vector.addWallMessage(message);
                 notifyCrawler(vector);
             }
             break;
@@ -358,6 +381,7 @@ public class VkApiParser extends AbstractSampleParser {
                 apiCallCounter = 0;
         } catch (InterruptedException e) {
             Log.e(TAG, e);
+            Thread.currentThread().interrupt();
         }
     }
 

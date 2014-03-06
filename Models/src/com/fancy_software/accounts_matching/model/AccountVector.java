@@ -8,23 +8,25 @@ import java.util.List;
 
 public class AccountVector {
 
-    private String              id;
+    private String               id;
     private String               first_name;
     private String               last_name;
     private String               city;
     private String               country;
     private List<String>         groups;
     private Sex                  sex;
-    private List<String>           friends;
+    private List<String>         friends;
     private BirthDate            birthDate;
     private List<UniversityData> universities;
     private List<SchoolData>     schools;
+    private List<WallMessage>    wallMessages;
 
     public AccountVector() {
         groups = new LinkedList<>();
         friends = new LinkedList<>();
-        universities = new LinkedList<UniversityData>();
-        schools = new LinkedList<SchoolData>();
+        universities = new LinkedList<>();
+        schools = new LinkedList<>();
+        wallMessages = new LinkedList<>();
         sex = Sex.NA;
     }
 
@@ -119,6 +121,15 @@ public class AccountVector {
 
     public void addSchool(SchoolData schoolData) {
         schools.add(schoolData);
+    }
+
+    public void addWallMessage(WallMessage message) {
+        wallMessages.add(message);
+    }
+
+    @SuppressWarnings("unused")
+    public void removeWallMessage(WallMessage message) {
+        wallMessages.remove(message);
     }
 
     @SuppressWarnings("unused")
