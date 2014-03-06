@@ -13,16 +13,23 @@ public class InfoExtractor {
 
     private static String extractFriendsId(String link) throws IllegalArgumentException {
         String[] attrSplit = link.split(HtmlTags.SEPARATOR1);
-        if (attrSplit.length == 2)
+        if (attrSplit.length == 2) {
+//            System.out.println("first " + attrSplit[0]);
+//            System.out.println("second " + attrSplit[1]);
             if (attrSplit[1].equals(HtmlTags.FRIEND_IDENTIFIER_FOR_FRIEND_NAME)) {
                 String[] attrSplit2 = attrSplit[0].split(HtmlTags.SEPARATOR2);
                 return attrSplit2[3];
             } else {
-                String[] attrSplit1 = attrSplit[1].split(HtmlTags.SEPARATOR3);
-                if (attrSplit1.length == 2 && attrSplit1[1].equals(HtmlTags.FRIEND_IDENTIFIER_FOR_FRIEND_ID)) {
-                    return attrSplit1[0].substring(3, attrSplit1[0].length());
+                if (attrSplit[1].length() > HtmlTags.FRIEND_IDENTIFIER_FOR_FRIEND_ID.length()) {
+                    if (attrSplit[1].substring(0, HtmlTags.FRIEND_IDENTIFIER_FOR_FRIEND_ID.length()).equals(
+                            HtmlTags.FRIEND_IDENTIFIER_FOR_FRIEND_ID)) {
+                        String[] attrSplit3 = attrSplit[1].split(HtmlTags.SEPARATOR3);
+                        return attrSplit3[0].substring(HtmlTags.FRIEND_IDENTIFIER_FOR_FRIEND_ID.length(),
+                                                       attrSplit3[0].length());
+                    }
                 }
             }
+        }
         return null;
     }
 
@@ -38,7 +45,6 @@ public class InfoExtractor {
         Document doc = Jsoup.parse(source);
 //        System.out.println(doc);
         Elements links = doc.select("a[href]");
-//        System.out.println(links);
         Set<String> friends = new LinkedHashSet<>();
         try {
             for (Element link : links) {

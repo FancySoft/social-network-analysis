@@ -3,6 +3,7 @@ package com.fancy_software.crawling.parsers.fb;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.parsers.AbstractSampleParser;
+import com.fancy_software.crawling.utils.Utils;
 import com.fancy_software.logger.Log;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -12,29 +13,32 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.Set;
 
 public class FbParser extends AbstractSampleParser {
 
     private static final String TAG = FbParser.class.getSimpleName();
 
-    private static final String DEFAULT_URI = "https://www.facebook.com/";
-    private static final String FRIENDS_URI = "/friends_all";
-    private static final String INFO_URI    = "/about";
+    private static final String DEFAULT_URI        = "https://www.facebook.com/";
+    private static final String DEFAULT_URI_FOR_ID = "profile.php?id=";
+    private static final String FRIENDS_URI        = "/friends_all";
+    private static final String INFO_URI           = "/about";
 
     private final WebClient webClient = new WebClient(BrowserVersion.CHROME);
 
-    public FbParser(AbstractCrawler crawler, Set<String> usersToParse){
-        super(crawler,usersToParse);
+    public FbParser(AbstractCrawler crawler, Set<String> usersToParse) {
+        super(crawler, usersToParse);
     }
 
-    public FbParser(AbstractCrawler crawler, String initialId){
-        super(crawler,initialId);
+    public FbParser(AbstractCrawler crawler, String initialId) {
+        super(crawler, initialId);
     }
 
     @Override
     public void auth(String login, String password) {
         try {
+            Log.e(TAG, "Authorization started");
             HtmlPage startPage = webClient.getPage(DEFAULT_URI);
             final HtmlForm form = (HtmlForm) startPage.getElementById("login_form");
             final HtmlTextInput loginField = form.getInputByName("email");
@@ -49,6 +53,7 @@ public class FbParser extends AbstractSampleParser {
             form.appendChild(button);
 
             button.dblClick();
+            Log.e(TAG, "Authorization finished");
         } catch (IOException e) {
             System.out.println("FB authorization failed");
             Log.e(TAG, e);
@@ -68,18 +73,17 @@ public class FbParser extends AbstractSampleParser {
         } catch (IOException e) {
             Log.e(TAG, e);
         }
-//        System.out.println(result);
+        System.out.println(result);
         return result;
     }
 
     private AccountVector extractAccountVector(String id) throws IOException {
         AccountVector result = new AccountVector();
         String source = getSource(getUserInfoUri(id));
-//        System.out.println(source);
         Document doc = Jsoup.parse(source);
         Element nameSurname = doc.select(HtmlTags.USER_NAME_SURNAME).first();
         String link = nameSurname.attr("href");
-        result.setId(InfoExtractor.extractId(link));
+        result.setId(id);
         String[] name = nameSurname.text().split(" ");
         result.setFirst_name(name[0]);
         result.setLast_name(name[1]);
@@ -111,16 +115,43 @@ public class FbParser extends AbstractSampleParser {
 
     public static String getUserInfoUri(String id) {
         StringBuilder result = new StringBuilder(DEFAULT_URI);
-        result.append(id);
+        try {
+            Long.parseLong(id);
+            result.append(DEFAULT_URI_FOR_ID);
+            result.append(id);
+        } catch (NumberFormatException e) {
+            result.append(id);
+        }
         result.append(INFO_URI);
         return result.toString();
     }
 
     public static String getUserFriendsUri(String id) {
         StringBuilder result = new StringBuilder(DEFAULT_URI);
-        result.append(id);
+        try {
+            Long.parseLong(id);
+            result.append(DEFAULT_URI_FOR_ID);
+            result.append(id);
+        } catch (NumberFormatException e) {
+            result.append(id);
+        }
         result.append(FRIENDS_URI);
         return result.toString();
+    }
+
+    public void test() {
+        try {
+            String source = Utils.readFile(
+                    "C:\\Users\\yaro\\Desktop\\Git\\social-network-analysis\\Crawler\\fb_test_data\\testPage.htm",
+                    Charset.defaultCharset());
+            Set<String> friends = InfoExtractor.getAccountFriends(source);
+            for (String s : friends) {
+                if (s != null)
+                    System.out.println(s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
