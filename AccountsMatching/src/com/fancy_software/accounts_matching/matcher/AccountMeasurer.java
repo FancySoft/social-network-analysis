@@ -71,31 +71,47 @@ public class AccountMeasurer {
         //TODO адекватное увеличение для почти пустых аккаунтов
 
         Log.d(TAG, Integer.toString(counter.incrementAndGet()));
-        Log.d(TAG, String.format("measure: %d, %d", vector1.getId(), vector2.getId()));
+        Log.d(TAG, String.format("measure: %s, %s", vector1.getId(), vector2.getId()));
 
         double result = 0;
 
-        if (vector1.getSex() != vector2.getSex() && vector1.getSex() != Sex.NA && vector2.getSex() != Sex.NA) {
-            result += SEX_WEIGHT;
-        }
+        double vector[] = getMeasuresVector(enableLDA);
 
-        NameMatcher nameMatcher = NameMatcher.getInstance();
-        if (!nameMatcher.match(vector1.getFirst_name(), vector2.getFirst_name())) {
-            result += NAME_WEIGHT * Measures.stringMeasure(vector1.getFirst_name(), vector2.getFirst_name());
-        }
-        result += NAME_WEIGHT * Measures.stringMeasure(vector1.getLast_name(), vector2.getLast_name());
-
-        result += BDATE_WEIGHT * Measures.measureBirthdate(vector1.getBdate(), vector2.getBdate());
-
-        result += UNIVERSITIES_WEIGHT * Measures.measureUniversitiesLists(vector1.getUniversities(), vector2.getUniversities());
-
-        result += SCHOOLS_WEIGHT * Measures.measureSchoolsLists(vector1.getSchools(), vector2.getSchools());
+        result += SEX_WEIGHT * vector[0];
+        result += NAME_WEIGHT * vector[1];
+        result += NAME_WEIGHT * vector[2];
+        result += BDATE_WEIGHT * vector[3];
+        result += UNIVERSITIES_WEIGHT * vector[4];
+        result += SCHOOLS_WEIGHT * vector[5];
 
         if (enableLDA) {
-            result += LDA_WEIGHT * Measures.measureWithLDA(vector1.getGroups(), vector2.getGroups());
+            result += LDA_WEIGHT * vector[6];
         }
         Log.d(TAG, String.format("%d : %.3f", counter.get(), result));
         return result;
     }
 
+    public double[] getMeasuresVector(boolean enableLDA) throws IOException {
+        double result[] = new double[7];
+
+        if (vector1.getSex() != vector2.getSex() && vector1.getSex() != Sex.NA && vector2.getSex() != Sex.NA) {
+            result[0] = 1;
+        }
+
+        NameMatcher nameMatcher = NameMatcher.getInstance();
+        if (!nameMatcher.match(vector1.getFirst_name(), vector2.getFirst_name())) {
+            result[1] = Measures.stringMeasure(vector1.getFirst_name(), vector2.getFirst_name());
+        }
+
+        result[2] = Measures.stringMeasure(vector1.getLast_name(), vector2.getLast_name());
+        result[3] = Measures.measureBirthdate(vector1.getBdate(), vector2.getBdate());
+        result[4] = Measures.measureUniversitiesLists(vector1.getUniversities(), vector2.getUniversities());
+        result[5] = Measures.measureSchoolsLists(vector1.getSchools(), vector2.getSchools());
+
+        if (enableLDA) {
+            result[6] = Measures.measureWithLDA(vector1.getGroups(), vector2.getGroups());
+        }
+
+        return result;
+    }
 }
