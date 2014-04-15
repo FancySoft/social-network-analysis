@@ -75,7 +75,7 @@ public class AccountMeasurer {
 
         double result = 0;
 
-        double vector[] = getMeasuresVector(enableLDA);
+        double vector[] = getMeasuresVector(vector1, vector2, enableLDA);
 
         result += SEX_WEIGHT * vector[0];
         result += NAME_WEIGHT * vector[1];
@@ -91,7 +91,7 @@ public class AccountMeasurer {
         return result;
     }
 
-    public double[] getMeasuresVector(boolean enableLDA) throws IOException {
+    public static double[] getMeasuresVector(AccountVector vector1, AccountVector vector2, boolean enableLDA) throws IOException {
         double result[] = new double[7];
 
         if (vector1.getSex() != vector2.getSex() && vector1.getSex() != Sex.NA && vector2.getSex() != Sex.NA) {
@@ -113,5 +113,9 @@ public class AccountMeasurer {
         }
 
         return result;
+    }
+
+    public static int getMeasuredVectorSize() {
+        return 7;
     }
 }
