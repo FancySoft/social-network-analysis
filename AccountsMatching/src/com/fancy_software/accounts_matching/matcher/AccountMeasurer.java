@@ -91,7 +91,7 @@ public class AccountMeasurer {
         return result;
     }
 
-    public static double[] getMeasuresVector(AccountVector vector1, AccountVector vector2, boolean enableLDA) throws IOException {
+    public static double[] getMeasuresVector(AccountVector vector1, AccountVector vector2, boolean enableLDA) {
         double result[] = new double[7];
 
         if (vector1.getSex() != vector2.getSex() && vector1.getSex() != Sex.NA && vector2.getSex() != Sex.NA) {
@@ -109,7 +109,11 @@ public class AccountMeasurer {
         result[5] = Measures.measureSchoolsLists(vector1.getSchools(), vector2.getSchools());
 
         if (enableLDA) {
-            result[6] = Measures.measureWithLDA(vector1.getGroups(), vector2.getGroups());
+            try {
+                result[6] = Measures.measureWithLDA(vector1.getGroups(), vector2.getGroups());
+            } catch (IOException e) {
+                Log.e(TAG, e);
+            }
         }
 
         return result;
