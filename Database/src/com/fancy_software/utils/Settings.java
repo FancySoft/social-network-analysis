@@ -31,6 +31,9 @@ public class Settings {
     public static final String FB_PASSWORDS       = "fb_passwords";
     public static final String VK_START_SAMPLE_ID = "vk_start_sample_id";
     public static final String FB_START_SAMPLE_ID = "fb_start_sample_id";
+    public static final String VK_START_ID_PATH   = "vk_start_ids_path";
+    public static final String FB_START_ID_PATH   = "fb_start_ids_path";
+
 
     private Settings() {
         settings = new HashMap<>();
@@ -44,7 +47,8 @@ public class Settings {
                 if (cur.length != 2) {
                     Log.e(TAG,
                           "com.fancy_software.utils.Settings file corrupted! Please verify if it has the following format:\n" +
-                          "key = value\n");
+                          "key = value\n"
+                         );
                     break;
                 }
                 settings.put(cur[0], cur[1]);

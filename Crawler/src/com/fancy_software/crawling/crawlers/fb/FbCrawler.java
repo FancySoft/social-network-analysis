@@ -6,8 +6,8 @@ import com.fancy_software.crawling.parsers.IParser;
 import com.fancy_software.crawling.parsers.fb.FbParser;
 import com.fancy_software.crawling.utils.ExtractType;
 import com.fancy_software.utils.Settings;
+import com.fancy_software.utils.io.LocalAccountReader;
 
-import java.util.List;
 import java.util.ListIterator;
 import java.util.concurrent.Executors;
 
@@ -15,18 +15,27 @@ public class FbCrawler extends AbstractCrawler {
 
     {
         socialNetworkId = SocialNetworkId.FB;
+        extractType = ExtractType.SAMPLE;
     }
 
-    public FbCrawler() {
-        this.extractType = ExtractType.SAMPLE;
+    public FbCrawler(boolean useIdList) {
+        this.useIdList = useIdList;
+    }
+
+    @Override
+    public void init() {
+        Settings settings = Settings.getInstance();
+        initialId = settings.get(Settings.FB_START_SAMPLE_ID);
+        loginList = settings.getArray(Settings.FB_LOGINS);
+        passwordList = settings.getArray(Settings.FB_PASSWORDS);
+        String startIdPath = settings.get(Settings.FB_START_ID_PATH);
+        startIds = LocalAccountReader.getStartIds(startIdPath);
+        super.init();
+
     }
 
     @Override
     public void start() {
-        Settings settings = Settings.getInstance();
-        List<String> loginList = settings.getArray(Settings.FB_LOGINS);
-        List<String> passwordList = settings.getArray(Settings.FB_PASSWORDS);
-        String initialId = settings.get(Settings.FB_START_SAMPLE_ID);
         int amount = loginList.size();
         executor = Executors.newFixedThreadPool(amount);
 
@@ -34,7 +43,11 @@ public class FbCrawler extends AbstractCrawler {
         ListIterator<String> passwordIterator = passwordList.listIterator();
 
         while (loginIterator.hasNext() && passwordIterator.hasNext()) {
-            IParser fbParser = new FbParser(this, initialId);
+            IParser fbParser;
+            if (useIdList)
+                fbParser = new FbParser(this, startIds);
+            else
+                fbParser = new FbParser(this, initialId);
             executor.execute(new ParserRunner(fbParser, loginIterator.next(), passwordIterator.next()));
         }
         executor.shutdown();

@@ -22,7 +22,8 @@ public class Main {
     }
 
     public static void testCrawlers() {
-        crawler = new FbCrawler();
+        boolean useIdList = true;
+        crawler = new FbCrawler(useIdList);
         crawler.init();
         crawler.start();
         try {

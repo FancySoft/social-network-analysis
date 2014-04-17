@@ -9,22 +9,41 @@ import com.fancy_software.utils.Settings;
 
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class AbstractCrawler implements ICrawler {
 
-    protected SocialNetworkId      socialNetworkId;
-    protected AtomicBoolean        stop;
+    protected boolean useIdList;
+
+    protected String initialId;
+
+    protected List<String> loginList;
+    protected List<String> passwordList;
+    protected Set<String>  startIds;
+
+    protected SocialNetworkId socialNetworkId;
+
+    protected AtomicBoolean stop;
+
     private   Queue<AccountVector> usersToWrite;
     protected ExecutorService      executor;
+    protected ExtractType          extractType;
 
-    protected ExtractType extractType;
 
     {
         usersToWrite = new ConcurrentLinkedQueue<>();
         stop = new AtomicBoolean(false);
+    }
+
+    public Set<String> getStartIds() {
+        return startIds;
+    }
+
+    public String getInitialId() {
+        return initialId;
     }
 
     @Override

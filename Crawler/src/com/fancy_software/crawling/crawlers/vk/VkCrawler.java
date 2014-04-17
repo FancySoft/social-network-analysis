@@ -6,8 +6,8 @@ import com.fancy_software.crawling.parsers.IParser;
 import com.fancy_software.crawling.parsers.vk.VkApiParser;
 import com.fancy_software.crawling.utils.ExtractType;
 import com.fancy_software.utils.Settings;
+import com.fancy_software.utils.io.LocalAccountReader;
 
-import java.util.List;
 import java.util.ListIterator;
 import java.util.concurrent.Executors;
 
@@ -20,7 +20,6 @@ public class VkCrawler extends AbstractCrawler {
 
     private long startId  = 0;
     private long finishId = 200000000;
-    private String initialId;
 
     {
         socialNetworkId = SocialNetworkId.VK;
@@ -47,11 +46,18 @@ public class VkCrawler extends AbstractCrawler {
     }
 
     @Override
-    public void start() {
+    public void init() {
         Settings settings = Settings.getInstance();
-        List<String> loginList = settings.getArray(Settings.VK_LOGINS);
-        List<String> passwordList = settings.getArray(Settings.VK_PASSWORDS);
         initialId = settings.get(Settings.VK_START_SAMPLE_ID);
+        loginList = settings.getArray(Settings.VK_LOGINS);
+        passwordList = settings.getArray(Settings.VK_PASSWORDS);
+        String startIdPath = settings.get(Settings.VK_START_ID_PATH);
+        startIds = LocalAccountReader.getStartIds(startIdPath);
+        super.init();
+    }
+
+    @Override
+    public void start() {
         int amount = loginList.size();
         executor = Executors.newFixedThreadPool(amount);
         long start = startId;
@@ -78,7 +84,10 @@ public class VkCrawler extends AbstractCrawler {
             case WALL:
                 return new VkApiParser(this, startId, finishId);
             case SAMPLE:
-                return new VkApiParser(this, initialId);
+                if (useIdList)
+                    return new VkApiParser(this, startIds);
+                else
+                    return new VkApiParser(this, initialId);
             default:
                 return null;
         }
