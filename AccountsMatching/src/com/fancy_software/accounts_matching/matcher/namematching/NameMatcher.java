@@ -1,5 +1,6 @@
 package com.fancy_software.accounts_matching.matcher.namematching;
 
+import com.fancy_software.accounts_matching.matcher.Utils;
 import com.fancy_software.utils.Settings;
 
 import java.lang.ref.SoftReference;
@@ -22,8 +23,8 @@ public class NameMatcher {
      * @param malePath   path to MaleNamesSet.txt
      */
     private NameMatcher(String femalePath, String malePath) {
-        femaleNames = new ArrayList<List<String>>();
-        maleNames = new ArrayList<List<String>>();
+        femaleNames = new ArrayList<>();
+        maleNames = new ArrayList<>();
         femaleNames = Transform.transformToArrayList(Transform.transform(femalePath));
         maleNames = Transform.transformToArrayList(Transform.transform(malePath));
     }
@@ -33,7 +34,7 @@ public class NameMatcher {
             Settings settings = Settings.getInstance();
             String f_path = settings.get(FEMALE_ID);
             String m_path = settings.get(MALE_ID);
-            instance = new SoftReference<NameMatcher>(new NameMatcher(f_path, m_path));
+            instance = new SoftReference<>(new NameMatcher(f_path, m_path));
         }
         return instance.get();
     }
@@ -60,14 +61,16 @@ public class NameMatcher {
                 return matchIgnoreSex(name1, name2, maleNames);
             }
             default:
-                return (matchIgnoreSex(name1, name2, femaleNames) |
+                return (matchIgnoreSex(name1, name2, femaleNames) ||
                         matchIgnoreSex(name1, name2, maleNames));
         }
     }
 
     private boolean matchIgnoreSex(String name1, String name2, List<List<String>> names) {
+        String norm1 = Utils.transliterate(name1.toUpperCase());
+        String norm2 = Utils.transliterate(name2.toUpperCase());
         for (List<String> name : names)
-            if (name.contains(name1) && name.contains(name2))
+            if (name.contains(norm1) && name.contains(norm2))
                 return true;
         return false;
     }
@@ -81,13 +84,14 @@ public class NameMatcher {
      * @return forms
      */
     public List<String> allForms(String name, int sex) {
+        String uName = Utils.transliterate(name.toUpperCase());
         if (sex == 1) {
             for (List<String> femaleName : femaleNames)
-                if (femaleName.contains(name))
+                if (femaleName.contains(uName))
                     return femaleName;
         } else if (sex == 2) {
             for (List<String> maleName : maleNames)
-                if (maleName.contains(name))
+                if (maleName.contains(uName))
                     return maleName;
         }
         return null;

@@ -1,3 +1,4 @@
+import com.fancy_software.accounts_matching.matcher.Utils;
 import com.fancy_software.accounts_matching.matcher.namematching.NameMatcher;
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,7 +25,6 @@ public class TNameMatching {
     @Test
     public void match2Test() {
         NameMatcher matcher = NameMatcher.getInstance();
-        Assert.assertTrue(matcher.match("Ася", "Нюша", 1));
         Assert.assertFalse(matcher.match("Анна", "Ася", 2));
         Assert.assertFalse(matcher.match("Анна", "Саша", 2));
         Assert.assertFalse(matcher.match("Владимир", "Вова", 1));
@@ -36,36 +36,26 @@ public class TNameMatching {
         Assert.assertFalse(matcher.match("Собака", "Собака", 1));
     }
 
+    private String normalize(String name) {
+        return Utils.transliterate(name.toUpperCase());
+    }
+
     @Test
     public void allFormsTest() {
         NameMatcher matcher = NameMatcher.getInstance();
         List<String> firstGroup = matcher.allForms("Саша", 1);
-        Assert.assertTrue(firstGroup.contains("Александра"));
-        Assert.assertFalse(firstGroup.contains("Александр"));
-        Assert.assertFalse(firstGroup.contains("Маша"));
-        Assert.assertTrue(firstGroup.contains("Саня"));
-        Assert.assertEquals(firstGroup.size(), 16);
+        Assert.assertTrue(firstGroup.contains(normalize("Александра")));
+        Assert.assertFalse(firstGroup.contains(normalize("Александр")));
+        Assert.assertFalse(firstGroup.contains(normalize("Маша")));
+        Assert.assertTrue(firstGroup.contains(normalize("Саня")));
+        Assert.assertEquals(16 * 2, firstGroup.size());
 
         List<String> secondGroup = matcher.allForms("Маша", 2);
         Assert.assertEquals(secondGroup, null);
         List<String> thirdGroup = matcher.allForms("Жека", 2);
-        Assert.assertTrue(thirdGroup.contains("Евгений"));
-        Assert.assertFalse(thirdGroup.contains("Евгения"));
-        Assert.assertTrue(thirdGroup.contains("Женя"));
-        Assert.assertEquals(thirdGroup.size(), 10);
+        Assert.assertTrue(thirdGroup.contains(normalize("Евгений")));
+        Assert.assertFalse(thirdGroup.contains(normalize("Евгения")));
+        Assert.assertTrue(thirdGroup.contains(normalize("Женя")));
+        Assert.assertEquals(10 * 2, thirdGroup.size());
     }
-    @Test
-    public void allFormsTest2() {
-        NameMatcher matcher = NameMatcher.getInstance();
-        List<String> testGroup = matcher.allForms("Жека", 2);
-        Assert.assertTrue(testGroup.contains("Женечка"));
-    }
-
-    @Test
-    public void allFormsTest3() {
-        NameMatcher matcher = NameMatcher.getInstance();
-        List<String> testGroup = matcher.allForms("Лилия", 1);
-        Assert.assertNotNull(testGroup);
-    }
-
 }
