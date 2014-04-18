@@ -2,6 +2,8 @@ package com.fancy_software.crawling;
 
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.crawlers.fb.FbCrawler;
+import com.fancy_software.crawling.crawlers.vk.VkCrawler;
+import com.fancy_software.crawling.utils.ExtractType;
 import org.apache.commons.logging.LogFactory;
 
 import java.util.logging.Level;
@@ -18,9 +20,10 @@ public class Main {
 
     public static void main(String[] args) {
         init();
-        testCrawlers();
+        runCrawlers();
     }
 
+    @SuppressWarnings("unused")
     public static void testCrawlers() {
         boolean useIdList = true;
         crawler = new FbCrawler(useIdList);
@@ -34,6 +37,13 @@ public class Main {
             crawler.finish();
         }
         System.out.println("stop");
+    }
+
+    public static void runCrawlers() {
+        crawler = new FbCrawler(true);
+        crawler.init();
+        crawler.start();
+        // TODO: vk crawler
     }
 
     /**
