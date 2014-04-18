@@ -10,16 +10,10 @@ import org.junit.Test;
  */
 public class TSettings {
     @Test
-    public void vkData() {
-        Settings settings = Settings.getInstance();
-        Assert.assertNotNull(settings.get("vk_login"));
-    }
-
-    @Test
     public void writeTest() {
         Settings settings = Settings.getInstance();
         if (settings.get("test_key") != null) {
-            Assert.assertSame("test_value", settings.get("test_key"));
+            Assert.assertEquals("test_value", settings.get("test_key"));
         } else {
             settings.put("test_key", "test_value");
         }
