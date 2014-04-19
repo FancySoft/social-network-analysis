@@ -2,6 +2,7 @@ package com.fancy_software.crawling.crawlers.fb;
 
 import com.fancy_software.accounts_matching.model.SocialNetworkId;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
+import com.fancy_software.crawling.parsers.AbstractSampleParser;
 import com.fancy_software.crawling.parsers.IParser;
 import com.fancy_software.crawling.parsers.fb.FbParser;
 import com.fancy_software.crawling.utils.ExtractType;
@@ -13,13 +14,20 @@ import java.util.concurrent.Executors;
 
 public class FbCrawler extends AbstractCrawler {
 
+    private AbstractSampleParser.SampleParseType parseType;
+
+    public AbstractSampleParser.SampleParseType getParseType() {
+        return parseType;
+    }
+
     {
         socialNetworkId = SocialNetworkId.FB;
         extractType = ExtractType.SAMPLE;
     }
 
-    public FbCrawler(boolean useIdList) {
+    public FbCrawler(boolean useIdList, AbstractSampleParser.SampleParseType parseType) {
         this.useIdList = useIdList;
+        this.parseType = parseType;
     }
 
     @Override
@@ -45,9 +53,9 @@ public class FbCrawler extends AbstractCrawler {
         while (loginIterator.hasNext() && passwordIterator.hasNext()) {
             IParser fbParser;
             if (useIdList)
-                fbParser = new FbParser(this, startIds);
+                fbParser = new FbParser(this, startIds, parseType);
             else
-                fbParser = new FbParser(this, initialId);
+                fbParser = new FbParser(this, initialId, parseType);
             executor.execute(new ParserRunner(fbParser, loginIterator.next(), passwordIterator.next()));
         }
         executor.shutdown();

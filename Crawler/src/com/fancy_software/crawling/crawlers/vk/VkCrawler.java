@@ -2,6 +2,7 @@ package com.fancy_software.crawling.crawlers.vk;
 
 import com.fancy_software.accounts_matching.model.SocialNetworkId;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
+import com.fancy_software.crawling.parsers.AbstractSampleParser;
 import com.fancy_software.crawling.parsers.IParser;
 import com.fancy_software.crawling.parsers.vk.VkApiParser;
 import com.fancy_software.crawling.utils.ExtractType;
@@ -21,19 +22,24 @@ public class VkCrawler extends AbstractCrawler {
     private long startId  = 0;
     private long finishId = 200000000;
 
+    private AbstractSampleParser.SampleParseType parseType;
+
     {
         socialNetworkId = SocialNetworkId.VK;
     }
 
     public VkCrawler(ExtractType extractType) {
         this.extractType = extractType;
+        if (extractType == ExtractType.SAMPLE)
+            this.parseType = AbstractSampleParser.SampleParseType.ALL;
     }
 
-    public VkCrawler(ExtractType extractType, boolean useIdList) {
+    public VkCrawler(ExtractType extractType, boolean useIdList, AbstractSampleParser.SampleParseType parseType) {
         if (extractType != ExtractType.SAMPLE)
             throw new IllegalArgumentException();
         this.extractType = extractType;
         this.useIdList = useIdList;
+        this.parseType = parseType;
     }
 
     public long getFinishId() {
@@ -92,9 +98,9 @@ public class VkCrawler extends AbstractCrawler {
                 return new VkApiParser(this, startId, finishId);
             case SAMPLE:
                 if (useIdList)
-                    return new VkApiParser(this, startIds);
+                    return new VkApiParser(this, startIds, parseType);
                 else
-                    return new VkApiParser(this, initialId);
+                    return new VkApiParser(this, initialId, parseType);
             default:
                 return null;
         }

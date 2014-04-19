@@ -27,12 +27,12 @@ public class FbParser extends AbstractSampleParser {
 
     private final WebClient webClient = new WebClient(BrowserVersion.CHROME);
 
-    public FbParser(AbstractCrawler crawler, Set<String> usersToParse) {
-        super(crawler, usersToParse);
+    public FbParser(AbstractCrawler crawler, Set<String> usersToParse, SampleParseType parseType) {
+        super(crawler, usersToParse, parseType);
     }
 
-    public FbParser(AbstractCrawler crawler, String initialId) {
-        super(crawler, initialId);
+    public FbParser(AbstractCrawler crawler, String initialId, SampleParseType parseType) {
+        super(crawler, initialId, parseType);
     }
 
     @Override

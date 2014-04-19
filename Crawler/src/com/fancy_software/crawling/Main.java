@@ -3,6 +3,7 @@ package com.fancy_software.crawling;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
 import com.fancy_software.crawling.crawlers.fb.FbCrawler;
 import com.fancy_software.crawling.crawlers.vk.VkCrawler;
+import com.fancy_software.crawling.parsers.AbstractSampleParser;
 import com.fancy_software.crawling.utils.ExtractType;
 import org.apache.commons.logging.LogFactory;
 
@@ -26,7 +27,7 @@ public class Main {
     @SuppressWarnings("unused")
     public static void testCrawlers() {
         boolean useIdList = true;
-        crawler = new FbCrawler(useIdList);
+        crawler = new FbCrawler(useIdList, AbstractSampleParser.SampleParseType.NOTHING_ELSE);
         crawler.init();
         crawler.start();
         try {
@@ -40,7 +41,7 @@ public class Main {
     }
 
     public static void runCrawlers() {
-        crawler = new VkCrawler(ExtractType.SAMPLE,true);
+        crawler = new VkCrawler(ExtractType.SAMPLE,true, AbstractSampleParser.SampleParseType.FRIENDS);
         crawler.init();
         crawler.start();
     }
