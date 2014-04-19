@@ -40,10 +40,9 @@ public class Main {
     }
 
     public static void runCrawlers() {
-        crawler = new FbCrawler(true);
+        crawler = new VkCrawler(ExtractType.SAMPLE,true);
         crawler.init();
         crawler.start();
-        // TODO: vk crawler
     }
 
     /**

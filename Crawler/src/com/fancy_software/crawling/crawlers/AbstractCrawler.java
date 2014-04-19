@@ -36,6 +36,7 @@ public abstract class AbstractCrawler implements ICrawler {
     {
         usersToWrite = new ConcurrentLinkedQueue<>();
         stop = new AtomicBoolean(false);
+        useIdList = false;
     }
 
     public Set<String> getStartIds() {

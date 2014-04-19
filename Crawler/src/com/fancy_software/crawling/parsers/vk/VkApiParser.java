@@ -43,7 +43,7 @@ public class VkApiParser extends AbstractSampleParser {
     private static final int MAX_IDS_FOR_ONE_CALL = 1000; //it's max possible value because of vk api restriction
 
     private int apiCallCounter = 0;
-    private long   currentUserId;
+    private String currentUserId;
     private long   finishUserId;
     private String access_token;
     private long   lastCallTime;
@@ -58,7 +58,7 @@ public class VkApiParser extends AbstractSampleParser {
 
     public VkApiParser(AbstractCrawler crawler, long startUserId, long finishUserId) {
         this.crawler = crawler;
-        this.currentUserId = startUserId;
+        this.currentUserId = Long.toString(startUserId);
         this.finishUserId = finishUserId;
         extractType = crawler.getExtractType();
     }
@@ -139,13 +139,7 @@ public class VkApiParser extends AbstractSampleParser {
     @Override
     public AccountVector extractAccountById(String id) {
         AccountVector result = null;
-
-        try {
-            currentUserId = Long.parseLong(id);
-        } catch (NumberFormatException e) {
-            Log.e(TAG, e);
-            return null;
-        }
+        currentUserId = id;
         avoidApiRestrictions();
         try {
             HttpClient httpClient = new DefaultHttpClient();
@@ -154,6 +148,7 @@ public class VkApiParser extends AbstractSampleParser {
             try {
                 response = getApiCallResult(httpClient, post);
                 result = responseProcessor.processSingleAccount(response);
+                currentUserId = result.getId();
                 System.out.println(response);
             } catch (NullPointerException e) {
                 Log.e(TAG, e);
@@ -219,8 +214,14 @@ public class VkApiParser extends AbstractSampleParser {
         HttpPost post;
         HttpClient httpClient = new DefaultHttpClient();
 
+        long curId = 0;
         while (!Thread.currentThread().isInterrupted()) {
-            if (currentUserId > finishUserId)
+            try {
+                curId = Long.parseLong(currentUserId);
+            } catch (NumberFormatException e) {
+                break;
+            }
+            if (curId > finishUserId)
                 break;
             avoidApiRestrictions();
             post = getPostForApiCall(currentUserId, extractType);
@@ -257,38 +258,45 @@ public class VkApiParser extends AbstractSampleParser {
         return response;
     }
 
-    private HttpPost getPostForApiCall(long userId, ExtractType extractType) {
+    private HttpPost getPostForApiCall(String userId, ExtractType extractType) {
         HttpPost result = null;
         List<NameValuePair> postParameters = new ArrayList<>();
         switch (extractType) {
             case ALL_ACCOUNTS: {
                 result = new HttpPost("https://api.vk.com/method/users.get?");
+                long curId = 0;
+                try {
+                    curId = Long.parseLong(currentUserId);
+                } catch (NumberFormatException e) {
+                    return result;
+                }
                 postParameters.add(
                         new BasicNameValuePair("user_ids",
-                                               apiRequestGenerator.generateIds(userId, MAX_IDS_FOR_ONE_CALL)));
+                                               apiRequestGenerator.generateIds(curId, MAX_IDS_FOR_ONE_CALL))
+                                  );
                 postParameters.add(new BasicNameValuePair("fields", apiRequestGenerator.generateFields()));
             }
             break;
             case SINGLE_ACCOUNT: {
                 result = new HttpPost("https://api.vk.com/method/users.get?");
                 postParameters.add(
-                        new BasicNameValuePair("user_ids", Long.toString(userId)));
+                        new BasicNameValuePair("user_ids", userId));
                 postParameters.add(new BasicNameValuePair("fields", apiRequestGenerator.generateFields()));
             }
             break;
             case FRIENDS: {
                 result = new HttpPost("https://api.vk.com/method/friends.get?");
-                postParameters.add(new BasicNameValuePair("uid", Long.toString(userId)));
+                postParameters.add(new BasicNameValuePair("uid", userId));
             }
             break;
             case GROUPS: {
                 result = new HttpPost("https://api.vk.com/method/groups.get?");
-                postParameters.add(new BasicNameValuePair("uid", Long.toString(userId)));
+                postParameters.add(new BasicNameValuePair("uid", userId));
             }
             break;
             case WALL: {
                 result = new HttpPost("https://api.vk.com/method/wall.get?");
-                postParameters.add(new BasicNameValuePair("owner_id", Long.toString(userId)));
+                postParameters.add(new BasicNameValuePair("owner_id", userId));
             }
             default:
                 break;
@@ -316,7 +324,7 @@ public class VkApiParser extends AbstractSampleParser {
                             crawler.getFolderForWrite() + File.separator + currentUserId + ".xml");
                 } catch (FileNotFoundException e) {
                     vector = new AccountVector();
-                    vector.setId(Long.toString(currentUserId));
+                    vector.setId(currentUserId);
                 }
                 List<Long> friends = responseProcessor.processGroupsOrFriendsResponse(response);
                 for (long i : friends)
@@ -331,7 +339,7 @@ public class VkApiParser extends AbstractSampleParser {
                             crawler.getFolderForWrite() + File.separator + currentUserId + ".xml");
                 } catch (FileNotFoundException e) {
                     vector = new AccountVector();
-                    vector.setId(Long.toString(currentUserId));
+                    vector.setId(currentUserId);
                 }
                 List<Long> groups = responseProcessor.processGroupsOrFriendsResponse(response);
                 for (long i : groups)
@@ -346,7 +354,7 @@ public class VkApiParser extends AbstractSampleParser {
                             crawler.getFolderForWrite() + File.separator + currentUserId + ".xml");
                 } catch (FileNotFoundException e) {
                     vector = new AccountVector();
-                    vector.setId(Long.toString(currentUserId));
+                    vector.setId(currentUserId);
                 }
                 List<WallMessage> messages = responseProcessor.processWall(response);
                 for (WallMessage message : messages)
@@ -361,17 +369,25 @@ public class VkApiParser extends AbstractSampleParser {
 
     private void actAfterResponseReceived(ExtractType extractType) {
         lastCallTime = System.currentTimeMillis();
+        long curId = 0;
+        try {
+            curId = Long.parseLong(currentUserId);
+        } catch (NumberFormatException e) {
+            Log.e(TAG, "Wrong format for id");
+        }
 
         switch (extractType) {
             case ALL_ACCOUNTS: {
-                currentUserId += MAX_IDS_FOR_ONE_CALL;
+                curId += MAX_IDS_FOR_ONE_CALL;
                 break;
             }
             case SINGLE_ACCOUNT:
                 break;
-            default:
-                currentUserId++;
+            default: {
+                curId++;
+            }
         }
+        currentUserId = Long.toString(curId);
     }
 
     private void avoidApiRestrictions() {

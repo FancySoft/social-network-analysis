@@ -2,12 +2,15 @@ package com.fancy_software.crawling.parsers;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.crawling.crawlers.AbstractCrawler;
+import com.fancy_software.logger.Log;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public abstract class AbstractSampleParser extends AbstractDefaultParser {
+
+    private static final String TAG = AbstractSampleParser.class.getSimpleName();
 
     protected String initialId;
 
@@ -19,17 +22,17 @@ public abstract class AbstractSampleParser extends AbstractDefaultParser {
         parsed = new LinkedHashSet<>();
     }
 
-    protected AbstractSampleParser(){
+    protected AbstractSampleParser() {
 
     }
 
-    protected AbstractSampleParser(AbstractCrawler crawler, Set<String> usersToParse){
+    protected AbstractSampleParser(AbstractCrawler crawler, Set<String> usersToParse) {
         this.crawler = crawler;
-        this.usersToParse=usersToParse;
+        this.usersToParse = usersToParse;
         initialId = getUserToParse();
     }
 
-    protected AbstractSampleParser(AbstractCrawler crawler, String initialId){
+    protected AbstractSampleParser(AbstractCrawler crawler, String initialId) {
         this.crawler = crawler;
         this.initialId = initialId;
     }
@@ -49,7 +52,12 @@ public abstract class AbstractSampleParser extends AbstractDefaultParser {
                     usersToParse.remove(idToParse);
                     continue;
                 }
-                vector = extractAccountById(idToParse);
+                try {
+                    vector = extractAccountById(idToParse);
+                } catch (Exception e) {
+                    vector = null;
+                    Log.e(TAG, e.getMessage());
+                }
                 if (vector != null) {
                     notifyCrawler(vector);
                     for (String friendId : vector.getFriends())

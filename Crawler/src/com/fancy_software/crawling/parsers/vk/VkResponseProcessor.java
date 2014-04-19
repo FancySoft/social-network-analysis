@@ -70,7 +70,7 @@ public class VkResponseProcessor {
                 }
             }
 
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
             Log.e(TAG, e);
             return extraction;
         }

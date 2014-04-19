@@ -29,6 +29,13 @@ public class VkCrawler extends AbstractCrawler {
         this.extractType = extractType;
     }
 
+    public VkCrawler(ExtractType extractType, boolean useIdList) {
+        if (extractType != ExtractType.SAMPLE)
+            throw new IllegalArgumentException();
+        this.extractType = extractType;
+        this.useIdList = useIdList;
+    }
+
     public long getFinishId() {
         return finishId;
     }
