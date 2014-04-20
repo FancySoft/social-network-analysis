@@ -1,0 +1,1180 @@
+<?xml version="1.0" encoding="UTF-8"?><users>
+<user>
+ <vk>
+  <id>307543</id>
+  <pic>http://cs10544.vk.me/u307543/a_cb63282c.jpg</pic>
+ </vk>
+ <fb>
+  <id>1217231739</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/c19.54.241.241/s160x160/168656_1881525237328_2075638_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>90601</id>
+  <pic>http://cs408231.vk.me/v408231601/5582/uTuhsziAYvE.jpg</pic>
+ </vk>
+ <fb>
+  <id>100000024860058</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc1/c37.37.464.464/s160x160/486883_499041630106661_484514858_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>7996</id>
+  <pic>http://cs308617.vk.me/v308617996/7fba/ClwPaVqOdts.jpg</pic>
+ </vk>
+ <fb>
+  <id>1441849536</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c60.60.745.745/s160x160/429241_4893759268783_217431631_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>11361</id>
+  <pic>http://cs419818.vk.me/v419818361/8207/dX0BtPRmW0Q.jpg</pic>
+ </vk>
+ <fb>
+  <id>1081826222</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c50.50.621.621/s160x160/383831_2388521147395_1913782500_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>474122</id>
+  <pic>http://cs416629.vk.me/u474122/a_21457e00.jpg</pic>
+ </vk>
+ <fb>
+  <id>1823148425</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c90.0.540.540/s160x160/38501_1231670531563_2930062_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>83961100</id>
+  <pic>http://cs319328.vk.me/v319328100/c922/V_PYKZi7fQM.jpg</pic>
+ </vk>
+ <fb>
+  <id>100001615296313</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c37.55.466.466/s160x160/561171_399694236761083_738159257_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>50382456</id>
+  <pic>http://cs424821.vk.me/v424821456/2070/XYzMQvGM0wA.jpg</pic>
+ </vk>
+ <fb>
+  <id>100000855955128</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c0.30.180.180/s160x160/25337_101042543267610_6888076_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>103451</id>
+  <pic>http://cs407020.vk.me/v407020451/9ad4/Rck7N5C0x1o.jpg</pic>
+ </vk>
+ <fb>
+  <id>1438524184</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c66.66.828.828/s160x160/562886_10200813752172972_506824709_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2678771</id>
+  <pic>http://cs424325.vk.me/v424325771/2b77/TmQSGNjM13U.jpg</pic>
+ </vk>
+ <fb>
+  <id>100001047312292</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c0.24.180.180/s160x160/31059_101979349846975_7631288_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2406382</id>
+  <pic>http://cs409617.vk.me/v409617382/118c/I9v5UUhlLlk.jpg</pic>
+ </vk>
+ <fb>
+  <id>100001992357675</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/c33.33.414.414/s160x160/180180_108914025851675_8293782_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>40296891</id>
+  <pic>http://cs10064.vk.me/v10064891/75/knTxqr3VP3M.jpg</pic>
+ </vk>
+ <fb>
+  <id>638700035</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c66.66.828.828/s160x160/262013_10151126382865036_52657132_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1677320</id>
+  <pic>http://cs323123.vk.me/u1677320/a_d20605fc.jpg</pic>
+ </vk>
+ <fb>
+  <id>1449511830</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c56.56.702.702/s160x160/643935_10201336285156337_650350743_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1326672</id>
+  <pic>http://cs10155.vk.me/u1326672/a_9ebd2925.jpg</pic>
+ </vk>
+ <fb>
+  <id>517888671</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash1/c0.0.100.100/p100x100/275965_517888671_751211006_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>16644871</id>
+  <pic>http://cs322731.vk.me/v322731871/4b4e/Ab6VuEqnAPA.jpg</pic>
+ </vk>
+ <fb>
+  <id>100002298426505</id>
+  <pic>https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash2/315081_153080658111881_88760678_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>11219936</id>
+  <pic>http://cs416429.vk.me/v416429936/ac21/a0zOOl0OC-E.jpg</pic>
+ </vk>
+ <fb>
+  <id>100002911183604</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c127.37.466.466/s160x160/310645_104473066326399_15698196_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>4571425</id>
+  <pic>http://cs9619.vk.me/v9619425/66/CHN60mmKey4.jpg</pic>
+ </vk>
+ <fb>
+  <id>100001577370786</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c0.0.160.160/p160x160/49866_100001577370786_9546_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>29754778</id>
+  <pic>http://cs4166.vk.me/u29754778/a_9c80b122.jpg</pic>
+ </vk>
+ <fb>
+  <id>100002446777992</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c0.121.180.180/s160x160/556601_533325196759035_1715498118_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>31595573</id>
+  <pic>http://cs424520.vk.me/v424520573/5b85/fB6GloJUc0A.jpg</pic>
+ </vk>
+ <fb>
+  <id>100005121004149</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c28.27.347.347/s160x160/155069_102710023243031_2028430676_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2470829</id>
+  <pic>http://cs302800.vk.me/v302800829/6440/In8mnhC6hiU.jpg</pic>
+ </vk>
+ <fb>
+  <id>1060998967</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c131.55.691.691/s160x160/314765_3867327435934_1426326054_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2895140</id>
+  <pic>http://cs305600.vk.me/u2895140/a_c857457f.jpg</pic>
+ </vk>
+ <fb>
+  <id>534417435</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c0.0.160.160/p160x160/49860_534417435_3567_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>17120044</id>
+  <pic>http://cs410231.vk.me/v410231044/980c/Ijo7kfOo0oU.jpg</pic>
+ </vk>
+ <fb>
+  <id>1140251405</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c32.32.405.405/s160x160/394881_2613339289656_1712260232_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>670641</id>
+  <pic>http://cs412119.vk.me/v412119641/36cb/5XLaczhlgIE.jpg</pic>
+ </vk>
+ <fb>
+  <id>543912347</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/c127.37.466.466/s160x160/167766_498647847347_4288003_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>5208306</id>
+  <pic>http://cs322720.vk.me/v322720306/4799/HVc49D2mptY.jpg</pic>
+ </vk>
+ <fb>
+  <id>1330070425</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c0.30.180.180/s160x160/4687_1156722761480_2550938_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>400820</id>
+  <pic>http://cs407022.vk.me/v407022820/bde0/V4pB2Ygqlj8.jpg</pic>
+ </vk>
+ <fb>
+  <id>1450082264</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/s160x160/1234407_10201741489806219_629895366_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2450652</id>
+  <pic>http://cs307913.vk.me/v307913652/7d13/eHdGpZqUOxM.jpg</pic>
+ </vk>
+ <fb>
+  <id>1160353512</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c8.0.160.160/p160x160/49791_1160353512_7073_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>10397891</id>
+  <pic>http://cs314129.vk.me/v314129891/4f69/Lp9AZbCnDkw.jpg</pic>
+ </vk>
+ <fb>
+  <id>1405172071</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c284.27.336.336/s160x160/556899_4126813134387_968135542_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2505782</id>
+  <pic>http://cs314222.vk.me/v314222782/4a18/S-78TlM1OCY.jpg</pic>
+ </vk>
+ <fb>
+  <id>591702098</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/c0.0.180.180/s160x160/1390696_10151725908637099_736639447_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>41349</id>
+  <pic>http://cs413031.vk.me/v413031349/378a/s5IgFDuk99k.jpg</pic>
+ </vk>
+ <fb>
+  <id>1185578577</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c43.1.360.360/s160x160/1379277_10201400951644161_867324993_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>26209523</id>
+  <pic>http://cs406321.vk.me/u26209523/a_66623b0b.jpg</pic>
+ </vk>
+ <fb>
+  <id>1494743451</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c74.158.465.465/s160x160/302506_2521053594387_1296567335_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1324592</id>
+  <pic>http://cs314626.vk.me/v314626592/59c0/kd_8_CcbfXk.jpg</pic>
+ </vk>
+ <fb>
+  <id>1315052880</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c212.62.391.391/s160x160/38057_1361718885755_6340606_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>11632419</id>
+  <pic>http://cs425417.vk.me/v425417419/7394/xrzEDlrTkXo.jpg</pic>
+ </vk>
+ <fb>
+  <id>1340344022</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c0.22.180.180/s160x160/1238254_10200727431331733_980174795_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1745594</id>
+  <pic>http://cs10151.vk.me/v10151594/489/JSLHzsvwAOI.jpg</pic>
+ </vk>
+ <fb>
+  <id>1224511225</id>
+  <pic>https://scontent-a.xx.fbcdn.net/hprofile-ash2/t1/c0.132.632.632/s160x160/391211_3614175392742_1706273545_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>11498375</id>
+  <pic>http://cs315217.vk.me/u11498375/a_6e0b059b.jpg</pic>
+ </vk>
+ <fb>
+  <id>1144238778</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc1/c24.24.301.301/s160x160/532224_3602201530727_118801508_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>19673745</id>
+  <pic>http://cs301604.vk.me/u19673745/a_95906c6f.jpg</pic>
+ </vk>
+ <fb>
+  <id>1586775577</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c223.41.515.515/s160x160/148764_4531130048110_826030622_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2517022</id>
+  <pic>http://cs310423.vk.me/v310423022/365b/ADcSq1Y4vtQ.jpg</pic>
+ </vk>
+ <fb>
+  <id>1499777782</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c204.44.552.552/s160x160/18206_4864744705368_1636492273_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>6931305</id>
+  <pic>http://cs419530.vk.me/v419530305/7b5b/V10cLd2lrXU.jpg</pic>
+ </vk>
+ <fb>
+  <id>1279053150</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c0.1.180.180/s160x160/19731_1213481378710_6621548_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>11587373</id>
+  <pic>http://cs410420.vk.me/v410420373/b6f9/inwkDiC5C4g.jpg</pic>
+ </vk>
+ <fb>
+  <id>1109146314</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c66.66.828.828/s160x160/1095047_10200410279595431_547928409_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>66935</id>
+  <pic>http://cs421828.vk.me/v421828935/d0b9/xCGVoze1YaE.jpg</pic>
+ </vk>
+ <fb>
+  <id>1003810850</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/s160x160/1395186_10201273674056242_221181516_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>18296612</id>
+  <pic>http://cs303409.vk.me/v303409612/63ed/bDgCP0BYvWs.jpg</pic>
+ </vk>
+ <fb>
+  <id>1014800054</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c240.44.480.480/s160x160/528762_10200411459541784_1740184058_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2500101</id>
+  <pic>http://cs322624.vk.me/v322624101/4939/KQfDv5KE7FA.jpg</pic>
+ </vk>
+ <fb>
+  <id>1469805139</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c0.30.180.180/s160x160/199414_1010233463997_2067_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>4176144</id>
+  <pic>http://cs7011.vk.me/c312427/v312427144/5198/zC-KQ4cVtG0.jpg</pic>
+ </vk>
+ <fb>
+  <id>1354483363</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/s160x160/1466050_10200979777400698_450069578_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>357192</id>
+  <pic>http://cs408718.vk.me/v408718192/1853/Dd8Wbw1WGJ0.jpg</pic>
+ </vk>
+ <fb>
+  <id>1053449629</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c5.0.170.170/s160x160/943800_10200769029842106_528529651_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>68180</id>
+  <pic>http://cs304402.vk.me/v304402180/571a/86TmED5QvCc.jpg</pic>
+ </vk>
+ <fb>
+  <id>1258149330</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c43.43.542.542/s160x160/527259_3778298296833_1309608697_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2228548</id>
+  <pic>http://cs412730.vk.me/v412730548/2389/ocwkMRrH2BY.jpg</pic>
+ </vk>
+ <fb>
+  <id>1252314342</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c6.0.168.168/s160x160/943337_10201713414457760_863810428_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1306457</id>
+  <pic>http://cs10371.vk.me/v10371457/306/hOGEki67Gvs.jpg</pic>
+ </vk>
+ <fb>
+  <id>1324025107</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c37.36.463.463/s160x160/40903_1648485215033_3397336_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1541164</id>
+  <pic>http://cs416824.vk.me/v416824164/2ea4/dAJcHxPCdb8.jpg</pic>
+ </vk>
+ <fb>
+  <id>1380589141</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c50.50.621.621/s160x160/420967_2786463945675_512073423_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2832732</id>
+  <pic>http://cs421828.vk.me/v421828732/b0a6/krMe7ADtHBw.jpg</pic>
+ </vk>
+ <fb>
+  <id>1302742425</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c66.66.828.828/s160x160/540119_10200379941483450_1225788722_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>5748394</id>
+  <pic>http://cs614727.vk.me/v614727394/1184/-p3ehh9nlkM.jpg</pic>
+ </vk>
+ <fb>
+  <id>1454801132</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c0.45.551.551/s160x160/530049_3515393610935_1355386529_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1498413</id>
+  <pic>http://cs403323.vk.me/v403323413/af8c/GbOZOoCdLBU.jpg</pic>
+ </vk>
+ <fb>
+  <id>1218714037</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c128.44.547.547/s160x160/73535_10200508447853228_1562467112_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>150692</id>
+  <pic>http://cs4227.vk.me/v4227692/4c/fOfMu3qMmRQ.jpg</pic>
+ </vk>
+ <fb>
+  <id>1295566407</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c0.139.347.347/s160x160/528409_4870689807185_1066488820_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>3062217</id>
+  <pic>http://cs417530.vk.me/v417530217/9fd8/RncdPG2MRek.jpg</pic>
+ </vk>
+ <fb>
+  <id>1163053063</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash1/c51.0.640.640/s160x160/1005683_10201375055516023_2061210163_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1923767</id>
+  <pic>http://cs418330.vk.me/v418330767/97f0/W8VpCDUJBvM.jpg</pic>
+ </vk>
+ <fb>
+  <id>1342173416</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/s160x160/1374887_10202298464246635_1060574931_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1400992</id>
+  <pic>http://cs425727.vk.me/v425727992/1f03/L-0hu50yV1g.jpg</pic>
+ </vk>
+ <fb>
+  <id>666454031</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c37.23.456.456/s160x160/944581_10151610214674032_528572792_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>19761605</id>
+  <pic>http://cs311720.vk.me/v311720605/71ea/CoyxXbRxJn0.jpg</pic>
+ </vk>
+ <fb>
+  <id>500593170</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/s160x160/1471257_10151914083788171_1487215452_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>8923552</id>
+  <pic>http://cs314231.vk.me/v314231552/1789/XS-D2b6AsSM.jpg</pic>
+ </vk>
+ <fb>
+  <id>1538310676</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c57.39.487.487/s160x160/48001_10201510594276916_518862767_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1441021</id>
+  <pic>http://cs410219.vk.me/v410219021/910f/8bZFsNn8E4Q.jpg</pic>
+ </vk>
+ <fb>
+  <id>1415484559</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c0.89.180.180/s160x160/208328_1010897598789_9317_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>24166814</id>
+  <pic>http://cs316417.vk.me/v316417814/6a65/NNU7Q1OWu4k.jpg</pic>
+ </vk>
+ <fb>
+  <id>1003459847</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/c0.0.180.180/s160x160/1458495_10201787147212738_1386710653_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2633698</id>
+  <pic>http://cs409619.vk.me/v409619698/c76/KCDMaEqjcyE.jpg</pic>
+ </vk>
+ <fb>
+  <id>1229583936</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c40.40.497.497/s160x160/17743_4027407563457_1717035817_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>14031347</id>
+  <pic>http://cs320924.vk.me/v320924347/31d5/7Eu-pH8cZrU.jpg</pic>
+ </vk>
+ <fb>
+  <id>100000691978837</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c128.28.348.348/s160x160/68211_175371722495892_6226432_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>3431361</id>
+  <pic>http://cs407022.vk.me/v407022361/7e36/Qr6XQtZPGpQ.jpg</pic>
+ </vk>
+ <fb>
+  <id>1454220398</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c31.31.394.394/s160x160/223805_2182504049510_8155662_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>12758370</id>
+  <pic>http://cs320626.vk.me/v320626370/6932/ia62mQK7WKc.jpg</pic>
+ </vk>
+ <fb>
+  <id>1176240356</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c0.0.413.413/s160x160/163789_1626897950439_7045437_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>527486</id>
+  <pic>http://cs5276.vk.me/v5276486/9ec/FzoacQLfXXQ.jpg</pic>
+ </vk>
+ <fb>
+  <id>100001364493712</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c37.37.466.466/s160x160/385696_316825075039640_299235455_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>708418</id>
+  <pic>http://cs301310.vk.me/u708418/a_650e7fa7.jpg</pic>
+ </vk>
+ <fb>
+  <id>1538578442</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c23.58.290.290/s160x160/247368_4688937631594_105797751_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>7996544</id>
+  <pic>http://cs322730.vk.me/v322730544/62f7/Yc1xeCcE1rs.jpg</pic>
+ </vk>
+ <fb>
+  <id>100000510263735</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/c0.0.180.180/s160x160/1459257_768335413193460_496072016_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>3552777</id>
+  <pic>http://cs410421.vk.me/v410421777/9f8b/QWOAJw3Y200.jpg</pic>
+ </vk>
+ <fb>
+  <id>1173167411</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c0.0.180.180/s160x160/1382877_10201968844640717_881011959_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>15801792</id>
+  <pic>http://cs425422.vk.me/v425422792/5e0b/x43y8IrJnEU.jpg</pic>
+ </vk>
+ <fb>
+  <id>1518925735</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c328.3.632.632/s160x160/1385014_10202090468052751_83509043_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2137038</id>
+  <pic>http://cs419126.vk.me/v419126038/c0fb/GDcOBL9siwE.jpg</pic>
+ </vk>
+ <fb>
+  <id>1385733189</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c113.33.414.414/s160x160/545402_4775436908928_1766788171_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>8686740</id>
+  <pic>http://cs10950.vk.me/u8686740/a_125b4edc.jpg</pic>
+ </vk>
+ <fb>
+  <id>1605484834</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c0.30.180.180/s160x160/34855_1425966341582_5465140_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>33463638</id>
+  <pic>http://cs4378.vk.me/u33463638/a_2fa78a33.jpg</pic>
+ </vk>
+ <fb>
+  <id>1219100467</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c52.20.249.249/s160x160/198839_1633092066716_6078708_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>35144801</id>
+  <pic>http://cs4181.vk.me/v4181801/1a/H6Qq23BFcz0.jpg</pic>
+ </vk>
+ <fb>
+  <id>1457044796</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c98.0.362.362/s160x160/7325_1204521960663_3599793_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1506611</id>
+  <pic>http://cs405928.vk.me/v405928611/4de0/d5DOVax2eKo.jpg</pic>
+ </vk>
+ <fb>
+  <id>1449394435</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c10.17.173.173/s160x160/221761_1889061753475_5852434_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>7354690</id>
+  <pic>http://cs405421.vk.me/v405421690/9e1a/TVuruKvaOcY.jpg</pic>
+ </vk>
+ <fb>
+  <id>1030936994</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c0.0.180.180/s160x160/1185674_10201184024815971_449072339_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2473210</id>
+  <pic>http://cs425024.vk.me/v425024210/83a3/fRltaHiNceM.jpg</pic>
+ </vk>
+ <fb>
+  <id>1681637565</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c170.50.621.621/s160x160/993518_4434775082458_267000784_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1915956</id>
+  <pic>http://cs418117.vk.me/v418117956/6518/mxzsNGGmBJc.jpg</pic>
+ </vk>
+ <fb>
+  <id>1477029315</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/c25.0.100.100/p100x100/276095_1477029315_7386354_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>732165</id>
+  <pic>http://cs307200.vk.me/u732165/a_cb6ae6ca.jpg</pic>
+ </vk>
+ <fb>
+  <id>1250473156</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c66.66.828.828/s160x160/383536_4623384703209_1406495089_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>11540668</id>
+  <pic>http://cs408816.vk.me/v408816668/7d18/PM0pPPBeSs4.jpg</pic>
+ </vk>
+ <fb>
+  <id>1114278625</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c31.31.391.391/s160x160/377369_3837588854264_40657012_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>3420</id>
+  <pic>http://cs301304.vk.me/v301304420/638b/IaNzwIq0B5I.jpg</pic>
+ </vk>
+ <fb>
+  <id>1020919391</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c44.44.551.551/s160x160/1174600_10201303299597432_278521836_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1913733</id>
+  <pic>http://cs10117.vk.me/u1913733/a_3294915e.jpg</pic>
+ </vk>
+ <fb>
+  <id>1676241865</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c0.30.180.180/s160x160/216630_1016277301970_3684327_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>3636085</id>
+  <pic>http://cs11058.vk.me/v11058085/d4a/gu_C8ISplzc.jpg</pic>
+ </vk>
+ <fb>
+  <id>1407952715</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c33.309.551.551/s160x160/304505_4593729047085_443883566_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1170906</id>
+  <pic>http://cs416931.vk.me/v416931906/40ec/5pEwsg-tp1Y.jpg</pic>
+ </vk>
+ <fb>
+  <id>1433181861</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c14.14.173.173/s160x160/39586_1441287998870_1179669_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1149869</id>
+  <pic>http://cs312428.vk.me/v312428269/748e/aoSTbjmhzIQ.jpg</pic>
+ </vk>
+ <fb>
+  <id>1305357879</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c20.20.255.255/s160x160/164044_1576078364284_2189951_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>11308649</id>
+  <pic>http://cs310629.vk.me/v310629649/2c49/i30YiJo93jw.jpg</pic>
+ </vk>
+ <fb>
+  <id>1666404884</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c0.80.180.180/s160x160/229271_1031660126203_2711323_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>9069708</id>
+  <pic>http://cs425925.vk.me/v425925708/5a61/oGdHF9FwLEE.jpg</pic>
+ </vk>
+ <fb>
+  <id>704966282</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c57.37.621.621/s160x160/1185769_10151565477476283_275673557_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>12875470</id>
+  <pic>http://cs425726.vk.me/v425726470/3d94/yhkEqdctYBE.jpg</pic>
+ </vk>
+ <fb>
+  <id>1662476512</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/s160x160/1379552_10201784359965025_1456724664_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>824963</id>
+  <pic>http://cs5114.vk.me/u824963/a_44e078a7.jpg</pic>
+ </vk>
+ <fb>
+  <id>1114822985</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c76.0.453.453/s160x160/17966_1301812581460_5698619_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>10901727</id>
+  <pic>http://cs407417.vk.me/v407417727/71bb/UURrP2XOEp4.jpg</pic>
+ </vk>
+ <fb>
+  <id>1757594323</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c107.31.391.391/s160x160/310991_1545225008044_284815038_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>25528818</id>
+  <pic>http://cs322527.vk.me/v322527818/338f/sIi4KxOLVmU.jpg</pic>
+ </vk>
+ <fb>
+  <id>1692765798</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c31.31.391.391/s160x160/316796_1567725008369_2114632701_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>12666937</id>
+  <pic>http://cs419127.vk.me/v419127937/b11f/7W7Esn5ORj8.jpg</pic>
+ </vk>
+ <fb>
+  <id>1767314202</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c26.25.325.325/s160x160/69305_1201714500820_3224813_n.jpg</pic>
+ </fb>
+</user>
+
+
+<user>
+ <vk>
+  <id>31657207</id>
+  <pic>http://cs417116.vk.me/v417116207/b505/Zk5E6ypgKbU.jpg</pic>
+ </vk>
+ <fb>
+  <id>1778213195</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/c0.0.180.180/s160x160/1471403_3670950830548_1249220717_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>8486354</id>
+  <pic>http://cs313118.vk.me/v313118354/4b16/WKu25MmO7kM.jpg</pic>
+ </vk>
+ <fb>
+  <id>1520661485</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/s160x160/1375266_10202093683413191_477015961_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>9624186</id>
+  <pic>http://cs425830.vk.me/v425830186/4107/5aatjo14nYM.jpg</pic>
+ </vk>
+ <fb>
+  <id>569194420</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/c0.0.180.180/s160x160/1378407_10151943914479421_1545347333_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2058576</id>
+  <pic>http://cs408723.vk.me/v408723576/68c4/RCKXbzH5AOg.jpg</pic>
+ </vk>
+ <fb>
+  <id>612672729</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c161.0.639.639/s160x160/993716_10151744761737730_1391980424_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>459391</id>
+  <pic>http://cs425525.vk.me/v425525391/5da6/z6Sed_yBY_w.jpg</pic>
+ </vk>
+ <fb>
+  <id>1786271417</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c0.86.180.180/s160x160/190048_1006156892634_4850832_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>5349663</id>
+  <pic>http://cs304513.vk.me/v304513663/566c/a3uLhqF8xZY.jpg</pic>
+ </vk>
+ <fb>
+  <id>1535653374</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c211.0.539.539/s160x160/226655_10200240263959363_987011429_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1360265</id>
+  <pic>http://cs303408.vk.me/u1360265/a_9ebf8d29.jpg</pic>
+ </vk>
+ <fb>
+  <id>1452916949</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c18.18.230.230/s160x160/431859_4925218935624_1584215207_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>5443700</id>
+  <pic>http://cs617130.vk.me/v617130700/476/6kQVh_uBMzs.jpg</pic>
+ </vk>
+ <fb>
+  <id>1350043315</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/s160x160/1380594_10202325255756668_462163180_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1927657</id>
+  <pic>http://cs9905.vk.me/u1927657/a_c7efaea6.jpg</pic>
+ </vk>
+ <fb>
+  <id>1701622289</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c0.30.180.180/s160x160/28526_1141318588770_32484_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1751062</id>
+  <pic>http://cs412218.vk.me/v412218062/83ba/--z5UF4hc7k.jpg</pic>
+ </vk>
+ <fb>
+  <id>1529645307</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c44.44.549.549/s160x160/550475_10200767763306317_2031370374_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2608065</id>
+  <pic>http://cs320216.vk.me/v320216065/2eb6/QBDUqXtWwYs.jpg</pic>
+ </vk>
+ <fb>
+  <id>1383030975</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c55.54.675.675/s160x160/526791_10201659167185970_2010289104_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>31551155</id>
+  <pic>http://cs323620.vk.me/v323620155/3bf4/brwZqUDOp90.jpg</pic>
+ </vk>
+ <fb>
+  <id>1837486786</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c25.59.314.314/s160x160/205926_1679509727741_2432847_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>3191159</id>
+  <pic>http://cs418222.vk.me/v418222159/d5cb/jwJW4rLaQcA.jpg</pic>
+ </vk>
+ <fb>
+  <id>1235071705</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c0.0.180.180/s160x160/1461830_10200892418932811_54706541_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>9491745</id>
+  <pic>http://cs11018.vk.me/u9491745/a_13df47ce.jpg</pic>
+ </vk>
+ <fb>
+  <id>1486855227</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c205.44.551.551/s160x160/378745_3050618072905_84874777_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>17493220</id>
+  <pic>http://cs316318.vk.me/v316318220/7de6/cm_Q0O2mxXU.jpg</pic>
+ </vk>
+ <fb>
+  <id>1793978874</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/s160x160/1375167_4713954825522_746680471_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>8011622</id>
+  <pic>http://cs419119.vk.me/v419119622/8063/ZikBFl_O8vw.jpg</pic>
+ </vk>
+ <fb>
+  <id>1151637220</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/c28.27.348.348/s160x160/992888_10201226535922745_671490967_n.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>5285663</id>
+  <pic>http://cs408620.vk.me/v408620663/608c/LzzEVcVFZMM.jpg</pic>
+ </vk>
+ <fb>
+  <id>1221635642</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c0.40.180.180/s160x160/563611_10202332916143893_1276740541_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>35606236</id>
+  <pic>http://cs312821.vk.me/v312821236/4fe0/hVop4uLPNEg.jpg</pic>
+ </vk>
+ <fb>
+  <id>1397833620</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/s160x160/1470310_10200882652734087_1430444940_a.jpg</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>21677203</id>
+  <pic>http://cs311526.vk.me/v311526203/564e/j9MFu5NVSKo.jpg</pic>
+ </vk>
+ <fb>
+  <id>1362151947</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c0.196.180.180/s160x160/1000361_10201262114019193_867684263_a.jpg</pic>
+ </fb>
+</user>
+
+</users>

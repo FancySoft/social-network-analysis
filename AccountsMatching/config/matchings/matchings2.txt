@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="UTF-8"?><users>
+<user>
+ <vk>
+  <id>18438921</id>
+  <pic>http://http://vk.com/id18438921?z=photo18438921_312740914%2Falbum18438921_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>dasha.korobkova.96</id>
+  <pic>https://www.facebook.com/photo.php?fbid=364332110304339&amp;set=a.103630843041135.5507.100001826595818&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>12830004</id>
+  <pic>http://http://vk.com/id12830004?z=photo12830004_316953725%2Falbum12830004_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>1203873835</id>
+  <pic>https://www.facebook.com/photo.php?fbid=1096269445979&amp;set=a.1096267325926.2015701.1203873835&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>6136985</id>
+  <pic>http://http://vk.com/enmishka?z=photo6136985_315610459%2Falbum6136985_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>enmi.ten</id>
+  <pic>https://www.facebook.com/photo.php?fbid=376329569136460&amp;set=a.129462797156473.15569.100002782612530&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>14179733</id>
+  <pic>http://http://vk.com/aoool?z=photo14179733_298839284%2Falbum14179733_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>aoool</id>
+  <pic>https://www.facebook.com/photo.php?fbid=498241393538262&amp;set=a.156066877755717.35296.100000572187625&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>4931334</id>
+  <pic>http://http://vk.com/lina_waters?z=photo4931334_313713215%2Falbum4931334_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>poluferia</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10201650452560997&amp;set=a.1585551996596.85275.1169662467&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>19849353</id>
+  <pic>http://http://vk.com/provorova_l?z=photo19849353_316486391%2Fphotos19849353</pic>
+ </vk>
+ <fb>
+  <id>leraprovorova</id>
+  <pic>https://www.facebook.com/photo.php?fbid=436322713096087&amp;set=a.328240030571023.73925.100001550875361&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>11424069</id>
+  <pic>http://http://vk.com/v_kozlova?z=photo11424069_313865510%2Falbum11424069_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>100003206247869</id>
+  <pic>https://www.facebook.com/photo.php?fbid=462517410531796&amp;set=a.116578261792381.18426.100003206247869&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>7158966</id>
+  <pic>http://vk.com/liza218?z=photo7158966_302094657%2Fphotos7158966</pic>
+ </vk>
+ <fb>
+  <id>liza.chuyko</id>
+  <pic>https://www.facebook.com/photo.php?fbid=163039823759873&amp;set=pb.100001615701821.-2207520000.1387372022.&amp;type=3&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>23859874</id>
+  <pic>http://http://vk.com/id23859874?z=photo23859874_310341644%2Falbum23859874_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>natasha.vladimirova.18</id>
+  <pic>https://www.facebook.com/photo.php?fbid=620112634670304&amp;set=a.162620627086176.41286.100000147200999&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>165562163</id>
+  <pic>http://http://vk.com/id165562163?z=photo165562163_279382670%2Falbum165562163_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>eva.musilova.792</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10200342129379865&amp;set=a.1543509271684.2074561.1353561857&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>5302326</id>
+  <pic>http://vk.com/maria.berezovskaya?z=photo5302326_316656821%2Falbum5302326_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>maria.berezovskaya</id>
+  <pic>https://www.facebook.com/photo.php?fbid=516516131223&amp;set=a.504800504433.2004106.85200087&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>4885348</id>
+  <pic>http://vk.com/gutova?z=photo4885348_314319387%2Falbum4885348_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>chris.gutova</id>
+  <pic>https://www.facebook.com/photo.php?fbid=544320945615310&amp;set=a.128082513905824.18319.100001122277959&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>17444259</id>
+  <pic>http://vk.com/tatyana_ra?z=photo17444259_306897851%2Falbum17444259_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>tatyana.raschupkina</id>
+  <pic>https://www.facebook.com/photo.php?fbid=329453187185194&amp;set=a.106998779430637.7243.100003615463179&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>3092540</id>
+  <pic>http://vk.com/id3092540?z=photo3092540_265783126%2Falbum3092540_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>vera.bondareva.1</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10202008771406163&amp;set=a.1598462126760.2089277.1392237499&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>58244771</id>
+  <pic>http://vk.com/sherbakkoff?z=photo58244771_313858216%2Fphotos58244771</pic>
+ </vk>
+ <fb>
+  <id>ilya.scherbakov.58</id>
+  <pic>https://www.facebook.com/photo.php?fbid=250289058361679&amp;set=a.250288781695040.61651.100001417595030&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>13102543</id>
+  <pic>http://vk.com/id13102543?z=photo13102543_314722299%2Falbum13102543_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>r.sayfutdinov</id>
+  <pic>https://www.facebook.com/photo.php?fbid=658740850804798&amp;set=a.172483629430525.43179.100000066668880&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>9744525</id>
+  <pic>http://vk.com/korystov?z=photo9744525_282482320%2Falbum9744525_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>korystov</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10201099988814438&amp;set=a.1630860303966.79446.1610390554&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>68263451</id>
+  <pic>http://vk.com/mickle2003?z=photo68263451_312422929%2Falbum68263451_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>100006689473666</id>
+  <pic>https://www.facebook.com/photo.php?fbid=1398415287058107&amp;set=pb.100006689473666.-2207520000.1387372807.&amp;type=3&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2753000</id>
+  <pic>http://vk.com/id2753000?z=photo2753000_264995426%2Falbum2753000_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>yuliya.kosykh</id>
+  <pic>https://www.facebook.com/photo.php?fbid=460509244045834&amp;set=a.105868829509879.12354.100002602884218&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>22750345</id>
+  <pic>http://vk.com/yuriy.andrusyak?z=photo22750345_299174319%2Falbum22750345_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>yuriy.andrusyak</id>
+  <pic>https://www.facebook.com/photo.php?fbid=433439580031029&amp;set=a.141971795844477.22723.100000949738441&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>17178875</id>
+  <pic>http://vk.com/marinka_shum?z=photo17178875_315432682%2Falbum17178875_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>marinka.shum</id>
+  <pic>https://www.facebook.com/photo.php?fbid=550007448418492&amp;set=a.104178849668023.8558.100002277257454&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>182250996</id>
+  <pic>http://vk.com/id182250996?z=photo182250996_289731094%2Falbum182250996_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>uma.keldibekova</id>
+  <pic>https://www.facebook.com/photo.php?fbid=350800551720913&amp;set=a.110858295715141.12139.100003729137278&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>182096075</id>
+  <pic>http://vk.com/id182096075?z=photo182096075_288391234%2Falbum182096075_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>kasiet.asangarieva.5</id>
+  <pic>https://www.facebook.com/photo.php?fbid=164432113694447&amp;set=a.164415937029398.40140.100003829771924&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>98543104</id>
+  <pic>http://vk.com/ukaty?z=photo98543104_314141019%2Falbum98543104_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>kate.udilina</id>
+  <pic>https://www.facebook.com/photo.php?fbid=553166654737998&amp;set=a.115853995135935.38483.100001340063875&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>221299258</id>
+  <pic>http://vk.com/id221299258?z=photo221299258_315067786%2Falbum221299258_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>tatyanaalexandrovna.g</id>
+  <pic>https://www.facebook.com/photo.php?fbid=680263002019509&amp;set=a.183760838336397.38025.100001074456574&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>465082</id>
+  <pic>http://vk.com/dina_filatova?z=photo465082_297221780%2Falbum465082_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>dina.filatova.5</id>
+  <pic>https://www.facebook.com/photo.php?fbid=4617589835955&amp;set=a.1430876930124.2062761.1178894636&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>7293604</id>
+  <pic>http://vk.com/id7293604?z=photo7293604_301715006%2Falbum7293604_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>inna.dolbilova</id>
+  <pic>https://www.facebook.com/photo.php?fbid=440197912717396&amp;set=a.102431209827403.3261.100001815730685&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>7293118</id>
+  <pic>http://vk.com/seoulbird?z=photo7293118_288584270%2Fphotos7293118</pic>
+ </vk>
+ <fb>
+  <id>alona.molokova.1</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10201575463342901&amp;set=a.1515924312535.63421.1667281319&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>29149280</id>
+  <pic>http://vk.com/id29149280?z=photo29149280_264218553%2Falbum29149280_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>alenka.shevuakova</id>
+  <pic>https://www.facebook.com/photo.php?fbid=3380374713076&amp;set=pb.1380669893.-2207520000.1387373777.&amp;type=3&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>86417</id>
+  <pic>http://vk.com/s.novikov?z=photo86417_309942573%2Falbum86417_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>sergey.novikov.35325</id>
+  <pic>https://www.facebook.com/photo.php?fbid=1006421484070&amp;set=pb.1330899427.-2207520000.1387373854.&amp;type=3&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>15290763</id>
+  <pic>http://vk.com/dav_v?z=photo15290763_315438070%2Falbum15290763_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>davydovvd</id>
+  <pic>https://www.facebook.com/photo.php?fbid=3568220850924&amp;set=a.1371495214156.2053426.1435045117&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>14714821</id>
+  <pic>http://vk.com/zitsmann?z=photo14714821_316435052%2Falbum14714821_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>100000522871256</id>
+  <pic>https://www.facebook.com/photo.php?fbid=219713668056061&amp;set=a.213974601963301.62832.100000522871256&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1836817</id>
+  <pic>http://vk.com/gekony?z=photo1836817_287143822%2Falbum1836817_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>100001812674886</id>
+  <pic>https://www.facebook.com/photo.php?fbid=214921818578239&amp;set=a.145550232182065.34839.100001812674886&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>4251422</id>
+  <pic>http://vk.com/hello_i_am_nastya?z=photo4251422_288566147%2Falbum4251422_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>lily.jaxx</id>
+  <pic>https://www.facebook.com/photo.php?fbid=404876419572488&amp;set=a.104149102978556.6391.100001504006662&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>99710470</id>
+  <pic>http://vk.com/id99710470?z=photo99710470_313488719%2Falbum99710470_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>stas.pros</id>
+  <pic>https://www.facebook.com/photo.php?fbid=539659189437243&amp;set=a.424212377648592.108968.100001795018625&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>5011634</id>
+  <pic>http://vk.com/daniil_aleksandrovich_antipov?z=photo5011634_269177856%2Falbum5011634_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>danila.antipov</id>
+  <pic>https://www.facebook.com/photo.php?fbid=101102086627421&amp;set=a.101102083294088.1413.100001828895372&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>504572</id>
+  <pic>http://vk.com/id504572?z=photo504572_314582895%2Falbum504572_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>maria.chikhun</id>
+  <pic>https://www.facebook.com/photo.php?fbid=656048001113678&amp;set=a.130893616962455.32312.100001254535257&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2068503</id>
+  <pic>http://vk.com/lordink?z=photo2068503_310619187%2Falbum2068503_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>Lordink</id>
+  <pic>https://www.facebook.com/photo.php?fbid=465768486863553&amp;set=pb.100002912165464.-2207520000.1387374331.&amp;type=3&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>14605949</id>
+  <pic>http://vk.com/id14605949?z=photo14605949_299552258%2Falbum14605949_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>magaarm</id>
+  <pic>https://www.facebook.com/photo.php?fbid=101435516711911&amp;set=a.101433256712137.1073741826.100005363882891&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>10778823</id>
+  <pic>http://vk.com/id10778823?z=photo10778823_270821377%2Falbum10778823_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>pivovarovaanna</id>
+  <pic>https://www.facebook.com/photo.php?fbid=180633818692614&amp;set=a.180633815359281.42960.100002379917689&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>7793901</id>
+  <pic>http://vk.com/illariona?z=photo7793901_314999189%2Falbum7793901_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>illariona</id>
+  <pic>https://www.facebook.com/photo.php?fbid=761037570577051&amp;set=a.164461790234635.42516.100000124453369&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>5112662</id>
+  <pic>http://vk.com/id5112662?z=photo5112662_293357208%2Falbum5112662_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>bakyt.shamyrkanov</id>
+  <pic>https://www.facebook.com/photo.php?fbid=162021407271620&amp;set=a.101601833313578.1692.100003912843488&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+
+<user>
+ <vk>
+  <id>20064984</id>
+  <pic>http://vk.com/flare94?z=photo20064984_310358184%2Falbum20064984_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>100005813317159</id>
+  <pic>https://www.facebook.com/photo.php?fbid=105452769658500&amp;set=pb.100005813317159.-2207520000.1387374598.&amp;type=3&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>23881682</id>
+  <pic>http://vk.com/alexbezer?z=photo23881682_305249364%2Falbum23881682_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>alexandra.bezer</id>
+  <pic>https://www.facebook.com/photo.php?fbid=448592581926369&amp;set=a.103234716462159.3553.100003268926283&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>6518729</id>
+  <pic>http://vk.com/marinamurr?z=photo6518729_299747315%2Fphotos6518729</pic>
+ </vk>
+ <fb>
+  <id>marina.murr</id>
+  <pic>https://www.facebook.com/photo.php?fbid=651442904874243&amp;set=a.151666604851878.26365.100000256173959&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>13071427</id>
+  <pic>http://vk.com/helloseattle?z=photo13071427_317025331%2Falbum13071427_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>peter.varfolomeyev</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10202250061560539&amp;set=a.1539522015567.2068980.1460401810&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>27235973</id>
+  <pic>http://vk.com/lukin_georgii?z=photo27235973_312357007%2Falbum27235973_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>lukin.georgii</id>
+  <pic>https://www.facebook.com/photo.php?fbid=212686765557751&amp;set=a.102242896602139.5375.100004492865731&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+
+<user>
+ <vk>
+  <id>5129202</id>
+  <pic>http://vk.com/id5129202?z=photo5129202_316189571%2Falbum5129202_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>lyubov.testova</id>
+  <pic>https://www.facebook.com/photo.php?fbid=3356717213662&amp;set=a.1188313324920.24469.1740957832&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>3966252</id>
+  <pic>http://vk.com/dariapazderina?z=photo3966252_314460090%2Falbum3966252_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>daria.pazderina</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10201923512556803&amp;set=a.4056289652970.166454.1453960940&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>15523640</id>
+  <pic>http://vk.com/alinmax?z=photo15523640_317002124%2Falbum15523640_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>alina.maksimchuk</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10200563335700004&amp;set=a.1479651825407.2067351.1057122319&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>6384640</id>
+  <pic>http://vk.com/id6384640?z=photo6384640_316161711%2Falbum6384640_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>100001658488788</id>
+  <pic>https://www.facebook.com/photo.php?fbid=225312880867326&amp;set=a.225312877533993.54422.100001658488788&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>14327858</id>
+  <pic>http://vk.com/oleg.stikhin?z=photo14327858_291084857%2Falbum14327858_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>oleg.stikhin</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10202005864967190&amp;set=a.1677253090171.2090444.1202803132&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1435270</id>
+  <pic>http://vk.com/aloha93?z=photo1435270_315040807%2Falbum1435270_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>1407533898</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10201126817158368&amp;set=pb.1407533898.-2207520000.1387375225.&amp;type=3&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>10287387</id>
+  <pic>http://vk.com/fkwl10?z=photo10287387_263028146%2Falbum10287387_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>emily.vasilieva</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10202343965384461&amp;set=a.1650085015958.2085058.1351966622&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>19179898</id>
+  <pic>http://vk.com/peroxideprincess?z=photo19179898_314346612%2Falbum19179898_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>mariya.medvedeva.5</id>
+  <pic>https://www.facebook.com/photo.php?fbid=713574918653795&amp;set=a.332754466735844.89026.100000038791040&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>15719799</id>
+  <pic>http://vk.com/elenachi?z=photo15719799_316543312%2Falbum15719799_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>elene.chirkazerova</id>
+  <pic>https://www.facebook.com/photo.php?fbid=3553064160095&amp;set=a.1304360583911.38588.1677403953&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>8785439</id>
+  <pic>http://vk.com/nadineputeshova?z=photo8785439_311638652%2Falbum8785439_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>nadezhda.puteshova</id>
+  <pic>https://www.facebook.com/photo.php?fbid=668419826503561&amp;set=a.159386567406892.38146.100000066507003&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>16254641</id>
+  <pic>http://vk.com/novvalery?z=photo16254641_304006876%2Falbum16254641_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>valeria.novitskaya.5</id>
+  <pic>https://www.facebook.com/photo.php?fbid=693676697313859&amp;set=a.164435726904628.39460.100000146053173&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>88560180</id>
+  <pic>http://vk.com/alexmatveenko?z=photo88560180_307891684%2Falbum88560180_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>amatveenko1</id>
+  <pic>https://www.facebook.com/photo.php?fbid=377531568928269&amp;set=pb.100000142876029.-2207520000.1387375579.&amp;type=3&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>19384289</id>
+  <pic>http://vk.com/catherine.levshuk?z=photo19384289_311725247%2Falbum19384289_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>catherine.levshuk</id>
+  <pic>https://www.facebook.com/photo.php?fbid=492687190769644&amp;set=a.141149402590093.13682.100000851027382&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>7643130</id>
+  <pic>http://vk.com/nastya.gulyaeva?z=photo7643130_317562126%2Falbum7643130_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>gulyaeva.nastya</id>
+  <pic>https://www.facebook.com/photo.php?fbid=492430184166936&amp;set=a.104248656318426.6491.100001998764952&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>46075083</id>
+  <pic>http://vk.com/id46075083?z=photo46075083_314183158%2Falbum46075083_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>anechkaign</id>
+  <pic>https://www.facebook.com/photo.php?fbid=370698689702781&amp;set=a.148350861937566.24712.100002879580531&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>18101085</id>
+  <pic>http://vk.com/id18101085?z=photo18101085_268819813%2Falbum18101085_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>100001106252545</id>
+  <pic>https://www.facebook.com/photo.php?fbid=543590999021104&amp;set=a.164731186907089.32585.100001106252545&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>21040179</id>
+  <pic>http://vk.com/id21040179?z=photo21040179_317716190%2Falbum21040179_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>SonyaChulkova</id>
+  <pic>https://www.facebook.com/photo.php?fbid=1380326575542338&amp;set=a.1380326552209007.1073741825.100006950258680&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>31883590</id>
+  <pic>http://vk.com/alyonaguru?z=photo31883590_314275670%2Falbum31883590_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>alyonaguru</id>
+  <pic>https://www.facebook.com/photo.php?fbid=104167599785936&amp;set=a.104167563119273.1073741825.100005780885451&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>49714488</id>
+  <pic>http://vk.com/usup05?z=photo49714488_316532465%2Falbum49714488_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>yusupashka</id>
+  <pic>https://www.facebook.com/photo.php?fbid=438064082982434&amp;set=a.438064239649085.1073741826.100003365388578&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2497186</id>
+  <pic>http://vk.com/werte_one?z=photo2497186_316032603%2Falbum2497186_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>100001601913688</id>
+  <pic>https://www.facebook.com/photo.php?fbid=101095553287175&amp;set=a.101095549953842.1400.100001601913688&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>6156699</id>
+  <pic>http://vk.com/id6156699?z=photo6156699_303376609%2Falbum6156699_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>daniel.gelman.5876</id>
+  <pic>https://www.facebook.com/photo.php?fbid=100945826728933&amp;set=a.100945823395600.1589.100004405471624&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>142748</id>
+  <pic>http://vk.com/kkasumova?z=photo142748_301064005%2Fphotos142748</pic>
+ </vk>
+ <fb>
+  <id>ekaterina.kasumova.7</id>
+  <pic>https://www.facebook.com/photo.php?fbid=566198313427942&amp;set=a.129725180408593.19221.100001133358188&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>2929402</id>
+  <pic>http://vk.com/mmtykovka?z=photo2929402_307742523%2Falbum2929402_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>masha.horze</id>
+  <pic>https://www.facebook.com/photo.php?fbid=509486085799355&amp;set=a.106318692782765.13552.100002139056402&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>1702800</id>
+  <pic>http://vk.com/ikoloboff?z=photo1702800_305688779%2Falbum1702800_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>ivan.kolobov.7</id>
+  <pic>https://www.facebook.com/photo.php?fbid=548263835228409&amp;set=a.115351691852961.19705.100001343926620&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+
+<user>
+ <vk>
+  <id>6403766</id>
+  <pic>http://vk.com/glebdovzhenko?z=photo6403766_313499705%2Falbum6403766_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>gleb.dovzhenko</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c76.0.453.453/s160x160/198185_1003804422787_5912_n.jpg</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>2308613</id>
+  <pic>http://vk.com/zhpavel?z=photo2308613_311877605%2Falbum2308613_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>usernamemissed</id>
+  <pic>https://www.facebook.com/photo.php?fbid=1917583539682&amp;set=pb.1244791275.-2207520000.1387376341.&amp;type=3&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>16896511</id>
+  <pic>http://vk.com/paskevich.gleb?z=photo16896511_302438102%2Falbum16896511_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>pask303</id>
+  <pic>https://www.facebook.com/photo.php?fbid=512849762107948&amp;set=a.166498410076420.40536.100001487858729&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>2929814</id>
+  <pic>http://vk.com/kisnik?z=photo2929814_311986012%2Falbum2929814_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>nikolay.kiselev.9465</id>
+  <pic>https://www.facebook.com/photo.php?fbid=494145910659881&amp;set=a.100916196649523.2402.100001934283313&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>411269</id>
+  <pic>http://vk.com/id411269?z=photo411269_287117148%2Falbum411269_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>ekaterina.martyanova.7</id>
+  <pic>https://www.facebook.com/photo.php?fbid=344767192222146&amp;set=a.344767768888755.84225.100000666034775&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>1558320</id>
+  <pic>http://vk.com/nkolib?z=photo1558320_299129751%2Falbum1558320_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>nikita.kolibanov</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10201256769252994&amp;set=a.1476002431759.65748.1584675069&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>44930577</id>
+  <pic>http://vk.com/doctorfreud?z=photo44930577_313394764%2Falbum44930577_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>lena.kashtelyan</id>
+  <pic>https://www.facebook.com/photo.php?fbid=591357224256825&amp;set=a.391389834253566.85468.100001476583579&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>7395701</id>
+  <pic>http://vk.com/andrew_prudnikov?z=photo7395701_285953251%2Falbum7395701_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>andrew.prudnikov.1</id>
+  <pic>https://www.facebook.com/photo.php?fbid=117865581675645&amp;set=a.117865448342325.13387.100003566121727&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>70149970</id>
+  <pic>http://vk.com/an_nick?z=photo70149970_289924679%2Falbum70149970_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>karpov.nick</id>
+  <pic>https://www.facebook.com/photo.php?fbid=187365258001663&amp;set=a.104334826304707.7111.100001845706791&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>54258520</id>
+  <pic>http://vk.com/skachkauskaite?z=photo54258520_315711187%2Falbum54258520_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>anya.skachkauskaite</id>
+  <pic>https://www.facebook.com/photo.php?fbid=575929169142604&amp;set=a.104710299597829.7741.100001765790229&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>220578495</id>
+  <pic>http://vk.com/id220578495?z=photo220578495_313148499%2Falbum220578495_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>100003124440139</id>
+  <pic>https://www.facebook.com/photo.php?fbid=460504550730356&amp;set=a.100153776765437.45.100003124440139&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>17125007</id>
+  <pic>http://vk.com/mrr_nika?z=photo17125007_317501087%2Falbum17125007_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>100004078342352</id>
+  <pic>https://www.facebook.com/photo.php?fbid=356509734494968&amp;set=a.113977892081488.28251.100004078342352&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>7022092</id>
+  <pic>http://vk.com/igor239?z=photo7022092_309181768%2Falbum7022092_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>igor.laptev.3</id>
+  <pic>https://www.facebook.com/photo.php?fbid=100422533390675&amp;set=a.100422530057342.170.100002687850462&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>2379141</id>
+  <pic>http://vk.com/avtonov?z=photo2379141_265555486%2Falbum2379141_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>eugeny.avtonov</id>
+  <pic>https://www.facebook.com/photo.php?fbid=115860055175852&amp;set=a.101030273325497.2363.100002555735785&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>19330437</id>
+  <pic>http://vk.com/sakurna?z=photo19330437_317841781%2Falbum19330437_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>aleksandra.kurnykina</id>
+  <pic>https://www.facebook.com/photo.php?fbid=102529026502104&amp;set=a.102529023168771.6048.100002350209613&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>7370224</id>
+  <pic>http://vk.com/a_fed5?z=photo7370224_297092798%2Falbum7370224_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>fedotov.anton.af</id>
+  <pic>https://www.facebook.com/photo.php?fbid=330075120425791&amp;set=a.106542449445727.7244.100002699180336&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>1465974</id>
+  <pic>http://vk.com/m.burmistrov?z=photo1465974_313008960%2Falbum1465974_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>burmm</id>
+  <pic>https://www.facebook.com/photo.php?fbid=4480067288021&amp;set=a.1437846074392.2063383.1480224590&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>4460720</id>
+  <pic>http://vk.com/id4460720?z=photo4460720_315776661%2Falbum4460720_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>maria.kosmina</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10201048058547846&amp;set=a.1585133552458.75850.1359337953&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>2407525</id>
+  <pic>http://vk.com/pilyugin_kirill?z=photo2407525_308113437%2Falbum2407525_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>kirill.pilyugin</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c216.55.551.551/s160x160/308818_296485773696845_583388045_n.jpg</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>472848</id>
+  <pic>http://vk.com/petrovn?z=photo472848_309118100%2Falbum472848_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>kolya1</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c43.43.538.538/s160x160/385897_3032188122595_281006918_n.jpg</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>504650</id>
+  <pic>http://vk.com/id504650?z=photo504650_306564527%2Falbum504650_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>1644795076</id>
+  <pic>https://www.facebook.com/photo.php?fbid=10201867723488472&amp;set=a.1490024824314.67238.1644795076&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>2059261</id>
+  <pic>http://vk.com/aslezov?z=photo2059261_289950723%2Falbum2059261_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>aslezov</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c7.6.160.160/155132_1728501379168_324547_a.jpg</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>409410</id>
+  <pic>http://vk.com/bigivanich?z=photo409410_292710290%2Falbum409410_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>1482430192</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c0.8.180.180/s160x160/17173_1335966207533_7875398_a.jpg</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>802013</id>
+  <pic>http://vk.com/straystudent?z=photo802013_316260150%2Falbum802013_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>lena.korotkova.5</id>
+  <pic>https://www.facebook.com/photo.php?fbid=633313156688204&amp;set=a.336864942999695.83942.100000285776363&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>377261</id>
+  <pic>http://vk.com/gurinovich?z=photo377261_301075637%2Falbum377261_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>eduard.gurinovich</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c0.61.180.180/s160x160/6536_101620003185058_3506612_a.jpg</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>715879</id>
+  <pic>http://vk.com/december505?z=photo715879_305350996%2Falbum715879_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>amin.khobeysh</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c170.50.621.621/s160x160/395083_2624631533633_1303671420_n.jpg</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>8781</id>
+  <pic>http://vk.com/litviak?z=photo8781_266791636%2Falbum8781_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>ilia.litviak</id>
+  <pic>https://www.facebook.com/photo.php?fbid=579138845437096&amp;set=a.149888621695456.28371.100000229566101&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+
+<user>
+ <vk>
+  <id>11708234</id>
+  <pic>http://vk.com/kosicin?z=photo11708234_314855520%2Falbum11708234_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>kosicin</id>
+  <pic>https://www.facebook.com/photo.php?fbid=101928039861783&amp;set=a.115600521827868.27641.100001337617294&amp;type=1&amp;theater</pic>
+ </fb>
+</user>
+<user>
+ <vk>
+  <id>10230671</id>
+  <pic>http://vk.com/id10230671?z=photo10230671_304856757%2Falbum10230671_0%2Frev</pic>
+ </vk>
+ <fb>
+  <id>andrey.romanov.73</id>
+  <pic>https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/c4.0.173.173/s160x160/41262_155967067747712_7881760_a.jpg</pic>
+ </fb>
+</user>
+</users>

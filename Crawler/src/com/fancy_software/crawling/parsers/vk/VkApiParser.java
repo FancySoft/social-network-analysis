@@ -202,6 +202,34 @@ public class VkApiParser extends AbstractSampleParser {
         return null;
     }
 
+    /**
+     * Get long id by string id
+     * @param stringId string id
+     * @return         long id
+     */
+    public String convertId(String stringId) {
+        avoidApiRestrictions();
+        try {
+            HttpClient httpClient = new DefaultHttpClient();
+            HttpPost post = getPostForApiCall(stringId, ExtractType.SINGLE_ACCOUNT);
+            String response;
+            try {
+                response = getApiCallResult(httpClient, post);
+                AccountVector result = responseProcessor.processSingleAccount(response);
+                return result.getId();
+            } catch (NullPointerException e) {
+                Log.e(TAG, e);
+                return null;
+            } finally {
+                post.abort();
+                lastCallTime = System.currentTimeMillis();
+            }
+        } catch (IOException e) {
+            Log.e(TAG, e);
+        }
+        return null;
+    }
+
     private void _start(ExtractType extractType) {
         switch (extractType) {
             case SAMPLE: {
