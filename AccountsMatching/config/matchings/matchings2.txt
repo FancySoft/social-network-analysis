@@ -232,17 +232,6 @@
 
 <user>
  <vk>
-  <id>182250996</id>
-  <pic>http://vk.com/id182250996?z=photo182250996_289731094%2Falbum182250996_0%2Frev</pic>
- </vk>
- <fb>
-  <id>uma.keldibekova</id>
-  <pic>https://www.facebook.com/photo.php?fbid=350800551720913&amp;set=a.110858295715141.12139.100003729137278&amp;type=1&amp;theater</pic>
- </fb>
-</user>
-
-<user>
- <vk>
   <id>182096075</id>
   <pic>http://vk.com/id182096075?z=photo182096075_288391234%2Falbum182096075_0%2Frev</pic>
  </vk>
@@ -691,17 +680,6 @@
  <fb>
   <id>100001106252545</id>
   <pic>https://www.facebook.com/photo.php?fbid=543590999021104&amp;set=a.164731186907089.32585.100001106252545&amp;type=1&amp;theater</pic>
- </fb>
-</user>
-
-<user>
- <vk>
-  <id>21040179</id>
-  <pic>http://vk.com/id21040179?z=photo21040179_317716190%2Falbum21040179_0%2Frev</pic>
- </vk>
- <fb>
-  <id>SonyaChulkova</id>
-  <pic>https://www.facebook.com/photo.php?fbid=1380326575542338&amp;set=a.1380326552209007.1073741825.100006950258680&amp;type=1&amp;theater</pic>
  </fb>
 </user>
 
