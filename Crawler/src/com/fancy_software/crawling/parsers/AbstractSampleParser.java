@@ -15,7 +15,7 @@ public abstract class AbstractSampleParser extends AbstractDefaultParser {
     protected String initialId;
 
     protected Set<AccountToParse> usersToParse;
-    protected Set<AccountToParse>         parsed;
+    protected Set<AccountToParse> parsed;
 
     public SampleParseType getParseType() {
         return parseType;
@@ -40,7 +40,8 @@ public abstract class AbstractSampleParser extends AbstractDefaultParser {
             this.usersToParse.add(new AccountToParse(entry, parseType));
         });
         System.out.println(this.usersToParse)
-;        initialId = getUserToParse().id;
+        ;
+        initialId = getUserToParse().id;
     }
 
     protected AbstractSampleParser(AbstractCrawler crawler, String initialId, SampleParseType parseType) {
@@ -52,32 +53,32 @@ public abstract class AbstractSampleParser extends AbstractDefaultParser {
     @Override
     public void start() {
         AccountVector vector = extractAccountById(initialId);
+//        System.out.println(usersToParse);
         if (vector != null) {
             notifyCrawler(vector);
-            parsed.add(new AccountToParse(vector.getId(),parseType));
+            parsed.add(new AccountToParse(vector.getId(), parseType));
             for (String friendId : vector.getFriends())
                 usersToParse.add(new AccountToParse(friendId, chooseRightParseType(parseType)));
             while (!Thread.currentThread().isInterrupted() && !usersToParse.isEmpty()) {
                 AccountToParse toParse = getUserToParse();
-                System.out.println(toParse.id);
-                System.out.println(usersToParse.size());
                 if (!needToParse(toParse)) {
                     usersToParse.remove(toParse);
                     continue;
                 }
                 try {
                     vector = extractAccountById(toParse.id);
+                    if (vector != null) {
+                        notifyCrawler(vector);
+                        for (String friendId : vector.getFriends())
+                            addAccountToParse(new AccountToParse(friendId, chooseRightParseType(toParse.parseType)));
+                    }
                 } catch (Exception e) {
-                    vector = null;
-                    Log.e(TAG, e.getMessage());
-                }
-                if (vector != null) {
-                    notifyCrawler(vector);
-                    for (String friendId : vector.getFriends())
-                        addAccountToParse(new AccountToParse(friendId, chooseRightParseType(toParse.parseType)));
+                    Log.e(TAG, "Unable to extract account information");
+                } finally {
                     removeParsed(toParse);
                 }
             }
+            crawler.finish();
         }
     }
 
@@ -86,13 +87,13 @@ public abstract class AbstractSampleParser extends AbstractDefaultParser {
     }
 
     private boolean needToParse(AccountToParse toParse) {
-        if (toParse.parseType==SampleParseType.NOTHING_ELSE)
+        if (toParse.parseType == SampleParseType.NO)
             return false;
         return !parsed.contains(toParse);
     }
 
-    private boolean addAccountToParse(AccountToParse accountToParse){
-        if(accountToParse.parseType==SampleParseType.NOTHING_ELSE)
+    private boolean addAccountToParse(AccountToParse accountToParse) {
+        if (accountToParse.parseType == SampleParseType.NO)
             return false;
         return usersToParse.add(accountToParse);
     }
@@ -117,6 +118,14 @@ public abstract class AbstractSampleParser extends AbstractDefaultParser {
         }
 
         @Override
+        public String toString() {
+            return "AccountToParse{" +
+                   "id='" + id + '\'' +
+                   ", parseType=" + parseType +
+                   '}';
+        }
+
+        @Override
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
@@ -135,13 +144,15 @@ public abstract class AbstractSampleParser extends AbstractDefaultParser {
     }
 
     public enum SampleParseType {
-        ALL, FRIENDS, FOAF, NOTHING_ELSE
+        ALL, FRIENDS, FOAF, NOTHING_ELSE, NO
     }
 
     private SampleParseType chooseRightParseType(SampleParseType parseType) {
         switch (parseType) {
+            case NO:
+                return SampleParseType.NO;
             case NOTHING_ELSE:
-                return SampleParseType.NOTHING_ELSE;
+                return SampleParseType.NO;
             case ALL:
                 return SampleParseType.ALL;
             case FRIENDS:
