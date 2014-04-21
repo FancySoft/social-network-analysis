@@ -36,11 +36,8 @@ public abstract class AbstractSampleParser extends AbstractDefaultParser {
         this.crawler = crawler;
         this.parseType = parseType;
         usersToParse.stream().forEach((entry) -> {
-            System.out.println(entry);
             this.usersToParse.add(new AccountToParse(entry, parseType));
         });
-        System.out.println(this.usersToParse)
-        ;
         initialId = getUserToParse().id;
     }
 
