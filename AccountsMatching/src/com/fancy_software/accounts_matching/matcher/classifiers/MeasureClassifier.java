@@ -1,5 +1,7 @@
-package com.fancy_software.accounts_matching.matcher;
+package com.fancy_software.accounts_matching.matcher.classifiers;
 
+import com.fancy_software.accounts_matching.matcher.AccountMeasurer;
+import com.fancy_software.accounts_matching.matcher.classifiers.IClassifier;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.tester.Couple;
 import libsvm.*;

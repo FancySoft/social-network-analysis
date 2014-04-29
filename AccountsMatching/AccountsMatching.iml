@@ -13,6 +13,7 @@
     <orderEntry type="module" module-name="Logger" />
     <orderEntry type="module" module-name="Models" />
     <orderEntry type="module" module-name="Database" />
+    <orderEntry type="library" name="lib_database" level="project" />
   </component>
 </module>
 
