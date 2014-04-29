@@ -40,78 +40,78 @@ public class Measures {
         return 0;
     }
 
-    public static double measureSchoolsLists(List<SchoolData> schools1, List<SchoolData> schools2){
-        double schoolWeight = 1/(double)Math.max(schools1.size(), schools2.size());
+    public static double measureSchoolsLists(List<SchoolData> schools1, List<SchoolData> schools2) {
+        double schoolWeight = 1 / (double) Math.max(schools1.size(), schools2.size());
         double totalMeasurement = 0;
-        double maxWeight = 0;
-        for(int i = 0; i < schools1.size(); i++){
+        double maxWeight;
+        for (SchoolData aSchools1 : schools1) {
             maxWeight = 0;
-            for(int j = 0; j < schools2.size(); j++){
-                maxWeight = Math.max(maxWeight, measureSchools(schools1.get(i), schools2.get(j)));
+            for (SchoolData aSchools2 : schools2) {
+                maxWeight = Math.max(maxWeight, measureSchools(aSchools1, aSchools2));
             }
-            totalMeasurement += maxWeight*schoolWeight;
+            totalMeasurement += maxWeight * schoolWeight;
         }
         return totalMeasurement;
     }
 
-    private static double measureSchools(SchoolData school1, SchoolData school2){
-        if(school1 == null || school2 == null)
+    private static double measureSchools(SchoolData school1, SchoolData school2) {
+        if (school1 == null || school2 == null)
             return 0;
 
         double totalWeight = stringMeasure(school1.getName(), school1.getName()) +
                              stringMeasure(school1.getClassroom(), school1.getClassroom()) +
-                             (school1.getYearFrom() == school1.getYearFrom() ? 1 : 0) +
-                             (school1.getYearTo() == school1.getYearTo() ? 1 : 0) +
-                             (school1.getGraduate() == school1.getGraduate() ? 1 : 0);
+                             (school1.getYearFrom() == school2.getYearFrom() ? 1 : 0) +
+                             (school1.getYearTo() == school2.getYearTo() ? 1 : 0) +
+                             (school1.getGraduate() == school2.getGraduate() ? 1 : 0);
 
         double weight = 0;
         weight += stringMeasure(school1.getName(), school2.getName());
-        if(school1.getName() == school2.getName()){
+        if (school1.getName().equals(school2.getName())) {
             weight += school1.getYearFrom() == school2.getYearFrom() ? 1 : 0;
             weight += school1.getYearTo() == school2.getYearTo() ? 1 : 0;
             weight += school1.getGraduate() == school2.getGraduate() ? 1 : 0;
-            weight += stringMeasure(school1.getClassroom(), school1.getClassroom());
+            weight += stringMeasure(school1.getClassroom(), school2.getClassroom());
         }
 
-        return weight/totalWeight;
+        return weight / totalWeight;
     }
 
-    public static double measureUniversitiesLists(List<UniversityData> universities1, List<UniversityData> universities2){
-        double universityWeight = 1/(double)Math.max(universities1.size(), universities2.size());
+    public static double measureUniversitiesLists(List<UniversityData> universities1, List<UniversityData> universities2) {
+        double universityWeight = 1 / (double) Math.max(universities1.size(), universities2.size());
         double totalMeasurement = 0;
-        double maxWeight = 0;
-        for(int i = 0; i < universities1.size(); i++){
+        double maxWeight;
+        for (UniversityData anUniversities1 : universities1) {
             maxWeight = 0;
-            for(int j = 0; j < universities2.size(); j++){
-                maxWeight = Math.max(maxWeight, measureUniversites(universities1.get(i), universities2.get(j)));
+            for (UniversityData anUniversities2 : universities2) {
+                maxWeight = Math.max(maxWeight, measureUniversites(anUniversities1, anUniversities2));
             }
-            totalMeasurement += maxWeight*universityWeight;
+            totalMeasurement += maxWeight * universityWeight;
         }
         return totalMeasurement;
     }
 
-    private static double measureUniversites(UniversityData univ1, UniversityData univ2){
-        if(univ1 == null || univ2 == null)
+    private static double measureUniversites(UniversityData univ1, UniversityData univ2) {
+        if (univ1 == null || univ2 == null)
             return 0;
 
-        double totalWeight = stringMeasure(univ1.getName(), univ1.getName()) +
-                             stringMeasure(univ1.getFacultyName(), univ1.getFacultyName()) +
-                             stringMeasure(univ1.getChairName(), univ1.getChairName()) +
+        double totalWeight = stringMeasure(univ1.getName(), univ2.getName()) +
+                             stringMeasure(univ1.getFacultyName(), univ2.getFacultyName()) +
+                             stringMeasure(univ1.getChairName(), univ2.getChairName()) +
                              (univ1.getGraduation() == univ2.getGraduation() ? 1 : 0) +
-                             (univ1.getEducationForm() == univ1.getEducationForm() ? 1 : 0) +
-                             (univ1.getEducationStatus() == univ1.getEducationStatus() ? 1 : 0);
+                             (univ1.getEducationForm() == univ2.getEducationForm() ? 1 : 0) +
+                             (univ1.getEducationStatus() == univ2.getEducationStatus() ? 1 : 0);
 
         double weight = 0;
         weight += stringMeasure(univ1.getName(), univ2.getName());
-        if(univ1.getName() == univ2.getName()){
-            weight += stringMeasure(univ1.getFacultyName(), univ1.getFacultyName());
-            if(univ1.getFacultyName() == univ1.getFacultyName()){
+        if (univ1.getName().equals(univ2.getName())) {
+            weight += stringMeasure(univ1.getFacultyName(), univ2.getFacultyName());
+            if (univ1.getFacultyName().equals(univ2.getFacultyName())) {
                 weight += stringMeasure(univ1.getChairName(), univ2.getChairName());
-                if(univ1.getChairName() == univ2.getChairName()){
+                if (univ1.getChairName().equals(univ2.getChairName())) {
                     weight += univ1.getGraduation() == univ2.getGraduation() ? 1 : 0;
-                    if(univ1.getGraduation() == univ2.getGraduation()){
+                    if (univ1.getGraduation() == univ2.getGraduation()) {
                         weight += univ1.getEducationForm() == univ2.getEducationForm() ? 1 : 0;
-                        if(univ1.getEducationForm() == univ2.getEducationForm()){
+                        if (univ1.getEducationForm() == univ2.getEducationForm()) {
                             weight += univ1.getEducationStatus() == univ2.getEducationStatus() ? 1 : 0;
                         }
                     }
@@ -119,7 +119,7 @@ public class Measures {
             }
         }
 
-        return weight/totalWeight;
+        return weight / totalWeight;
     }
 
     //lda
