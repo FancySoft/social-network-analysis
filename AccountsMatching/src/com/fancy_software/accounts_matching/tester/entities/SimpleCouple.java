@@ -1,4 +1,4 @@
-package com.fancy_software.accounts_matching.tester;
+package com.fancy_software.accounts_matching.tester.entities;
 
 /**
  * ************************************************************************

@@ -1,6 +1,7 @@
 package com.fancy_software.accounts_matching.tester;
 
 import com.fancy_software.accounts_matching.matcher.classifiers.IClassifier;
+import com.fancy_software.accounts_matching.tester.entities.Couple;
 
 import java.util.ArrayList;
 import java.util.Collection;

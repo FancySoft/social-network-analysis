@@ -1,7 +1,7 @@
 package com.fancy_software.accounts_matching.matcher.classifiers;
 
 import com.fancy_software.accounts_matching.model.AccountVector;
-import com.fancy_software.accounts_matching.tester.Couple;
+import com.fancy_software.accounts_matching.tester.entities.Couple;
 
 import java.util.Collection;
 

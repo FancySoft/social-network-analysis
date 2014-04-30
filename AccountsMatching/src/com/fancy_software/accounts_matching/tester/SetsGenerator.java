@@ -1,5 +1,6 @@
 package com.fancy_software.accounts_matching.tester;
 
+import com.fancy_software.accounts_matching.tester.entities.SimpleCouple;
 import com.fancy_software.logger.Log;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.StreamException;
