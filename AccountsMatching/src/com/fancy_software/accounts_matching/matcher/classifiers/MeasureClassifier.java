@@ -40,18 +40,18 @@ public class MeasureClassifier implements IClassifier {
         svm_parameter param = new svm_parameter();
 
         // Magic! Don't touch.
-        param.svm_type = svm_parameter.C_SVC;
-        param.kernel_type = svm_parameter.RBF;
-        param.degree = 3;
-        param.gamma = 0.5;
-        param.coef0 = 0;
-        param.nu = 0.5;
-        param.cache_size = 40;
-        param.C = 10000;
-        param.eps = 1e-3;
+        param.svm_type = svm_parameter.C_SVC; // Default
+        param.kernel_type = svm_parameter.RBF; // Default
+        param.degree = 3; // Default
+        param.gamma = 1.0 / AccountMeasurer.getMeasuredVectorSize(); // Default
+        param.coef0 = 0; // Default
+        param.nu = 0.5; // Default
+        param.cache_size = 100; // Default
+        param.C = 10000; // CUSTOM
+        param.eps = 1e-3; // Default
         param.p = 0.1;
-        param.shrinking = 1;
-        param.probability = 0;
+        param.shrinking = 1; // Default
+        param.probability = 0; // Default
         param.nr_weight = 0;
         param.weight_label = new int[0];
         param.weight = new double[0];
