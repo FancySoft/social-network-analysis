@@ -39,7 +39,7 @@ public class FeaturesExtractor {
         try {
             PrintWriter writer = new PrintWriter(FEATURES_PATH + path);
             for (Couple current : couples) {
-                writer.print(current.areSame() ? "+1 " : "-1 ");
+                writer.print(current.areSame() ? "-1 " : "+1 ");
                 double[] features = AccountMeasurer.getMeasuresVector(current.getV1(), current.getV2(), false);
                 for (int i = 0; i < features.length; i++) {
                     writer.printf(Locale.US, "%d:%.6f ", i + 1, features[i]);
