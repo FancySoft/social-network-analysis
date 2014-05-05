@@ -3,6 +3,7 @@ package com.fancy_software.accounts_matching.tester;
 import com.fancy_software.accounts_matching.matcher.classifiers.IClassifier;
 import com.fancy_software.accounts_matching.matcher.classifiers.MeasureClassifier;
 import com.fancy_software.accounts_matching.matcher.classifiers.SimpleNamesClassifier;
+import com.fancy_software.accounts_matching.matcher.classifiers.SubtreeClassifier;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.tester.entities.Couple;
 import com.fancy_software.accounts_matching.tester.entities.SimpleCouple;
@@ -58,6 +59,11 @@ public class ClassifiersTester {
         System.out.println("------------- Simple names classifier begin -------------");
         test(simpleNamesClassifier);
         System.out.println("------------- Simple names classifier end -------------");
+
+        SubtreeClassifier subtreeClassifier = new SubtreeClassifier();
+        System.out.println("------------- Subtree begin -------------");
+        test(subtreeClassifier);
+        System.out.println("------------- Subtree end -------------");
     }
 
     private static void test(IClassifier classifier) {
@@ -86,6 +92,10 @@ public class ClassifiersTester {
             }
             // TODO this is a graph coordinates: x; y
             System.out.println(falsePositive + "; " + truePositive);
+
+            // XXX: I use an external tool for plotting ROC, this code doesn't work
+            if (true) break;
+
             multiplier += STEP;
         }
 
