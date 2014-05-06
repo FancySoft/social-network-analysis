@@ -31,8 +31,8 @@ public class FeaturesExtractor {
     private static final String FEATURES_PATH = "config/features/";
     private static final String MEASURE_TRAIN_PATH = "measure_train.txt";
     private static final String MEASURE_TEST_PATH = "measure_test.txt";
-    private static final String SUBTREE_INITIAL_TRAIN_PATH = "subtree_initial_train.txt";
-    private static final String SUBTREE_INITIAL_TEST_PATH = "subtree_initial_test.txt";
+    private static final String SUBTREE_INITIAL_TRAIN_PATH = "subtree_train.txt";
+    private static final String SUBTREE_INITIAL_TEST_PATH = "subtree_test.txt";
 
     private static void print(Collection<Couple> couples, String path) {
         File f = new File(FEATURES_PATH);

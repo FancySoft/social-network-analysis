@@ -1,5 +1,6 @@
 package com.fancy_software.accounts_matching.matcher.classifiers;
 
+import com.fancy_software.accounts_matching.matcher.AccountMeasurer;
 import com.fancy_software.accounts_matching.model.AccountVector;
 import com.fancy_software.accounts_matching.tester.entities.Couple;
 import libsvm.*;
@@ -23,7 +24,7 @@ public class SubtreeClassifier implements IClassifier {
     private double barrier = 0;
 
     public int getFeaturesSize() {
-        return 1;
+        return 1 + AccountMeasurer.getMeasuredVectorSize();
     }
 
     public double[] extractFeatures(AccountVector vkVector, AccountVector fbVector) {
@@ -44,8 +45,10 @@ public class SubtreeClassifier implements IClassifier {
             }
         }
 
-        double[] result = new double[1];
+        double[] result = new double[getFeaturesSize()];
         result[0] = (double) count / (double) fbFriends.size();
+        double[] measured = AccountMeasurer.getMeasuresVector(vkVector, fbVector, false);
+        System.arraycopy(measured, 0, result, 1, measured.length);
         return result;
     }
 
